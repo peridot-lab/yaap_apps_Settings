@@ -63,12 +63,14 @@ public class NetTrafficMonSettings extends DashboardFragment implements
     private static final String NETWORK_TRAFFIC_LIMIT_MB = "network_traffic_limit_mb";
     private static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
     private static final String NETWORK_TRAFFIC_ARROW = "network_traffic_arrow";
+    private static final String NETWORK_TRAFFIC_TEXT = "network_traffic_text_enabled";
 
     private MainSwitchPreference mMasterSwitch;
     private ListPreference mNetTrafficLocation;
     private SwitchPreferenceCompat mThresholdMb;
     private CustomSeekBarPreference mThreshold;
     private SystemSettingSwitchPreference mShowArrows;
+    private SystemSettingSwitchPreference mShowText;
     private ListPreference mNetTrafficType;
     private CustomSeekBarPreference mNetTrafficSize;
 
@@ -133,6 +135,19 @@ public class NetTrafficMonSettings extends DashboardFragment implements
         mThresholdMb.setOnPreferenceChangeListener(this);
 
         mShowArrows = (SystemSettingSwitchPreference) findPreference(NETWORK_TRAFFIC_ARROW);
+        mShowText = (SystemSettingSwitchPreference) findPreference(NETWORK_TRAFFIC_TEXT);
+
+        boolean showArrows = Settings.System.getIntForUser(resolver,
+                NETWORK_TRAFFIC_ARROW, 1, UserHandle.USER_CURRENT) == 1;
+        mShowArrows.setChecked(showArrows);
+        mShowArrows.setOnPreferenceChangeListener(this);
+        mShowText.setEnabled(showArrows);
+        
+        boolean showText = Settings.System.getIntForUser(resolver,
+                NETWORK_TRAFFIC_TEXT, 1, UserHandle.USER_CURRENT) == 1;
+        mShowText.setChecked(showText);
+        mShowText.setOnPreferenceChangeListener(this);
+        mShowArrows.setEnabled(showText);
     }
 
     @Override
@@ -169,6 +184,20 @@ public class NetTrafficMonSettings extends DashboardFragment implements
             int width = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NETWORK_TRAFFIC_FONT_SIZE, width);
+            return true;
+        } else if (preference == mShowArrows) {
+            boolean val = (Boolean) objValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    NETWORK_TRAFFIC_ARROW, val ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mShowText.setEnabled(val);
+            return true;
+        } else if (preference == mShowText) {
+            boolean val = (Boolean) objValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    NETWORK_TRAFFIC_TEXT, val ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mShowArrows.setEnabled(val);
             return true;
         }
         return false;

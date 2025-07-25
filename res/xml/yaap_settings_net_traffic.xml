@@ -59,7 +59,6 @@
 
     <com.yasp.settings.preferences.SystemSettingSwitchPreference
         android:key="network_traffic_text_enabled"
-        android:dependency="network_traffic_arrow"
         android:title="@string/network_traffic_text_enabled_title"
         android:summaryOn="@string/network_traffic_text_enabled_summary_on"
         android:summaryOff="@string/network_traffic_text_enabled_summary_off"
