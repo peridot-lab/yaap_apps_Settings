@@ -31,4 +31,10 @@
         android:title="@string/transport_selector_title"
         android:defaultValue="0" />
 
+    <!-- Spoofing toggle -->
+    <com.yasp.settings.preferences.OverlaySwitchPreference
+        android:key="android.yaap.certifiedprops.overlay"
+        android:title="@string/cert_overlay_title"
+        android:summary="@string/cert_overlay_summary" />
+
 </PreferenceScreen>
