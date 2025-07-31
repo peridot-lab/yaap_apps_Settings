@@ -85,6 +85,10 @@ class SimEidPreferenceController(context: Context, preferenceKey: String) :
         }
     }
 
+    override fun getSummary(): CharSequence {
+        return mContext.getString(R.string.device_info_protected_single_press)
+    }
+
     private suspend fun update() {
         val isAvailable = withContext(Dispatchers.Default) {
             getIsAvailableAndUpdateEid()
