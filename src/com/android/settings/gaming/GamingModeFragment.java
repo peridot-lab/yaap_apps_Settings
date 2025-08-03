@@ -82,6 +82,9 @@ public class GamingModeFragment extends DashboardFragment {
                     if (!GamingModeController.isColorModeAvailable(context)) {
                         keys.add(GamingModeController.GAMING_MODE_COLOR_KEY);
                     }
+                    if (!GamingModeController.isSmoothDisplayAvailable(context)) {
+                        keys.add(GamingModeController.GAMING_MODE_SMOOTH_DISPLAY_KEY);
+                    }
                     return keys;
                 }
             };

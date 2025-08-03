@@ -116,6 +116,8 @@
     <string name="gaming_mode_ringer_disabled">Don\'t change</string>
     <string name="gaming_mode_ringer_vibrate">Vibrate</string>
     <string name="gaming_mode_ringer_silent">Silent</string>
+    <string name="gaming_mode_smooth_display_title">Smooth Display</string>
+    <string name="gaming_mode_smooth_display_summary">Whether to enable Smooth Display</string>
     <string name="gaming_mode_color_mode_title">Color Mode</string>
     <string name="gaming_mode_night_light_title">Night Light</string>
     <string name="gaming_mode_night_light_summary">Whether to disable Night Light and schedule</string>

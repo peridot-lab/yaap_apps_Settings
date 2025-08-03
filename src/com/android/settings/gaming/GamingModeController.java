@@ -15,6 +15,10 @@
  */
 package com.android.settings.gaming;
 
+import static com.android.internal.display.RefreshRateSettingsUtils.DEFAULT_REFRESH_RATE;
+import static com.android.internal.display.RefreshRateSettingsUtils.findHighestRefreshRateAmongAllDisplays;
+import static com.android.internal.display.RefreshRateSettingsUtils.findHighestRefreshRateForDefaultDisplay;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.hardware.display.ColorDisplayManager;
@@ -23,6 +27,7 @@ import android.provider.Settings;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
+import com.android.server.display.feature.flags.Flags;
 import com.android.settings.R;
 import com.android.settings.display.ColorModeUtils;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -41,6 +46,7 @@ public class GamingModeController extends AbstractPreferenceController
     private static final String GAMING_MODE_MEDIA_KEY = "gaming_mode_media";
     private static final String GAMING_MODE_BRIGHTNESS_KEY = "gaming_mode_brightness";
     private static final String GAMING_MODE_RINGER_KEY = "gaming_mode_ringer";
+    public static final String GAMING_MODE_SMOOTH_DISPLAY_KEY = "gaming_mode_smooth_display";
     public static final String GAMING_MODE_TOUCH_SENSITIVITY_KEY = "gaming_mode_touch_sensitivity";
     public static final String GAMING_MODE_HIGH_TOUCH_RATE_KEY = "gaming_mode_high_touch_rate";
     public static final String GAMING_MODE_COLOR_KEY = "gaming_mode_color_mode";
@@ -82,6 +88,11 @@ public class GamingModeController extends AbstractPreferenceController
 
         if (!isHighTouchRateAvailable(mContext)) {
             Preference pref = screen.findPreference(GAMING_MODE_HIGH_TOUCH_RATE_KEY);
+            pref.setVisible(false);
+        }
+
+        if (!isSmoothDisplayAvailable(mContext)) {
+            Preference pref = screen.findPreference(GAMING_MODE_SMOOTH_DISPLAY_KEY);
             pref.setVisible(false);
         }
 
@@ -158,7 +169,7 @@ public class GamingModeController extends AbstractPreferenceController
     }
 
     public static boolean isHighTouchRateAvailable(Context context) {
-	return context.getResources().getBoolean(R.bool.config_supportHighTouchRate);
+	    return context.getResources().getBoolean(R.bool.config_supportHighTouchRate);
     }
 
     public static boolean isColorModeAvailable(Context context) {
@@ -175,5 +186,15 @@ public class GamingModeController extends AbstractPreferenceController
             return false;
         }
         return true;
+    }
+
+    public static boolean isSmoothDisplayAvailable(Context context) {
+        if (!context.getResources().getBoolean(R.bool.config_show_smooth_display)) {
+            return false;
+        }
+        final int peak = Math.round(Flags.backUpSmoothDisplayAndForcePeakRefreshRate()
+                ? findHighestRefreshRateAmongAllDisplays(context)
+                : findHighestRefreshRateForDefaultDisplay(context));
+        return peak > DEFAULT_REFRESH_RATE;
     }
 }
