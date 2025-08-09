@@ -713,6 +713,10 @@
     <string name="three_finger_gesture">Swipe to screenshot</string>
     <string name="three_finger_gesture_summary">Swipe down with three fingers to take a screenshot</string>
 
+    <!-- Key combo screenshot gesture -->
+    <string name="screenshot_key_gesture_enabled">Screenshot key combo</string>
+    <string name="screenshot_key_gesture_enabled_summary">Press volume down and power keys to take a screenshot</string>
+
     <!-- Long press navbar to search -->
     <string name="navbar_long_press_gesture_title">Long press to search</string>
     <string name="navbar_long_press_gesture_summary">Long press the gesture bar to analyze the screen</string>

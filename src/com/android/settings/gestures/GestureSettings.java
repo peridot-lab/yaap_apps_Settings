@@ -19,6 +19,9 @@ package com.android.settings.gestures;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.hardware.display.AmbientDisplayConfiguration;
+import android.os.Bundle;
+
+import androidx.preference.Preference;
 
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
@@ -35,8 +38,21 @@ public class GestureSettings extends DashboardFragment {
 
     private static final String TAG = "GestureSettings";
     private static final String PREF_KEY_PREVENT_RINGING = "gesture_prevent_ringing_summary";
+    private static final String PREF_KEY_SCREENSHOT_KEYCOMBO = "screenshot_key_gesture_enabled";
 
     private AmbientDisplayConfiguration mAmbientDisplayConfig;
+
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        if (!isScreenshotKeyGestureAvailable(getContext())) {
+            Preference screenshotKeyPref = findPreference(PREF_KEY_SCREENSHOT_KEYCOMBO);
+            if (screenshotKeyPref != null) {
+                screenshotKeyPref.setVisible(false);
+            }
+        }
+    }
 
     @Override
     public int getMetricsCategory() {
@@ -75,6 +91,11 @@ public class GestureSettings extends DashboardFragment {
         return mAmbientDisplayConfig;
     }
 
+    private static boolean isScreenshotKeyGestureAvailable(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_enableScreenshotChord);
+    }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider(R.xml.gestures) {
                 @Override
@@ -82,6 +103,9 @@ public class GestureSettings extends DashboardFragment {
                     final List<String> keys = super.getNonIndexableKeys(context);
                     // de-duplicated due to another same entry in Sound page
                     keys.add(PREF_KEY_PREVENT_RINGING);
+                    if (!isScreenshotKeyGestureAvailable(context)) {
+                        keys.add(PREF_KEY_SCREENSHOT_KEYCOMBO);
+                    }
                     if (!TapToWakePreferenceController.isAvailable(context)) {
                         keys.add(TapToWakePreferenceController.KEY_TAP_TO_WAKE);
                     }

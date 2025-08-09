@@ -54,6 +54,13 @@
         settings:keywords="@string/keywords_gesture"
         settings:controller="com.android.settings.gestures.SwipeToScreenshotPreferenceController" />
 
+    <com.yasp.settings.preferences.SecureSettingSwitchPreference
+        android:key="screenshot_key_gesture_enabled"
+        android:title="@string/screenshot_key_gesture_enabled"
+        android:summary="@string/screenshot_key_gesture_enabled_summary"
+        android:defaultValue="true"
+        settings:keywords="@string/keywords_gesture" />
+
     <SwitchPreferenceCompat
         android:key="gesture_screen_off_udfps"
         android:title="@string/ambient_display_screen_off_udfps_title"
