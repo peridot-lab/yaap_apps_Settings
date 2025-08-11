@@ -776,4 +776,10 @@
     <!-- Charging sounds / vibration -->
     <string name="charging_sounds">Charging sounds</string>
     <string name="charging_vibrations">Charging vibrations</string>
+
+    <!-- Wake on charge -->
+    <string name="wake_on_charge_title">Wake on charge</string>
+    <string name="wake_on_charge_disabled">@string/disabled</string>
+    <string name="wake_on_charge_enabled">Fully wake</string>
+    <string name="wake_on_charge_pulse_doze">Pulse doze</string>
 </resources>

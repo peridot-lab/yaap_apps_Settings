@@ -204,6 +204,15 @@
             android:title="@string/show_operator_name_title"
             android:summary="@string/show_operator_name_summary"/>
 
+        <com.yasp.settings.preferences.SecureSettingListPreference
+            android:key="wake_on_charge"
+            android:title="@string/wake_on_charge_title"
+            android:summary="%s"
+            android:dialogTitle="@string/wake_on_charge_title"
+            android:entries="@array/wake_on_charge_entries"
+            android:entryValues="@array/wake_on_charge_values"
+            android:defaultValue="1" />
+
         <Preference
             android:key="screensaver"
             android:title="@string/screensaver_settings_title"

@@ -19,9 +19,12 @@ package com.android.settings;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.ListPreference;
 
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.display.BrightnessLevelPreferenceController;
@@ -43,6 +46,7 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class DisplaySettings extends DashboardFragment {
     private static final String TAG = "DisplaySettings";
+    private static final String WAKE_ON_CHARGE_KEY = Settings.Secure.WAKE_ON_CHARGE;
 
     @Override
     public int getMetricsCategory() {
@@ -62,6 +66,16 @@ public class DisplaySettings extends DashboardFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        ListPreference wakeOnChargePref = findPreference(WAKE_ON_CHARGE_KEY);
+        if (wakeOnChargePref != null) {
+            final boolean defaultEnabled = getContext().getResources().getBoolean(
+                    com.android.internal.R.bool.config_unplugTurnsOnScreen);
+            final int value = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                    Settings.Secure.WAKE_ON_CHARGE, defaultEnabled ? 1 : 0, UserHandle.USER_CURRENT);
+            wakeOnChargePref.setDefaultValue(defaultEnabled ? "1" : "0");
+            wakeOnChargePref.setValue(String.valueOf(value));
+        }
     }
 
     @Override
