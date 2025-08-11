@@ -260,8 +260,14 @@
     <!-- Charging sounds -->
     <SwitchPreferenceCompat
         android:key="charging_sounds"
-        android:title="@string/charging_sounds_title"
+        android:title="@string/charging_sounds"
         android:order="-40"/>
+
+    <!-- Charging vibrations -->
+    <SwitchPreferenceCompat
+        android:key="charging_vibrations"
+        android:title="@string/charging_vibrations"
+        android:order="-38"/>
 
     <!-- Docking sounds -->
     <SwitchPreferenceCompat
