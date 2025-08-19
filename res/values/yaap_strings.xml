@@ -782,4 +782,9 @@
     <string name="wake_on_charge_disabled">@string/disabled</string>
     <string name="wake_on_charge_enabled">Fully wake</string>
     <string name="wake_on_charge_pulse_doze">Pulse doze</string>
+
+    <!-- DC Dim schedule -->
+    <string name="dc_dim_title">DC Dimming</string>
+    <string name="dc_dim_summary">Useful for people who are sensitive to PWM\nSide effects include eye strain, nausea and migraines.\nEnabling this usually implies less accurate display colors</string>
+    <string name="schedule_disabled">No schedule</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
-     Copyright (C) 2021 YAAP
+     Copyright (C) 2021-2025 Yet Another AOSP Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Device specific doze package -->
@@ -35,4 +34,6 @@
     <!-- Hide disable VRR option -->
     <bool name="config_disableVrrSetting" translatable="false">false</bool>
 
+    <!-- Show DC Dim settings and schedule -->
+    <bool name="config_showDcDimSettings" translatable="false">false</bool>
 </resources>

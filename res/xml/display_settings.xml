@@ -162,6 +162,12 @@
             settings:keywords="@string/keywords_auto_rotate"
             settings:controller="com.android.settings.display.DeviceStateAutoRotateOverviewController"/>
 
+        <com.android.settingslib.PrimarySwitchPreference
+            android:key="dc_dim"
+            android:title="@string/dc_dim_title"
+            android:fragment="com.android.settings.display.DcDimSettings"
+            settings:controller="com.android.settings.display.DcDimPreferenceController"/>
+
         <Preference
             android:key="screen_resolution"
             android:title="@string/screen_resolution_title"
