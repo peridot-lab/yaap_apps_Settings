@@ -550,4 +550,6 @@ public class Settings extends SettingsActivity {
     public static class GamingModeActivity extends SettingsActivity { /* empty */ }
 
     public static class RunningServicesDevActivity extends SettingsActivity { /* empty */ }
+
+    public static class DcDimActivity extends SettingsActivity { /* empty */ }
 }
