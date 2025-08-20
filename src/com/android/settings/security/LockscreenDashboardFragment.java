@@ -86,6 +86,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
     private static final String KEY_WEATHER_PREFS = "lockscreen_weather_prefs";
     private static final String KEY_WEATHER_LOCATION = "lockscreen_weather_location";
     private static final String KEY_WEATHER_TEXT = "lockscreen_weather_text";
+    private static final String KEY_WEATHER_WIND = "lockscreen_weather_wind_info";
+    private static final String KEY_WEATHER_HUMIDITY = "lockscreen_weather_humidity_info";
     private static final String KEY_WEATHER_CLICK = "lockscreen_weather_click_updates";
 
     private AmbientDisplayConfiguration mConfig;
@@ -96,6 +98,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
     private Preference mWeatherPrefs;
     private SystemSettingSwitchPreference mWeatherLocation;
     private SystemSettingSwitchPreference mWeatherText;
+    private SystemSettingSwitchPreference mWeatherWind;
+    private SystemSettingSwitchPreference mWeatherHumidity;
     private SystemSettingSwitchPreference mWeatherClick;
 
     @Override
@@ -121,6 +125,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
         mWeatherPrefs = screen.findPreference(KEY_WEATHER_PREFS);
         mWeatherLocation = screen.findPreference(KEY_WEATHER_LOCATION);
         mWeatherText = screen.findPreference(KEY_WEATHER_TEXT);
+        mWeatherWind = screen.findPreference(KEY_WEATHER_WIND);
+        mWeatherHumidity = screen.findPreference(KEY_WEATHER_HUMIDITY);
         mWeatherClick = screen.findPreference(KEY_WEATHER_CLICK);
         SystemSettingListPreference weatherProvider = screen.findPreference(KEY_WEATHER_PROVIDER);
         final int provider = Settings.System.getInt(
@@ -223,6 +229,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
         mWeatherPrefs.setVisible(enabled);
         mWeatherLocation.setVisible(enabled);
         mWeatherText.setVisible(enabled);
+        mWeatherWind.setVisible(enabled);
+        mWeatherHumidity.setVisible(enabled);
         mWeatherClick.setVisible(enabled);
     }
 
