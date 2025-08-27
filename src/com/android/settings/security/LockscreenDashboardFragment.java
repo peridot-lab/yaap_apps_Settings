@@ -30,11 +30,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
+import android.util.ArraySet;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -56,11 +58,9 @@ import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.yasp.settings.preferences.SystemSettingListPreference;
-import com.yasp.settings.preferences.SystemSettingSwitchPreference;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Settings screen for lock screen preference
@@ -96,12 +96,7 @@ public class LockscreenDashboardFragment extends DashboardFragment
     @VisibleForTesting
     ContentObserver mControlsContentObserver;
 
-    private Preference mWeatherPrefs;
-    private SystemSettingSwitchPreference mWeatherLocation;
-    private SystemSettingSwitchPreference mWeatherText;
-    private SystemSettingSwitchPreference mWeatherWind;
-    private SystemSettingSwitchPreference mWeatherHumidity;
-    private SystemSettingSwitchPreference mWeatherClick;
+    private Set<Preference> mOmniWeatherPrefs = new ArraySet<>();
 
     @Override
     public int getMetricsCategory() {
@@ -123,18 +118,17 @@ public class LockscreenDashboardFragment extends DashboardFragment
                 WORK_PROFILE_NOTIFICATIONS_SECTION_HEADER, R.string.profile_section_header);
 
         PreferenceScreen screen = getPreferenceScreen();
-        mWeatherPrefs = screen.findPreference(KEY_WEATHER_PREFS);
-        mWeatherLocation = screen.findPreference(KEY_WEATHER_LOCATION);
-        mWeatherText = screen.findPreference(KEY_WEATHER_TEXT);
-        mWeatherWind = screen.findPreference(KEY_WEATHER_WIND);
-        mWeatherHumidity = screen.findPreference(KEY_WEATHER_HUMIDITY);
-        mWeatherClick = screen.findPreference(KEY_WEATHER_CLICK);
-        SystemSettingListPreference weatherProvider = screen.findPreference(KEY_WEATHER_PROVIDER);
+        Preference weatherPrefs = screen.findPreference(KEY_WEATHER_PREFS);
+        Preference weatherLocation = screen.findPreference(KEY_WEATHER_LOCATION);
+        Preference weatherText = screen.findPreference(KEY_WEATHER_TEXT);
+        Preference weatherWind = screen.findPreference(KEY_WEATHER_WIND);
+        Preference weatherHumidity = screen.findPreference(KEY_WEATHER_HUMIDITY);
+        Preference weatherClick = screen.findPreference(KEY_WEATHER_CLICK);
+        ListPreference weatherProvider = screen.findPreference(KEY_WEATHER_PROVIDER);
         final int provider = Settings.System.getInt(
                 getContentResolver(), KEY_WEATHER_PROVIDER, LOCKSCREEN_WEATHER_PROVIDER_DEFAULT);
         weatherProvider.setValueIndex(provider);
         weatherProvider.setSummary(weatherProvider.getEntries()[provider]);
-        updateWeatherEnablement(provider);
         weatherProvider.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -149,6 +143,15 @@ public class LockscreenDashboardFragment extends DashboardFragment
                 return true;
             }
         });
+
+        mOmniWeatherPrefs.add(weatherPrefs);
+        mOmniWeatherPrefs.add(weatherLocation);
+        mOmniWeatherPrefs.add(weatherText);
+        mOmniWeatherPrefs.add(weatherWind);
+        mOmniWeatherPrefs.add(weatherHumidity);
+        mOmniWeatherPrefs.add(weatherClick);
+
+        updateWeatherEnablement(provider);
     }
 
     @Override
@@ -229,12 +232,9 @@ public class LockscreenDashboardFragment extends DashboardFragment
 
     private void updateWeatherEnablement(int provider) {
         final boolean enabled = provider == LOCKSCREEN_WEATHER_PROVIDER_OMNI;
-        mWeatherPrefs.setVisible(enabled);
-        mWeatherLocation.setVisible(enabled);
-        mWeatherText.setVisible(enabled);
-        mWeatherWind.setVisible(enabled);
-        mWeatherHumidity.setVisible(enabled);
-        mWeatherClick.setVisible(enabled);
+        for (Preference pref : mOmniWeatherPrefs) {
+            pref.setVisible(enabled);
+        }
     }
 
     private AmbientDisplayConfiguration getConfig(Context context) {
