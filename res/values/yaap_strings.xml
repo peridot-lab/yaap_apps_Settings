@@ -689,6 +689,7 @@
     <string name="lockscreen_weather_provider_none">None</string>
     <string name="lockscreen_weather_provider_default">Google (default)</string>
     <string name="lockscreen_weather_provider_omni">OmniJaws</string>
+    <string name="lockscreen_weather_provider_toast">Requires a SystemUI restart to take effect</string>
 
     <!-- QS WiFi / Bluetooth auto on -->
     <string name="qs_wifi_auto_on_title">Automatic WiFi on</string>
