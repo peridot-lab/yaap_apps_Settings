@@ -50,6 +50,7 @@ public class GamingModeController extends AbstractPreferenceController
     public static final String GAMING_MODE_SMOOTH_DISPLAY_KEY = "gaming_mode_smooth_display";
     public static final String GAMING_MODE_TOUCH_SENSITIVITY_KEY = "gaming_mode_touch_sensitivity";
     public static final String GAMING_MODE_HIGH_TOUCH_RATE_KEY = "gaming_mode_high_touch_rate";
+    public static final String GAMING_MODE_LTPO_FEATURES_KEY = "gaming_mode_ltpo_features";
     public static final String GAMING_MODE_COLOR_KEY = "gaming_mode_color_mode";
 
     private CustomSeekBarPreference mMediaVolume;
@@ -89,6 +90,11 @@ public class GamingModeController extends AbstractPreferenceController
 
         if (!isHighTouchRateAvailable(mContext)) {
             Preference pref = screen.findPreference(GAMING_MODE_HIGH_TOUCH_RATE_KEY);
+            pref.setVisible(false);
+        }
+
+        if (!isLtpoFeaturesAvailable(mContext)) {
+            Preference pref = screen.findPreference(GAMING_MODE_LTPO_FEATURES_KEY);
             pref.setVisible(false);
         }
 
@@ -179,6 +185,10 @@ public class GamingModeController extends AbstractPreferenceController
 
     public static boolean isHighTouchRateAvailable(Context context) {
 	    return context.getResources().getBoolean(R.bool.config_supportHighTouchRate);
+    }
+
+    public static boolean isLtpoFeaturesAvailable(Context context) {
+	    return context.getResources().getBoolean(R.bool.config_supportLtpoFeatures);
     }
 
     public static boolean isColorModeAvailable(Context context) {

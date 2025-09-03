@@ -167,6 +167,12 @@
             android:summary="@string/gaming_mode_touch_rate_summary"
             android:defaultValue="false" />
 
+        <com.yasp.settings.preferences.SystemSettingSwitchPreference
+            android:key="gaming_mode_ltpo_features"
+            android:title="@string/gaming_mode_ltpo_features_title"
+            android:summary="@string/gaming_mode_ltpo_features_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <Preference
