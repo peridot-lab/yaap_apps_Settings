@@ -16,6 +16,8 @@
 package com.android.settings.fuelgauge.batterysaver;
 
 import android.content.Context;
+import android.hardware.display.AmbientDisplayConfiguration;
+import android.os.UserHandle;
 import android.provider.Settings;
 
 import androidx.preference.ListPreference;
@@ -84,6 +86,12 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
+
+        AmbientDisplayConfiguration config = new AmbientDisplayConfiguration(mContext);
+        if (!config.alwaysOnAvailableForUser(UserHandle.myUserId())) {
+            sDefaultsMap.remove(KEY_DISABLE_AOD);
+            screen.removePreferenceRecursively(KEY_DISABLE_AOD);
+        }
 
         for (String key : sDefaultsMap.keySet()) {
             final Preference pref = screen.findPreference(key);
