@@ -18,6 +18,7 @@ package com.android.settings.gestures;
 
 import android.content.Context;
 import android.hardware.display.AmbientDisplayConfiguration;
+import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.widget.CompoundButton;
@@ -72,6 +73,7 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
             updateEnablement(!enabled);
             return true;
         });
+        updateAmbientEnablement();
         mSwitch.addOnSwitchChangeListener(this);
         updateState(mSwitch);
 
@@ -86,6 +88,7 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
             mSwitch.setChecked(isChecked);
         }
         updateEnablement(isChecked);
+        updateAmbientEnablement();
     }
 
     @Override
@@ -100,12 +103,28 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
         Settings.Secure.putInt(mContext.getContentResolver(),
                 getSettingsKey(), isChecked ? 1 : 0);
         updateEnablement(isChecked);
+        updateAmbientEnablement();
     }
 
     private void updateEnablement(boolean enabled) {
         if (mAmbientPref != null) mAmbientPref.setEnabled(enabled);
         if (mAODPref != null) mAODPref.setEnabled(enabled);
         if (mVibPref != null && mIsVibAvailable) mVibPref.setEnabled(enabled);
+    }
+
+    private void updateAmbientEnablement() {
+        if (mAmbientPref == null) return;
+        if (mSwitch == null) return;
+        AmbientDisplayConfiguration config = getAmbientConfig();
+        if (!config.pulseOnNotificationAvailable()) {
+            mAmbientPref.setVisible(false);
+            return;
+        }
+        final boolean isEnabled = config.pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
+        mAmbientPref.setEnabled(isEnabled && mSwitch.isChecked());
+        mAmbientPref.setSummary(isEnabled
+                ? R.string.doze_gesture_ambient_summary
+                : R.string.doze_disabled_summary);
     }
 
     AmbientDisplayConfiguration getAmbientConfig() {
