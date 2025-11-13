@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"ដោយមិនចាំបាច់​ដោះសោ​ទូរសព្ទរបស់អ្នក"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"ដោយមិនចាំបាច់​ដោះសោ​ថេប្លេតរបស់អ្នក"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"ដោយមិនដោះ​សោឧបករណ៍របស់អ្នក"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"ការគ្រប់គ្រងសម្រាប់ទូរសព្ទនេះ"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"ការគ្រប់គ្រងសម្រាប់ថេប្លេតនេះ"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"ការគ្រប់គ្រងសម្រាប់ឧបករណ៍នេះ"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"នៅពេលដែល​អ្នកដាក់​ទូរសព្ទ​របស់អ្នកឱ្យ​បញ្ឈរ និងផ្ដេក"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"នៅពេលដែល​អ្នកដាក់ថេប្លេត​របស់អ្នកឱ្យ​បញ្ឈរ និងផ្ដេក"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"នៅពេលដែល​អ្នកដាក់ឧបករណ៍​របស់អ្នកឱ្យ​បញ្ឈរ និងផ្ដេក"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"ដើម្បីចាប់ផ្ដើមចែករំលែកសំឡេង សូមភ្ជាប់កាស LE Audio ទៅកាន់ថេប្លេតរបស់អ្នកជាមុនសិន។ "<annotation id="link">"ស្វែងយល់​បន្ថែម​អំពី​ឧបករណ៍​ដែល​ត្រូវ​គ្នា"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"ដើម្បីចាប់ផ្ដើមចែករំលែកសំឡេង សូមភ្ជាប់កាស LE Audio ទៅកាន់ឧបករណ៍របស់អ្នកជាមុនសិន។ "<annotation id="link">"ស្វែងយល់​បន្ថែម​អំពី​ឧបករណ៍​ដែល​ត្រូវ​គ្នា"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"ដើម្បីចាប់ផ្ដើមចែករំលែកសំឡេង សូមភ្ជាប់កាស LE Audio ទៅកាន់ឧបករណ៍របស់អ្នកជាមុនសិន។ "<annotation id="link">"ស្វែងយល់​បន្ថែម​អំពី​ឧបករណ៍​ដែល​ត្រូវ​គ្នា"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"ឧបករណ៍ចល័ត, Wi-Fi, ហតស្ប៉ត"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi, ឧបករណ៍ចល័ត, ហតស្ប៉ត"</string>
 </resources>

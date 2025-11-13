@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Nang hindi ina-unlock ang iyong telepono"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Nang hindi ina-unlock ang iyong tablet"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Nang hindi ina-unlock ang iyong device"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Mga kontrol para sa teleponong ito"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Mga kontrol para sa tablet na ito"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Mga kontrol para sa device na ito"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Kapag pinalipat-lipat ang telepono sa portrait at landscape"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Kapag pinalipat-lipat mo ang tablet sa portrait at landscape"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Kapag ginawa mong portrait o landscape ang iyong device"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Para magsimulang magbahagi ng audio, ikonekta muna ang LE Audio headphones sa iyong tablet. "<annotation id="link">"Matuto pa tungkol sa mga compatible na device"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Para magsimulang magbahagi ng audio, ikonekta muna ang LE Audio headphones sa iyong device. "<annotation id="link">"Matuto pa tungkol sa mga compatible na device"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Para magsimulang magbahagi ng audio, ikonekta muna ang LE Audio headphones sa iyong device. "<annotation id="link">"Matuto pa tungkol sa mga compatible na device"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Mobile, Wi‑Fi, hotspot"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi, mobile, hotspot"</string>
 </resources>

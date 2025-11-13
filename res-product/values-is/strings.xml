@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Án þess að taka símann úr lás"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Án þess að taka spjaldtölvuna úr lás"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Án þess að taka tækið úr lás"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Stýringar í þessum síma"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Stýringar í þessari spjaldtölvu"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Stýringar í þessu tæki"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Þegar þú skiptir á milli skammsniðs og langsniðs í símanum"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Þegar þú skiptir á milli skammsniðs og langsniðs í spjaldtölvunni"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Þegar þú snýrð tækinu lóðrétt eða lárétt"</string>
@@ -514,8 +517,10 @@
     <string name="audio_streams_dialog_unsupported_device_subtitle" product="tablet" msgid="234603191628345605">"Þessi spjaldtölva styður ekki LE-hljóð en þess er krafist til að geta hlustað á hljóðstreymi."</string>
     <string name="audio_streams_dialog_unsupported_device_subtitle" product="device" msgid="6350485541420926260">"Þetta tæki styður ekki LE-hljóð en þess er krafist til að geta hlustað á hljóðstreymi."</string>
     <string name="audio_streams_dialog_unsupported_device_subtitle" product="desktop" msgid="6350485541420926260">"Þetta tæki styður ekki LE-hljóð en þess er krafist til að geta hlustað á hljóðstreymi."</string>
-    <string name="audio_sharing_confirm_dialog_content_with_link" product="default" msgid="3623411166799677443">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól fyrir LE-hljóð við símann. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
-    <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól fyrir LE-hljóð við spjaldtölvuna. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
-    <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól fyrir LE-hljóð við tækið. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
-    <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól fyrir LE-hljóð við tækið. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
+    <string name="audio_sharing_confirm_dialog_content_with_link" product="default" msgid="3623411166799677443">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól með LE-hljóði við símann. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
+    <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól með LE-hljóði við spjaldtölvuna. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
+    <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól með LE-hljóði við tækið. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
+    <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Til að byrja að deila hljóði skaltu fyrst tengja heyrnartól með LE-hljóði við tækið. "<annotation id="link">"Frekari upplýsingar um samhæf tæki"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Farsímagögn, Wi-Fi, heitur reitur"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi, farsímagögn, heitur reitur"</string>
 </resources>

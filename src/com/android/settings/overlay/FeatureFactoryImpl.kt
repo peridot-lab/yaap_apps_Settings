@@ -20,6 +20,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.VpnManager
 import android.os.UserManager
+import com.android.settings.accessibility.AccessibilityDisabilitySupportFeatureProvider
+import com.android.settings.accessibility.AccessibilityDisabilitySupportFeatureProviderImpl
 import com.android.settings.accessibility.AccessibilityFeedbackFeatureProvider
 import com.android.settings.accessibility.AccessibilityFeedbackFeatureProviderImpl
 import com.android.settings.accessibility.AccessibilityPageIdFeatureProvider
@@ -44,6 +46,8 @@ import com.android.settings.connecteddevice.fastpair.FastPairFeatureProvider
 import com.android.settings.connecteddevice.fastpair.FastPairFeatureProviderImpl
 import com.android.settings.connecteddevice.stylus.StylusFeatureProvider
 import com.android.settings.connecteddevice.stylus.StylusFeatureProviderImpl
+import com.android.settings.connecteddevice.threadnetwork.ThreadNetworkFeatureProvider
+import com.android.settings.connecteddevice.threadnetwork.ThreadNetworkFeatureProviderImpl
 import com.android.settings.core.instrumentation.SettingsMetricsFeatureProvider
 import com.android.settings.dashboard.DashboardFeatureProviderImpl
 import com.android.settings.dashboard.suggestions.SuggestionFeatureProvider
@@ -155,7 +159,9 @@ open class FeatureFactoryImpl : FeatureFactory() {
         BiometricsFeatureProviderImpl()
     }
 
-    override val faceFeatureProvider: FaceFeatureProvider by lazy { FaceFeatureProviderImpl() }
+    override val faceFeatureProvider: FaceFeatureProvider by lazy {
+        FaceFeatureProviderImpl(appContext)
+    }
 
     override val fingerprintFeatureProvider: FingerprintFeatureProvider by lazy {
         FingerprintFeatureProviderImpl()
@@ -171,6 +177,11 @@ open class FeatureFactoryImpl : FeatureFactory() {
 
     override val accessibilityFeedbackFeatureProvider: AccessibilityFeedbackFeatureProvider
         by lazy {  AccessibilityFeedbackFeatureProviderImpl() }
+
+    override val accessibilityDisabilitySupportFeatureProvider:
+            AccessibilityDisabilitySupportFeatureProvider by lazy {
+                AccessibilityDisabilitySupportFeatureProviderImpl()
+            }
 
     override val accessibilitySearchFeatureProvider: AccessibilitySearchFeatureProvider by lazy {
         AccessibilitySearchFeatureProviderImpl()
@@ -190,6 +201,10 @@ open class FeatureFactoryImpl : FeatureFactory() {
 
     override val stylusFeatureProvider: StylusFeatureProvider by lazy {
         StylusFeatureProviderImpl()
+    }
+
+    override val threadNetworkFeatureProvider: ThreadNetworkFeatureProvider by lazy {
+        ThreadNetworkFeatureProviderImpl()
     }
 
     override val fastPairFeatureProvider: FastPairFeatureProvider by lazy {

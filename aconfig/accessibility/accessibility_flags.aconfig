@@ -31,13 +31,6 @@ flag {
 }
 
 flag {
-  name: "edit_shortcuts_in_full_screen"
-  namespace: "accessibility"
-  description: "Show the edit shorcuts screen in full screen, since the shortcut options are increasing."
-  bug: "300302098"
-}
-
-flag {
   name: "enable_color_contrast_control"
   namespace: "accessibility"
   description: "Allows users to control color contrast in the Accessibility settings page."
@@ -45,17 +38,10 @@ flag {
 }
 
 flag {
-  name: "enable_hearing_aid_preset_control"
-  namespace: "accessibility"
-  description: "Allows users to control hearing aid preset in the Bluetooth device details page."
-  bug: "300015207"
-}
-
-flag {
-  name: "enable_hearing_aid_volume_offset_control"
-  namespace: "accessibility"
-  description: "Allows users to control hearing aid volume offset in the Bluetooth device details page."
-  bug: "301198830"
+    name: "enable_disability_support"
+    namespace: "accessibility"
+    description: "Use disability support for accessibility"
+    bug: "419387108"
 }
 
 flag {
@@ -70,26 +56,6 @@ flag {
   namespace: "accessibility"
   description: "Decides whether to show the magnification focus following dialog in Settings app."
   bug: "388336111"
-}
-
-flag {
-  name: "fix_a11y_settings_search"
-  namespace: "accessibility"
-  description: "Fix the a11y related search items in Settings app"
-  bug: "333437173"
-  metadata {
-    purpose: PURPOSE_BUGFIX
-  }
-}
-
-flag {
-  name: "hide_magnification_always_on_toggle_when_window_mode_only"
-  namespace: "accessibility"
-  description: "Decides whether to hide the magnification always on setting when capabilities is window mode only."
-  bug: "328787031"
-  metadata {
-    purpose: PURPOSE_BUGFIX
-  }
 }
 
 flag {

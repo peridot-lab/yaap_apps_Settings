@@ -30,15 +30,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.android.graphics.hwui.flags.Flags;
 import com.android.modules.expresslog.Counter;
 import com.android.settings.R;
 import com.android.settings.accessibility.AccessibilityDialogUtils.DialogEnums;
-import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.search.SearchIndexable;
@@ -57,7 +54,7 @@ import java.util.stream.Collectors;
  * example, bold text, high contrast text, display size, font size and so on.
  */
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class TextReadingPreferenceFragment extends DashboardFragment {
+public class TextReadingPreferenceFragment extends BaseSupportFragment {
     public static final String EXTRA_LAUNCHED_FROM = "launched_from";
     private static final String TAG = "TextReadingPreferenceFragment";
     private static final String SETUP_WIZARD_PACKAGE = "setupwizard";
@@ -163,7 +160,7 @@ public class TextReadingPreferenceFragment extends DashboardFragment {
         mPreviewController.setEntryPoint(mEntryPoint);
         controllers.add(mPreviewController);
 
-        final PreviewSizeSeekBarController fontSizeController = new PreviewSizeSeekBarController(
+        final PreviewSizeSliderController fontSizeController = new PreviewSizeSliderController(
                 context, FONT_SIZE_KEY, fontSizeData) {
             @Override
             ComponentName getTileComponentName() {
@@ -189,7 +186,7 @@ public class TextReadingPreferenceFragment extends DashboardFragment {
         getSettingsLifecycle().addObserver(fontSizeController);
         controllers.add(fontSizeController);
 
-        final PreviewSizeSeekBarController displaySizeController = new PreviewSizeSeekBarController(
+        final PreviewSizeSliderController displaySizeController = new PreviewSizeSliderController(
                 context, DISPLAY_SIZE_KEY, displaySizeData) {
             @Override
             ComponentName getTileComponentName() {
@@ -317,9 +314,4 @@ public class TextReadingPreferenceFragment extends DashboardFragment {
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider(R.xml.accessibility_text_reading_options);
-
-    @Override
-    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
-        return TextReadingScreen.KEY;
-    }
 }

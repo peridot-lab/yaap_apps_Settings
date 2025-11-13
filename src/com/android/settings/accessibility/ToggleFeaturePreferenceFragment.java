@@ -18,15 +18,12 @@ package com.android.settings.accessibility;
 
 import static com.android.internal.accessibility.common.ShortcutConstants.UserShortcutType.DEFAULT;
 import static com.android.internal.accessibility.common.ShortcutConstants.UserShortcutType.SOFTWARE;
-import static com.android.settings.accessibility.AccessibilityDialogUtils.DialogEnums;
 import static com.android.settings.accessibility.AccessibilityUtil.getShortcutSummaryList;
 
-import android.app.Dialog;
 import android.app.settings.SettingsEnums;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -61,18 +58,14 @@ import com.android.internal.accessibility.common.ShortcutConstants;
 import com.android.internal.accessibility.util.ShortcutUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
-import com.android.settings.accessibility.actionbar.FeedbackMenuController;
 import com.android.settings.accessibility.shortcuts.EditShortcutsPreferenceFragment;
-import com.android.settings.dashboard.DashboardFragment;
-import com.android.settings.flags.Flags;
-import com.android.settings.widget.SettingsMainSwitchBar;
 import com.android.settings.widget.SettingsMainSwitchPreference;
 import com.android.settingslib.utils.ThreadUtils;
 import com.android.settingslib.widget.IllustrationPreference;
+import com.android.settingslib.widget.SettingsThemeHelper;
 import com.android.settingslib.widget.TopIntroPreference;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
-import com.google.android.setupdesign.util.ThemeHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +75,7 @@ import java.util.Set;
  * Base class for accessibility fragments with toggle, shortcut, some helper functions
  * and dialog management.
  */
-public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
+public abstract class ToggleFeaturePreferenceFragment extends BaseSupportFragment
         implements ShortcutPreference.OnClickCallback, OnCheckedChangeListener {
 
     public static final String KEY_GENERAL_CATEGORY = "general_categories";
@@ -102,7 +95,6 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
     @Nullable protected AccessibilityFooterPreference mHtmlFooterPreference;
     protected AccessibilityFooterPreferenceController mFooterPreferenceController;
     protected String mPreferenceKey;
-    protected Dialog mDialog;
     protected CharSequence mSettingsTitle;
     protected Intent mSettingsIntent;
     // The mComponentName maybe null, such as Magnify
@@ -140,8 +132,6 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
 
         mSettingsContentObserver = new AccessibilitySettingsContentObserver(new Handler());
         registerKeysToObserverCallback(mSettingsContentObserver);
-
-        FeedbackMenuController.init(this, getFeedbackCategory());
     }
 
     protected void registerKeysToObserverCallback(
@@ -188,34 +178,12 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
     }
 
     @Override
-    public Dialog onCreateDialog(int dialogId) {
-        switch (dialogId) {
-            case DialogEnums.LAUNCH_ACCESSIBILITY_TUTORIAL:
-                if (isAnySetupWizard()) {
-                    mDialog = AccessibilityShortcutsTutorial
-                            .createAccessibilityTutorialDialogForSetupWizard(
-                                    getPrefContext(), getUserPreferredShortcutTypes(),
-                                    this::callOnTutorialDialogButtonClicked, mFeatureName);
-                } else {
-                    mDialog = AccessibilityShortcutsTutorial
-                            .createAccessibilityTutorialDialog(
-                                    getPrefContext(), getUserPreferredShortcutTypes(),
-                                    this::callOnTutorialDialogButtonClicked, mFeatureName);
-                }
-                mDialog.setCanceledOnTouchOutside(false);
-                return mDialog;
-            default:
-                throw new IllegalArgumentException("Unsupported dialogId " + dialogId);
-        }
-    }
-
-    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final SettingsActivity settingsActivity = (SettingsActivity) getActivity();
-        final SettingsMainSwitchBar switchBar = settingsActivity.getSwitchBar();
-        switchBar.hide();
+        if (getActivity() instanceof SettingsActivity settingsActivity) {
+            settingsActivity.getSwitchBar().hide();
+        }
 
         writeConfigDefaultAccessibilityServiceIntoShortcutTargetServiceIfNeeded(getContext());
     }
@@ -248,30 +216,8 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
     }
 
     @Override
-    public int getDialogMetricsCategory(int dialogId) {
-        switch (dialogId) {
-            case DialogEnums.LAUNCH_ACCESSIBILITY_TUTORIAL:
-                return SettingsEnums.DIALOG_ACCESSIBILITY_TUTORIAL;
-            default:
-                return SettingsEnums.ACTION_UNKNOWN;
-        }
-    }
-
-    @Override
     public int getMetricsCategory() {
         return SettingsEnums.ACCESSIBILITY_SERVICE;
-    }
-
-    /**
-     * Returns the category of the feedback page.
-     *
-     * <p>By default, this method returns {@link SettingsEnums#PAGE_UNKNOWN}. This indicates that
-     * the feedback category is unknown, and the absence of a feedback menu.
-     *
-     * @return The feedback category, which is {@link SettingsEnums#PAGE_UNKNOWN} by default.
-     */
-    protected int getFeedbackCategory() {
-        return SettingsEnums.PAGE_UNKNOWN;
     }
 
     @Override
@@ -432,7 +378,7 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
             @Override
             public void onBindViewHolder(PreferenceViewHolder holder) {
                 super.onBindViewHolder(holder);
-                if (ThemeHelper.shouldApplyGlifExpressiveStyle(getContext())
+                if (SettingsThemeHelper.isExpressiveTheme(getContext())
                         && isAnySetupWizard()) {
                     View illustrationFrame = holder.findViewById(R.id.illustration_frame);
                     final ViewGroup.LayoutParams lp = illustrationFrame.getLayoutParams();
@@ -457,6 +403,7 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
         preference.setSelectable(false);
         preference.setMaxHeight(displayHalfHeight);
         preference.setKey(KEY_ANIMATED_IMAGE);
+        final CharSequence contentDescription = getContentDescriptionForAnimatedIllustration();
         preference.setOnBindListener(view -> {
             // isAnimatable is decided in
             // {@link IllustrationPreference#onBindViewHolder(PreferenceViewHolder)}. Therefore, we
@@ -465,8 +412,7 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
             // images are decorative.
             ThreadUtils.getUiThreadHandler().post(() -> {
                 if (preference.isAnimatable()) {
-                    preference.setContentDescription(
-                            getContentDescriptionForAnimatedIllustration());
+                    preference.setContentDescription(contentDescription);
                 }
             });
         });
@@ -534,9 +480,6 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
     @VisibleForTesting
     @Nullable
     Preference createAppInfoPreference() {
-        if (!Flags.accessibilityShowAppInfoButton()) {
-            return null;
-        }
         // App Info is not available in Setup Wizard.
         if (isAnySetupWizard()) {
             return null;
@@ -647,16 +590,6 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
         return getShortcutSummaryList(context, shortcutTypes);
     }
 
-    /**
-     * This method will be invoked when a button in the tutorial dialog is clicked.
-     *
-     * @param dialog The dialog that received the click
-     * @param which  The button that was clicked
-     */
-    private void callOnTutorialDialogButtonClicked(DialogInterface dialog, int which) {
-        dialog.dismiss();
-    }
-
     protected void updateShortcutPreferenceData() {
         if (mComponentName == null) {
             return;
@@ -699,9 +632,18 @@ public abstract class ToggleFeaturePreferenceFragment extends DashboardFragment
                 isChecked, shortcutTypes,
                 Set.of(mComponentName.flattenToString()), getPrefContext().getUserId());
         if (isChecked) {
-            showDialog(DialogEnums.LAUNCH_ACCESSIBILITY_TUTORIAL);
+            showShortcutsTutorialDialog();
         }
         mShortcutPreference.setSummary(getShortcutTypeSummary(getPrefContext()));
+    }
+
+    protected void showShortcutsTutorialDialog() {
+        AccessibilityShortcutsTutorial.DialogFragment.showDialog(
+                getChildFragmentManager(),
+                getUserPreferredShortcutTypes(),
+                mFeatureName,
+                isAnySetupWizard()
+        );
     }
 
     @Override

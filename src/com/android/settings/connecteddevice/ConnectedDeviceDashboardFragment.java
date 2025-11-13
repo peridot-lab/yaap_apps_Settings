@@ -35,7 +35,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.slices.SlicePreferenceController;
 import com.android.settingslib.bluetooth.BluetoothUtils;
 import com.android.settingslib.bluetooth.HearingAidStatsLogUtils;
-
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 import com.android.settingslib.search.SearchIndexable;
 
@@ -100,17 +99,22 @@ public class ConnectedDeviceDashboardFragment extends DashboardFragment {
         use(DiscoverableFooterPreferenceController.class)
                 .setAlwaysDiscoverable(isAlwaysDiscoverable(callingAppPackageName, action));
 
+        logPageEntrypoint(context, callingAppPackageName, intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         // Show hearing devices survey if user is categorized as one of interested category
-        final String category = HearingAidStatsLogUtils.getUserCategory(context);
+        final String category = HearingAidStatsLogUtils.getUserCategory(getContext());
         if (category != null && !category.isEmpty()) {
             SurveyFeatureProvider provider =
-                    FeatureFactory.getFeatureFactory().getSurveyFeatureProvider(context);
+                    FeatureFactory.getFeatureFactory().getSurveyFeatureProvider(getContext());
             if (provider != null) {
                 provider.sendActivityIfAvailable(category);
             }
         }
-
-        logPageEntrypoint(context, callingAppPackageName, intent);
     }
 
     @VisibleForTesting
@@ -125,7 +129,9 @@ public class ConnectedDeviceDashboardFragment extends DashboardFragment {
         String action = intent != null ? intent.getAction() : "";
         if (TextUtils.equals(Utils.SYSTEMUI_PACKAGE_NAME, callingAppPackageName)) {
             mMetricsFeatureProvider.action(
-                    context, SettingsEnums.SETTINGS_CONNECTED_DEVICES_ENTRYPOINT, ENTRYPOINT_SYSUI);
+                    context,
+                    SettingsEnums.ACTION_OPEN_SETTINGS_CONNECTED_DEVICES,
+                    ENTRYPOINT_SYSUI);
         } else if (TextUtils.equals(Utils.SETTINGS_PACKAGE_NAME, callingAppPackageName)
                 && TextUtils.equals(Intent.ACTION_MAIN, action)) {
             String sourceCategory =
@@ -139,18 +145,20 @@ public class ConnectedDeviceDashboardFragment extends DashboardFragment {
                             : "";
             mMetricsFeatureProvider.action(
                     context,
-                    SettingsEnums.SETTINGS_CONNECTED_DEVICES_ENTRYPOINT,
+                    SettingsEnums.ACTION_OPEN_SETTINGS_CONNECTED_DEVICES,
                     ENTRYPOINT_SETTINGS + "_" + sourceCategory);
         } else if (TextUtils.equals(Utils.SETTINGS_PACKAGE_NAME, callingAppPackageName)
                 && TextUtils.equals(SETTINGS_SEARCH_ACTION, action)) {
             mMetricsFeatureProvider.action(
                     context,
-                    SettingsEnums.SETTINGS_CONNECTED_DEVICES_ENTRYPOINT,
+                    SettingsEnums.ACTION_OPEN_SETTINGS_CONNECTED_DEVICES,
                     ENTRYPOINT_SETTINGS_SEARCH);
 
         } else {
             mMetricsFeatureProvider.action(
-                    context, SettingsEnums.SETTINGS_CONNECTED_DEVICES_ENTRYPOINT, ENTRYPOINT_OTHER);
+                    context,
+                    SettingsEnums.ACTION_OPEN_SETTINGS_CONNECTED_DEVICES,
+                    ENTRYPOINT_OTHER);
         }
     }
 

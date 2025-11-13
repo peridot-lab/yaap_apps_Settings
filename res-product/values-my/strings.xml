@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"သင့်ဖုန်းကို လော့ခ်မဖွင့်ဘဲ"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"သင့်တက်ဘလက်ကို လော့ခ်မဖွင့်ဘဲ"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"သင့်စက်ပစ္စည်းကို မဖွင့်ဘဲ"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"ဤဖုန်းအတွက် သတ်မှတ်ချက်များ"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"ဤတက်ဘလက်အတွက် သတ်မှတ်ချက်များ"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"ဤစက်အတွက် သတ်မှတ်ချက်များ"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"သင့်ဖုန်းကို အလျားလိုက်နှင့် ဒေါင်လိုက် ပြောင်းသောအခါ"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"သင့်တက်ဘလက်ကို အလျားလိုက်နှင့် ဒေါင်လိုက် ပြောင်းသောအခါ"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"သင့်စက်ပစ္စည်းကို ဒေါင်လိုက်နှင့် အလျားလိုက် ပြောင်းချိန်"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"အသံစတင်မျှဝေရန် LE Audio နားကြပ်ကို သင့်တက်ဘလက်နှင့် ဦးစွာ ချိတ်ဆက်ပါ။ "<annotation id="link">"တွဲဖက်သုံးနိုင်သည့် စက်ပစ္စည်းများအကြောင်း ပိုမိုလေ့လာရန်"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"အသံစတင်မျှဝေရန် LE Audio နားကြပ်ကို သင့်စက်ပစ္စည်းနှင့် ဦးစွာ ချိတ်ဆက်ပါ။ "<annotation id="link">"တွဲဖက်သုံးနိုင်သည့် စက်ပစ္စည်းများအကြောင်း ပိုမိုလေ့လာရန်"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"အသံစတင်မျှဝေရန် LE Audio နားကြပ်ကို သင့်စက်ပစ္စည်းနှင့် ဦးစွာ ချိတ်ဆက်ပါ။ "<annotation id="link">"တွဲဖက်သုံးနိုင်သည့် စက်ပစ္စည်းများအကြောင်း ပိုမိုလေ့လာရန်"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"မိုဘိုင်း၊ Wi‑Fi၊ ဟော့စပေါ့"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi၊ မိုဘိုင်း၊ ဟော့စပေါ့"</string>
 </resources>

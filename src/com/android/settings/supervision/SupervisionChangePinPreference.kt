@@ -15,24 +15,40 @@
  */
 package com.android.settings.supervision
 
+import android.app.settings.SettingsEnums.ACTION_SUPERVISION_CHANGE_PIN
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import com.android.settings.R
+import com.android.settings.metrics.PreferenceActionMetricsProvider
 import com.android.settingslib.metadata.PreferenceMetadata
+import com.android.settingslib.supervision.SupervisionLog.TAG
 
 /**
  * Setting on PIN Management screen (Settings > Supervision > Manage Pin) that invokes the flow to
  * update the existing device supervision PIN.
  */
-class SupervisionChangePinPreference : PreferenceMetadata {
+class SupervisionChangePinPreference : PreferenceMetadata, PreferenceActionMetricsProvider {
+
     override val key: String
-        get() = "supervision_change_pin"
+        get() = KEY
 
     override val title: Int
         get() = R.string.supervision_change_pin_preference_title
 
+    override val preferenceActionMetrics: Int
+        get() = ACTION_SUPERVISION_CHANGE_PIN
+
     override fun intent(context: Context): Intent? {
-        // TODO(b/393450922): implement handling of change pin intent.
-        return super.intent(context)
+        if (!context.isSupervisingCredentialSet) {
+            Log.w(TAG, "Supervising credential not set")
+            return null
+        }
+
+        return Intent(context, SupervisionCredentialProxyActivity::class.java)
+    }
+
+    companion object {
+        const val KEY = "supervision_change_pin"
     }
 }

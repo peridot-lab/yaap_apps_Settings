@@ -309,10 +309,24 @@ public class ChooseLockGenericTest {
     }
 
     @Test
-    @EnableFlags(Flags.FLAG_MANDATORY_BIOMETRICS)
     public void onActivityResult_requestcode100_shouldLaunchBiometricPrompt() {
         initActivity(null);
         mShadowBiometricManager.setCanAuthenticate(true);
+
+        mFragment.onActivityResult(
+                ChooseLockGenericFragment.CONFIRM_EXISTING_REQUEST,
+                Activity.RESULT_OK, null /* data */);
+
+        assertThat(mActivity.isFinishing()).isFalse();
+        assertThat(mShadowActivity.getNextStartedActivity().getComponent().getClassName())
+                .isEqualTo(ConfirmDeviceCredentialActivity.class.getName());
+    }
+
+    @Test
+    @EnableFlags(Flags.FLAG_BP_FALLBACK_OPTIONS)
+    public void onActivityResult_requestcode100_biometricError_shouldLaunchBiometricPrompt() {
+        initActivity(null);
+        mShadowBiometricManager.setCanAuthenticate(false);
 
         mFragment.onActivityResult(
                 ChooseLockGenericFragment.CONFIRM_EXISTING_REQUEST,

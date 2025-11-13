@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.UserManager;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
@@ -54,6 +55,7 @@ import ink.kscope.settings.wifi.tether.WifiTetherClientManagerPreferenceControll
 import java.util.ArrayList;
 import java.util.List;
 
+// LINT.IfChange
 @SearchIndexable
 public class WifiTetherSettings extends RestrictedDashboardFragment
         implements WifiTetherBasePreferenceController.OnTetherConfigUpdateListener {
@@ -349,6 +351,11 @@ public class WifiTetherSettings extends RestrictedDashboardFragment
         use(WifiTetherMaximizeCompatibilityPreferenceController.class).updateDisplay();
     }
 
+    @Override
+    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
+        return WifiHotspotScreen.KEY;
+    }
+
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new SearchIndexProvider(R.xml.wifi_tether_settings);
 
@@ -449,3 +456,4 @@ public class WifiTetherSettings extends RestrictedDashboardFragment
         }
     }
 }
+// LINT.ThenChange(WifiHotspotScreen.kt)

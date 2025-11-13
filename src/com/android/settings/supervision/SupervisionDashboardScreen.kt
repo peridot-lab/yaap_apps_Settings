@@ -15,12 +15,22 @@
  */
 package com.android.settings.supervision
 
+import android.app.settings.SettingsEnums
 import android.app.supervision.flags.Flags
 import android.content.Context
+import android.content.Intent
+import androidx.fragment.app.Fragment
 import com.android.settings.R
+import com.android.settings.core.PreferenceScreenMixin
+import com.android.settings.supervision.ipc.SupervisionMessengerClient
+import com.android.settings.utils.highlightPreference
+import com.android.settingslib.metadata.PreferenceLifecycleContext
+import com.android.settingslib.metadata.PreferenceLifecycleProvider
+import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
-import com.android.settingslib.preference.PreferenceScreenCreator
+import com.android.settingslib.widget.UntitledPreferenceCategoryMetadata
+import kotlinx.coroutines.CoroutineScope
 
 /**
  * Supervision settings landing page (Settings > Supervision).
@@ -33,7 +43,8 @@ import com.android.settingslib.preference.PreferenceScreenCreator
  * 3. Entry point to supervision PIN management settings page.
  */
 @ProvidePreferenceScreen(SupervisionDashboardScreen.KEY)
-class SupervisionDashboardScreen : PreferenceScreenCreator {
+open class SupervisionDashboardScreen : PreferenceScreenMixin, PreferenceLifecycleProvider {
+    private var supervisionClient: SupervisionMessengerClient? = null
 
     override fun isFlagEnabled(context: Context) = Flags.enableSupervisionSettingsScreen()
 
@@ -52,16 +63,42 @@ class SupervisionDashboardScreen : PreferenceScreenCreator {
     override val keywords: Int
         get() = R.string.keywords_supervision_settings
 
-    override fun fragmentClass() = SupervisionDashboardFragment::class.java
+    override fun fragmentClass(): Class<out Fragment>? = SupervisionDashboardFragment::class.java
 
-    override fun getPreferenceHierarchy(context: Context) =
-        preferenceHierarchy(context, this) {
-            +SupervisionMainSwitchPreference(context)
-            +TitlelessPreferenceGroup(SUPERVISION_DYNAMIC_GROUP_1) += {
-                +SupervisionWebContentFiltersScreen.KEY
+    override fun getMetricsCategory() = SettingsEnums.SUPERVISION_DASHBOARD
+
+    override val highlightMenuKey: Int
+        get() = R.string.menu_key_supervision
+
+    override fun onDestroy(context: PreferenceLifecycleContext) {
+        supervisionClient?.close()
+    }
+
+    override fun isIndexable(context: Context) = true
+
+    override fun hasCompleteHierarchy() = true
+
+    override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
+        preferenceHierarchy(context) {
+            val supervisionClient = getSupervisionClient(context)
+            +SupervisionMainSwitchPreference(context, supervisionClient) order -200
+            +UntitledPreferenceCategoryMetadata(SUPERVISION_DYNAMIC_GROUP_1) order -100 += {
+                +SupervisionWebContentFiltersScreen.KEY order 100
             }
-            +SupervisionPinManagementScreen.KEY
+            +UntitledPreferenceCategoryMetadata("pin_management_group") order 100 += {
+                +SupervisionPinManagementScreen.KEY order 10
+            }
+            +UntitledPreferenceCategoryMetadata("footer_group") order 300 += {
+                +SupervisionPromoFooterPreference(supervisionClient) order 30
+                +SupervisionAocFooterPreference(supervisionClient) order 40
+            }
         }
+
+    override fun getLaunchIntent(context: Context, metadata: PreferenceMetadata?) =
+        Intent("android.settings.SUPERVISION_SETTINGS").apply { highlightPreference(metadata?.key) }
+
+    private fun getSupervisionClient(context: Context) =
+        supervisionClient ?: SupervisionMessengerClient(context).also { supervisionClient = it }
 
     companion object {
         const val KEY = "top_level_supervision"

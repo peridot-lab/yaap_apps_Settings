@@ -28,10 +28,15 @@ import android.view.WindowManager;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.widget.LabeledSeekBarPreference;
 import com.android.settings.widget.SeekBarPreference;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.ButtonPreference;
+import com.android.settingslib.widget.SliderPreference;
+
+import com.google.android.material.slider.Slider;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * A fragment to include all the settings related to Gesture Navigation mode.
@@ -84,9 +89,9 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
         mBackGestureInsetScales = getFloatArray(res.obtainTypedArray(
                 com.android.internal.R.array.config_backGestureInsetScales));
 
-        initSeekBarPreference(LEFT_EDGE_SEEKBAR_KEY);
-        initSeekBarPreference(RIGHT_EDGE_SEEKBAR_KEY);
-        initSeekBarPreference(KEY_BACK_HEIGHT);
+        initSliderPreference(LEFT_EDGE_SEEKBAR_KEY);
+        initSliderPreference(RIGHT_EDGE_SEEKBAR_KEY);
+        initSliderPreference(KEY_BACK_HEIGHT);
         initTutorialButton();
     }
 
@@ -146,10 +151,11 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
                 && mLaunchTutorialIntent.resolveActivity(context.getPackageManager()) != null;
     }
 
-    private void initSeekBarPreference(final String key) {
-        final LabeledSeekBarPreference pref = getPreferenceScreen().findPreference(key);
-        pref.setContinuousUpdates(true);
+    private void initSliderPreference(final String key) {
+        final SliderPreference pref = getPreferenceScreen().findPreference(key);
+        pref.setUpdatesContinuously(true);
         pref.setHapticFeedbackMode(SeekBarPreference.HAPTIC_FEEDBACK_MODE_ON_TICKS);
+        pref.setSliderIncrement(1);
 
         final String settingsKey = key == LEFT_EDGE_SEEKBAR_KEY ?
                 Settings.Secure.BACK_GESTURE_INSET_SCALE_LEFT
@@ -185,17 +191,15 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
                 minDistanceIndex = i;
             }
         }
-        pref.setProgress(minDistanceIndex);
-
+        pref.setValue(minDistanceIndex);
+        pref.setSliderStateDescription(formatStateDescription(pref, minDistanceIndex));
         pref.setOnPreferenceChangeListener((p, v) -> {
             if (key != KEY_BACK_HEIGHT) {
                 final int width = (int) (mDefaultBackGestureInset * mBackGestureInsetScales[(int) v]);
                 mIndicatorView.setIndicatorWidth(width, key == LEFT_EDGE_SEEKBAR_KEY);
-                if (key == LEFT_EDGE_SEEKBAR_KEY) {
-                    mCurrentLeftWidth = width;
-                } else {
-                    mCurrentRightWidth = width;
-                }
+                final float scale = mBackGestureInsetScales[(int) v];
+                Settings.Secure.putFloat(getContext().getContentResolver(), settingsKey, scale);
+                pref.setSliderStateDescription(formatStateDescription(pref, (int) v));
             } else {
                 final int heightScale = (int) (mBackGestureInsetScales[(int) v]);
                 mIndicatorView.setIndicatorHeightScale(heightScale);
@@ -210,18 +214,38 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
             return true;
         });
 
-        pref.setOnPreferenceChangeStopListener((p, v) -> {
-            final float scale = mBackGestureInsetScales[(int) v];
-            if (key == KEY_BACK_HEIGHT) {
-                mIndicatorView.setIndicatorWidth(0, false);
-                mIndicatorView.setIndicatorWidth(0, true);
-                Settings.System.putInt(getContext().getContentResolver(), settingsKey, (int) scale);
-            } else {
-                mIndicatorView.setIndicatorWidth(0, key == LEFT_EDGE_SEEKBAR_KEY);
-                Settings.Secure.putFloat(getContext().getContentResolver(), settingsKey, scale);
+        pref.setExtraTouchListener(new Slider.OnSliderTouchListener() {
+            @Override
+            public void onStartTrackingTouch(Slider slider) {}
+
+            @Override
+            public void onStopTrackingTouch(Slider slider) {
+                final float scale = mBackGestureInsetScales[(int) slider.getValue()];
+                if (key == KEY_BACK_HEIGHT) {
+                    mIndicatorView.setIndicatorWidth(0, false);
+                    mIndicatorView.setIndicatorWidth(0, true);
+                    Settings.System.putInt(getContext().getContentResolver(), settingsKey, (int) scale);
+                } else {
+                    mIndicatorView.setIndicatorWidth(0, key == LEFT_EDGE_SEEKBAR_KEY);
+                    Settings.Secure.putFloat(getContext().getContentResolver(), settingsKey, scale);
+                }
             }
-            return true;
         });
+    }
+
+    private CharSequence formatStateDescription(SliderPreference pref, int progress) {
+        Locale curLocale = getContext().getResources().getConfiguration().getLocales().get(0);
+        NumberFormat numberFormat = NumberFormat.getPercentInstance(curLocale);
+        return numberFormat.format(getPercent(pref.getMin(), pref.getMax(), progress));
+    }
+
+    private double getPercent(int min, int max, int progress) {
+        final float diffProgress = max - min;
+        if (diffProgress <= 0.0f) {
+            return 0.0f;
+        }
+        final float percent = (progress - min) / diffProgress;
+        return Math.floor(Math.max(0.0f, Math.min(1.0f, percent)) * 100) / 100;
     }
 
     private static float[] getFloatArray(TypedArray array) {

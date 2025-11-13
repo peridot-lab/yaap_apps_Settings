@@ -36,6 +36,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.graphics.drawable.Drawable;
 import android.icu.text.ListFormatter;
 import android.net.Uri;
 import android.os.Bundle;
@@ -52,6 +53,7 @@ import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.recyclerview.widget.RecyclerView;
@@ -68,11 +70,11 @@ import com.android.settings.accessibility.PreferredShortcuts;
 import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settingslib.widget.SettingsThemeHelper;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifPreferenceLayout;
-import com.google.android.setupdesign.util.ThemeHelper;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -204,6 +206,16 @@ public class EditShortcutsPreferenceFragment extends DashboardFragment {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         super.onCreatePreferences(savedInstanceState, rootKey);
 
+        // Expand to show the Triple Tap shortcut if the user already has that shortcut enabled.
+        // This shortcut affects touch responsiveness so we want to ensure that the user sees that
+        // the shortcut is enabled without requiring them to manually expand it.
+        TripleTapShortcutOptionController tripleTapShortcutOptionController =
+                use(TripleTapShortcutOptionController.class);
+        if (tripleTapShortcutOptionController.isShortcutAvailable()
+                && tripleTapShortcutOptionController.isChecked()) {
+            onExpanded();
+        }
+
         Activity activity = getActivity();
         final Preference descriptionPref = findPreference(getString(
                 R.string.accessibility_shortcut_description_pref));
@@ -229,7 +241,7 @@ public class EditShortcutsPreferenceFragment extends DashboardFragment {
 
         activity.setTitle(titles.first);
         if (titles.second != null || !Flags.toggleFeatureFragmentCollectionInfo()) {
-            descriptionPref.setSummary(titles.second);
+            descriptionPref.setTitle(titles.second);
         } else {
             descriptionPref.setVisible(false);
         }
@@ -250,7 +262,7 @@ public class EditShortcutsPreferenceFragment extends DashboardFragment {
 
     @Override
     protected RecyclerView.Adapter onCreateAdapter(PreferenceScreen preferenceScreen) {
-        if (ThemeHelper.shouldApplyGlifExpressiveStyle(getContext())
+        if (SettingsThemeHelper.isExpressiveTheme(requireContext())
                 && WizardManagerHelper.isAnySetupWizard(getIntent())) {
             return new PreferenceAdapterInSuw(preferenceScreen);
         }
@@ -268,8 +280,10 @@ public class EditShortcutsPreferenceFragment extends DashboardFragment {
             if (intent != null) {
                 title = intent.getStringExtra(EXTRA_SHOW_FRAGMENT_TITLE);
             }
+            final Drawable icon = AppCompatResources.getDrawable(requireContext(),
+                    R.drawable.ic_accessibility_visibility);
             AccessibilitySetupWizardUtils.updateGlifPreferenceLayout(getContext(), layout, title,
-                    /* description= */ null, /* icon= */ null);
+                    /* description= */ null, icon);
 
             FooterBarMixin mixin = layout.getMixin(FooterBarMixin.class);
             AccessibilitySetupWizardUtils.setPrimaryButton(getContext(), mixin, R.string.done,

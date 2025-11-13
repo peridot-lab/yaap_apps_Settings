@@ -15,17 +15,15 @@
  */
 package com.android.settings.core;
 
-import static android.text.Layout.HYPHENATION_FREQUENCY_NORMAL_FAST;
-
 import android.annotation.LayoutRes;
+import android.app.ActionBar;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.content.res.TypedArray;
-import android.graphics.text.LineBreakConfig;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,27 +34,33 @@ import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.FragmentActivity;
 
 import com.android.settings.R;
 import com.android.settings.SubSettings;
 import com.android.settings.Utils;
 import com.android.settings.core.CategoryMixin.CategoryHandler;
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarDelegate;
+import com.android.settingslib.collapsingtoolbar.FloatingToolbarHandler;
+import com.android.settingslib.collapsingtoolbar.widget.ScrollableToolbarItemLayout;
 import com.android.settingslib.core.lifecycle.HideNonSystemOverlayMixin;
 import com.android.settingslib.transition.SettingsTransitionHelper.TransitionType;
+import com.android.settingslib.widget.ExpressiveDesignEnabledProvider;
 import com.android.settingslib.widget.SettingsThemeHelper;
-import com.android.window.flags.Flags;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingtoolbar.FloatingToolbarLayout;
 import com.google.android.material.resources.TextAppearanceConfig;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.transition.TransitionHelper;
 import com.google.android.setupdesign.util.ThemeHelper;
 
+import java.util.List;
+
 /** Base activity for Settings pages */
-public class SettingsBaseActivity extends FragmentActivity implements CategoryHandler {
+public class SettingsBaseActivity extends FragmentActivity implements CategoryHandler,
+        FloatingToolbarHandler, ExpressiveDesignEnabledProvider {
 
     /**
      * What type of page transition should be apply.
@@ -66,18 +70,22 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
     protected static final boolean DEBUG_TIMING = false;
     private static final String TAG = "SettingsBaseActivity";
     private static final int DEFAULT_REQUEST = -1;
-    private static final float TOOLBAR_LINE_SPACING_MULTIPLIER = 1.1f;
 
     private static final int EXPRESSIVE_LAYOUT_ID =
             com.android.settingslib.collapsingtoolbar.R.layout.settingslib_expressive_collapsing_toolbar_base_layout;
     private static final int COLLAPSING_LAYOUT_ID =
             com.android.settingslib.collapsingtoolbar.R.layout.collapsing_toolbar_base_layout;
 
+    private static final String SETUPWIZARD_THEME_PROP = "setupwizard.theme";
+    private static final String SETUPWIZARD_THEME_PREFIX = "glif_expressive";
+
 
     protected CategoryMixin mCategoryMixin;
     protected CollapsingToolbarLayout mCollapsingToolbarLayout;
     protected AppBarLayout mAppBarLayout;
     private Toolbar mToolbar;
+
+    private CollapsingToolbarDelegate mToolbardelegate;
 
     @Override
     public CategoryMixin getCategoryMixin() {
@@ -90,6 +98,18 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
         if (isAnySetupWizard) {
             TransitionHelper.applyForwardTransition(this);
             TransitionHelper.applyBackwardTransition(this);
+
+            // Apply SetupWizard light theme during setup flow. This is for SubSettings pages.
+            if (this instanceof SubSettings) {
+                // setTheme needs to be called before inflating any views (e.g. before calling
+                // super.onCreate)
+                if (SettingsThemeHelper.isExpressiveTheme(this)) {
+                    setTheme(R.style.SettingsPreferenceTheme_SetupWizard_Expressive);
+                } else {
+                    setTheme(R.style.SettingsPreferenceTheme_SetupWizard);
+                }
+                ThemeHelper.trySetSuwTheme(this);
+            }
         }
         super.onCreate(savedInstanceState);
         if (isFinishing()) {
@@ -100,7 +120,7 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
             finish();
         }
         final long startTime = System.currentTimeMillis();
-        if (Flags.enforceEdgeToEdge()) {
+        if (!isAnySetupWizard) {
             Utils.setupEdgeToEdge(this);
             hideInternalActionBar();
         }
@@ -114,11 +134,6 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
         if (!theme.getBoolean(android.R.styleable.Theme_windowNoTitle, false)) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
         }
-        // Apply SetupWizard light theme during setup flow. This is for SubSettings pages.
-        if (isAnySetupWizard && this instanceof SubSettings) {
-            setTheme(R.style.SettingsPreferenceTheme_SetupWizard);
-            ThemeHelper.trySetSuwTheme(this);
-        }
 
         if (isToolbarEnabled() && !isAnySetupWizard) {
             int resId = SettingsThemeHelper.isExpressiveTheme(getApplicationContext())
@@ -127,19 +142,13 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
             mCollapsingToolbarLayout =
                     findViewById(com.android.settingslib.collapsingtoolbar.R.id.collapsing_toolbar);
             mAppBarLayout = findViewById(R.id.app_bar);
-            if (mCollapsingToolbarLayout != null) {
-                mCollapsingToolbarLayout.setLineSpacingMultiplier(TOOLBAR_LINE_SPACING_MULTIPLIER);
-                mCollapsingToolbarLayout.setHyphenationFrequency(HYPHENATION_FREQUENCY_NORMAL_FAST);
-                mCollapsingToolbarLayout.setStaticLayoutBuilderConfigurer(builder ->
-                        builder.setLineBreakConfig(
-                                new LineBreakConfig.Builder()
-                                        .setLineBreakWordStyle(
-                                                LineBreakConfig.LINE_BREAK_WORD_STYLE_PHRASE)
-                                        .build()));
-            }
-            autoSetCollapsingToolbarLayoutScrolling();
+            getToolbarDelegate().initCollapsingToolbar(mCollapsingToolbarLayout, mAppBarLayout);
         } else {
             super.setContentView(R.layout.settings_base_layout);
+        }
+
+        if (isAnySetupWizard) {
+            findViewById(R.id.content_parent).setFitsSystemWindows(false);
         }
 
         // This is to hide the toolbar from those pages which don't need a toolbar originally.
@@ -149,6 +158,10 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
             return;
         }
         setActionBar(toolbar);
+
+        FloatingToolbarLayout toolbarLayout = findViewById(
+                com.android.settingslib.collapsingtoolbar.R.id.floating_toolbar);
+        getToolbarDelegate().initFloatingToolbar(getApplicationContext(), toolbarLayout);
 
         if (DEBUG_TIMING) {
             Log.d(TAG, "onCreate took " + (System.currentTimeMillis() - startTime) + " ms");
@@ -276,25 +289,6 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
         return false;
     }
 
-    private void autoSetCollapsingToolbarLayoutScrolling() {
-        if (mAppBarLayout == null) {
-            return;
-        }
-        final CoordinatorLayout.LayoutParams params =
-                (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
-        final AppBarLayout.Behavior behavior = new AppBarLayout.Behavior();
-        behavior.setDragCallback(
-                new AppBarLayout.Behavior.DragCallback() {
-                    @Override
-                    public boolean canDrag(@NonNull AppBarLayout appBarLayout) {
-                        // Header can be scrolling while device in landscape mode.
-                        return appBarLayout.getResources().getConfiguration().orientation
-                                == Configuration.ORIENTATION_LANDSCAPE;
-                    }
-                });
-        params.setBehavior(behavior);
-    }
-
     private int getTransitionType(Intent intent) {
         if (intent == null) {
             return TransitionType.TRANSITION_NONE;
@@ -313,6 +307,55 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
                 findViewById(com.android.internal.R.id.action_bar_container);
         if (actionBarContainer != null) {
             actionBarContainer.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void setFloatingToolbarVisibility(boolean visible) {
+        getToolbarDelegate().setFloatingToolbarVisibility(visible);
+    }
+
+    @Override
+    public void setToolbarItems(@NonNull List<ScrollableToolbarItemLayout.ToolbarItem> items) {
+        getToolbarDelegate().setToolbarItems(items);
+    }
+
+    @Override
+    public void setOnItemSelectedListener(
+            @NonNull ScrollableToolbarItemLayout.OnItemSelectedListener listener) {
+        getToolbarDelegate().setOnItemSelectedListener(listener);
+    }
+
+    @Override
+    public void removeOnItemSelectedListener() {
+        getToolbarDelegate().removeOnItemSelectedListener();
+    }
+
+    private CollapsingToolbarDelegate getToolbarDelegate() {
+        if (mToolbardelegate == null) {
+            mToolbardelegate = new CollapsingToolbarDelegate(new EmptyDelegateCallback(), true);
+        }
+        return mToolbardelegate;
+    }
+
+    @Override
+    public boolean isExpressiveDesignEnabled() {
+        if (!WizardManagerHelper.isAnySetupWizard(getIntent())) {
+            return SettingsThemeHelper.isExpressiveDesignEnabled();
+        }
+
+        return SystemProperties.get(SETUPWIZARD_THEME_PROP).startsWith(SETUPWIZARD_THEME_PREFIX);
+    }
+
+    private class EmptyDelegateCallback implements CollapsingToolbarDelegate.HostCallback {
+        @Nullable
+        @Override
+        public ActionBar setActionBar(Toolbar toolbar) {
+            return null;
+        }
+
+        @Override
+        public void setOuterTitle(CharSequence title) {
         }
     }
 }

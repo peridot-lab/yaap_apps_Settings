@@ -291,7 +291,7 @@
     <string name="bluetooth_unpair_dialog_body" product="tablet" msgid="8098078685596880647">"Tu tablet se desvinculará de <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_unpair_dialog_body" product="device" msgid="563640675231461703">"Tu dispositivo se desvinculará de <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_unpair_dialog_body" product="desktop" msgid="563640675231461703">"Tu dispositivo se desvinculará de <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
-    <string name="bluetooth_unpair_dialog_with_associations_body" product="default" msgid="5994849277385675452">"Tu teléfono ya no estará emparejado con <xliff:g id="DEVICE_NAME">%1$s</xliff:g> <xliff:g id="APP_NAME">%2$s</xliff:g> ya no gestionará el dispositivo."</string>
+    <string name="bluetooth_unpair_dialog_with_associations_body" product="default" msgid="5994849277385675452">"Tu teléfono ya no estará emparejado con <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. <xliff:g id="APP_NAME">%2$s</xliff:g> ya no gestionará el dispositivo."</string>
     <string name="bluetooth_unpair_dialog_with_associations_body" product="tablet" msgid="1783141603173138886">"Tu tablet ya no estará emparejada con <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. <xliff:g id="APP_NAME">%2$s</xliff:g> ya no gestionará el dispositivo."</string>
     <string name="bluetooth_unpair_dialog_with_associations_body" product="device" msgid="4096203730149218837">"Tu dispositivo ya no estará emparejado con <xliff:g id="DEVICE_NAME">%1$s</xliff:g> <xliff:g id="APP_NAME">%2$s</xliff:g> ya no gestionará el dispositivo."</string>
     <string name="bluetooth_unpair_dialog_with_associations_body" product="desktop" msgid="4096203730149218837">"Tu dispositivo ya no estará emparejado con <xliff:g id="DEVICE_NAME">%1$s</xliff:g> <xliff:g id="APP_NAME">%2$s</xliff:g> ya no gestionará el dispositivo."</string>
@@ -386,7 +386,7 @@
     <string name="accessibility_daltonizer_about_intro_text" product="default" msgid="5234458848997942613">"Ajusta cómo se muestran los colores en tu teléfono"</string>
     <string name="accessibility_daltonizer_about_intro_text" product="tablet" msgid="5300401841391736534">"Ajusta cómo se muestran los colores en tu tablet"</string>
     <string name="accessibility_daltonizer_about_intro_text" product="desktop" msgid="8908526728447739478">"Ajusta el modo en que se muestran los colores en tu dispositivo"</string>
-    <string name="reduce_bright_colors_preference_summary" product="default" msgid="2025941326724094318">"Atenúa la pantalla más de lo que permite el ajuste de brillo mínimo del teléfono"</string>
+    <string name="reduce_bright_colors_preference_summary" product="default" msgid="2025941326724094318">"Atenúa la pantalla por debajo del brillo mínimo de tu teléfono"</string>
     <string name="reduce_bright_colors_preference_summary" product="tablet" msgid="3106979202311807559">"Atenúa la pantalla más de lo que permite el ajuste de brillo mínimo de la tablet"</string>
     <string name="reduce_bright_colors_preference_summary" product="desktop" msgid="7810358416215416035">"Atenúa la pantalla más de lo que permite el brillo mínimo del dispositivo"</string>
     <string name="reduce_bright_colors_preference_subtitle" product="default" msgid="9162440023310121356">"Atenuación extra puede ser de ayuda en estos casos: &lt;ol&gt; &lt;li&gt; El brillo mínimo predeterminado de tu teléfono sigue siendo demasiado brillante.&lt;/li&gt; &lt;li&gt; Estás usando el teléfono en la oscuridad; por ejemplo, porque es de noche o porque estás en una habitación a oscuras antes de dormir.&lt;/li&gt; &lt;/ol&gt;"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Sin desbloquear tu teléfono"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Sin desbloquear tu tablet"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Sin desbloquear tu dispositivo"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Controles para este teléfono"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Controles para esta tablet"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Controles para este dispositivo"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Cuando cambias el teléfono entre vertical y horizontal"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Cuando cambias la tablet entre vertical y horizontal"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Cuando cambias el dispositivo entre vertical y horizontal"</string>
@@ -494,7 +497,7 @@
     <string name="spatial_audio_speaker" product="tablet" msgid="5452617980485166854">"Altavoces de la tablet"</string>
     <string name="spatial_audio_speaker" product="device" msgid="6204289590128303795">"Altavoces del dispositivo"</string>
     <string name="spatial_audio_speaker" product="desktop" msgid="6204289590128303795">"Altavoces del dispositivo"</string>
-    <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"Los vídeos y la música de este teléfono se reproducirán en ambos auriculares"</string>
+    <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"Los vídeos y la música de este teléfono se reproducirán en ambos pares de auriculares"</string>
     <string name="audio_sharing_dialog_share_content" product="tablet" msgid="3459594795397910145">"Los vídeos y la música de esta tablet se reproducirán en ambos auriculares"</string>
     <string name="audio_sharing_dialog_share_content" product="device" msgid="1297019559878011896">"Los vídeos y la música de este dispositivo se reproducirán en ambos auriculares"</string>
     <string name="audio_sharing_dialog_share_content" product="desktop" msgid="1297019559878011896">"Los vídeos y la música de este dispositivo se reproducirán en ambos auriculares"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Para empezar a compartir audio, primero conecta unos auriculares compatibles con LE Audio a tu tablet. "<annotation id="link">"Más información sobre los dispositivos compatibles"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Para empezar a compartir audio, primero conecta unos auriculares compatibles con LE Audio a tu dispositivo. "<annotation id="link">"Más información sobre los dispositivos compatibles"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Para empezar a compartir audio, primero conecta unos auriculares compatibles con LE Audio a tu dispositivo. "<annotation id="link">"Más información sobre los dispositivos compatibles"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Datos móviles, Wi‑Fi, Compartir Internet"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi, datos móviles, punto de acceso"</string>
 </resources>

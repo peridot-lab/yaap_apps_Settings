@@ -194,7 +194,7 @@
     <string name="security_settings_sfps_enroll_find_sensor_message" product="desktop" msgid="6270657720916140548">"Je vindt de vingerafdruksensor onder de aan/uit-knop. Het is de platte knop naast de verhoogde volumeknop aan de zijkant van de desktop."</string>
     <string name="security_settings_fingerprint_enroll_finish_v2_message" product="tablet" msgid="2012126789397819713">"Je kunt nu je vingerafdruk gebruiken om je tablet te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt"</string>
     <string name="security_settings_fingerprint_enroll_finish_v2_message" product="device" msgid="7119860465479161782">"Je kunt nu je vingerafdruk gebruiken om je apparaat te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt"</string>
-    <string name="security_settings_fingerprint_enroll_finish_v2_message" product="default" msgid="8255422287180693200">"Je kunt nu je vingerafdruk gebruiken om je telefoon te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt."</string>
+    <string name="security_settings_fingerprint_enroll_finish_v2_message" product="default" msgid="8255422287180693200">"Je kunt nu je vingerafdruk gebruiken om je telefoon te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt"</string>
     <string name="security_settings_fingerprint_enroll_finish_v2_message" product="desktop" msgid="7119860465479161782">"Je kunt nu je vingerafdruk gebruiken om je apparaat te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt"</string>
     <string name="security_settings_fingerprint_enroll_finish_v2_add_fingerprint_message" product="tablet" msgid="7814892482046294464">"Je kunt nu je vingerafdruk gebruiken om je tablet te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt. \n\nVoeg nog een vingerafdruk toe om de tablet makkelijker te ontgrendelen als je die op verschillende manieren vasthoudt."</string>
     <string name="security_settings_fingerprint_enroll_finish_v2_add_fingerprint_message" product="device" msgid="8418220207105495988">"Je kunt nu je vingerafdruk gebruiken om je apparaat te ontgrendelen of te laten verifiëren dat jij het bent, bijvoorbeeld als je inlogt bij apps of een aankoop goedkeurt.\n\nVoeg nog een vingerafdruk toe om het apparaat makkelijker te ontgrendelen als je het op verschillende manieren vasthoudt."</string>
@@ -379,7 +379,7 @@
     <string name="runningservicedetails_stop_dlg_text" product="deskktop" msgid="7348478178049461009">"Als je deze service stopt, werken bepaalde functies van je apparaat mogelijk pas weer correct nadat je het apparaat hebt uitgezet en weer aangezet."</string>
     <string name="testing_phone_info" product="tablet" msgid="8267746802132630741">"Tabletinformatie"</string>
     <string name="testing_phone_info" product="default" msgid="7507506297352160191">"Telefooninformatie"</string>
-    <string name="testing_phone_info" product="desktop" msgid="3607717850300762272">"Apparaatgegevens"</string>
+    <string name="testing_phone_info" product="desktop" msgid="3607717850300762272">"Apparaat­gegevens"</string>
     <string name="accessibility_text_reading_confirm_dialog_message" product="default" msgid="1773409172676594981">"Je voorkeuren voor weergavegrootte en tekst worden gereset naar de oorspronkelijke instellingen van de telefoon"</string>
     <string name="accessibility_text_reading_confirm_dialog_message" product="tablet" msgid="2547948891207211388">"Je voorkeuren voor weergavegrootte en tekst worden gereset naar de oorspronkelijke instellingen van de tablet"</string>
     <string name="accessibility_text_reading_confirm_dialog_message" product="desktop" msgid="4248088107680338580">"Je voorkeuren voor weergavegrootte en tekst worden gereset naar de oorspronkelijke instellingen van het apparaat"</string>
@@ -484,16 +484,19 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Zonder je telefoon te ontgrendelen"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Zonder je tablet te ontgrendelen"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Zonder je apparaat te ontgrendelen"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Bediening voor deze telefoon"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Bediening voor deze tablet"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Bediening voor dit apparaat"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Als je je telefoon wisselt tussen de staande en liggende modus"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Als je wisselt tussen de staande en liggende tabletmodus"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Als je je apparaat wisselt tussen de staande en liggende modus"</string>
     <string name="daltonizer_feature_summary" product="default" msgid="3940653889277283702">"Pas aan hoe kleuren worden getoond op je telefoon"</string>
     <string name="daltonizer_feature_summary" product="tablet" msgid="4006596881671077623">"Pas aan hoe kleuren worden getoond op je tablet"</string>
     <string name="daltonizer_feature_summary" product="desktop" msgid="7614721768727080567">"Pas aan hoe kleuren worden getoond op je apparaat"</string>
-    <string name="spatial_audio_speaker" product="default" msgid="7148176677982615792">"telefoonspeakers"</string>
-    <string name="spatial_audio_speaker" product="tablet" msgid="5452617980485166854">"tabletspeakers"</string>
-    <string name="spatial_audio_speaker" product="device" msgid="6204289590128303795">"apparaatspeakers"</string>
-    <string name="spatial_audio_speaker" product="desktop" msgid="6204289590128303795">"apparaatspeakers"</string>
+    <string name="spatial_audio_speaker" product="default" msgid="7148176677982615792">"Telefoonspeakers"</string>
+    <string name="spatial_audio_speaker" product="tablet" msgid="5452617980485166854">"Tabletspeakers"</string>
+    <string name="spatial_audio_speaker" product="device" msgid="6204289590128303795">"Apparaatspeakers"</string>
+    <string name="spatial_audio_speaker" product="desktop" msgid="6204289590128303795">"Apparaatspeakers"</string>
     <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"De muziek en video\'s op deze telefoon worden op beide koptelefoons afgespeeld"</string>
     <string name="audio_sharing_dialog_share_content" product="tablet" msgid="3459594795397910145">"De muziek en video\'s van deze tablet worden op beide koptelefoons afgespeeld"</string>
     <string name="audio_sharing_dialog_share_content" product="device" msgid="1297019559878011896">"De muziek en video\'s van dit apparaat worden op beide koptelefoons afgespeeld"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Als je audio wilt delen, verbind je eerst een LE Audio-koptelefoon met je tablet. "<annotation id="link">"Meer informatie over compatibele apparaten"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Als je audio wilt delen, verbind je eerst een LE Audio-koptelefoon met je apparaat. "<annotation id="link">"Meer informatie over compatibele apparaten"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Als je audio wilt delen, verbind je eerst een LE Audio-koptelefoon met je apparaat. "<annotation id="link">"Meer informatie over compatibele apparaten"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Mobiel, wifi, hotspot"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wifi, mobiel, hotspot"</string>
 </resources>

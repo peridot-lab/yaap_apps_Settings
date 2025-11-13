@@ -17,9 +17,9 @@
 package com.android.settings;
 
 import static android.provider.Settings.ACTION_PRIVACY_SETTINGS;
+import static android.provider.Settings.EXTRA_AUTOMATIC_ZEN_RULE_ID;
+import static android.service.notification.ZenModeConfig.MANUAL_RULE_ID;
 
-import android.annotation.FlaggedApi;
-import android.app.Flags;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,13 +30,21 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.settings.accessibility.VibrationIntensityScreen;
+import com.android.settings.accessibility.VibrationIntensitySettingsFragment;
+import com.android.settings.accessibility.VibrationScreen;
+import com.android.settings.accessibility.VibrationSettings;
+import com.android.settings.applications.AppStorageSettings;
 import com.android.settings.biometrics.face.FaceSettings;
 import com.android.settings.communal.CommunalPreferenceController;
+import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionScreen;
 import com.android.settings.enterprise.EnterprisePrivacySettings;
 import com.android.settings.network.MobileNetworkIntentConverter;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.safetycenter.SafetyCenterManagerWrapper;
 import com.android.settings.security.SecuritySettingsFeatureProvider;
+import com.android.settings.spa.app.catalyst.AppInfoStorageScreen;
+import com.android.settings.system.ShadePanelsPreferenceController;
 import com.android.settings.wifi.WifiUtils;
 
 import com.google.android.setupdesign.util.ThemeHelper;
@@ -97,8 +105,11 @@ public class Settings extends SettingsActivity {
     }
     public static class InputMethodAndSubtypeEnablerActivity extends SettingsActivity { /* empty */ }
     public static class SpellCheckersSettingsActivity extends SettingsActivity { /* empty */ }
+    /** Activity for the language settings. */
     public static class LocalePickerActivity extends SettingsActivity { /* empty */ }
     public static class LanguageSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class SystemLanguageSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AppLanguageSettingsActivity extends SettingsActivity { /* empty */ }
     /** Activity for the regional preferences settings. */
     public static class RegionSettingsActivity extends SettingsActivity { /* empty */ }
     public static class RegionalPreferencesActivity extends SettingsActivity { /* empty */ }
@@ -109,6 +120,16 @@ public class Settings extends SettingsActivity {
     public static class KeyboardSettingsActivity extends SettingsActivity { /* empty */ }
     /** Activity for the navigation mode settings. */
     public static class NavigationModeSettingsActivity extends SettingsActivity { /* empty */ }
+    /** Activity for the notifications and quick settings panels settings. */
+    public static class ShadeSettingsActivity extends SettingsActivity {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            if (!ShadePanelsPreferenceController.isDualShadeAvailable(this)) {
+                finish();
+            }
+        }
+    }
     public static class UserDictionarySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DarkThemeSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplaySettingsActivity extends SettingsActivity { /* empty */ }
@@ -116,10 +137,19 @@ public class Settings extends SettingsActivity {
     public static class NightDisplaySuggestionActivity extends NightDisplaySettingsActivity { /* empty */ }
     public static class SmartAutoRotateSettingsActivity extends SettingsActivity { /* empty */ }
     public static class MyDeviceInfoActivity extends SettingsActivity { /* empty */ }
+    public static class FirmwareVersionActivity extends CatalystSettingsActivity {
+        public FirmwareVersionActivity() {
+            super(FirmwareVersionScreen.KEY);
+        }
+    }
     public static class ModuleLicensesActivity extends SettingsActivity { /* empty */ }
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
-    public static class AppStorageSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AppStorageSettingsActivity extends CatalystSettingsActivity {
+        public AppStorageSettingsActivity() {
+            super(AppInfoStorageScreen.KEY, AppStorageSettings.class);
+        }
+    }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
     public static class HighPowerApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class BackgroundCheckSummaryActivity extends SettingsActivity { /* empty */ }
@@ -344,15 +374,29 @@ public class Settings extends SettingsActivity {
     public static class PaymentSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrintSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PrintJobSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class ZenModeSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class ZenModeAutomationSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class ZenModeScheduleRuleSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class ZenModeEventRuleSettingsActivity extends SettingsActivity { /* empty */ }
-    @FlaggedApi(Flags.FLAG_MODES_UI)
     public static class ModeSettingsActivity extends SettingsActivity { /* empty */ }
-    @FlaggedApi(Flags.FLAG_MODES_UI)
     public static class ModesSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class DndModeDisplaySettingsActivity extends SettingsActivity {
+        @Override
+        protected void onCreate(Bundle savedState) {
+            super.onCreate(savedState);
+            if (getIntent() != null && !TextUtils.equals(
+                    getIntent().getStringExtra(EXTRA_AUTOMATIC_ZEN_RULE_ID), MANUAL_RULE_ID)) {
+                finish();
+            }
+        }
+    }
     public static class SoundSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class VibrationSettingsActivity extends CatalystSettingsActivity {
+        public VibrationSettingsActivity() {
+            super(VibrationScreen.KEY, VibrationSettings.class);
+        }
+    }
+    public static class VibrationIntensitySettingsActivity extends CatalystSettingsActivity {
+        public VibrationIntensitySettingsActivity() {
+            super(VibrationIntensityScreen.KEY, VibrationIntensitySettingsFragment.class);
+        }
+    }
     public static class ConfigureNotificationSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ConversationListSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AppBubbleNotificationSettingsActivity extends SettingsActivity { /* empty */ }
@@ -540,6 +584,8 @@ public class Settings extends SettingsActivity {
     public static class ContentProtectionSettingsActivity extends SettingsActivity { /* empty */ }
     public static class MagnificationActivity extends SettingsActivity { /* empty */ }
     public static class FlashNotificationsActivity extends SettingsActivity { /* empty */ }
+
+    public static class NotificationBundlesActivity extends SettingsActivity { /* empty */ }
 
     public static class WirelessDebuggingActivity extends SettingsActivity { /* empty */ }
 

@@ -15,14 +15,18 @@
  */
 package com.android.settings.network
 
+import android.app.settings.SettingsEnums
 import android.content.Context
 import android.os.UserManager
 import android.telephony.SubscriptionInfo
 import android.telephony.SubscriptionManager
 import android.telephony.SubscriptionManager.OnSubscriptionsChangedListener
+import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.Preference.OnPreferenceClickListener
 import com.android.settings.R
+import com.android.settings.Settings
+import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.flags.Flags
 import com.android.settings.network.AirplaneModePreference.Companion.isAirplaneModeOn
 import com.android.settings.network.SatelliteRepository.Companion.isSatelliteOn
@@ -34,6 +38,7 @@ import com.android.settings.restriction.PreferenceRestrictionMixin
 import com.android.settings.spa.network.getAddSimIntent
 import com.android.settings.spa.network.startAddSimFlow
 import com.android.settings.spa.network.startSatelliteWarningDialogFlow
+import com.android.settings.utils.makeLaunchIntent
 import com.android.settingslib.RestrictedPreference
 import com.android.settingslib.datastore.HandlerExecutor
 import com.android.settingslib.datastore.KeyedObserver
@@ -46,11 +51,11 @@ import com.android.settingslib.metadata.PreferenceSummaryProvider
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
 import com.android.settingslib.preference.PreferenceBinding
-import com.android.settingslib.preference.PreferenceScreenCreator
+import kotlinx.coroutines.CoroutineScope
 
 @ProvidePreferenceScreen(MobileNetworkListScreen.KEY)
-class MobileNetworkListScreen :
-    PreferenceScreenCreator,
+open class MobileNetworkListScreen :
+    PreferenceScreenMixin,
     PreferenceBinding,
     PreferenceAvailabilityProvider,
     PreferenceSummaryProvider,
@@ -76,6 +81,8 @@ class MobileNetworkListScreen :
 
     override fun intent(context: Context) = getAddSimIntent()
 
+    override fun getMetricsCategory() = SettingsEnums.MOBILE_NETWORK_LIST
+
     override fun getSummary(context: Context): CharSequence? {
         val list = getSelectableSubscriptionInfoList(context)
         return when {
@@ -89,6 +96,9 @@ class MobileNetworkListScreen :
             else -> null
         }
     }
+
+    override fun getLaunchIntent(context: Context, metadata: PreferenceMetadata?) =
+        makeLaunchIntent(context, Settings.MobileNetworkListActivity::class.java, metadata?.key)
 
     override fun isAvailable(context: Context) =
         SimRepository(context).showMobileNetworkPageEntrance()
@@ -110,6 +120,9 @@ class MobileNetworkListScreen :
 
     override val useAdminDisabledSummary
         get() = true
+
+    override val highlightMenuKey
+        get() = R.string.menu_key_network
 
     override fun createWidget(context: Context) = RestrictedPreference(context)
 
@@ -163,10 +176,10 @@ class MobileNetworkListScreen :
 
     override fun hasCompleteHierarchy() = false
 
-    override fun fragmentClass() = MobileNetworkListFragment::class.java
+    override fun fragmentClass(): Class<out Fragment>? = MobileNetworkListFragment::class.java
 
-    override fun getPreferenceHierarchy(context: Context) =
-        preferenceHierarchy(context, this) { +MobileDataPreference() }
+    override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
+        preferenceHierarchy(context) { +MobileDataPreference() }
 
     companion object {
         const val KEY = "mobile_network_list"

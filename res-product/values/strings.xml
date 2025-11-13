@@ -1005,6 +1005,13 @@
     <!-- Description for using device controls feature with a locked tablet [CHAR LIMIT=NONE] -->
     <string name="lockscreen_trivial_controls_summary" product="desktop">Without unlocking your device</string>
 
+    <!-- Title of toggle to enable or disable device supervision on a phone [CHAR LIMIT=60] -->
+    <string name="device_supervision_switch_title" product="default">Controls for this phone</string>
+    <!-- Title of toggle to enable or disable device supervision on a tablet [CHAR LIMIT=60] -->
+    <string name="device_supervision_switch_title" product="tablet">Controls for this tablet</string>
+    <!-- Title of toggle to enable or disable device supervision on a desktop device [CHAR LIMIT=60] -->
+    <string name="device_supervision_switch_title" product="desktop">Controls for this device</string>
+
     <!-- Accessibility summary text for auto rotate [CHAR LIMIT=NONE] -->
     <string name="auto_rotate_summary_a11y" product="default">When you move your phone between portrait and landscape</string>
     <!-- Accessibility summary text for auto rotate [CHAR LIMIT=NONE] -->
@@ -1058,4 +1065,8 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet">To start sharing audio, first connect LE Audio headphones to your tablet. <annotation id="link">Learn more about compatible devices</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device">To start sharing audio, first connect LE Audio headphones to your device. <annotation id="link">Learn more about compatible devices</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop">To start sharing audio, first connect LE Audio headphones to your device. <annotation id="link">Learn more about compatible devices</annotation></string>
+
+    <!-- Summary for Network and Internet settings, explaining it contains mobile, wifi setting and data usage settings [CHAR LIMIT=NONE]-->
+    <string name="network_dashboard_summary_mobile" product="default">Mobile, Wi\u2011Fi, hotspot</string>
+    <string name="network_dashboard_summary_mobile" product="desktop">Wi\u2011Fi, mobile, hotspot</string>
 </resources>

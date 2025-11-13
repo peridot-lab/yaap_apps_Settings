@@ -42,8 +42,8 @@
     <dimen name="ring_progress_bar_thickness">4dp</dimen>
 
     <dimen name="notification_importance_toggle_marginTop">28dp</dimen>
-    <dimen name="notification_importance_button_separation">16dp</dimen>
-    <dimen name="notification_importance_drawable_padding">8dp</dimen>
+    <dimen name="notification_importance_button_separation">8dp</dimen>
+    <dimen name="notification_importance_drawable_padding">16dp</dimen>
     <dimen name="notification_importance_description_text">14sp</dimen>
     <dimen name="notification_importance_button_text">16sp</dimen>
     <dimen name="notification_importance_button_padding">14dp</dimen>
@@ -283,7 +283,7 @@
 
     <!-- Accessibility Settings -->
     <dimen name="accessibility_layout_margin_start_end">16dp</dimen>
-    <dimen name="accessibility_imageview_size">176dp</dimen>
+    <dimen name="accessibility_imageview_size">160dp</dimen>
     <dimen name="accessibility_illustration_view_radius">28dp</dimen>
 
     <!-- Accessibility icon -->
@@ -370,7 +370,7 @@
 
     <!-- QR code picture size -->
     <dimen name="qrcode_size">264dp</dimen>
-    <dimen name="qrcode_preview_size">360dp</dimen>
+    <dimen name="qrcode_preview_size">300dp</dimen>
 
     <!-- Elevation of bluetooth icon -->
     <dimen name="bt_icon_elevation">4dp</dimen>
@@ -461,14 +461,20 @@
     <dimen name="dream_item_corner_radius">28dp</dimen>
     <dimen name="dream_item_content_padding">8dp</dimen>
     <dimen name="dream_item_icon_size">20dp</dimen>
+    <dimen name="dream_preview_small_icon_size">16dp</dimen>
     <dimen name="dream_item_summary_text_size">14sp</dimen>
     <dimen name="dream_item_title_margin_top">16dp</dimen>
     <dimen name="dream_item_title_margin_bottom">8dp</dimen>
     <dimen name="dream_item_title_text_size">16sp</dimen>
     <dimen name="dream_item_icon_padding">18dp</dimen>
+    <dimen name="dream_item_icon_padding_new">8dp</dimen>
     <dimen name="dream_item_title_margin_horizontal">8dp</dimen>
     <dimen name="dream_preference_card_padding">16dp</dimen>
     <dimen name="dream_preview_placeholder_width">52dp</dimen>
+    <dimen name="dream_item_customize_button_margin_bottom">16dp</dimen>
+    <dimen name="dream_preview_button_frame_size">48dp</dimen>
+    <dimen name="dream_preview_button_size">24dp</dimen>
+    <dimen name="dream_preview_button_icon_size">16dp</dimen>
 
     <!-- Sims/Data mobile/Calls/SMS select dialog-->
     <dimen name="sims_select_margin_bottom">24dp</dimen>
@@ -535,6 +541,7 @@
     <dimen name="audio_streams_qrcode_preview_size">300dp</dimen>
     <dimen name="audio_streams_qrcode_preview_radius">30dp</dimen>
     <dimen name="audio_streams_qrcode_scanner_fragment_padding">16dp</dimen>
+    <dimen name="audio_sharing_name_preference_edit_text_format_alert_padding">24dp</dimen>
 
     <!-- Zen Modes -->
     <dimen name="zen_mode_header_size">136dp</dimen>
@@ -559,9 +566,10 @@
     <dimen name="display_block_highlight_width">2dp</dimen>
     <dimen name="display_block_corner_radius">10dp</dimen>
 
-    <!-- Locale Picker -->
-    <dimen name="locale_picker_dialog_icon_padding">10dp</dimen>
-    <dimen name="locale_picker_dialog_title_padding">16dp</dimen>
-    <dimen name="locale_picker_dialog_message_padding_left_right">24dp</dimen>
-    <dimen name="locale_picker_dialog_message_padding_bottom">32dp</dimen>
+    <!-- HDR brightness setting -->
+    <dimen name="hdr_brightness_preview_corner_radius">12dp</dimen>
+
+    <!-- VPN -->
+    <dimen name="vpn_dialog_max_height">600dp</dimen>
+    <dimen name="vpn_dialog_margin_bottom">132dp</dimen>
 </resources>

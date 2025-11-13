@@ -29,10 +29,10 @@ import androidx.preference.PreferenceScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.settings.R;
+import com.android.settingslib.widget.SettingsThemeHelper;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupdesign.GlifPreferenceLayout;
-import com.google.android.setupdesign.util.ThemeHelper;
 
 public class ToggleScreenMagnificationPreferenceFragmentForSetupWizard
         extends ToggleScreenMagnificationPreferenceFragment {
@@ -64,7 +64,7 @@ public class ToggleScreenMagnificationPreferenceFragmentForSetupWizard
 
     @Override
     protected RecyclerView.Adapter onCreateAdapter(PreferenceScreen preferenceScreen) {
-        if (ThemeHelper.shouldApplyGlifExpressiveStyle(getContext())) {
+        if (SettingsThemeHelper.isExpressiveTheme(requireContext())) {
             return new PreferenceAdapterInSuw(preferenceScreen);
         }
         return super.onCreateAdapter(preferenceScreen);
@@ -120,5 +120,11 @@ public class ToggleScreenMagnificationPreferenceFragmentForSetupWizard
     public int getHelpResource() {
         // Hides help center in action bar and footer bar in SuW
         return 0;
+    }
+
+    @Override
+    public String getSurveyKey() {
+        // Hides survey options in SuW
+        return "";
     }
 }

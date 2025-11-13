@@ -447,7 +447,7 @@
     <string name="ambient_display_pickup_title" product="tablet" msgid="1166999144900082897">"চেক করতে ট্যাবলেটটিকে হাতে নিন"</string>
     <string name="ambient_display_pickup_title" product="device" msgid="2091669267677915975">"চেক করতে ডিভাইসটিকে হাতে নিন"</string>
     <string name="ambient_display_pickup_title" product="desktop" msgid="2091669267677915975">"চেক করতে ডিভাইসটিকে হাতে নিন"</string>
-    <string name="ambient_display_pickup_summary" product="default" msgid="135853288202686097">"সময়, বিজ্ঞপ্তি এবং অন্যান্য তথ্য দেখতে আপনার ফোনটি তুলে ধরুন।"</string>
+    <string name="ambient_display_pickup_summary" product="default" msgid="135853288202686097">"সময়, বিজ্ঞপ্তি এবং অন্যান্য তথ্য দেখতে আপনার ফোনটি হাতে তুলে নিন।"</string>
     <string name="ambient_display_pickup_summary" product="tablet" msgid="1638055271563107384">"সময়, বিজ্ঞপ্তি এবং অন্যান্য তথ্য দেখতে আপনার ট্যাবলেটটি তুলে ধরুন।"</string>
     <string name="ambient_display_pickup_summary" product="device" msgid="964509644539692482">"সময়, বিজ্ঞপ্তি এবং অন্যান্য তথ্য দেখতে আপনার ডিভাইসটি তুলে ধরুন।"</string>
     <string name="ambient_display_pickup_summary" product="desktop" msgid="964509644539692482">"সময়, বিজ্ঞপ্তি এবং অন্যান্য তথ্য দেখতে আপনার ডিভাইসটি তুলে ধরুন।"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"আপনার ফোন আনলক না করে"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"আপনার ট্যাবলেট আনলক না করে"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"আপনার ডিভাইস আনলক না করেই"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"এই ফোনের জন্য কন্ট্রোল"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"এই ট্যাবলেটের জন্য কন্ট্রোল"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"এই ডিভাইসের জন্য কন্ট্রোল"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"আপনার ফোন, \'পোর্ট্রেট\' ও \'ল্যান্ডস্কেপ\' মোডের মধ্যে অদলবদল করলে"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"আপনার ট্যাবলেট, \'পোর্ট্রেট\' ও \'ল্যান্ডস্কেপ\' মোডের মধ্যে অদলবদল করলে"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"যখন আপনার ডিভাইস ঘুরিয়ে \'পোর্ট্রেট\' ও \'ল্যান্ডস্কেপ\' মোডের মধ্যে অদলবদল করেন"</string>
@@ -494,7 +497,7 @@
     <string name="spatial_audio_speaker" product="tablet" msgid="5452617980485166854">"ট্যাবলেট স্পিকার"</string>
     <string name="spatial_audio_speaker" product="device" msgid="6204289590128303795">"ডিভাইস স্পিকার"</string>
     <string name="spatial_audio_speaker" product="desktop" msgid="6204289590128303795">"ডিভাইস স্পিকার"</string>
-    <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"এই ফোনের মিউজিক ও ভিডিও, হেডফোনের দুটি পেয়ারেই চলবে"</string>
+    <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"এই ফোনের মিউজিক ও ভিডিও, দুটি হেডফোনেই চলবে"</string>
     <string name="audio_sharing_dialog_share_content" product="tablet" msgid="3459594795397910145">"এই ট্যাবলেটের মিউজিক ও ভিডিও, হেডফোনের দুটি পেয়ারেই চলবে"</string>
     <string name="audio_sharing_dialog_share_content" product="device" msgid="1297019559878011896">"এই ডিভাইসের মিউজিক ও ভিডিও, হেডফোনের দুটি পেয়ারেই চলবে"</string>
     <string name="audio_sharing_dialog_share_content" product="desktop" msgid="1297019559878011896">"এই ডিভাইসের মিউজিক ও ভিডিও, হেডফোনের দুটি পেয়ারেই চলবে"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"অডিও শেয়ার করা শুরু করতে, প্রথমে আপনার ট্যাবলেটের সাথে LE অডিও হেডফোন কানেক্ট করুন। "<annotation id="link">"মানানসই ডিভাইস সম্পর্কে আরও জানুন"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"অডিও শেয়ার করা শুরু করতে, প্রথমে আপনার ডিভাইসের সাথে LE অডিও হেডফোন কানেক্ট করুন। "<annotation id="link">"মানানসই ডিভাইস সম্পর্কে আরও জানুন"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"অডিও শেয়ার করা শুরু করতে, প্রথমে আপনার ডিভাইসের সাথে LE অডিও হেডফোন কানেক্ট করুন। "<annotation id="link">"মানানসই ডিভাইস সম্পর্কে আরও জানুন"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"মোবাইল, ওয়াই-ফাই, হটস্পট"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"ওয়াই-ফাই, মোবাইল, হটস্পট"</string>
 </resources>

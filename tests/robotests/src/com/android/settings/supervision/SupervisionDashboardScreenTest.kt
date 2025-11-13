@@ -21,24 +21,35 @@ import android.content.Context
 import android.platform.test.annotations.DisableFlags
 import android.platform.test.annotations.EnableFlags
 import android.platform.test.flag.junit.SetFlagsRule
-import androidx.fragment.app.testing.FragmentScenario
 import androidx.preference.Preference
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.android.settings.R
 import com.android.settings.supervision.SupervisionMainSwitchPreference.Companion.REQUEST_CODE_CONFIRM_SUPERVISION_CREDENTIALS
+import com.android.settings.supervision.ipc.SupervisionMessengerClient
+import com.android.settingslib.ipc.MessengerServiceRule
+import com.android.settingslib.preference.launchFragmentScenario
 import com.android.settingslib.widget.MainSwitchPreference
 import com.google.common.truth.Truth.assertThat
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.annotation.LooperMode
 
 @RunWith(AndroidJUnit4::class)
+@LooperMode(LooperMode.Mode.INSTRUMENTATION_TEST)
 class SupervisionDashboardScreenTest {
-    @get:Rule val setFlagsRule = SetFlagsRule()
-
     private val preferenceScreenCreator = SupervisionDashboardScreen()
 
     private val context: Context = ApplicationProvider.getApplicationContext()
+
+    @get:Rule val setFlagsRule = SetFlagsRule()
+
+    @get:Rule
+    val serviceRule =
+        MessengerServiceRule<SupervisionMessengerClient>(
+            TestSupervisionMessengerService::class.java
+        )
 
     @Test
     fun key() {
@@ -60,8 +71,7 @@ class SupervisionDashboardScreenTest {
     @Test
     @EnableFlags(Flags.FLAG_ENABLE_SUPERVISION_SETTINGS_SCREEN)
     fun toggleMainSwitch_pinVerificationSucceeded_enablesChildPreferences() {
-        FragmentScenario.launchInContainer(preferenceScreenCreator.fragmentClass()).onFragment {
-            fragment ->
+        preferenceScreenCreator.launchFragmentScenario().onFragment { fragment ->
             val mainSwitchPreference =
                 fragment.findPreference<MainSwitchPreference>(SupervisionMainSwitchPreference.KEY)!!
             val childPreference =
@@ -72,9 +82,9 @@ class SupervisionDashboardScreenTest {
             mainSwitchPreference.performClick()
             // Pretend the PIN verification succeeded.
             fragment.onActivityResult(
-                requestCode = REQUEST_CODE_CONFIRM_SUPERVISION_CREDENTIALS,
-                resultCode = Activity.RESULT_OK,
-                data = null,
+                REQUEST_CODE_CONFIRM_SUPERVISION_CREDENTIALS,
+                Activity.RESULT_OK,
+                null,
             )
 
             assertThat(childPreference.isEnabled).isTrue()
@@ -84,8 +94,7 @@ class SupervisionDashboardScreenTest {
     @Test
     @EnableFlags(Flags.FLAG_ENABLE_SUPERVISION_SETTINGS_SCREEN)
     fun toggleMainSwitch_pinVerificationFailed_childPreferencesRemainDisabled() {
-        FragmentScenario.launchInContainer(preferenceScreenCreator.fragmentClass()).onFragment {
-            fragment ->
+        preferenceScreenCreator.launchFragmentScenario().onFragment { fragment ->
             val mainSwitchPreference =
                 fragment.findPreference<MainSwitchPreference>(SupervisionMainSwitchPreference.KEY)!!
             val childPreference =
@@ -96,12 +105,29 @@ class SupervisionDashboardScreenTest {
             mainSwitchPreference.performClick()
             // Pretend the PIN verification failed.
             fragment.onActivityResult(
-                requestCode = REQUEST_CODE_CONFIRM_SUPERVISION_CREDENTIALS,
-                resultCode = Activity.RESULT_CANCELED,
-                data = null,
+                REQUEST_CODE_CONFIRM_SUPERVISION_CREDENTIALS,
+                Activity.RESULT_CANCELED,
+                null,
             )
 
             assertThat(childPreference.isEnabled).isFalse()
         }
+    }
+
+    @Test
+    fun getTitle() {
+        assertThat(preferenceScreenCreator.title)
+            .isEqualTo(R.string.supervision_settings_title)
+    }
+
+    @Test
+    fun getKeywords() {
+        assertThat(preferenceScreenCreator.keywords)
+            .isEqualTo(R.string.keywords_supervision_settings)
+    }
+
+    @Test
+    fun isIndexable() {
+        assertThat(preferenceScreenCreator.isIndexable(context)).isTrue()
     }
 }

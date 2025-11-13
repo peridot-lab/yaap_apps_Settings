@@ -139,7 +139,7 @@
     <string name="security_settings_face_settings_footer_class3_attention_not_supported" product="tablet" msgid="6790505667764631343">"Lås upp surfplattan eller verifiera din identitet med ditt ansikte, till exempel när du loggar in i appar eller godkänner ett köp.\n\nTänk på detta:\nBara ett ansikte i taget kan vara konfigurerat. Radera det nuvarande ansiktet innan du lägger till ett nytt.\n\nOm du tittar på surfplattan kan du oavsiktligt låsa upp den.\n\nAndra kan låsa upp surfplattan om de håller upp den mot ditt ansikte, även om du inte har ögonen öppna.\n\nSurfplattan kanske kan låsas upp av någon som är mycket lik dig, till exempel ett syskon."</string>
     <string name="security_settings_face_settings_footer_class3_attention_not_supported" product="device" msgid="7858917821957779752">"Lås upp enheten eller verifiera din identitet med ditt ansikte, till exempel när du loggar in i appar eller godkänner ett köp.\n\nTänk på detta:\nBara ett ansikte i taget kan vara konfigurerat. Radera det nuvarande ansiktet innan du lägger till ett nytt.\n\nOm du tittar på enheten kan du oavsiktligt låsa upp den.\n\nAndra kan låsa upp enheten om de håller upp den mot ditt ansikte, även om du inte har ögonen öppna.\n\nEnheten kanske kan låsas upp av någon som är mycket lik dig, till exempel ett syskon."</string>
     <string name="security_settings_face_settings_footer_class3_attention_not_supported" product="desktop" msgid="7858917821957779752">"Lås upp enheten eller verifiera din identitet med ditt ansikte, till exempel när du loggar in i appar eller godkänner ett köp.\n\nTänk på detta:\nBara ett ansikte i taget kan vara konfigurerat. Radera det nuvarande ansiktet innan du lägger till ett nytt.\n\nOm du tittar på enheten kan du oavsiktligt låsa upp den.\n\nAndra kan låsa upp enheten om de håller upp den mot ditt ansikte, även om du inte har ögonen öppna.\n\nEnheten kanske kan låsas upp av någon som är mycket lik dig, till exempel ett syskon."</string>
-    <string name="security_settings_fingerprint_enroll_introduction_v3_message" msgid="2145273491174234191">"Lås upp <xliff:g id="DEVICENAME">%s</xliff:g> eller verifiera din identitet med ditt fingeravtryck, till exempel när du loggar in i appar eller godkänner ett köp"</string>
+    <string name="security_settings_fingerprint_enroll_introduction_v3_message" msgid="2145273491174234191">"Lås upp din <xliff:g id="DEVICENAME">%s</xliff:g> eller verifiera din identitet med ditt fingeravtryck, till exempel när du loggar in i appar eller godkänner ett köp"</string>
     <string name="security_settings_fingerprint_enroll_introduction_consent_message" product="default" msgid="5101253231118659496">"Tillåt att ditt barn använder sitt fingeravtryck för att låsa upp telefonen och verifiera sin identitet. Detta sker när barnet loggar in i appar, godkänner ett köp med mera."</string>
     <string name="security_settings_fingerprint_enroll_introduction_consent_message" product="tablet" msgid="3063978167545799342">"Tillåt att ditt barn använder sitt fingeravtryck för att låsa upp surfplattan och verifiera sin identitet. Detta sker när barnet loggar in i appar, godkänner ett köp med mera."</string>
     <string name="security_settings_fingerprint_enroll_introduction_consent_message" product="device" msgid="4399560001732497632">"Tillåt att ditt barn använder sitt fingeravtryck för att låsa upp enheten och verifiera sin identitet. Detta sker när barnet loggar in i appar, godkänner ett köp med mera."</string>
@@ -439,10 +439,10 @@
     <string name="support_summary" product="tablet" msgid="2588832599234347108">"Hjälpartiklar, surfplatta och chatt"</string>
     <string name="support_summary" product="device" msgid="6821511162132497205">"Hjälpartiklar, enhet och chatt"</string>
     <string name="support_summary" product="desktop" msgid="6821511162132497205">"Hjälpartiklar, enhet och chatt"</string>
-    <string name="ambient_display_title" product="default" msgid="8027137727044125809">"Tryck snabbt två gånger för att kolla telefonen"</string>
-    <string name="ambient_display_title" product="tablet" msgid="2347746118188465334">"Tryck snabbt två gånger för att kolla surfplattan"</string>
-    <string name="ambient_display_title" product="device" msgid="6306105102175823199">"Tryck snabbt två gånger för att kolla enheten"</string>
-    <string name="ambient_display_title" product="desktop" msgid="6306105102175823199">"Tryck snabbt två gånger för att kolla enheten"</string>
+    <string name="ambient_display_title" product="default" msgid="8027137727044125809">"Dubbeltryck för att kolla telefonen"</string>
+    <string name="ambient_display_title" product="tablet" msgid="2347746118188465334">"Dubbeltryck för att kolla surfplattan"</string>
+    <string name="ambient_display_title" product="device" msgid="6306105102175823199">"Dubbeltryck för att kolla enheten"</string>
+    <string name="ambient_display_title" product="desktop" msgid="6306105102175823199">"Dubbeltryck för att kolla enheten"</string>
     <string name="ambient_display_pickup_title" product="default" msgid="6753194901596847876">"Lyft för att kolla telefonen"</string>
     <string name="ambient_display_pickup_title" product="tablet" msgid="1166999144900082897">"Plocka upp för att kolla surfplattan"</string>
     <string name="ambient_display_pickup_title" product="device" msgid="2091669267677915975">"Plocka upp för att kolla enheten"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Utan att låsa upp telefonen"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Utan att låsa upp surfplattan"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Utan att låsa upp enheten"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Inställningar för telefonen"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Inställningar för surfplattan"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Inställningar för enheten"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"När du vänder telefonen mellan stående och liggande läge"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"När du vänder surfplattan mellan stående och liggande läge"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"När du vänder enheten mellan stående och liggande läge"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Om du vill dela ljud ansluter du först LE Audio-hörlurar till din surfplatta. "<annotation id="link">"Läs mer om kompatibla enheter"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Om du vill dela ljud ansluter du först LE Audio-hörlurar till din enhet. "<annotation id="link">"Läs mer om kompatibla enheter"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Om du vill dela ljud ansluter du först LE Audio-hörlurar till din enhet. "<annotation id="link">"Läs mer om kompatibla enheter"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Mobil, wifi och surfzon"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wifi, mobil, surfzon"</string>
 </resources>

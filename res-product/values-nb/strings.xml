@@ -379,8 +379,8 @@
     <string name="runningservicedetails_stop_dlg_text" product="deskktop" msgid="7348478178049461009">"Hvis du stopper denne tjenesten, kan noen av funksjonene i enheten slutte å virke slik de skal inntil du slår den av og deretter på igjen."</string>
     <string name="testing_phone_info" product="tablet" msgid="8267746802132630741">"Informasjon om nettbrettet"</string>
     <string name="testing_phone_info" product="default" msgid="7507506297352160191">"Telefoninformasjon"</string>
-    <string name="testing_phone_info" product="desktop" msgid="3607717850300762272">"Enhetsinformasjon"</string>
-    <string name="accessibility_text_reading_confirm_dialog_message" product="default" msgid="1773409172676594981">"Innstillingene for visningsstørrelse og tekst blir tilbakestilt til de opprinnelge telefoninnstillingene"</string>
+    <string name="testing_phone_info" product="desktop" msgid="3607717850300762272">"Enhets­informasjon"</string>
+    <string name="accessibility_text_reading_confirm_dialog_message" product="default" msgid="1773409172676594981">"Innstillingene for visningsstørrelse og tekst blir tilbakestilt til de opprinnelige telefoninnstillingene"</string>
     <string name="accessibility_text_reading_confirm_dialog_message" product="tablet" msgid="2547948891207211388">"Innstillingene for visningsstørrelse og tekst blir tilbakestilt til de opprinnelige nettbrettinnstillingene"</string>
     <string name="accessibility_text_reading_confirm_dialog_message" product="desktop" msgid="4248088107680338580">"Innstillingene for visningsstørrelse og tekst blir tilbakestilt til de opprinnelige enhetsinnstillingene"</string>
     <string name="accessibility_daltonizer_about_intro_text" product="default" msgid="5234458848997942613">"Juster hvordan farger vises på telefonen"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Uten å låse opp telefonen"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Uten å låse opp nettbrettet"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Uten å låse opp enheten"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Kontroller for denne telefonen"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Kontroller for dette nettbrettet"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Kontroller for denne enheten"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Når du beveger telefonen mellom stående og liggende format"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Når du beveger nettbrettet mellom stående og liggende format"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Når du bytter mellom stående og liggende format på enheten"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Før du kan begynne å dele lyd, må du koble hodetelefoner som støtter LE-lyd, til nettbrettet. "<annotation id="link">"Finn ut mer om kompatible enheter"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Før du kan begynne å dele lyd, må du koble hodetelefoner som støtter LE-lyd, til enheten "<annotation id="link">"Finn ut mer om kompatible enheter"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Før du kan begynne å dele lyd, må du koble hodetelefoner som støtter LE-lyd, til enheten "<annotation id="link">"Finn ut mer om kompatible enheter"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Mobil, wifi, wifi-sone"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wifi, mobil, wifi-sone"</string>
 </resources>

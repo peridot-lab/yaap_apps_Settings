@@ -15,9 +15,12 @@
  */
 package com.android.settings.network
 
+import android.app.settings.SettingsEnums.SETTINGS_NETWORK_CATEGORY
 import android.content.Context
+import androidx.fragment.app.Fragment
 import com.android.settings.R
 import com.android.settings.Settings.NetworkDashboardActivity
+import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.datausage.DataSaverScreen
 import com.android.settings.flags.Flags
 import com.android.settings.utils.makeLaunchIntent
@@ -25,11 +28,11 @@ import com.android.settingslib.metadata.PreferenceIconProvider
 import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
-import com.android.settingslib.preference.PreferenceScreenCreator
 import com.android.settingslib.widget.SettingsThemeHelper.isExpressiveTheme
+import kotlinx.coroutines.CoroutineScope
 
 @ProvidePreferenceScreen(NetworkDashboardScreen.KEY)
-class NetworkDashboardScreen : PreferenceScreenCreator, PreferenceIconProvider {
+open class NetworkDashboardScreen : PreferenceScreenMixin, PreferenceIconProvider {
     override val key: String
         get() = KEY
 
@@ -47,13 +50,18 @@ class NetworkDashboardScreen : PreferenceScreenCreator, PreferenceIconProvider {
 
     override fun hasCompleteHierarchy() = false
 
-    override fun fragmentClass() = NetworkDashboardFragment::class.java
+    override fun fragmentClass(): Class<out Fragment>? = NetworkDashboardFragment::class.java
+
+    override fun getMetricsCategory() = SETTINGS_NETWORK_CATEGORY
+
+    override val highlightMenuKey: Int
+        get() = R.string.menu_key_network
 
     override fun getLaunchIntent(context: Context, metadata: PreferenceMetadata?) =
         makeLaunchIntent(context, NetworkDashboardActivity::class.java, metadata?.key)
 
-    override fun getPreferenceHierarchy(context: Context) =
-        preferenceHierarchy(context, this) {
+    override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
+        preferenceHierarchy(context) {
             +MobileNetworkListScreen.KEY order -15
             +AirplaneModePreference() order -5
             +DataSaverScreen.KEY order 10

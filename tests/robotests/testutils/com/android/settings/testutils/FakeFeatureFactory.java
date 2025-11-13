@@ -19,6 +19,7 @@ import static org.mockito.Mockito.mock;
 
 import android.content.Context;
 
+import com.android.settings.accessibility.AccessibilityDisabilitySupportFeatureProvider;
 import com.android.settings.accessibility.AccessibilityFeedbackFeatureProvider;
 import com.android.settings.accessibility.AccessibilityPageIdFeatureProvider;
 import com.android.settings.accessibility.AccessibilitySearchFeatureProvider;
@@ -31,6 +32,7 @@ import com.android.settings.bluetooth.BluetoothFeatureProvider;
 import com.android.settings.connecteddevice.audiosharing.AudioSharingFeatureProvider;
 import com.android.settings.connecteddevice.fastpair.FastPairFeatureProvider;
 import com.android.settings.connecteddevice.stylus.StylusFeatureProvider;
+import com.android.settings.connecteddevice.threadnetwork.ThreadNetworkFeatureProvider;
 import com.android.settings.dashboard.DashboardFeatureProvider;
 import com.android.settings.dashboard.suggestions.SuggestionFeatureProvider;
 import com.android.settings.display.DisplayFeatureProvider;
@@ -100,6 +102,7 @@ public class FakeFeatureFactory extends FeatureFactory {
     public WifiFeatureProvider mWifiFeatureProvider;
     public KeyboardSettingsFeatureProvider mKeyboardSettingsFeatureProvider;
     public StylusFeatureProvider mStylusFeatureProvider;
+    public ThreadNetworkFeatureProvider mThreadNetworkFeatureProvider;
     public OnboardingFeatureProvider mOnboardingFeatureProvider;
     public FastPairFeatureProvider mFastPairFeatureProvider;
     public PrivateSpaceLoginFeatureProvider mPrivateSpaceLoginFeatureProvider;
@@ -107,6 +110,8 @@ public class FakeFeatureFactory extends FeatureFactory {
     public SyncAcrossDevicesFeatureProvider mSyncAcrossDevicesFeatureProvider;
     public AccessibilityFeedbackFeatureProvider mAccessibilityFeedbackFeatureProvider;
     public AudioSharingFeatureProvider mAudioSharingFeatureProvider;
+    public AccessibilityDisabilitySupportFeatureProvider
+            mAccessibilityDisabilitySupportFeatureProvider;
 
     /**
      * Call this in {@code @Before} method of the test class to use fake factory.
@@ -152,6 +157,7 @@ public class FakeFeatureFactory extends FeatureFactory {
         mWifiFeatureProvider = mock(WifiFeatureProvider.class);
         mKeyboardSettingsFeatureProvider = mock(KeyboardSettingsFeatureProvider.class);
         mStylusFeatureProvider = mock(StylusFeatureProvider.class);
+        mThreadNetworkFeatureProvider = mock(ThreadNetworkFeatureProvider.class);
         mOnboardingFeatureProvider = mock(OnboardingFeatureProvider.class);
         mFastPairFeatureProvider = mock(FastPairFeatureProvider.class);
         mPrivateSpaceLoginFeatureProvider = mock(PrivateSpaceLoginFeatureProvider.class);
@@ -322,6 +328,11 @@ public class FakeFeatureFactory extends FeatureFactory {
     }
 
     @Override
+    public ThreadNetworkFeatureProvider getThreadNetworkFeatureProvider() {
+        return mThreadNetworkFeatureProvider;
+    }
+
+    @Override
     public OnboardingFeatureProvider getOnboardingFeatureProvider() {
         return mOnboardingFeatureProvider;
     }
@@ -354,5 +365,11 @@ public class FakeFeatureFactory extends FeatureFactory {
     @Override
     public AudioSharingFeatureProvider getAudioSharingFeatureProvider() {
         return mAudioSharingFeatureProvider;
+    }
+
+    @Override
+    public AccessibilityDisabilitySupportFeatureProvider
+            getAccessibilityDisabilitySupportFeatureProvider() {
+        return mAccessibilityDisabilitySupportFeatureProvider;
     }
 }

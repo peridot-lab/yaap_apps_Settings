@@ -16,6 +16,8 @@
 
 package com.android.settings.dream;
 
+import static android.service.dreams.Flags.dreamsV2;
+
 import android.annotation.StringRes;
 import android.content.Context;
 
@@ -65,6 +67,10 @@ public class WhenToDreamPreferenceController extends BasePreferenceController im
         super.updateState(preference);
 
         preference.setSummary(getSummaryResId());
+        if (dreamsV2()) {
+            // Move the pref to the top (under the main switch).
+            preference.setOrder(50);
+        }
     }
 
     @Override
@@ -80,7 +86,7 @@ public class WhenToDreamPreferenceController extends BasePreferenceController im
     private @StringRes int getSummaryResId() {
         if (mDreamsDisabledByAmbientModeSuppression
                 && AmbientDisplayAlwaysOnPreferenceController.isAodSuppressedByBedtime(mContext)) {
-            return R.string.screensaver_settings_when_to_dream_bedtime;
+            return R.string.screensaver_unavailable_due_to_mode;
         } else {
             final int resId = DreamSettings.getDreamSettingDescriptionResId(
                     mBackend.getWhenToDreamSetting(), mDreamsEnabledOnBattery);

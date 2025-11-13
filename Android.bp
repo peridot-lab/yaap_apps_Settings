@@ -67,6 +67,7 @@ android_library {
         "res-product",
         "YASP/res",
     ],
+    optional_uses_libs: ["com.android.extensions.appfunctions"],
     static_libs: [
         // External dependencies
         "androidx.navigation_navigation-fragment-ktx",
@@ -100,9 +101,6 @@ android_library {
         "Settings-change-ids",
         "SettingsLib",
         "SettingsLibActivityEmbedding",
-        "SettingsLibDataStore",
-        "SettingsLibMetadata",
-        "SettingsLibPreference",
         "SettingsLibService",
         "aconfig_settings_flags_lib",
         "accessibility_settings_flags_lib",
@@ -118,6 +116,13 @@ android_library {
         "keyboard_flags_lib",
         "com_android_systemui_flags_lib",
         "settings_connectivity_flags_lib",
+        "Spa-search",
+
+        // app function dependencies
+        "androidx.appsearch_appsearch",
+        "androidx.appsearch_appsearch-builtin-types",
+        "com.android.extensions.appfunctions.impl",
+        "device-state-schema",
         "SurfaceFlingerProperties",
     ],
 
@@ -146,6 +151,7 @@ android_library {
         "android.provider.flags-aconfig",
         "android.security.flags-aconfig",
         "android.view.contentprotection.flags-aconfig",
+        "device_policy_aconfig_flags",
         "keyboard_flags",
     ],
 }
@@ -191,6 +197,11 @@ android_app {
 android_library_import {
     name: "contextualcards",
     aars: ["libs/contextualcards.aar"],
+}
+
+android_library_import {
+    name: "device-state-schema",
+    aars: ["libs/appfunctions_schema_androidx_archive.aar"],
 }
 
 filegroup {

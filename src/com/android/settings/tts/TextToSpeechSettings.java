@@ -46,12 +46,13 @@ import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.accessibility.actionbar.FeedbackMenuController;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.widget.GearPreference;
-import com.android.settingslib.widget.SliderPreference;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.ActionButtonsPreference;
+import com.android.settingslib.widget.SliderPreference;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -179,9 +180,11 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment
 
         mActionButtons = ((ActionButtonsPreference) findPreference(KEY_ACTION_BUTTONS))
                 .setButton1Text(R.string.tts_play)
+                .setButton1Icon(R.drawable.ic_audio_play_sample)
                 .setButton1OnClickListener(v -> speakSampleText())
                 .setButton1Enabled(false)
                 .setButton2Text(R.string.tts_reset)
+                .setButton2Icon(R.drawable.ic_restore)
                 .setButton2OnClickListener(v -> resetTts())
                 .setButton1Enabled(true);
 
@@ -219,6 +222,8 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment
 
         setTtsUtteranceProgressListener();
         initSettings();
+
+        FeedbackMenuController.init(this, SettingsEnums.TTS_TEXT_TO_SPEECH);
     }
 
     @Override
@@ -736,8 +741,6 @@ public class TextToSpeechSettings extends SettingsPreferenceFragment
     private void updateWidgetState(boolean enable) {
         getActivity().runOnUiThread(() -> {
             mActionButtons.setButton1Enabled(enable);
-            mDefaultRatePref.setEnabled(enable);
-            mDefaultPitchPref.setEnabled(enable);
         });
     }
 

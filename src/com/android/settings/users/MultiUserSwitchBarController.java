@@ -17,7 +17,6 @@
 package com.android.settings.users;
 
 import android.content.Context;
-import android.multiuser.Flags;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -61,24 +60,14 @@ public class MultiUserSwitchBarController implements SwitchWidgetController.OnSw
         mUserCapabilities.updateAddUserCapabilities(mContext);
         mSwitchBar.setChecked(mUserCapabilities.mUserSwitcherEnabled);
 
-        if (Flags.fixDisablingOfMuToggleWhenRestrictionApplied()) {
-            RestrictedLockUtils.EnforcedAdmin enforcedAdmin = RestrictedLockUtilsInternal
-                    .checkIfRestrictionEnforced(mContext, UserManager.DISALLOW_USER_SWITCH,
-                            UserHandle.myUserId());
-            if (enforcedAdmin != null) {
-                mSwitchBar.setDisabledByAdmin(enforcedAdmin);
-            } else {
-                mSwitchBar.setEnabled(mUserCapabilities.mIsMain
-                        && !mUserCapabilities.mDisallowSwitchUser);
-            }
+        RestrictedLockUtils.EnforcedAdmin enforcedAdmin = RestrictedLockUtilsInternal
+                .checkIfRestrictionEnforced(mContext, UserManager.DISALLOW_USER_SWITCH,
+                        UserHandle.myUserId());
+        if (enforcedAdmin != null) {
+            mSwitchBar.setDisabledByAdmin(enforcedAdmin);
         } else {
-            if (mUserCapabilities.mDisallowSwitchUser) {
-                mSwitchBar.setDisabledByAdmin(RestrictedLockUtilsInternal
-                        .checkIfRestrictionEnforced(mContext, UserManager.DISALLOW_USER_SWITCH,
-                                UserHandle.myUserId()));
-            } else {
-                mSwitchBar.setEnabled(mUserCapabilities.mIsMain);
-            }
+            mSwitchBar.setEnabled(mUserCapabilities.mIsMain
+                    && !mUserCapabilities.mDisallowSwitchUser);
         }
     }
 
@@ -97,9 +86,6 @@ public class MultiUserSwitchBarController implements SwitchWidgetController.OnSw
         Log.d(TAG, "Toggling multi-user feature enabled state to: " + isChecked);
         final boolean success = Settings.Global.putInt(mContext.getContentResolver(),
                 Settings.Global.USER_SWITCHER_ENABLED, isChecked ? 1 : 0);
-        if (success && mListener != null && !Flags.newMultiuserSettingsUx()) {
-            mListener.onMultiUserSwitchChanged(isChecked);
-        }
         return success;
     }
 }

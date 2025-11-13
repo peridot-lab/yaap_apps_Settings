@@ -100,12 +100,11 @@ public class WhenToDreamPreferenceControllerTest {
         final Preference mockPref = mock(Preference.class);
         when(mockPref.getContext()).thenReturn(mContext);
         when(mBackend.getWhenToDreamSetting()).thenReturn(DreamBackend.WHILE_CHARGING);
-        when(mPowerManager.isAmbientDisplaySuppressedForTokenByApp(anyString(), anyInt()))
-                .thenReturn(true);
+        when(mPowerManager.isAmbientDisplaySuppressed()).thenReturn(true);
 
         assertTrue(AmbientDisplayAlwaysOnPreferenceController.isAodSuppressedByBedtime(mContext));
 
         mController.updateState(mockPref);
-        verify(mockPref).setSummary(R.string.screensaver_settings_when_to_dream_bedtime);
+        verify(mockPref).setSummary(R.string.screensaver_unavailable_due_to_mode);
     }
 }

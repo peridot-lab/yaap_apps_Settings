@@ -15,15 +15,18 @@
  */
 package com.android.settings.language
 
+import android.app.settings.SettingsEnums
 import android.content.Context
+import androidx.fragment.app.Fragment
 import com.android.settings.R
+import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.flags.Flags
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
-import com.android.settingslib.preference.PreferenceScreenCreator
+import kotlinx.coroutines.CoroutineScope
 
 @ProvidePreferenceScreen(LanguageSettingScreen.KEY)
-class LanguageSettingScreen : PreferenceScreenCreator {
+open class LanguageSettingScreen : PreferenceScreenMixin {
     override val key: String
         get() = KEY
 
@@ -36,13 +39,19 @@ class LanguageSettingScreen : PreferenceScreenCreator {
     override val icon: Int
         get() = R.drawable.ic_settings_languages
 
+    override fun getMetricsCategory() = SettingsEnums.SETTINGS_LANGUAGES_CATEGORY
+
+    override val highlightMenuKey
+        get() = R.string.menu_key_system
+
     override fun isFlagEnabled(context: Context) = Flags.catalystLanguageSetting()
 
     override fun hasCompleteHierarchy() = false
 
-    override fun fragmentClass() = LanguageSettings::class.java
+    override fun fragmentClass(): Class<out Fragment>? = LanguageSettings::class.java
 
-    override fun getPreferenceHierarchy(context: Context) = preferenceHierarchy(context, this) {}
+    override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
+        preferenceHierarchy(context) {}
 
     companion object {
         const val KEY = "language_setting"

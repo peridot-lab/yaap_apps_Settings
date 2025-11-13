@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"ଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ ନକରି"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"ଆପଣଙ୍କ ଟାବଲେଟକୁ ଅନଲକ ନକରି"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"ଆପଣଙ୍କ ଡିଭାଇସକୁ ଅନଲକ ନକରି"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"ଏହି ଫୋନ ପାଇଁ ନିୟନ୍ତ୍ରଣ"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"ଏହି ଟାବଲେଟ ପାଇଁ ନିୟନ୍ତ୍ରଣ"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"ଏହି ଡିଭାଇସ ପାଇଁ ନିୟନ୍ତ୍ରଣ"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"ଆପଣ ଆପଣଙ୍କ ଫୋନକୁ ପୋର୍ଟ୍ରେଟ ଓ ଲାଣ୍ଡସ୍କେପ ମଧ୍ୟରେ ମୁଭ କଲେ"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"ଆପଣ ଆପଣଙ୍କ ଟାବଲେଟକୁ ପୋର୍ଟ୍ରେଟ ଓ ଲାଣ୍ଡସ୍କେପ ମଧ୍ୟରେ ମୁଭ କଲେ"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସକୁ ପୋର୍ଟ୍ରେଟ ଓ ଲେଣ୍ଡସ୍କେପ ମଧ୍ୟରେ ମୁଭ କଲେ"</string>
@@ -502,7 +505,7 @@
     <string name="audio_sharing_dialog_share_more_content" product="tablet" msgid="7742344946644657414">"ଏହି ଟାବଲେଟର ମ୍ୟୁଜିକ ଏବଂ ଭିଡିଓଗୁଡ଼ିକ ଆପଣ କନେକ୍ଟ କରିଥିବା ହେଡଫୋନରେ ପ୍ଲେ ହେବ"</string>
     <string name="audio_sharing_dialog_share_more_content" product="device" msgid="3409470560712324580">"ଏହି ଡିଭାଇସର ମ୍ୟୁଜିକ ଏବଂ ଭିଡିଓଗୁଡ଼ିକ ଆପଣ କନେକ୍ଟ କରିଥିବା ହେଡଫୋନରେ ପ୍ଲେ ହେବ"</string>
     <string name="audio_sharing_dialog_share_more_content" product="desktop" msgid="3409470560712324580">"ଏହି ଡିଭାଇସର ମ୍ୟୁଜିକ ଏବଂ ଭିଡିଓଗୁଡ଼ିକ ଆପଣ କନେକ୍ଟ କରିଥିବା ହେଡଫୋନରେ ପ୍ଲେ ହେବ"</string>
-    <string name="audio_streams_dialog_no_le_device_subtitle" product="default" msgid="1388450179345665604">"ଏକ ଅଡିଓ ଷ୍ଟ୍ରିମ ଶୁଣିବା ପାଇଁ, ପ୍ରଥମେ LE ଅଡିଓକୁ ସମର୍ଥନ କରୁଥିବା ହେଡଫୋନଗୁଡ଼ିକୁ ଏହି ଫୋନ ସହିତ କନେକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="audio_streams_dialog_no_le_device_subtitle" product="default" msgid="1388450179345665604">"ଏକ ଅଡିଓ ଷ୍ଟ୍ରିମ ଶୁଣିବା ପାଇଁ, ପ୍ରଥମେ LE ଅଡିଓକୁ ସପୋର୍ଟ କରୁଥିବା ହେଡଫୋନଗୁଡ଼ିକୁ ଏହି ଫୋନ ସହିତ କନେକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="audio_streams_dialog_no_le_device_subtitle" product="tablet" msgid="6577207951269720001">"ଏକ ଅଡିଓ ଷ୍ଟ୍ରିମ ଶୁଣିବା ପାଇଁ, ପ୍ରଥମେ LE ଅଡିଓକୁ ସମର୍ଥନ କରୁଥିବା ହେଡଫୋନଗୁଡ଼ିକୁ ଏହି ଟାବଲେଟ ସହିତ କନେକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="audio_streams_dialog_no_le_device_subtitle" product="device" msgid="6192141045820029654">"ଏକ ଅଡିଓ ଷ୍ଟ୍ରିମ ଶୁଣିବା ପାଇଁ, ପ୍ରଥମେ LE ଅଡିଓକୁ ସମର୍ଥନ କରୁଥିବା ହେଡଫୋନଗୁଡ଼ିକୁ ଏହି ଡିଭାଇସ ସହିତ କନେକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="audio_streams_dialog_no_le_device_subtitle" product="desktop" msgid="6192141045820029654">"ଏକ ଅଡିଓ ଷ୍ଟ୍ରିମ ଶୁଣିବା ପାଇଁ, ପ୍ରଥମେ LE ଅଡିଓକୁ ସମର୍ଥନ କରୁଥିବା ହେଡଫୋନଗୁଡ଼ିକୁ ଏହି ଡିଭାଇସ ସହିତ କନେକ୍ଟ କରନ୍ତୁ।"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"ଅଡିଓ ସେୟାରିଂ ଆରମ୍ଭ କରିବାକୁ ପ୍ରଥମେ ଆପଣଙ୍କ ଟାବଲେଟରେ LE ଅଡିଓ ହେଡଫୋନ କନେକ୍ଟ କରନ୍ତୁ। "<annotation id="link">"କମ୍ପାଟିବଲ ଡିଭାଇସଗୁଡ଼ିକ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"ଅଡିଓ ସେୟାରିଂ ଆରମ୍ଭ କରିବାକୁ ପ୍ରଥମେ ଆପଣଙ୍କ ଡିଭାଇସରେ LE ଅଡିଓ ହେଡଫୋନ କନେକ୍ଟ କରନ୍ତୁ। "<annotation id="link">"କମ୍ପାଟିବଲ ଡିଭାଇସଗୁଡ଼ିକ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"ଅଡିଓ ସେୟାରିଂ ଆରମ୍ଭ କରିବାକୁ ପ୍ରଥମେ ଆପଣଙ୍କ ଡିଭାଇସରେ LE ଅଡିଓ ହେଡଫୋନ କନେକ୍ଟ କରନ୍ତୁ। "<annotation id="link">"କମ୍ପାଟିବଲ ଡିଭାଇସଗୁଡ଼ିକ ବିଷୟରେ ଅଧିକ ଜାଣନ୍ତୁ"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"ମୋବାଇଲ, ୱାଇ-ଫାଇ, ହଟସ୍ପଟ"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"ୱାଇ-ଫାଇ, ମୋବାଇଲ, ହଟସ୍ପଟ"</string>
 </resources>

@@ -15,8 +15,11 @@
  */
 package com.android.settings.fuelgauge.batteryusage
 
+import android.app.settings.SettingsEnums
 import android.content.Context
+import androidx.fragment.app.Fragment
 import com.android.settings.R
+import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.display.BatteryPercentageSwitchPreference
 import com.android.settings.flags.Flags
 import com.android.settings.fuelgauge.BatteryHeaderPreference
@@ -24,12 +27,13 @@ import com.android.settingslib.metadata.PreferenceAvailabilityProvider
 import com.android.settingslib.metadata.PreferenceIconProvider
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
-import com.android.settingslib.preference.PreferenceScreenCreator
 import com.android.settingslib.widget.SettingsThemeHelper.isExpressiveTheme
+import com.android.settingslib.widget.UntitledPreferenceCategoryMetadata
+import kotlinx.coroutines.CoroutineScope
 
 @ProvidePreferenceScreen(PowerUsageSummaryScreen.KEY)
-class PowerUsageSummaryScreen :
-    PreferenceScreenCreator, PreferenceAvailabilityProvider, PreferenceIconProvider {
+open class PowerUsageSummaryScreen :
+    PreferenceScreenMixin, PreferenceAvailabilityProvider, PreferenceIconProvider {
     override val key: String
         get() = KEY
 
@@ -39,11 +43,16 @@ class PowerUsageSummaryScreen :
     override val keywords: Int
         get() = R.string.keywords_battery
 
+    override fun getMetricsCategory() = SettingsEnums.FUELGAUGE_POWER_USAGE_SUMMARY_V2
+
+    override val highlightMenuKey
+        get() = R.string.menu_key_battery
+
     override fun isFlagEnabled(context: Context) = Flags.catalystPowerUsageSummaryScreen()
 
     override fun hasCompleteHierarchy() = false
 
-    override fun fragmentClass() = PowerUsageSummary::class.java
+    override fun fragmentClass(): Class<out Fragment>? = PowerUsageSummary::class.java
 
     override fun isAvailable(context: Context) =
         context.resources.getBoolean(R.bool.config_show_top_level_battery)
@@ -55,10 +64,12 @@ class PowerUsageSummaryScreen :
             else -> R.drawable.ic_settings_battery_white
         }
 
-    override fun getPreferenceHierarchy(context: Context) =
-        preferenceHierarchy(context, this) {
+    override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
+        preferenceHierarchy(context) {
             +BatteryHeaderPreference()
-            +BatteryPercentageSwitchPreference()
+            +UntitledPreferenceCategoryMetadata("percentage_category") += {
+                +BatteryPercentageSwitchPreference()
+            }
         }
 
     companion object {

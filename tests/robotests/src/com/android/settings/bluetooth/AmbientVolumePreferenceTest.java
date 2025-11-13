@@ -16,6 +16,10 @@
 
 package com.android.settings.bluetooth;
 
+import static android.bluetooth.AudioInputControl.MUTE_DISABLED;
+import static android.bluetooth.AudioInputControl.MUTE_MUTED;
+import static android.bluetooth.AudioInputControl.MUTE_NOT_MUTED;
+
 import static com.android.settings.bluetooth.AmbientVolumePreference.ROTATION_COLLAPSED;
 import static com.android.settings.bluetooth.AmbientVolumePreference.ROTATION_EXPANDED;
 import static com.android.settings.bluetooth.AmbientVolumePreference.SIDE_UNIFIED;
@@ -88,8 +92,7 @@ public class AmbientVolumePreferenceTest {
         mPreference = new AmbientVolumePreference(mContext);
         mPreference.setKey(KEY_AMBIENT_VOLUME);
         mPreference.setListener(mListener);
-        mPreference.setExpandable(true);
-        mPreference.setMutable(true);
+        mPreference.setControlExpandable(true);
         preferenceScreen.addPreference(mPreference);
 
         prepareDevices();
@@ -123,65 +126,36 @@ public class AmbientVolumePreferenceTest {
     }
 
     @Test
-    public void setExpandable_expandable_expandIconVisible() {
-        mPreference.setExpandable(true);
+    public void setControlExpandable_expandable_expandIconVisible() {
+        mPreference.setControlExpandable(true);
 
         assertThat(mExpandIcon.getVisibility()).isEqualTo(View.VISIBLE);
     }
 
     @Test
-    public void setExpandable_notExpandable_expandIconGone() {
-        mPreference.setExpandable(false);
+    public void setControlExpandable_notExpandable_expandIconGone() {
+        mPreference.setControlExpandable(false);
 
         assertThat(mExpandIcon.getVisibility()).isEqualTo(View.GONE);
     }
 
     @Test
-    public void setExpanded_expanded_assertControlUiCorrect() {
-        mPreference.setExpanded(true);
+    public void setControlExpanded_expanded_assertControlUiCorrect() {
+        mPreference.setControlExpanded(true);
 
         assertControlUiCorrect();
     }
 
     @Test
-    public void setExpanded_notExpanded_assertControlUiCorrect() {
-        mPreference.setExpanded(false);
+    public void setControlExpanded_notExpanded_assertControlUiCorrect() {
+        mPreference.setControlExpanded(false);
 
         assertControlUiCorrect();
     }
 
     @Test
-    public void setMutable_mutable_clickOnMuteIconChangeMuteState() {
-        mPreference.setMutable(true);
-        mPreference.setMuted(false);
-
-        mVolumeIcon.callOnClick();
-
-        assertThat(mPreference.isMuted()).isTrue();
-    }
-
-    @Test
-    public void setMutable_notMutable_clickOnMuteIconWontChangeMuteState() {
-        mPreference.setMutable(false);
-        mPreference.setMuted(false);
-
-        mVolumeIcon.callOnClick();
-
-        assertThat(mPreference.isMuted()).isFalse();
-    }
-
-    @Test
-    public void updateLayout_mute_volumeIconIsCorrect() {
-        mPreference.setMuted(true);
-        mPreference.updateLayout();
-
-        assertThat(mVolumeIcon.getDrawable().getLevel()).isEqualTo(0);
-    }
-
-    @Test
-    public void updateLayout_unmuteAndExpanded_volumeIconIsCorrect() {
-        mPreference.setMuted(false);
-        mPreference.setExpanded(true);
+    public void updateLayout_expanded_volumeIconIsCorrect() {
+        mPreference.setControlExpanded(true);
         mPreference.updateLayout();
 
         int expectedLevel = calculateVolumeLevel(TEST_LEFT_VOLUME_LEVEL, TEST_RIGHT_VOLUME_LEVEL);
@@ -189,9 +163,8 @@ public class AmbientVolumePreferenceTest {
     }
 
     @Test
-    public void updateLayout_unmuteAndNotExpanded_volumeIconIsCorrect() {
-        mPreference.setMuted(false);
-        mPreference.setExpanded(false);
+    public void updateLayout_notExpanded_volumeIconIsCorrect() {
+        mPreference.setControlExpanded(false);
         mPreference.updateLayout();
 
         int expectedLevel = calculateVolumeLevel(TEST_UNIFIED_VOLUME_LEVEL,
@@ -201,7 +174,7 @@ public class AmbientVolumePreferenceTest {
 
     @Test
     public void setSliderEnabled_expandedAndLeftIsDisabled_volumeIconIcCorrect() {
-        mPreference.setExpanded(true);
+        mPreference.setControlExpanded(true);
         mPreference.setSliderEnabled(SIDE_LEFT, false);
 
         int expectedLevel = calculateVolumeLevel(0, TEST_RIGHT_VOLUME_LEVEL);
@@ -209,11 +182,63 @@ public class AmbientVolumePreferenceTest {
     }
 
     @Test
-    public void setSliderValue_expandedAndLeftValueChanged_volumeIconIcCorrect() {
-        mPreference.setExpanded(true);
+    public void setSliderValue_expandedAndLeftValueChanged_volumeIconIsCorrect() {
+        mPreference.setControlExpanded(true);
         mPreference.setSliderValue(SIDE_LEFT, 4);
 
         int expectedLevel = calculateVolumeLevel(4, TEST_RIGHT_VOLUME_LEVEL);
+        assertThat(mVolumeIcon.getDrawable().getLevel()).isEqualTo(expectedLevel);
+    }
+
+    @Test
+    public void isMutable_bothSideNotMutable_returnFalse() {
+        mPreference.setSliderMuteState(SIDE_LEFT, MUTE_DISABLED);
+        mPreference.setSliderMuteState(SIDE_RIGHT, MUTE_DISABLED);
+
+        assertThat(mPreference.isMutable()).isFalse();
+    }
+
+    @Test
+    public void isMutable_oneSideMutable_returnTrue() {
+        mPreference.setSliderMuteState(SIDE_LEFT, MUTE_DISABLED);
+        mPreference.setSliderMuteState(SIDE_RIGHT, MUTE_NOT_MUTED);
+
+        assertThat(mPreference.isMutable()).isTrue();
+    }
+
+    @Test
+    public void isMuted_bothSideMuted_returnTrue() {
+        mPreference.setSliderMuteState(SIDE_LEFT, MUTE_MUTED);
+        mPreference.setSliderMuteState(SIDE_RIGHT, MUTE_MUTED);
+
+        assertThat(mPreference.isMuted()).isTrue();
+    }
+
+    @Test
+    public void isMuted_oneSideNotMuted_returnFalse() {
+        mPreference.setSliderMuteState(SIDE_LEFT, MUTE_MUTED);
+        mPreference.setSliderMuteState(SIDE_RIGHT, MUTE_NOT_MUTED);
+
+        assertThat(mPreference.isMuted()).isFalse();
+    }
+
+    @Test
+    public void setSliderMuteState_muteLeft_volumeIconIsCorrect() {
+        mPreference.setControlExpanded(true);
+        mPreference.setSliderMuteState(SIDE_LEFT, MUTE_MUTED);
+        mPreference.setSliderMuteState(SIDE_RIGHT, MUTE_NOT_MUTED);
+
+        int expectedLevel = calculateVolumeLevel(0, TEST_RIGHT_VOLUME_LEVEL);
+        assertThat(mVolumeIcon.getDrawable().getLevel()).isEqualTo(expectedLevel);
+    }
+
+    @Test
+    public void setSliderMuteState_muteLeftAndRight_volumeIconIsCorrect() {
+        mPreference.setControlExpanded(true);
+        mPreference.setSliderMuteState(SIDE_LEFT, MUTE_MUTED);
+        mPreference.setSliderMuteState(SIDE_RIGHT, MUTE_MUTED);
+
+        int expectedLevel = calculateVolumeLevel(0, 0);
         assertThat(mVolumeIcon.getDrawable().getLevel()).isEqualTo(expectedLevel);
     }
 
@@ -222,7 +247,7 @@ public class AmbientVolumePreferenceTest {
     }
 
     private void assertControlUiCorrect() {
-        final boolean expanded = mPreference.isExpanded();
+        final boolean expanded = mPreference.isControlExpanded();
         Map<Integer, SliderPreference> sliders = mPreference.getSliders();
         assertThat(sliders.get(SIDE_UNIFIED).isVisible()).isEqualTo(!expanded);
         assertThat(sliders.get(SIDE_LEFT).isVisible()).isEqualTo(expanded);

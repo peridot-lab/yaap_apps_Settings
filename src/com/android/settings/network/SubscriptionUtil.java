@@ -16,6 +16,7 @@
 
 package com.android.settings.network;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.telephony.SubscriptionManager.INVALID_SIM_SLOT_INDEX;
 import static android.telephony.SubscriptionManager.PROFILE_CLASS_PROVISIONING;
 import static android.telephony.SubscriptionManager.TRANSFER_STATUS_CONVERTED;
@@ -52,6 +53,7 @@ import com.android.settings.network.helper.SelectableSubscriptions;
 import com.android.settings.network.helper.SubscriptionAnnotation;
 import com.android.settings.network.telephony.DeleteEuiccSubscriptionDialogActivity;
 import com.android.settings.network.telephony.EuiccRacConnectivityDialogActivity;
+import com.android.settings.network.telephony.SubscriptionActionDialogActivity;
 import com.android.settings.network.telephony.SubscriptionRepository;
 import com.android.settings.network.telephony.ToggleSubscriptionDialogActivity;
 
@@ -119,14 +121,6 @@ public class SubscriptionUtil {
         return subscriptions.stream()
                 .filter(subInfo -> subInfo != null && isEmbeddedSubscriptionVisible(subInfo))
                 .collect(Collectors.toList());
-    }
-
-    /**
-     * Check if SIM hardware is visible to the end user.
-     */
-    public static boolean isSimHardwareVisible(Context context) {
-        return context.getResources()
-            .getBoolean(R.bool.config_show_sim_info);
     }
 
     @VisibleForTesting
@@ -437,7 +431,7 @@ public class SubscriptionUtil {
 
     private static SharedPreferences getDisplayNameSharedPreferences(Context context) {
         return context.getSharedPreferences(
-                KEY_UNIQUE_SUBSCRIPTION_DISPLAYNAME, Context.MODE_PRIVATE);
+                KEY_UNIQUE_SUBSCRIPTION_DISPLAYNAME, MODE_PRIVATE);
     }
 
     private static SharedPreferences.Editor getDisplayNameSharedPreferenceEditor(Context context) {
@@ -524,6 +518,10 @@ public class SubscriptionUtil {
             Log.i(TAG, "Unable to toggle subscription due to invalid subscription ID.");
             return;
         }
+        if (isSimSwitchingInProgress(context)) {
+            Log.d(TAG, "Unable to toggle subscription due to sim switch is in progress.");
+            return;
+        }
         if (enable && Flags.isDualSimOnboardingEnabled()) {
             SimOnboardingActivity.startSimOnboardingActivity(context, subId, isNewTask);
             return;
@@ -533,6 +531,21 @@ public class SubscriptionUtil {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         context.startActivity(intent);
+    }
+
+    @VisibleForTesting
+    static boolean isSimSwitchingInProgress(Context context) {
+        return getProgressState(context) == SubscriptionActionDialogActivity.PROGRESS_IS_SHOWING;
+    }
+
+    private static int getProgressState(Context context) {
+        if (context == null) {
+            return SubscriptionActionDialogActivity.PROGRESS_IS_NOT_SHOWING;
+        }
+        final SharedPreferences prefs = context.getSharedPreferences(
+                SubscriptionActionDialogActivity.SIM_ACTION_DIALOG_PREFS, MODE_PRIVATE);
+        return prefs.getInt(SubscriptionActionDialogActivity.KEY_PROGRESS_STATE,
+                SubscriptionActionDialogActivity.PROGRESS_IS_NOT_SHOWING);
     }
 
     /**

@@ -18,11 +18,13 @@ package com.android.settings.users;
 
 import static android.os.UserHandle.USER_NULL;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.content.pm.UserInfo;
+import android.multiuser.Flags;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.Trace;
@@ -30,6 +32,9 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.Log;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
@@ -38,6 +43,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.core.SubSettingLauncher;
+import com.android.settings.password.ChooseLockSettingsHelper;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedLockUtilsInternal;
 import com.android.settingslib.RestrictedPreference;
@@ -60,7 +66,7 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
     private static final String TAG = UserDetailsSettings.class.getSimpleName();
 
     private static final String KEY_SWITCH_USER = "switch_user";
-    private static final String KEY_ENABLE_TELEPHONY = "enable_calling";
+    private static final String KEY_ENABLE_TELEPHONY_CALLING = "enable_calling";
     private static final String KEY_REMOVE_USER = "remove_user";
     private static final String KEY_GRANT_ADMIN = "user_grant_admin";
     private static final String KEY_APP_AND_CONTENT_ACCESS = "app_and_content_access";
@@ -80,9 +86,12 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
     /** Whether to enable the app_copying fragment. */
     private static final boolean SHOW_APP_COPYING_PREF = false;
     private static final int MESSAGE_PADDING = 20;
+    @VisibleForTesting
+    static final int REQUEST_CONFIRM_REMOVE = 1;
 
     private UserManager mUserManager;
     private UserCapabilities mUserCaps;
+    private ActivityResultLauncher mUserRemovalCredentialConfirmationActivityResultLauncher;
     private boolean mGuestUserAutoCreated;
     private final AtomicBoolean mGuestCreationScheduled = new AtomicBoolean();
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
@@ -121,16 +130,17 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
                 com.android.internal.R.bool.config_guestUserAutoCreated);
 
         initialize(context, getArguments());
+        if (Flags.requirePinBeforeUserDeletion()) {
+            mUserRemovalCredentialConfirmationActivityResultLauncher = registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    result -> onRemoveUserConfirmationActivityLauncherResult(result));
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (android.multiuser.Flags.newMultiuserSettingsUx()) {
-            mSwitchUserPref.setEnabled(canSwitchUserNow() && mUserCaps.mUserSwitcherEnabled);
-        } else {
-            mSwitchUserPref.setEnabled(canSwitchUserNow());
-        }
+        mSwitchUserPref.setEnabled(canSwitchUserNow() && mUserCaps.mUserSwitcherEnabled);
         if (mUserInfo.isGuest() && mGuestUserAutoCreated) {
             mRemoveUserPref.setEnabled((mUserInfo.flags & UserInfo.FLAG_INITIALIZED) != 0);
         }
@@ -346,7 +356,7 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
         mUserInfo = mUserManager.getUserInfo(userId);
 
         mSwitchUserPref = findPreference(KEY_SWITCH_USER);
-        mPhonePref = findPreference(KEY_ENABLE_TELEPHONY);
+        mPhonePref = findPreference(KEY_ENABLE_TELEPHONY_CALLING);
         mRemoveUserPref = findPreference(KEY_REMOVE_USER);
         mAppAndContentAccessPref = findPreference(KEY_APP_AND_CONTENT_ACCESS);
         mAppCopyingPref = findPreference(KEY_APP_COPYING);
@@ -364,12 +374,8 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
             mSwitchUserPref.setDisabledByAdmin(RestrictedLockUtilsInternal.getDeviceOwner(context));
         } else {
             mSwitchUserPref.setDisabledByAdmin(null);
-            if (android.multiuser.Flags.newMultiuserSettingsUx()) {
-                mSwitchUserPref.setEnabled(mUserCaps.mUserSwitcherEnabled);
-                mSwitchUserPref.setSelectable(mUserCaps.mUserSwitcherEnabled);
-            } else {
-                mSwitchUserPref.setSelectable(true);
-            }
+            mSwitchUserPref.setEnabled(mUserCaps.mUserSwitcherEnabled);
+            mSwitchUserPref.setSelectable(mUserCaps.mUserSwitcherEnabled);
             mSwitchUserPref.setOnPreferenceClickListener(this);
         }
         if (android.multiuser.Flags.unicornModeRefactoringForHsumReadOnly()) {
@@ -385,19 +391,19 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
         }
 
         if (!mUserManager.isAdminUser()) { // non admin users can't remove users and allow calls
-            removePreference(KEY_ENABLE_TELEPHONY);
+            removePreference(KEY_ENABLE_TELEPHONY_CALLING);
             removePreference(KEY_REMOVE_USER);
             removePreference(KEY_APP_AND_CONTENT_ACCESS);
             removePreference(KEY_APP_COPYING);
         } else {
             if (!Utils.isVoiceCapable(context)) { // no telephony
-                removePreference(KEY_ENABLE_TELEPHONY);
+                removePreference(KEY_ENABLE_TELEPHONY_CALLING);
             }
             if (mUserInfo.isMain() || UserManager.isHeadlessSystemUserMode()) {
-                removePreference(KEY_ENABLE_TELEPHONY);
+                removePreference(KEY_ENABLE_TELEPHONY_CALLING);
             }
             if (mUserInfo.isRestricted()) {
-                removePreference(KEY_ENABLE_TELEPHONY);
+                removePreference(KEY_ENABLE_TELEPHONY_CALLING);
                 if (isNewUser) {
                     // for newly created restricted users we should open the apps and content access
                     // screen to initialize the default restrictions
@@ -408,7 +414,7 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
             }
 
             if (mUserInfo.isGuest()) {
-                removePreference(KEY_ENABLE_TELEPHONY);
+                removePreference(KEY_ENABLE_TELEPHONY_CALLING);
                 mRemoveUserPref.setTitle(mGuestUserAutoCreated
                         ? com.android.settingslib.R.string.guest_reset_guest
                         : com.android.settingslib.R.string.guest_exit_guest);
@@ -516,8 +522,36 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
     }
 
     private void removeUser() {
+        if (Flags.requirePinBeforeUserDeletion() && runUserRemovalKeyguardConfirmation()) {
+            // User deletion will be handled when the credential authentication result is successful
+            return;
+        }
         mUserManager.removeUser(mUserInfo.id);
         finishFragment();
+    }
+
+    /**
+     * Shows keyguard validation activity if screen lock is set for the current user. If screen lock
+     * is not set up, no activity is launched.
+     *
+     * @return true if the authentication activity has been launched.
+     */
+    @VisibleForTesting
+    boolean runUserRemovalKeyguardConfirmation() {
+        final ChooseLockSettingsHelper.Builder builder =
+                new ChooseLockSettingsHelper.Builder(getActivity(), this);
+        return builder
+                .setActivityResultLauncher(mUserRemovalCredentialConfirmationActivityResultLauncher)
+                .setRequestCode(REQUEST_CONFIRM_REMOVE)
+                .setUserId(UserHandle.myUserId())
+                .show();
+    }
+
+    private void onRemoveUserConfirmationActivityLauncherResult(ActivityResult result) {
+        if (result.getResultCode() == Activity.RESULT_OK) {
+            mUserManager.removeUser(mUserInfo.id);
+            finishFragment();
+        }
     }
 
     /**

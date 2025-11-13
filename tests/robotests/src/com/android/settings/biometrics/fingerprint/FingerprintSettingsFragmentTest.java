@@ -36,6 +36,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -47,7 +48,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.ComponentInfoInternal;
-import android.hardware.biometrics.Flags;
 import android.hardware.biometrics.SensorProperties;
 import android.hardware.fingerprint.Fingerprint;
 import android.hardware.fingerprint.FingerprintManager;
@@ -58,12 +58,14 @@ import android.os.CancellationSignal;
 import android.os.Looper;
 import android.os.UserHandle;
 import android.os.Vibrator;
+import android.platform.test.annotations.DisableFlags;
 import android.platform.test.annotations.EnableFlags;
 import android.platform.test.flag.junit.SetFlagsRule;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -71,6 +73,7 @@ import androidx.preference.Preference;
 import androidx.test.core.app.ApplicationProvider;
 
 import com.android.settings.biometrics.fingerprint.feature.FingerprintExtPreferencesProvider;
+import com.android.settings.biometrics.fingerprint.feature.PrimarySwitchIntentPreference;
 import com.android.settings.password.ChooseLockSettingsHelper;
 import com.android.settings.password.ConfirmDeviceCredentialActivity;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -194,7 +197,6 @@ public class FingerprintSettingsFragmentTest {
 
     @Test
     @Ignore("b/353706169")
-    @EnableFlags(Flags.FLAG_MANDATORY_BIOMETRICS)
     public void testLaunchBiometricPromptForFingerprint() {
         when(mBiometricManager.canAuthenticate(PRIMARY_USER_ID,
                 BiometricManager.Authenticators.IDENTITY_CHECK))
@@ -431,7 +433,18 @@ public class FingerprintSettingsFragmentTest {
     }
 
     @Test
-    public void testHasExtPreferences() {
+    @EnableFlags(android.hardware.biometrics.Flags.FLAG_SCREEN_OFF_UNLOCK_UDFPS)
+    public void testHasExtPreferencesEnableScreenOffUnlockUdfpsFlag() {
+        testHasExtPreferences();
+    }
+
+    @Test
+    @DisableFlags(android.hardware.biometrics.Flags.FLAG_SCREEN_OFF_UNLOCK_UDFPS)
+    public void testHasExtPreferencesDisableScreenOffUnlockUdfpsFlag() {
+        testHasExtPreferences();
+    }
+
+    private void testHasExtPreferences() {
         String key0 = "ExtKey0";
         String key1 = "ExtKey1";
         when(mRestrictedPreference0.getKey()).thenReturn(key0);
@@ -455,6 +468,96 @@ public class FingerprintSettingsFragmentTest {
 
         Preference preference1 = mFragment.findPreference(key1);
         assertThat(preference1).isEqualTo(mRestrictedPreference1);
+    }
+
+    @Test
+    @EnableFlags(android.hardware.biometrics.Flags.FLAG_SCREEN_OFF_UNLOCK_UDFPS)
+    public void testPrimarySwitchIntentPreferenceNullResultKey_enableScreenOffUnlockUdfpsFlag() {
+        testPrimarySwitchIntentPreferenceNullResultKey();
+    }
+
+    @Test
+    @DisableFlags(android.hardware.biometrics.Flags.FLAG_SCREEN_OFF_UNLOCK_UDFPS)
+    public void testPrimarySwitchIntentPreferenceNullResultKey_disableScreenOffUnlockUdfpsFlag() {
+        testPrimarySwitchIntentPreferenceNullResultKey();
+    }
+
+    private void testPrimarySwitchIntentPreferenceNullResultKey() {
+        PrimarySwitchIntentPreference spiedPrimarySwitchIntentPref = spy(
+                new PrimarySwitchIntentPreference(mContext) {
+                    @Override
+                    public String getKey() {
+                        return "TEST_KEY";
+                    }
+                    @Override
+                    public String getConfirmDialogFragmentResultKey() {
+                        return null;
+                    }
+                    @NonNull
+                    @Override
+                    public Intent getLaunchedIntent(@NonNull byte[] token) {
+                        return new Intent();
+                    }
+                });
+        when(mExtPreferencesProvider.getSize()).thenReturn(1);
+        when(mExtPreferencesProvider.newPreference(eq(0),
+                any(FingerprintExtPreferencesProvider.PreferenceInflater.class)))
+                .thenReturn(spiedPrimarySwitchIntentPref);
+
+        Fingerprint fingerprint = new Fingerprint("Test", 0, 0);
+        doReturn(List.of(fingerprint)).when(mFingerprintManager).getEnrolledFingerprints(anyInt());
+        setUpFragment(false, PRIMARY_USER_ID, TYPE_UDFPS_OPTICAL, 5);
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        // Verify click, and no changeListener for later switching toggle case
+        verify(spiedPrimarySwitchIntentPref).setOnPreferenceClickListener(any());
+        verify(spiedPrimarySwitchIntentPref, never()).setOnPreferenceChangeListener(any());
+    }
+
+    @Test
+    @EnableFlags(android.hardware.biometrics.Flags.FLAG_SCREEN_OFF_UNLOCK_UDFPS)
+    public void testPrimarySwitchIntentPreferenceEmptyResultKey_enableScreenOffUnlockUdfpsFlag() {
+        testPrimarySwitchIntentPreferenceEmptyResultKey();
+    }
+
+    @Test
+    @DisableFlags(android.hardware.biometrics.Flags.FLAG_SCREEN_OFF_UNLOCK_UDFPS)
+    public void testPrimarySwitchIntentPreferenceEmptyResultKey_disableScreenOffUnlockUdfpsFlag() {
+        testPrimarySwitchIntentPreferenceEmptyResultKey();
+    }
+
+    private void testPrimarySwitchIntentPreferenceEmptyResultKey() {
+        PrimarySwitchIntentPreference spiedPrimarySwitchIntentPref = spy(
+                new PrimarySwitchIntentPreference(mContext) {
+                    @Override
+                    public String getKey() {
+                        return "TEST_KEY";
+                    }
+                    @Override
+                    public String getConfirmDialogFragmentResultKey() {
+                        return "";
+                    }
+                    @NonNull
+                    @Override
+                    public Intent getLaunchedIntent(@NonNull byte[] token) {
+                        return new Intent();
+                    }
+                });
+        when(mExtPreferencesProvider.getSize()).thenReturn(1);
+        when(mExtPreferencesProvider.newPreference(eq(0),
+                any(FingerprintExtPreferencesProvider.PreferenceInflater.class)))
+                .thenReturn(spiedPrimarySwitchIntentPref);
+
+        Fingerprint fingerprint = new Fingerprint("Test", 0, 0);
+        doReturn(List.of(fingerprint)).when(mFingerprintManager).getEnrolledFingerprints(anyInt());
+        setUpFragment(false, PRIMARY_USER_ID, TYPE_UDFPS_OPTICAL, 5);
+
+        shadowOf(Looper.getMainLooper()).idle();
+
+        // Verify click, and no changeListener for later switching toggle case
+        verify(spiedPrimarySwitchIntentPref).setOnPreferenceClickListener(any());
+        verify(spiedPrimarySwitchIntentPref, never()).setOnPreferenceChangeListener(any());
     }
 
     private void setSensor(@FingerprintSensorProperties.SensorType int sensorType,

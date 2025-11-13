@@ -41,6 +41,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -95,6 +96,8 @@ public class ChooseLockPattern extends SettingsActivity {
     public Intent getIntent() {
         Intent modIntent = new Intent(super.getIntent());
         modIntent.putExtra(EXTRA_SHOW_FRAGMENT, getFragmentClass().getName());
+        modIntent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_USE_EXPRESSIVE_STYLE,
+                ThemeHelper.shouldApplyGlifExpressiveStyle(getApplicationContext()));
         return modIntent;
     }
 
@@ -104,6 +107,8 @@ public class ChooseLockPattern extends SettingsActivity {
         public IntentBuilder(Context context) {
             mIntent = new Intent(context, ChooseLockPattern.class);
             mIntent.putExtra(ChooseLockGeneric.CONFIRM_CREDENTIALS, false);
+            mIntent.putExtra(ChooseLockSettingsHelper.EXTRA_KEY_USE_EXPRESSIVE_STYLE,
+                    ThemeHelper.shouldApplyGlifExpressiveStyle(context));
         }
 
         public IntentBuilder setUserId(int userId) {
@@ -168,15 +173,10 @@ public class ChooseLockPattern extends SettingsActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(SetupWizardUtils.getTheme(this, getIntent()));
+        ThemeHelper.trySetDynamicColor(this);
         if (ThemeHelper.shouldApplyGlifExpressiveStyle(getApplicationContext())) {
-            if (!ThemeHelper.trySetSuwTheme(this)) {
-                setTheme(ThemeHelper.getSuwDefaultTheme(getApplicationContext()));
-                ThemeHelper.trySetDynamicColor(this);
-            }
-        } else {
-
-            setTheme(SetupWizardUtils.getTheme(this, getIntent()));
-            ThemeHelper.trySetDynamicColor(this);
+            ThemeHelper.trySetSuwTheme(this);
         }
         super.onCreate(savedInstanceState);
         findViewById(R.id.content_parent).setFitsSystemWindows(false);
@@ -787,7 +787,6 @@ public class ChooseLockPattern extends SettingsActivity {
             // the rest of the stuff varies enough that it is easier just to handle
             // on a case by case basis.
             mLockPatternView.setDisplayMode(DisplayMode.Correct);
-            boolean announceAlways = false;
 
             switch (mUiStage) {
                 case Introduction:
@@ -800,7 +799,6 @@ public class ChooseLockPattern extends SettingsActivity {
                 case ConfirmWrong:
                     mLockPatternView.setDisplayMode(DisplayMode.Wrong);
                     postClearPatternRunnable();
-                    announceAlways = true;
                     break;
                 case FirstChoiceValid:
                     break;
@@ -811,14 +809,8 @@ public class ChooseLockPattern extends SettingsActivity {
                     break;
             }
 
-            // If the stage changed, announce the header for accessibility. This
-            // is a no-op when accessibility is disabled.
-            if (previousStage != stage || announceAlways) {
-                if (stage == Stage.NeedToConfirm) {
-                    // If the Stage is NeedToConfirm, move the a11y focus to the header.
-                    mHeaderText.requestAccessibilityFocus();
-                }
-            }
+            mHeaderText.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+
         }
 
         protected void updateFooterLeftButton(Stage stage) {

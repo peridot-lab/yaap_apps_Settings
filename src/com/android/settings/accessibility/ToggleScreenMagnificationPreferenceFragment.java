@@ -35,7 +35,6 @@ import android.os.Bundle;
 import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.InputDevice;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +56,7 @@ import com.android.settings.DialogCreatable;
 import com.android.settings.R;
 import com.android.settings.accessibility.AccessibilityDialogUtils.DialogEnums;
 import com.android.settings.accessibility.shortcuts.EditShortcutsPreferenceFragment;
+import com.android.settings.inputmethod.InputPeripheralsSettingsUtils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.search.Indexable;
@@ -83,8 +83,8 @@ public class ToggleScreenMagnificationPreferenceFragment extends
 
     private static final String TAG =
             ToggleScreenMagnificationPreferenceFragment.class.getSimpleName();
-    @VisibleForTesting
     static final String KEY_MAGNIFICATION_SHORTCUT_PREFERENCE = "magnification_shortcut_preference";
+    public static final String MAGNIFICATION_SURVEY_KEY = "A11yMagnificationUser";
     private static final char COMPONENT_NAME_SEPARATOR = ':';
     private static final TextUtils.SimpleStringSplitter sStringColonSplitter =
             new TextUtils.SimpleStringSplitter(COMPONENT_NAME_SEPARATOR);
@@ -131,7 +131,7 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                 .authority(getPrefContext().getPackageName())
                 .appendPath(String.valueOf(useExpressiveTheme
                         ? R.raw.accessibility_magnification_banner_expressive
-                        : R.raw.a11y_magnification_banner))
+                        : R.raw.accessibility_magnification_banner))
                 .build();
         mTouchExplorationStateChangeListener = isTouchExplorationEnabled -> {
             mShortcutPreference.setSummary(getShortcutTypeSummary(getPrefContext()));
@@ -197,9 +197,6 @@ public class ToggleScreenMagnificationPreferenceFragment extends
             case DialogEnums.DIALOG_MAGNIFICATION_CURSOR_FOLLOWING_MODE:
                 return Preconditions.checkNotNull(mMagnificationCursorFollowingModeDialogDelegate)
                         .onCreateDialog(dialogId);
-            case DialogEnums.GESTURE_NAVIGATION_TUTORIAL:
-                return AccessibilityShortcutsTutorial
-                        .showAccessibilityGestureTutorialDialog(getPrefContext());
             default:
                 return super.onCreateDialog(dialogId);
         }
@@ -214,7 +211,16 @@ public class ToggleScreenMagnificationPreferenceFragment extends
 
     private static boolean isMagnificationCursorFollowingModeDialogSupported() {
         return com.android.settings.accessibility.Flags.enableMagnificationCursorFollowingDialog()
-                && hasMouse();
+                && InputPeripheralsSettingsUtils.isMouse();
+    }
+
+    private static boolean isMagnificationKeyboardFollowingSupported() {
+        return android.view.accessibility.Flags.requestRectangleWithSource()
+                && InputPeripheralsSettingsUtils.isHardKeyboard();
+    }
+
+    private static boolean isMagnificationMagnifyNavAndImeSupported() {
+        return com.android.server.accessibility.Flags.enableMagnificationMagnifyNavBarAndIme();
     }
 
     @Override
@@ -223,14 +229,15 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         if (isWindowMagnificationSupported(getContext())) {
             // LINT.IfChange(preference_list)
             addMagnificationModeSetting(generalCategory);
+            addMagnifyNavAndImeSetting(generalCategory);
             addFollowTypingSetting(generalCategory);
             addOneFingerPanningSetting(generalCategory);
             addAlwaysOnSetting(generalCategory);
             addJoystickSetting(generalCategory);
             // LINT.ThenChange(:search_data)
         }
+        addFollowKeyboardSetting(generalCategory);
         addCursorFollowingSetting(generalCategory);
-        addFeedbackSetting(generalCategory);
     }
 
     @Override
@@ -251,7 +258,8 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                 && !Flags.enableMagnificationOneFingerPanningGesture()) {
             String summary = "";
             boolean hasTouchscreen = hasTouchscreen();
-            if (Flags.enableMagnificationKeyboardControl() && hasHardKeyboard()) {
+            if (Flags.enableMagnificationKeyboardControl()
+                    && InputPeripheralsSettingsUtils.isHardKeyboard()) {
                 // Include the keyboard summary when a keyboard is plugged in.
                 final String meta = context.getString(R.string.modifier_keys_meta);
                 final String alt = context.getString(R.string.modifier_keys_alt);
@@ -281,6 +289,29 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         super.onProcessArguments(arguments);
     }
 
+    private static Preference createMagnifyNavAndImePreference(Context context) {
+        var pref = new SwitchPreferenceCompat(context);
+        pref.setTitle(R.string.accessibility_screen_magnification_nav_ime_title);
+        pref.setSummary(R.string.accessibility_screen_magnification_nav_ime_summary);
+        pref.setKey(MagnifyNavAndImePreferenceController.PREF_KEY);
+        return pref;
+    }
+
+    private void addMagnifyNavAndImeSetting(PreferenceCategory generalCategory) {
+        if (!Flags.enableMagnificationMagnifyNavBarAndIme()) {
+            return;
+        }
+
+        generalCategory.addPreference(createMagnifyNavAndImePreference(getPrefContext()));
+
+        var magnifyNavAndImePreferenceController =
+                new MagnifyNavAndImePreferenceController(getContext(),
+                        MagnifyNavAndImePreferenceController.PREF_KEY);
+        getSettingsLifecycle().addObserver(magnifyNavAndImePreferenceController);
+        magnifyNavAndImePreferenceController.displayPreference(getPreferenceScreen());
+        addPreferenceController(magnifyNavAndImePreferenceController);
+    }
+
     private static Preference createMagnificationModePreference(Context context) {
         final Preference pref = new Preference(context);
         pref.setTitle(R.string.accessibility_magnification_mode_title);
@@ -299,6 +330,7 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         magnificationModePreferenceController.setDialogHelper(/* dialogHelper= */this);
         mMagnificationModeDialogDelegate = magnificationModePreferenceController;
         getSettingsLifecycle().addObserver(magnificationModePreferenceController);
+        magnificationModePreferenceController.setInSetupWizard(mInSetupWizard);
         magnificationModePreferenceController.displayPreference(getPreferenceScreen());
         addPreferenceController(magnificationModePreferenceController);
     }
@@ -324,6 +356,8 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                         MagnificationCursorFollowingModePreferenceController.PREF_KEY);
         controller.setDialogHelper(/* dialogHelper= */this);
         mMagnificationCursorFollowingModeDialogDelegate = controller;
+        getSettingsLifecycle().addObserver(controller);
+        controller.setInSetupWizard(mInSetupWizard);
         controller.displayPreference(getPreferenceScreen());
         addPreferenceController(controller);
     }
@@ -344,6 +378,29 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         followTypingPreferenceController.setInSetupWizard(mInSetupWizard);
         followTypingPreferenceController.displayPreference(getPreferenceScreen());
         addPreferenceController(followTypingPreferenceController);
+    }
+
+    private static Preference createFollowKeyboardPreference(Context context) {
+        final Preference pref = new SwitchPreferenceCompat(context);
+        pref.setTitle(R.string.accessibility_screen_magnification_follow_keyboard_title);
+        pref.setSummary(R.string.accessibility_screen_magnification_follow_keyboard_summary);
+        pref.setKey(MagnificationFollowKeyboardPreferenceController.PREF_KEY);
+        return pref;
+    }
+
+    private void addFollowKeyboardSetting(PreferenceCategory generalCategory) {
+        if (!isMagnificationKeyboardFollowingSupported()) {
+            return;
+        }
+
+        generalCategory.addPreference(createFollowKeyboardPreference(getPrefContext()));
+
+        var followKeyboardPreferenceController = new
+                MagnificationFollowKeyboardPreferenceController(getContext(),
+                MagnificationFollowKeyboardPreferenceController.PREF_KEY);
+        followKeyboardPreferenceController.setInSetupWizard(mInSetupWizard);
+        followKeyboardPreferenceController.displayPreference(getPreferenceScreen());
+        addPreferenceController(followKeyboardPreferenceController);
     }
 
     private static boolean isAlwaysOnSupported(Context context) {
@@ -416,14 +473,6 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         return pref;
     }
 
-    private static Preference createFeedbackPreference(Context context) {
-        final Preference pref = new Preference(context);
-        pref.setTitle(R.string.accessibility_feedback_title);
-        pref.setSummary(R.string.accessibility_feedback_summary);
-        pref.setKey(MagnificationFeedbackPreferenceController.PREF_KEY);
-        return pref;
-    }
-
     private static boolean isJoystickSupported() {
         return DeviceConfig.getBoolean(
                 DeviceConfig.NAMESPACE_WINDOW_MANAGER,
@@ -449,22 +498,6 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         addPreferenceController(joystickPreferenceController);
     }
 
-    private void addFeedbackSetting(PreferenceCategory generalCategory) {
-        if (!Flags.enableLowVisionHats()) {
-            return;
-        }
-
-        final Preference feedbackPreference = createFeedbackPreference(getPrefContext());
-        generalCategory.addPreference(feedbackPreference);
-
-        final MagnificationFeedbackPreferenceController magnificationFeedbackPreferenceController =
-                new MagnificationFeedbackPreferenceController(getContext(), this,
-                        MagnificationFeedbackPreferenceController.PREF_KEY);
-        magnificationFeedbackPreferenceController.setInSetupWizard(mInSetupWizard);
-        magnificationFeedbackPreferenceController.displayPreference(getPreferenceScreen());
-        addPreferenceController(magnificationFeedbackPreferenceController);
-    }
-
     @Override
     public void showDialog(int dialogId) {
         super.showDialog(dialogId);
@@ -477,6 +510,8 @@ public class ToggleScreenMagnificationPreferenceFragment extends
 
         var keysToObserve = List.of(
                 Settings.Secure.ACCESSIBILITY_MAGNIFICATION_FOLLOW_TYPING_ENABLED,
+                Settings.Secure.ACCESSIBILITY_MAGNIFICATION_FOLLOW_KEYBOARD_ENABLED,
+                Settings.Secure.ACCESSIBILITY_MAGNIFICATION_MAGNIFY_NAV_AND_IME,
                 Settings.Secure.ACCESSIBILITY_MAGNIFICATION_ALWAYS_ON_ENABLED,
                 Settings.Secure.ACCESSIBILITY_MAGNIFICATION_JOYSTICK_ENABLED
         );
@@ -555,13 +590,15 @@ public class ToggleScreenMagnificationPreferenceFragment extends
             case DialogEnums.DIALOG_MAGNIFICATION_CURSOR_FOLLOWING_MODE:
                 return Preconditions.checkNotNull(mMagnificationCursorFollowingModeDialogDelegate)
                         .getDialogMetricsCategory(dialogId);
-            case DialogEnums.GESTURE_NAVIGATION_TUTORIAL:
-                return SettingsEnums.DIALOG_TOGGLE_SCREEN_MAGNIFICATION_GESTURE_NAVIGATION;
-            case DialogEnums.ACCESSIBILITY_BUTTON_TUTORIAL:
-                return SettingsEnums.DIALOG_TOGGLE_SCREEN_MAGNIFICATION_ACCESSIBILITY_BUTTON;
             default:
                 return super.getDialogMetricsCategory(dialogId);
         }
+    }
+
+    @Override
+    @NonNull
+    public String getSurveyKey() {
+        return MAGNIFICATION_SURVEY_KEY;
     }
 
     @Override
@@ -580,7 +617,7 @@ public class ToggleScreenMagnificationPreferenceFragment extends
         if (enabled && TextUtils.equals(
                 Settings.Secure.ACCESSIBILITY_DISPLAY_MAGNIFICATION_NAVBAR_ENABLED,
                 preferenceKey)) {
-            showDialog(DialogEnums.LAUNCH_ACCESSIBILITY_TUTORIAL);
+            showShortcutsTutorialDialog();
         }
         Settings.Secure.putInt(getContentResolver(), preferenceKey, enabled ? ON : OFF);
     }
@@ -598,7 +635,7 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                 Set.of(MAGNIFICATION_CONTROLLER_NAME), getPrefContext().getUserId()
         );
         if (preference.isChecked()) {
-            showDialog(DialogEnums.LAUNCH_ACCESSIBILITY_TUTORIAL);
+            showShortcutsTutorialDialog();
         }
         mShortcutPreference.setSummary(getShortcutTypeSummary(getPrefContext()));
     }
@@ -679,34 +716,6 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                 getPrefContext(), MAGNIFICATION_CONTROLLER_NAME);
     }
 
-    /**
-     * Returns if a mouse is attached.
-     */
-    private static boolean hasMouse() {
-        final int[] devices = InputDevice.getDeviceIds();
-        for (int i = 0; i < devices.length; i++) {
-            InputDevice device = InputDevice.getDevice(devices[i]);
-            if (device != null && (device.getSources() & InputDevice.SOURCE_MOUSE)
-                    == InputDevice.SOURCE_MOUSE) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean hasHardKeyboard() {
-        final int[] devices = InputDevice.getDeviceIds();
-        for (int i = 0; i < devices.length; i++) {
-            InputDevice device = InputDevice.getDevice(devices[i]);
-            if (device == null || device.isVirtual() || !device.isFullKeyboard()) {
-                continue;
-            }
-
-            return true;
-        }
-        return false;
-    }
-
     private boolean hasTouchscreen() {
         return getPackageManager()
                 .hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)
@@ -723,10 +732,6 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                     final List<SearchIndexableRaw> rawData =
                             super.getRawDataToIndex(context, enabled);
 
-                    if (!com.android.settings.accessibility.Flags.fixA11ySettingsSearch()) {
-                        return rawData;
-                    }
-
                     // Add all preferences to search raw data so that they are included in
                     // indexing, which happens infrequently. Irrelevant preferences should be
                     // hidden from the live returned search results by `getNonIndexableKeys`,
@@ -736,11 +741,12 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                     Stream.of(
                                     createMagnificationModePreference(context),
                                     createFollowTypingPreference(context),
+                                    createFollowKeyboardPreference(context),
                                     createOneFingerPanningPreference(context),
                                     createAlwaysOnPreference(context),
                                     createJoystickPreference(context),
-                                    createCursorFollowingPreference(context),
-                                    createFeedbackPreference(context)
+                                    createMagnifyNavAndImePreference(context),
+                                    createCursorFollowingPreference(context)
                             )
                             .forEach(pref ->
                                     rawData.add(createPreferenceSearchData(context, pref)));
@@ -751,18 +757,18 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                 @Override
                 public List<String> getNonIndexableKeys(@NonNull Context context) {
                     final List<String> niks = super.getNonIndexableKeys(context);
-
-                    if (!com.android.settings.accessibility.Flags.fixA11ySettingsSearch()) {
-                        return niks;
-                    }
-
                     if (!isWindowMagnificationSupported(context)) {
                         niks.add(MagnificationModePreferenceController.PREF_KEY);
+                        niks.add(MagnifyNavAndImePreferenceController.PREF_KEY);
                         niks.add(MagnificationFollowTypingPreferenceController.PREF_KEY);
                         niks.add(MagnificationOneFingerPanningPreferenceController.PREF_KEY);
                         niks.add(MagnificationAlwaysOnPreferenceController.PREF_KEY);
                         niks.add(MagnificationJoystickPreferenceController.PREF_KEY);
                     } else {
+                        if (!isMagnificationMagnifyNavAndImeSupported()) {
+                            niks.add(MagnifyNavAndImePreferenceController.PREF_KEY);
+                        }
+
                         if (!isAlwaysOnSupported(context)
                                 // This preference's title "Keep on while switching apps" does not
                                 // mention magnification so it may confuse users who search a term
@@ -780,12 +786,12 @@ public class ToggleScreenMagnificationPreferenceFragment extends
                         }
                     }
 
-                    if (!isMagnificationCursorFollowingModeDialogSupported()) {
-                        niks.add(MagnificationCursorFollowingModePreferenceController.PREF_KEY);
+                    if (!isMagnificationKeyboardFollowingSupported()) {
+                        niks.add(MagnificationFollowKeyboardPreferenceController.PREF_KEY);
                     }
 
-                    if (!Flags.enableLowVisionHats()) {
-                        niks.add(MagnificationFeedbackPreferenceController.PREF_KEY);
+                    if (!isMagnificationCursorFollowingModeDialogSupported()) {
+                        niks.add(MagnificationCursorFollowingModePreferenceController.PREF_KEY);
                     }
 
                     return niks;

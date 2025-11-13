@@ -17,12 +17,28 @@ package com.android.settings.supervision
 
 import android.app.supervision.flags.Flags
 import android.content.Context
+import android.content.Intent
+import androidx.preference.Preference
 import com.android.settings.core.BasePreferenceController
 
 /** Controller for the top level Supervision settings Preference item. */
 class TopLevelSupervisionPreferenceController(context: Context, key: String) :
     BasePreferenceController(context, key) {
 
-    override fun getAvailabilityStatus(): Int =
-        if (Flags.enableSupervisionSettingsScreen()) AVAILABLE else UNSUPPORTED_ON_DEVICE
+    override fun handlePreferenceTreeClick(preference: Preference): Boolean {
+        if (preference.key == preferenceKey) {
+            val intent = Intent(mContext, SupervisionDashboardActivity::class.java)
+            mContext.startActivity(intent)
+            return true
+        }
+        return super.handlePreferenceTreeClick(preference)
+    }
+
+    override fun getAvailabilityStatus(): Int {
+        if (!Flags.enableSupervisionSettingsScreen()) {
+            return UNSUPPORTED_ON_DEVICE
+        }
+
+        return AVAILABLE
+    }
 }

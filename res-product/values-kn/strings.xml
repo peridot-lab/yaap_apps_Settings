@@ -291,7 +291,7 @@
     <string name="bluetooth_unpair_dialog_body" product="tablet" msgid="8098078685596880647">"ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‌ ಅನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ"</string>
     <string name="bluetooth_unpair_dialog_body" product="device" msgid="563640675231461703">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ"</string>
     <string name="bluetooth_unpair_dialog_body" product="desktop" msgid="563640675231461703">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ"</string>
-    <string name="bluetooth_unpair_dialog_with_associations_body" product="default" msgid="5994849277385675452">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ. <xliff:g id="APP_NAME">%2$s</xliff:g> ಇನ್ನು ಮುಂದೆ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುವುದಿಲ್ಲ"</string>
+    <string name="bluetooth_unpair_dialog_with_associations_body" product="default" msgid="5994849277385675452">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಪೇರ್ ಮಾಡಲಾಗುವುದಿಲ್ಲ. <xliff:g id="APP_NAME">%2$s</xliff:g> ಇನ್ನು ಮುಂದೆ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುವುದಿಲ್ಲ"</string>
     <string name="bluetooth_unpair_dialog_with_associations_body" product="tablet" msgid="1783141603173138886">"ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‌ ಅನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ. <xliff:g id="APP_NAME">%2$s</xliff:g> ಇನ್ನು ಮುಂದೆ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುವುದಿಲ್ಲ"</string>
     <string name="bluetooth_unpair_dialog_with_associations_body" product="device" msgid="4096203730149218837">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ. <xliff:g id="APP_NAME">%2$s</xliff:g> ಇನ್ನು ಮುಂದೆ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುವುದಿಲ್ಲ"</string>
     <string name="bluetooth_unpair_dialog_with_associations_body" product="desktop" msgid="4096203730149218837">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಇನ್ನು ಮುಂದೆ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆಗೆ ಜೋಡಿಸಲಾಗುವುದಿಲ್ಲ. <xliff:g id="APP_NAME">%2$s</xliff:g> ಇನ್ನು ಮುಂದೆ ಸಾಧನವನ್ನು ನಿರ್ವಹಿಸುವುದಿಲ್ಲ"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡದೆಯೇ"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‌‌ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡದೆಯೇ"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡದೆಯೇ"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"ಈ ಫೋನ್‌ನ ನಿಯಂತ್ರಣಗಳು"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"ಈ ಟ್ಯಾಬ್ಲೆಟ್‌ನ ನಿಯಂತ್ರಣಗಳು"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"ಈ ಸಾಧನದ ನಿಯಂತ್ರಣಗಳು"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"ಫೋನ್ ಅನ್ನು ಪೋರ್ಟ್ರೇಟ್ ಹಾಗೂ ಲ್ಯಾಂಡ್‌ಸ್ಕೇಪ್ ನಡುವೆ ಬದಲಾಯಿಸಿದಾಗ"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್ ಅನ್ನು ಪೋರ್ಟ್ರೇಟ್ ಹಾಗೂ ಲ್ಯಾಂಡ್‌ಸ್ಕೇಪ್ ನಡುವೆ ಬದಲಾಯಿಸಿದಾಗ"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ಪೋರ್ಟ್ರೇಟ್ ಹಾಗೂ ಲ್ಯಾಂಡ್‌ಸ್ಕೇಪ್ ನಡುವೆ ಬದಲಾಯಿಸಿದಾಗ"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"ಆಡಿಯೋವನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಪ್ರಾರಂಭಿಸುವುದಕ್ಕೆ ಮೊದಲು ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್‌ಗೆ LE ಆಡಿಯೋ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್‌ ಮಾಡಿ. "<annotation id="link">"ಹೊಂದಾಣಿಕೆಯಾಗುವ ಸಾಧನಗಳ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"ಆಡಿಯೋವನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಪ್ರಾರಂಭಿಸುವುದಕ್ಕೆ ಮೊದಲು ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ LE ಆಡಿಯೋ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್‌ ಮಾಡಿ. "<annotation id="link">"ಹೊಂದಾಣಿಕೆಯಾಗುವ ಸಾಧನಗಳ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"ಆಡಿಯೋವನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಪ್ರಾರಂಭಿಸುವುದಕ್ಕೆ ಮೊದಲು ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ LE ಆಡಿಯೋ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್‌ ಮಾಡಿ. "<annotation id="link">"ಹೊಂದಾಣಿಕೆಯಾಗುವ ಸಾಧನಗಳ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"ಮೊಬೈಲ್, ವೈ-ಫೈ, ಹಾಟ್‌ಸ್ಪಾಟ್"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"ವೈ-ಫೈ, ಮೊಬೈಲ್ ಹಾಟ್‌ಸ್ಪಾಟ್"</string>
 </resources>

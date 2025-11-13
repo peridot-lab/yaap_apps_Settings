@@ -42,8 +42,6 @@ import com.android.internal.accessibility.util.AccessibilityUtils;
 import com.android.internal.content.PackageMonitor;
 import com.android.settings.R;
 import com.android.settings.accessibility.AccessibilityUtil.AccessibilityServiceFragmentType;
-import com.android.settings.accessibility.actionbar.FeedbackMenuController;
-import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.RestrictedPreference;
@@ -58,7 +56,7 @@ import java.util.Map;
 
 /** Activity with the accessibility settings. */
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class AccessibilitySettings extends DashboardFragment implements
+public class AccessibilitySettings extends BaseSupportFragment implements
         InputManager.InputDeviceListener {
 
     private static final String TAG = "AccessibilitySettings";
@@ -87,7 +85,7 @@ public class AccessibilitySettings extends DashboardFragment implements
     static final String EXTRA_SUMMARY = "summary";
     static final String EXTRA_INTRO = "intro";
     static final String EXTRA_SETTINGS_TITLE = "settings_title";
-    static final String EXTRA_COMPONENT_NAME = "component_name";
+    public static final String EXTRA_COMPONENT_NAME = "component_name";
     static final String EXTRA_SETTINGS_COMPONENT_NAME = "settings_component_name";
     static final String EXTRA_TILE_SERVICE_COMPONENT_NAME = "tile_service_component_name";
     static final String EXTRA_LAUNCHED_FROM_SUW = "from_suw";
@@ -190,6 +188,13 @@ public class AccessibilitySettings extends DashboardFragment implements
     }
 
     @Override
+    protected String getDisabilitySupportUrl() {
+        return FeatureFactory.getFeatureFactory()
+                .getAccessibilityDisabilitySupportFeatureProvider()
+                .getUrl();
+    }
+
+    @Override
     public int getHelpResource() {
         return R.string.help_uri_accessibility;
     }
@@ -210,7 +215,6 @@ public class AccessibilitySettings extends DashboardFragment implements
         mNeedPreferencesUpdate = false;
         registerContentMonitors();
         registerInputDeviceListener();
-        FeedbackMenuController.init(this, SettingsEnums.ACCESSIBILITY);
     }
 
     @Override
@@ -562,9 +566,6 @@ public class AccessibilitySettings extends DashboardFragment implements
                             context, enabled);
                     if (dynamicRawData == null) {
                         dynamicRawData = new ArrayList<>();
-                    }
-                    if (!Flags.fixA11ySettingsSearch()) {
-                        return dynamicRawData;
                     }
 
                     AccessibilityManager a11yManager = context.getSystemService(

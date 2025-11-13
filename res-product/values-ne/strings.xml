@@ -425,10 +425,10 @@
     <string name="data_usage_limit_dialog_mobile" product="tablet" msgid="5609616352941038118">"तपाईंको ट्याब्लेट तपाईंले सेट गर्नुभएको अधिकतम डेटा प्रयोगको सीमामा पुगेपछि यसले मोबाइल डेटालाई निष्क्रिय पार्नेछ।\n\nतपाईंको ट्याब्लेटले र तपाईंको सेवा प्रदायकले फरक तरिकाले डेटा प्रयोगको मापन गर्न सक्ने हुनाले विवेकपूर्ण तरिकाले यसको सीमा सेट गर्ने बारे विचार गर्नुहोस्।"</string>
     <string name="data_usage_limit_dialog_mobile" product="default" msgid="4552449053646826676">"तपाईंले सेट गर्नुभएको अधिकतम डेटाको सीमामा पुगेपछि तपाईंको फोनले मोबाइल डेटा अफ गर्ने छ।\n\nतपाईंको फोन र तपाईंको सेवा प्रदायकले फरक फरक तरिकाले डेटा खपतको मापन गर्न सक्ने भएकाले विवेकपूर्ण तरिकाले डेटाको सीमा तोक्नुहोस्।"</string>
     <string name="data_usage_limit_dialog_mobile" product="desktop" msgid="407387299340649944">"तपाईंले निर्धारण गर्नुभएको मोबाइल डेटाको अधिकतम सीमा पूरा भएपछि तपाईंको डिभाइसले मोबाइल डेटा अफ गर्ने छ।\n\nतपाईंको डिभाइसले डेटा प्रयोग मापन गर्ने र तपाईंको सेवा प्रदायकले डेटा प्रयोग फरक तरिकाले मापन गर्न सक्ने भएकाले मोबाइल डेटाको सीमा कम निर्धारण गर्नुहोस्।"</string>
-    <string name="user_settings_footer_text" product="device" msgid="8543171604218174424">"नयाँ नयाँ प्रयोगकर्ता थपेर आफ्नो डिभाइस सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको डिभाइसमा व्यक्तिगत भण्डारण हुन्छ।"</string>
-    <string name="user_settings_footer_text" product="tablet" msgid="4749331578207116797">"नयाँ नयाँ प्रयोगकर्ता थपेर आफ्नो ट्याब्लेट सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको ट्याब्लेटमा व्यक्तिगत भण्डारण हुन्छ।"</string>
-    <string name="user_settings_footer_text" product="default" msgid="5440172971747221370">"नयाँ नयाँ प्रयोगकर्ता थपेर आफ्नो फोन सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको फोनमा व्यक्तिगत भण्डारण हुन्छ।"</string>
-    <string name="user_settings_footer_text" product="desktop" msgid="8543171604218174424">"नयाँ नयाँ प्रयोगकर्ता थपेर आफ्नो डिभाइस सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको डिभाइसमा व्यक्तिगत भण्डारण हुन्छ।"</string>
+    <string name="user_settings_footer_text" product="device" msgid="8543171604218174424">"नयाँ प्रयोगकर्ताहरू कनेक्ट गरेर आफ्नो डिभाइस सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको डिभाइसमा व्यक्तिगत भण्डारण हुन्छ।"</string>
+    <string name="user_settings_footer_text" product="tablet" msgid="4749331578207116797">"नयाँ प्रयोगकर्ताहरू कनेक्ट गरेर आफ्नो ट्याब्लेट सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको ट्याब्लेटमा व्यक्तिगत भण्डारण हुन्छ।"</string>
+    <string name="user_settings_footer_text" product="default" msgid="5440172971747221370">"नयाँ प्रयोगकर्ताहरू कनेक्ट गरेर आफ्नो फोन सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको फोनमा व्यक्तिगत भण्डारण हुन्छ।"</string>
+    <string name="user_settings_footer_text" product="desktop" msgid="8543171604218174424">"नयाँ प्रयोगकर्ताहरू कनेक्ट गरेर आफ्नो डिभाइस सेयर गर्नुहोस्। प्रत्येक प्रयोगकर्तासँग कस्टम होम स्क्रिन, खाता, एप, सेटिङ र थप कुराहरूका लागि तपाईंको डिभाइसमा व्यक्तिगत भण्डारण हुन्छ।"</string>
     <string name="user_cannot_manage_message" product="tablet" msgid="5566619500245432179">"ट्याब्लेटको मालिकले मात्र प्रयोगकर्ताहरूलाई व्यवस्थापन गर्न सक्छ।"</string>
     <string name="user_cannot_manage_message" product="default" msgid="8596259161937605316">"केवल फोनको धनीले मात्र प्रयोगकर्ता व्यवस्थापन गर्न सक्छ"</string>
     <string name="user_cannot_manage_message" product="device" msgid="6132301775596845288">"डिभाइसको मालिकले मात्र प्रयोगकर्ताहरूको व्यवस्थापन गर्न सक्नुहुन्छ।"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"तपाईंको फोन अनलक नगरिकनै"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"तपाईंको ट्याब्लेट अनलक नगरिकनै"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"आफ्नो डिभाइस अनलक नगरिकनै"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"यो फोनमा उपलब्ध कन्ट्रोलहरू"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"यो ट्याब्लेटमा उपलब्ध कन्ट्रोलहरू"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"यो डिभाइसमा उपलब्ध कन्ट्रोलहरू"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"तपाईंले आफ्नो फोन पोर्ट्रेट र ल्यान्डस्केपबिच अदलबदल गर्दा"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"तपाईंले आफ्नो ट्याब्लेट पोर्ट्रेट र ल्यान्डस्केपबिच अदलबदल गर्दा"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"तपाईंले आफ्नो डिभाइस पोर्ट्रेट र ल्यान्डस्केप मोडबिच अदलबदल गर्दा"</string>
@@ -494,10 +497,10 @@
     <string name="spatial_audio_speaker" product="tablet" msgid="5452617980485166854">"ट्याब्लेटका स्पिकरहरू"</string>
     <string name="spatial_audio_speaker" product="device" msgid="6204289590128303795">"डिभाइसका स्पिकरहरू"</string>
     <string name="spatial_audio_speaker" product="desktop" msgid="6204289590128303795">"डिभाइसका स्पिकरहरू"</string>
-    <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"यो फोनका सङ्गीत र भिडियोहरू दुवै जोडी हेडफोनमा प्ले हुने छन्"</string>
-    <string name="audio_sharing_dialog_share_content" product="tablet" msgid="3459594795397910145">"यो ट्याब्लेटका सङ्गीत र भिडियोहरू दुवै जोडी हेडफोनमा प्ले हुने छन्"</string>
-    <string name="audio_sharing_dialog_share_content" product="device" msgid="1297019559878011896">"यो डिभाइसका सङ्गीत र भिडियोहरू दुवै जोडी हेडफोनमा प्ले हुने छन्"</string>
-    <string name="audio_sharing_dialog_share_content" product="desktop" msgid="1297019559878011896">"यो डिभाइसका सङ्गीत र भिडियोहरू दुवै जोडी हेडफोनमा प्ले हुने छन्"</string>
+    <string name="audio_sharing_dialog_share_content" product="default" msgid="708698992481271057">"यो फोनका सङ्गीत र भिडियोहरू दुइटै हेडफोनमा प्ले हुने छन्"</string>
+    <string name="audio_sharing_dialog_share_content" product="tablet" msgid="3459594795397910145">"यो ट्याब्लेटका सङ्गीत र भिडियोहरू दुइटै हेडफोनमा प्ले हुने छन्"</string>
+    <string name="audio_sharing_dialog_share_content" product="device" msgid="1297019559878011896">"यो डिभाइसका सङ्गीत र भिडियोहरू दुइटै हेडफोनमा प्ले हुने छन्"</string>
+    <string name="audio_sharing_dialog_share_content" product="desktop" msgid="1297019559878011896">"यो डिभाइसका सङ्गीत र भिडियोहरू दुइटै हेडफोनमा प्ले हुने छन्"</string>
     <string name="audio_sharing_dialog_share_more_content" product="default" msgid="4517503016262565607">"यो फोनका सङ्गीत र भिडियोहरू तपाईंले कनेक्ट गर्ने हेडफोनमा प्ले हुने छन्"</string>
     <string name="audio_sharing_dialog_share_more_content" product="tablet" msgid="7742344946644657414">"यो ट्याब्लेटका सङ्गीत र भिडियोहरू तपाईंले कनेक्ट गर्ने हेडफोनमा प्ले हुने छन्"</string>
     <string name="audio_sharing_dialog_share_more_content" product="device" msgid="3409470560712324580">"यो डिभाइसका सङ्गीत र भिडियोहरू तपाईंले कनेक्ट गर्ने हेडफोनमा प्ले हुने छन्"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"अडियो सेयर गर्न थाल्न सर्वप्रथम आफ्नो ट्याब्लेटमा LE अडियो हेडफोन कनेक्ट गर्नुहोस्। "<annotation id="link">"कम्प्याटिबल डिभाइसहरूका बारेमा थप जान्नुहोस्"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"अडियो सेयर गर्न थाल्न सर्वप्रथम आफ्नो डिभाइसमा LE अडियो हेडफोन कनेक्ट गर्नुहोस्। "<annotation id="link">"कम्प्याटिबल डिभाइसहरूका बारेमा थप जान्नुहोस्"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"अडियो सेयर गर्न थाल्न सर्वप्रथम आफ्नो डिभाइसमा LE अडियो हेडफोन कनेक्ट गर्नुहोस्। "<annotation id="link">"कम्प्याटिबल डिभाइसहरूका बारेमा थप जान्नुहोस्"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"मोबाइल, Wi‑Fi, हटस्पट"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi, मोबाइल, हटस्पट"</string>
 </resources>

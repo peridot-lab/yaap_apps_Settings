@@ -16,8 +16,6 @@
 
 package com.android.settings.accessibility.actionbar;
 
-import static com.android.settings.accessibility.actionbar.FeedbackMenuController.MENU_FEEDBACK;
-
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -40,6 +38,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.testing.EmptyFragmentActivity;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
+import com.android.settings.R;
 import com.android.settings.accessibility.FeedbackManager;
 import com.android.settings.core.InstrumentedPreferenceFragment;
 import com.android.settingslib.core.lifecycle.Lifecycle;
@@ -92,7 +91,7 @@ public class FeedbackMenuControllerTest {
         });
         when(mHost.getActivity()).thenReturn(mActivity);
         when(mMenu.add(anyInt(), anyInt(), anyInt(), anyInt())).thenReturn(mMenuItem);
-        when(mMenuItem.getItemId()).thenReturn(MENU_FEEDBACK);
+        when(mMenuItem.getItemId()).thenReturn(MenusUtils.MenuId.FEEDBACK.getValue());
         mFeedbackManager = new FeedbackManager(mActivity, PACKAGE_NAME, DEFAULT_CATEGORY);
     }
 
@@ -122,6 +121,7 @@ public class FeedbackMenuControllerTest {
         mHost.getSettingsLifecycle().onCreateOptionsMenu(mMenu, /* inflater= */ null);
 
         verify(mMenu).add(anyInt(), anyInt(), anyInt(), anyInt());
+        verify(mMenuItem).setIcon(R.drawable.ic_feedback);
     }
 
     @Test

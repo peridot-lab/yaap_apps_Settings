@@ -16,14 +16,17 @@
 
 package com.android.settings.inputmethod;
 
+import static com.android.internal.accessibility.AccessibilityShortcutController.MOUSE_KEYS_COMPONENT_NAME;
 import static com.android.settings.inputmethod.PhysicalKeyboardFragment.getHardKeyboards;
 
 import android.app.settings.SettingsEnums;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.hardware.input.InputManager;
 import android.os.Bundle;
 import android.view.InputDevice;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,8 +36,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.internal.util.Preconditions;
 import com.android.settings.R;
+import com.android.settings.accessibility.ShortcutFragment;
+import com.android.settings.accessibility.ToggleShortcutPreferenceController;
 import com.android.settings.activityembedding.ActivityEmbeddingUtils;
-import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.keyboard.Flags;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
@@ -44,7 +48,7 @@ import com.android.settingslib.widget.LayoutPreference;
 import java.util.List;
 
 @SearchIndexable
-public class MouseKeysMainPageFragment extends DashboardFragment
+public class MouseKeysMainPageFragment extends ShortcutFragment
         implements InputManager.InputDeviceListener {
 
     private static final String TAG = "MouseKeysMainPageFragment";
@@ -71,6 +75,12 @@ public class MouseKeysMainPageFragment extends DashboardFragment
         configureImagesPreference();
     }
 
+    @NonNull
+    @Override
+    public ToggleShortcutPreferenceController getShortcutPreferenceController() {
+        return use(KeyboardAccessibilityMouseKeysShortcutController.class);
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -82,6 +92,18 @@ public class MouseKeysMainPageFragment extends DashboardFragment
     public void onPause() {
         super.onPause();
         mInputManager.unregisterInputDeviceListener(this);
+    }
+
+    @NonNull
+    @Override
+    public CharSequence getFeatureName() {
+        return getContext().getString(R.string.mouse_keys);
+    }
+
+    @NonNull
+    @Override
+    public ComponentName getFeatureComponentName() {
+        return MOUSE_KEYS_COMPONENT_NAME;
     }
 
     @Override
@@ -134,6 +156,28 @@ public class MouseKeysMainPageFragment extends DashboardFragment
         int column = isPortrait && !isTwoPaneState ? 1 : 2;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), column));
         recyclerView.setAdapter(new MouseKeysImageListAdapter(getActivity(), mCurrentInputDevice));
+
+        if (com.android.server.accessibility.Flags.enableMouseKeyEnhancement()) {
+            // Update paddings to match the latest UI.
+            recyclerView.setPadding(0, 0, 0, 0);
+            final RecyclerView numKeyboardRecyclerView = mMouseKeyImagesPreference
+                    .findViewById(R.id.mouse_keys_numpad_image_recycler_list);
+            numKeyboardRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), column));
+            numKeyboardRecyclerView.setAdapter(
+                    new MouseKeysNumKeyboardImageListAdapter(getActivity(), mCurrentInputDevice));
+            final View infoIcon = mMouseKeyImagesPreference.findViewById(
+                    R.id.mouse_keys_info_icon);
+            infoIcon.setVisibility(View.VISIBLE);
+
+            mMouseKeyImagesPreference.findViewById(R.id.title_mouse_keys_image_recycler_list)
+                    .setVisibility(View.VISIBLE);
+            mMouseKeyImagesPreference
+                    .findViewById(R.id.title_mouse_keys_numpad_image_recycler_list)
+                    .setVisibility(View.VISIBLE);
+            mMouseKeyImagesPreference
+                    .findViewById(R.id.summary_mouse_keys_numpad_image_recycler_list)
+                    .setVisibility(View.VISIBLE);
+        }
     }
 
     /**

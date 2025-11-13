@@ -17,6 +17,7 @@ package com.android.settings.connecteddevice.display
 
 import android.window.DesktopExperienceFlags.DesktopExperienceFlag
 import com.android.settings.flags.FeatureFlags
+import com.android.settings.flags.Flags
 
 /** Class handling Settings flags, but using the Desktop Experience developer option overrides. */
 class DesktopExperienceFlags(private val featureFlagsImpl: FeatureFlags) : FeatureFlags by featureFlagsImpl {
@@ -25,6 +26,7 @@ class DesktopExperienceFlags(private val featureFlagsImpl: FeatureFlags) : Featu
         DesktopExperienceFlag(
             featureFlagsImpl::displayTopologyPaneInDisplayList,
             /* shouldOverrideByDevOption= */ true,
+            Flags.FLAG_DISPLAY_TOPOLOGY_PANE_IN_DISPLAY_LIST,
         )
 
     override fun displayTopologyPaneInDisplayList(): Boolean =
@@ -34,8 +36,29 @@ class DesktopExperienceFlags(private val featureFlagsImpl: FeatureFlags) : Featu
         DesktopExperienceFlag(
             featureFlagsImpl::displaySizeConnectedDisplaySetting,
             /* shouldOverrideByDevOption= */ true,
+            Flags.FLAG_DISPLAY_SIZE_CONNECTED_DISPLAY_SETTING,
         )
 
     override fun displaySizeConnectedDisplaySetting(): Boolean =
         displaySizeConnectedDisplaySettingFlag.isTrue
+
+    private val resolutionAndEnableConnectedDisplaySettingFlag =
+        DesktopExperienceFlag(
+            featureFlagsImpl::resolutionAndEnableConnectedDisplaySetting,
+            /* shouldOverrideByDevOption= */ false,
+            Flags.FLAG_RESOLUTION_AND_ENABLE_CONNECTED_DISPLAY_SETTING,
+        )
+
+    override fun resolutionAndEnableConnectedDisplaySetting(): Boolean =
+        resolutionAndEnableConnectedDisplaySettingFlag.isTrue
+
+    private val showStackedMirroringDisplayConnectedDisplaySettingFlag =
+        DesktopExperienceFlag(
+            featureFlagsImpl::showStackedMirroringDisplayConnectedDisplaySetting,
+            /* shouldOverrideByDevOption= */ false,
+            Flags.FLAG_SHOW_STACKED_MIRRORING_DISPLAY_CONNECTED_DISPLAY_SETTING,
+        )
+
+    override fun showStackedMirroringDisplayConnectedDisplaySetting(): Boolean =
+        showStackedMirroringDisplayConnectedDisplaySettingFlag.isTrue
 }

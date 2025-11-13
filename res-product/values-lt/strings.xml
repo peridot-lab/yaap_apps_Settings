@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Neatrakinus telefono"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Neatrakinus planšetinio kompiuterio"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Neatrakinus įrenginio"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Šio telefono valdikliai"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Šio planšetinio kompiuterio valdikliai"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Šio įrenginio valdikliai"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Kai pasukate telefoną stačiai ar gulsčiai"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Kai pasukate planšetinį kompiuterį stačiai ar gulsčiai"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Kai pasukate įrenginį stačiai ar gulsčiai"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Jei norite pradėti bendrinti garso įrašą, pirmiausia prijunkite „LE Audio“ ausines prie planšetinio kompiuterio. "<annotation id="link">"Sužinokite daugiau apie suderinamus įrenginius"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Jei norite pradėti bendrinti garso įrašą, pirmiausia prijunkite „LE Audio“ ausines prie įrenginio. "<annotation id="link">"Sužinokite daugiau apie suderinamus įrenginius"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Jei norite pradėti bendrinti garso įrašą, pirmiausia prijunkite „LE Audio“ ausines prie įrenginio. "<annotation id="link">"Sužinokite daugiau apie suderinamus įrenginius"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Mobiliojo ryšio tinklas, „Wi‑Fi“, viešosios interneto prieigos taškas"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"„Wi‑Fi“, mobilusis ryšys, viešosios interneto prieigos taškas"</string>
 </resources>

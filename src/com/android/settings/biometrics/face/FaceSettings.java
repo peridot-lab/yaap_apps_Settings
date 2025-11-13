@@ -301,7 +301,11 @@ public class FaceSettings extends DashboardFragment {
                     findPreference(PREF_KEY_USE_FACE_TO_CATEGORY);
             category.setVisible(true);
             use(FaceSettingsKeyguardUnlockPreferenceController.class).setUserId(mUserId);
+            use(FaceSettingsKeyguardUnlockPreferenceController.class)
+                    .displayPreference(getPreferenceScreen());
             use(FaceSettingsAppsPreferenceController.class).setUserId(mUserId);
+            use(FaceSettingsAppsPreferenceController.class)
+                    .displayPreference(getPreferenceScreen());
         }
     }
 
@@ -391,7 +395,13 @@ public class FaceSettings extends DashboardFragment {
                         Utils.requestBiometricAuthenticationForMandatoryBiometrics(getActivity(),
                                 mBiometricsAuthenticationRequested,
                                 mUserId);
-                if (biometricAuthStatus == Utils.BiometricStatus.OK) {
+                if (android.hardware.biometrics.Flags.bpFallbackOptions()) {
+                    if (biometricAuthStatus != Utils.BiometricStatus.NOT_ACTIVE) {
+                        Utils.launchBiometricPromptForMandatoryBiometrics(this,
+                                BIOMETRIC_AUTH_REQUEST,
+                                mUserId, true /* hideBackground */);
+                    }
+                } else if (biometricAuthStatus == Utils.BiometricStatus.OK) {
                     Utils.launchBiometricPromptForMandatoryBiometrics(this,
                             BIOMETRIC_AUTH_REQUEST,
                             mUserId, true /* hideBackground */);

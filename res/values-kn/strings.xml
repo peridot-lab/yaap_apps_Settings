@@ -21,6 +21,7 @@
     <string name="create" msgid="986997212165228751">"ರಚಿಸು"</string>
     <string name="allow" msgid="3763244945363657722">"ಅನುಮತಿಸಿ"</string>
     <string name="deny" msgid="7326117222944479942">"ನಿರಾಕರಿಸಿ"</string>
+    <string name="edit" msgid="8128799559456697510">"ಎಡಿಟ್ ಮಾಡಿ"</string>
     <string name="confirmation_turn_on" msgid="2979094011928347665">"ಆನ್ ಮಾಡಿ"</string>
     <string name="device_info_default" msgid="1406619232867343310">"ಅಪರಿಚಿತ"</string>
     <string name="device_info_protected_single_press" msgid="3810785480060743677">"ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
@@ -40,19 +41,16 @@
     <string name="radioInfo_data_connected" msgid="8816467971633020141">"ಸಂಪರ್ಕಗೊಂಡಿದೆ"</string>
     <string name="radioInfo_data_suspended" msgid="2001254415431299603">"ತಡೆಹಿಡಿಯಲಾಗಿದೆ"</string>
     <string name="radioInfo_unknown" msgid="2892562356748600367">"ಅಪರಿಚಿತ"</string>
-    <string name="preview_pager_content_description" msgid="3762247188224576303">"ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
-    <string name="preview_pager_home_content_description" msgid="3961399947853424786">"ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
-    <string name="preview_pager_message_content_description" msgid="3018855090807833755">"ಸಂದೇಶ ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
-    <string name="preview_pager_email_content_description" msgid="100055784235660338">"ಇಮೇಲ್ ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
     <string name="qr_code_content_description" msgid="1852208464419291347">"QR ಕೋಡ್"</string>
+    <string name="preview_pager_home_title" msgid="6102935625155194821">"ಹೋಮ್ ಸ್ಕ್ರೀನ್"</string>
+    <string name="preview_pager_message_title" msgid="5933499691147446486">"ಸಂದೇಶ"</string>
+    <string name="preview_pager_email_title" msgid="8767864657910457562">"ಇಮೇಲ್"</string>
     <string name="preview_pager_previous_button" msgid="607771113300838313">"ಹಿಂದಿನ ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
     <string name="preview_pager_next_button" msgid="8700907912508927271">"ಮುಂದಿನ ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
-    <string name="font_size_make_smaller_desc" msgid="4978038055549590140">"ಚಿಕ್ಕದಾಗಿಸು"</string>
-    <string name="font_size_make_larger_desc" msgid="5583046033381722247">"ದೊಡ್ಡದಾಗಿಸು"</string>
+    <string name="font_size_make_smaller_desc" msgid="319927200356692406">"ಫಾಂಟ್ ಗಾತ್ರವನ್ನು ಚಿಕ್ಕದಾಗಿಸಿ"</string>
+    <string name="font_size_make_larger_desc" msgid="6739310980713118605">"ಫಾಂಟ್ ಗಾತ್ರವನ್ನು ದೊಡ್ಡದಾಗಿಸಿ"</string>
     <string name="stay_awake_on_fold_title" msgid="6590454679898134221">"ಯಾವಾಗಲೂ"</string>
     <string name="stay_awake_on_fold_summary" msgid="1939963751585954262">"ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಫೋಲ್ಡ್ ಮಾಡಿದಾಗ ಫ್ರಂಟ್ ಡಿಸ್‌ಪ್ಲೇ ಆನ್ ಆಗುತ್ತದೆ"</string>
-    <string name="selective_stay_awake_title" msgid="7887645333447645168">"ಕೇವಲ ಗೇಮ್‌ಗಳು, ವೀಡಿಯೊಗಳು ಮತ್ತು ಇನ್ನಷ್ಟು"</string>
-    <string name="selective_stay_awake_summary" msgid="9055967322921984543">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ನಿಷ್ಕ್ರಿಯವಾಗುವುದನ್ನು ತಡೆಯುವ ಆ್ಯಪ್‌ಗಳಿಗಾಗಿ ಫ್ರಂಟ್ ಡಿಸ್‌ಪ್ಲೇ ಆನ್ ಆಗುತ್ತದೆ"</string>
     <string name="stay_awake_on_lockscreen_title" msgid="8088456642083051068">"ಮುಂದುವರಿಯಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ"</string>
     <string name="stay_awake_on_lockscreen_summary" msgid="8825321939913726566">"ಆ್ಯಪ್ ಬಳಸುವುದನ್ನು ಮುಂದುವರಿಸಲು ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಫೋಲ್ಡ್ ಮಾಡಿ ಮತ್ತು ಫ್ರಂಟ್ ಡಿಸ್‌ಪ್ಲೇಯಲ್ಲಿ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ ಅಥವಾ ಸ್ಕ್ರೀನ್ ಲಾಕ್ ಆಗಲು ಕೆಲವು ಸೆಕಂಡ್‌ಗಳ ಕಾಲ ನಿರೀಕ್ಷಿಸಿ. ಆಟಗಳು ಮತ್ತು ವೀಡಿಯೊ ಆ್ಯಪ್‌ಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮುಂದುವರಿಯುತ್ತವೆ."</string>
     <string name="sleep_on_fold_title" msgid="7626123024330501411">"ಎಂದಿಗೂ ಬೇಡ"</string>
@@ -200,9 +198,9 @@
     <string name="locale_remove_menu" msgid="3521546263421387474">"ತೆಗೆದುಹಾಕಿ"</string>
     <string name="add_a_language" msgid="2126220398077503271">"ಭಾಷೆ ಸೇರಿಸಿ"</string>
     <string name="app_locale_preference_title" msgid="5513627099300360232">"ಭಾಷೆ"</string>
-    <string name="locale_picker_category_title" msgid="6212064706962721255">"ಆದ್ಯತೆಯ ಭಾಷೆ"</string>
+    <string name="locale_picker_category_title" msgid="296835514014453679">"ಆದ್ಯತೆಯ ಭಾಷೆಗಳು"</string>
     <string name="app_locales_picker_menu_title" msgid="7617427959223831373">"ಆ್ಯಪ್ ಭಾಷೆಗಳು"</string>
-    <string name="app_locale_picker_summary" msgid="6742557329924446252">"ಪ್ರತಿ ಆ್ಯಪ್‌ಗಾಗಿ ಭಾಷೆಯನ್ನು ಸೆಟ್ ಮಾಡಿ"</string>
+    <string name="app_locale_picker_summary" msgid="616928580653613998">"ಪ್ರತಿ ಆ್ಯಪ್‌ಗೆ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="app_locale_picker_title" msgid="2431448962911301366">"ಆ್ಯಪ್ ಭಾಷೆ"</string>
     <string name="suggested_app_locales_title" msgid="8898358282377369405">"ಸೂಚಿಸಿರುವ ಭಾಷೆಗಳು"</string>
     <string name="all_supported_app_locales_title" msgid="5479289964316009026">"ಎಲ್ಲಾ ಭಾಷೆಗಳು"</string>
@@ -215,7 +213,8 @@
     <string name="preference_of_system_locale_summary" msgid="5612241394431188535">"ಸಿಸ್ಟಂ ಡೀಫಾಲ್ಟ್"</string>
     <string name="desc_no_available_supported_locale" msgid="7883271726226947273">"ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಮೂಲಕ ಈ ಆ್ಯಪ್‌ಗಾಗಿ ಭಾಷೆಯ ಆಯ್ಕೆಯು ಲಭ್ಯವಿಲ್ಲ."</string>
     <string name="desc_app_locale_disclaimer" msgid="5295933110644789052">"ಆ್ಯಪ್‌ನಲ್ಲಿ ಲಭ್ಯವಿರುವ ಭಾಷೆಗಳಿಗಿಂತ ಭಾಷೆ ಭಿನ್ನವಾಗಿರಬಹುದು. ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬೆಂಬಲಿಸದಿರಬಹುದು."</string>
-    <string name="desc_app_locale_selection_supported" msgid="6744909281573556379">"ಪ್ರತಿ ಆ್ಯಪ್‌ಗಾಗಿ ಭಾಷೆಯನ್ನು ಸೆಟ್ ಮಾಡಿ."</string>
+    <string name="desc_app_locale_selection_supported" msgid="7363315876602221125">"ಪ್ರತಿ ಆ್ಯಪ್‌ಗೆ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ."</string>
+    <string name="desc_app_locale_selection_supported_with_disclaimer" msgid="7622217531143496788">"ಪ್ರತಿ ಆ್ಯಪ್‌ಗೆ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಆ್ಯಪ್‌ನಲ್ಲಿ ಲಭ್ಯವಿರುವ ಭಾಷೆಗಳಿಗಿಂತ ಭಾಷೆಯು ಬೇರೆಯಾಗಿರಬಹುದು. ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬಂಬಲಿಸದಿರಬಹುದು."</string>
     <string name="desc_introduction_of_language_picker" msgid="4012265379885200083">"ನಿಮ್ಮ ಸಾಧನ, ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ವೆಬ್‌ಸೈಟ್‌ಗಳು ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷಾ ಪಟ್ಟಿಯಿಂದ ಮೊದಲ ಬೆಂಬಲಿತ ಭಾಷೆಯನ್ನು ಬಳಸುತ್ತವೆ.\n\nಅನೇಕ ಆ್ಯಪ್‌ಗಳು ದಿನಾಂಕಗಳು, ಸಂಖ್ಯೆಗಳು ಮತ್ತು ಘಟಕಗಳನ್ನು ಫಾರ್ಮ್ಯಾಟ್ ಮಾಡಲು ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷೆಯಿಂದ ಪ್ರದೇಶವನ್ನು ಸಹ ಬಳಸುತ್ತವೆ. ನಿಮ್ಮ ಪ್ರದೇಶವನ್ನು ಬದಲಾಯಿಸಲು, ಭಾಷೆಯನ್ನು ಸೇರಿಸಿ, ನಂತರ ನಿಮ್ಮ ಆದ್ಯತೆಯ ಪ್ರದೇಶವನ್ನು ಆಯ್ಕೆಮಾಡಿ."</string>
     <string name="desc_notice_of_language_picker" msgid="3449290526457925447">"ಪ್ರತಿ ಆ್ಯಪ್‌ಗೆ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಲು, ಆ್ಯಪ್ ಭಾಷೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ."</string>
     <string name="desc_locale_helper_footer_general" msgid="6112153921151780303">"ಆ್ಯಪ್ ಭಾಷೆಗಳ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
@@ -225,10 +224,12 @@
     <string name="title_change_system_locale" msgid="4102991236063984803">"ಸಿಸ್ಟಂ ಭಾಷೆಯನ್ನು %s ಗೆ ಬದಲಾಯಿಸಬೇಕೇ?"</string>
     <string name="title_system_locale_addition" msgid="8218683660751479466">"ಆದ್ಯತೆಯ ಭಾಷೆಗಳಿಗೆ %s ಅನ್ನು ಸೇರಿಸಬೇಕೆ?"</string>
     <string name="desc_system_locale_addition" msgid="3409917362651596070">"ನೀವು ಈ ಭಾಷೆಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೀರಿ ಎಂಬುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಇದು ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ವೆಬ್‌ಸೈಟ್‌ಗಳಿಗೆ ಅನುಮತಿಸುತ್ತದೆ."</string>
-    <string name="desc_notice_device_locale_settings_change" msgid="8311132485850714160">"ನಿಮ್ಮ ಸಾಧನದ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಆದ್ಯತೆಗಳು ಬದಲಾಗುತ್ತವೆ."</string>
+    <string name="desc_notice_device_locale_and_region_settings_change" msgid="909261686577914396">"ನಿಮ್ಮ ಸಾಧನವು <xliff:g id="LANGUAGE">%1$s</xliff:g> ಭಾಷೆಯನ್ನು ಬಳಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಪ್ರದೇಶವನ್ನು <xliff:g id="REGION">%2$s</xliff:g> ಗೆ ಬದಲಾಯಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="desc_notice_device_locale_settings_change" msgid="5012353615235634881">"ನಿಮ್ಮ ಸಾಧನವು <xliff:g id="LANGUAGE">%s</xliff:g> ಭಾಷೆಯನ್ನು ಬಳಸುತ್ತದೆ."</string>
+    <string name="dlg_desc_delete_preferred_default_locale" msgid="690828405078078513">"ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷೆಗಳಿಂದ <xliff:g id="REMOVED_LANGUAGE">%s</xliff:g> ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ"</string>
     <string name="button_label_confirmation_of_system_locale_change" msgid="5593798559604894733">"ಬದಲಾಯಿಸಿ"</string>
-    <string name="title_unavailable_locale" msgid="2628898110416542386">"%s ಲಭ್ಯವಿಲ್ಲ"</string>
-    <string name="desc_unavailable_locale" msgid="2201756477400935896">"ಈ ಭಾಷೆಯನ್ನು ಸಿಸ್ಟಂ ಭಾಷೆಯಾಗಿ ಬಳಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ, ಆದರೆ ನೀವು ಈ ಭಾಷೆಗೆ ಆದ್ಯತೆ ನೀಡುತ್ತೀರಿ ಎಂದು ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ವೆಬ್‌ಸೈಟ್‌ಗಳಿಗೆ ತಿಳಿಸುತ್ತಿದ್ದೀರಿ."</string>
+    <string name="title_unavailable_locale" msgid="5382411204559213983">"<xliff:g id="SELECTED_LANGUAGE">%s</xliff:g> ಅನ್ನು ಸಿಸ್ಟಂ ಭಾಷೆಯಾಗಿ ಸೆಟ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
+    <string name="desc_unavailable_locale" msgid="7223655766703116782">"ನಿಮ್ಮ ಸಾಧನವು ಈ ಭಾಷೆಯನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ, ಆದರೆ ನೀವು ಈ ಭಾಷೆಯನ್ನು ಬಯಸುತ್ತೀರಿ ಎಂಬುದು ಆ್ಯಪ್‌ಗಳಿಗೆ ತಿಳಿಯುತ್ತದೆ"</string>
     <string name="locale_search_menu" msgid="297782694044826686">"ಹುಡುಕಿ"</string>
     <string name="language_and_region_title" msgid="8374151891112162767">"ಭಾಷೆ ಮತ್ತು ಪ್ರದೇಶ"</string>
     <string name="language_selection_title" msgid="968179636453982415">"ಭಾಷೆಯನ್ನು ಸೇರಿಸಿ"</string>
@@ -242,6 +243,9 @@
     <string name="title_change_system_locale_region" msgid="4401478579429442695">"ಪ್ರದೇಶವನ್ನು <xliff:g id="SYSTEM_LANGUAGE_REGION">%1$s</xliff:g> ಗೆ ಬದಲಾಯಿಸಬೇಕೇ?"</string>
     <string name="body_change_system_locale_region" msgid="9064318449821043189">"ನಿಮ್ಮ ಸಾಧನವು <xliff:g id="SYSTEM_LANGUAGE">%1$s</xliff:g> ಅನ್ನು ಸಿಸ್ಟಂ ಭಾಷೆಯಾಗಿ ಇರಿಸುತ್ತದೆ"</string>
     <string name="top_intro_numbering_system_title" msgid="3962000662073238392">"ನಿಮ್ಮ ಸಾಧನ, ವೆಬ್‌ಸೈಟ್‌ಗಳು ಮತ್ತು ಆ್ಯಪ್‌ಗಳು ಸಂಖ್ಯೆಗಳನ್ನು ಹೇಗೆ ಪ್ರದರ್ಶಿಸುತ್ತವೆ ಎಂಬುದನ್ನು ಆರಿಸಿ"</string>
+    <string name="preferred_locale_menu_up" msgid="4009560552099567485">"ಮೇಲಕ್ಕೆ ಸರಿಸಿ"</string>
+    <string name="preferred_locale_menu_down" msgid="1033373887552535585">"ಕೆಳಗೆ ಸರಿಸಿ"</string>
+    <string name="preferred_locale_menu_remove" msgid="8547483341987864590">"ತೆಗೆದುಹಾಕಿ"</string>
     <string name="regional_preferences_title" msgid="4304567374498629528">"ಪ್ರಾದೇಶಿಕ ಆದ್ಯತೆಗಳು"</string>
     <string name="regional_preferences_summary" msgid="1189876997389469650">"ಯೂನಿಟ್‌ಗಳು ಹಾಗೂ ಸಂಖ್ಯೆಯ ಆದ್ಯತೆಗಳನ್ನು ಸೆಟ್ ಮಾಡಿ"</string>
     <string name="regional_preferences_main_page_sub_title" msgid="4237109940015254725">"ನಿಮ್ಮ ಪ್ರಾದೇಶಿಕ ಆದ್ಯತೆಗಳನ್ನು ಆ್ಯಪ್‌ಗಳಿಗೆ ತಿಳಿಸಿ, ಇದರಿಂದ ಅವುಗಳು ನಿಮ್ಮ ಅನುಭವವನ್ನು ವೈಯಕ್ತೀಕರಿಸಬಹುದು."</string>
@@ -275,10 +279,13 @@
     <string name="terms_of_address_masculine" msgid="983106046135098856">"ಪುರುಷರಿಗಾಗಿ"</string>
     <string name="terms_of_address_neutral" msgid="5475414185543112478">"ನ್ಯೂಟ್ರಲ್‌‌"</string>
     <string name="dlg_remove_locales_title" msgid="3170501604483612114">"{count,plural, =1{ಆಯ್ಕೆಮಾಡಿದ ಭಾಷೆಯನ್ನು ತೆಗೆದುಹಾಕಬೇಕೆ?}one{ಆಯ್ಕೆಮಾಡಿದ ಭಾಷೆಗಳನ್ನು ತೆಗೆದುಹಾಕಬೇಕೆ?}other{ಆಯ್ಕೆಮಾಡಿದ ಭಾಷೆಗಳನ್ನು ತೆಗೆದುಹಾಕಬೇಕೆ?}}"</string>
-    <string name="dlg_remove_locales_message" msgid="8110560091134252067">"ಪಠ್ಯವನ್ನು ಮತ್ತೊಂದು ಭಾಷೆಯಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="dlg_remove_system_locales_title" msgid="7626516786258866543">"ಸಿಸ್ಟಂ ಭಾಷೆಯನ್ನು %s ಗೆ ಬದಲಾಯಿಸಬೇಕೇ?"</string>
+    <string name="dlg_remove_locales_message" msgid="6636637008013310242">"ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷೆಗಳಿಂದ <xliff:g id="LANGUAGE">%s</xliff:g> ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ"</string>
     <string name="dlg_remove_locales_error_title" msgid="5875503658221562572">"ಎಲ್ಲಾ ಭಾಷೆಗಳನ್ನು ತೆಗೆದುಹಾಕಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="dlg_remove_locales_error_message" msgid="6504279959974675302">"ಕನಿಷ್ಠ ಒಂದು ಪ್ರಾಶಸ್ತ್ಯದ ಭಾಷೆಯನ್ನು ಇರಿಸಿ"</string>
     <string name="locale_not_translated" msgid="3071618135527110152">"ಸಿಸ್ಟಂ ಭಾಷೆಯಾಗಿ ಲಭ್ಯವಿಲ್ಲ"</string>
+    <string name="dlg_title_delete_preferred_locale" msgid="4167214348946940002">"<xliff:g id="REMOVED_LANGUAGE">%s</xliff:g> ಅನ್ನು ತೆಗೆದುಹಾಕಬೇಕೇ?"</string>
+    <string name="dlg_desc_delete_preferred_locale" msgid="4658301652628456858">"ನಿಮ್ಮ ಆದ್ಯತೆಯ ಭಾಷೆಗಳಿಂದ <xliff:g id="REMOVED_LANGUAGE">%s</xliff:g> ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ. ನೀವು ಅದನ್ನು ನಂತರ ಪುನಃ ಸೇರಿಸಬಹುದು."</string>
     <string name="action_drag_label_move_up" msgid="3392196942330705015">"ಮೇಲೆ ಸರಿಸಿ"</string>
     <string name="action_drag_label_move_down" msgid="9069518740553953426">"ಕೆಳಗೆ ಸರಿಸಿ"</string>
     <string name="action_drag_label_move_top" msgid="2430471023612171619">"ಮೇಲಕ್ಕೆ ಸರಿಸು"</string>
@@ -294,6 +301,7 @@
     <string name="share" msgid="8502235338607613795">"ಹಂಚಿಕೊಳ್ಳಿ"</string>
     <string name="add" msgid="8335206931421683426">"ಸೇರಿಸಿ"</string>
     <string name="remove" msgid="1028414219245072102">"ತೆಗೆದುಹಾಕಿ"</string>
+    <string name="process" msgid="2614220641928709668">"ಪ್ರಕ್ರಿಯೆ"</string>
     <string name="settings_label" msgid="943294133671632976">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="settings_label_launcher" msgid="820982375501978609">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="settings_shortcut" msgid="8548239727871847171">"ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಶಾರ್ಟ್‌ಕಟ್‌"</string>
@@ -314,10 +322,11 @@
     <string name="time_format_category_title" msgid="7108616745509689991">"ಸಮಯ ಫಾರ್ಮ್ಯಾಟ್‌"</string>
     <string name="date_time_set_timezone_title" msgid="790404320569600222">"ಸಮಯ ವಲಯ"</string>
     <string name="date_time_set_timezone" msgid="2915125337941495746">"ಸಮಯ ವಲಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="date_time_search_time_zone" msgid="7373967602009974399">"ಸಮಯವಲಯವನ್ನು ಹುಡುಕಿ"</string>
     <string name="date_time_set_date_title" msgid="7624166157167528407">"ದಿನಾಂಕ"</string>
     <string name="date_time_search_region" msgid="1364133854952610919">"ಪ್ರದೇಶವನ್ನು ಹುಡುಕಿ"</string>
     <string name="date_time_select_region" msgid="5449345333305056072">"ಪ್ರದೇಶ"</string>
-    <string name="date_time_select_fixed_offset_time_zones" msgid="594848300882055361">"UTC ಆಫ್‌ಸೆಟ್ ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="date_time_select_fixed_offset_time_zones" msgid="2130108030162342594">"GMT ಆಫ್‌ಸೆಟ್"</string>
     <string name="zone_info_exemplar_location_and_offset" msgid="2186042522225153092">"<xliff:g id="EXEMPLAR_LOCATION">%1$s</xliff:g> (<xliff:g id="OFFSET">%2$s</xliff:g>)"</string>
     <string name="zone_info_offset_and_name" msgid="3960192548990990152">"<xliff:g id="TIME_TYPE">%2$s</xliff:g> (<xliff:g id="OFFSET">%1$s</xliff:g>)"</string>
     <string name="zone_info_footer_first_sentence" msgid="1326664252091302458">"ಇದನ್ನು ಬಳಸುತ್ತದೆ: <xliff:g id="OFFSET_AND_NAME">%1$s</xliff:g>. <xliff:g id="SECOND_SENTENCE">%2$s</xliff:g>"</string>
@@ -326,7 +335,7 @@
     <string name="zone_time_type_dst" msgid="9189689342265305808">"ಹಗಲು ಉಳಿತಾಯ ಸಮಯ"</string>
     <string name="zone_time_type_standard" msgid="6865420715430680352">"ಪ್ರಮಾಣಿತ ಸಮಯ"</string>
     <string name="zone_menu_by_region" msgid="2963565278710225652">"ಪ್ರದೇಶದ ಮೂಲಕ ಆಯ್ಕೆಮಾಡಿ"</string>
-    <string name="zone_menu_by_offset" msgid="1257702747474426745">"UTC ಆಫ್‌ಸೆಟ್‌ ಪ್ರಕಾರ ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="zone_menu_by_offset" msgid="543648951618438204">"GMT ಆಫ್‌ಸೆಟ್ ಮೂಲಕ ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="time_feedback_category_title" msgid="5942621686512255208">"ಫೀಡ್‌ಬ್ಯಾಕ್"</string>
     <string name="keywords_time_feedback_category" msgid="4553921538559830393">"ಫೀಡ್‌ಬ್ಯಾಕ್, ಬಗ್, ಸಮಯ, ವಲಯ, ಸಮಯವಲಯ"</string>
     <string name="time_feedback_title" msgid="7720948068042783614">"ಸಮಯದ ಬಗ್ಗೆ ಫೀಡ್‌ಬ್ಯಾಕ್ ಕಳುಹಿಸಿ"</string>
@@ -344,7 +353,8 @@
     <string name="location_settings_summary_location_on" msgid="4273299717586679786">"{count,plural, =1{ಆನ್ ಆಗಿದೆ / # ಆ್ಯಪ್ ಸ್ಥಳಕ್ಕೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಹೊಂದಿದೆ}one{ಆನ್ ಆಗಿದೆ / # ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಹೊಂದಿವೆ}other{ಆನ್ ಆಗಿದೆ / # ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಹೊಂದಿವೆ}}"</string>
     <string name="location_settings_loading_app_permission_stats" msgid="6054103701535557342">"ಲೋಡ್ ಆಗುತ್ತಿದೆ…"</string>
     <string name="location_settings_footer_general" msgid="3447585552176173502">"ಸಮೀಪದ ಸಾಧನಗಳ ಅನುಮತಿ ಹೊಂದಿರುವ ಆ್ಯಪ್‌ಗಳು ಕನೆಕ್ಟ್ ಮಾಡಿರುವ ಸಾಧನಗಳ ಸಂಬಂಧಿತ ಸ್ಥಾನವನ್ನು ನಿರ್ಧರಿಸಬಹುದು."</string>
-    <string name="location_settings_footer_location_off" msgid="8568995909147566720">"ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳಿಗೆ ಸ್ಥಳ ಪ್ರವೇಶಪಡೆಯುವಿಕೆ ಆಫ್ ಆಗಿದೆ. ನೀವು ತುರ್ತು ಸಂಖ್ಯೆಗೆ ಕರೆ ಮಾಡಿದಾಗ ಅಥವಾ ಪಠ್ಯ ಕಳುಹಿಸಿದಾಗ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳವನ್ನು ತುರ್ತಾಗಿ ಪ್ರತಿಕ್ರಿಯಿಸುವವರಿಗೆ ಕಳುಹಿಸಬಹುದು."</string>
+    <string name="location_settings_footer_location_off_with_telephony" msgid="5600725945541382556">"ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳಿಗೆ ಸ್ಥಳದ ಆ್ಯಕ್ಸೆಸ್ ಆಫ್‌ ಆಗಿದೆ. ನೀವು ತುರ್ತು ಸಂಖ್ಯೆಯನ್ನು ಸಂಪರ್ಕಿಸಿದಾಗ ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳವನ್ನು ತುರ್ತು ಪ್ರತಿಕ್ರಿಯೆದಾರರಿಗೆ ಕಳುಹಿಸಬಹುದು."</string>
+    <string name="location_settings_footer_location_off_no_telephony" msgid="2709958040008816610">"ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳಿಗೆ ಸ್ಥಳದ ಆ್ಯಕ್ಸೆಸ್ ಆಫ್‌ ಆಗಿದೆ."</string>
     <string name="location_settings_footer_learn_more_content_description" msgid="349380666660145540">"ಸ್ಥಳ ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="location_settings_tooltip_text_for_chrome" msgid="5781821709250544575">"ಬದಲಾಯಿಸಲು, ChromeOS ಸೆಟ್ಟಿಂಗ್‌ಗಳು &gt; ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ &gt; ಗೌಪ್ಯತೆ ನಿಯಂತ್ರಣಗಳು &gt; ಸ್ಥಳ ಆ್ಯಕ್ಸೆಸ್ ಎಂಬಲ್ಲಿಗೆ ಹೋಗಿ"</string>
     <string name="account_settings_title" msgid="9138880127246241885">"ಖಾತೆಗಳು"</string>
@@ -377,7 +387,7 @@
     <string name="security_settings_face_enroll_introduction_accessibility_diversity" msgid="2774962371839179206"></string>
     <string name="security_settings_face_enroll_introduction_accessibility_vision" msgid="7700394302162170363"></string>
     <string name="security_settings_face_enroll_introduction_cancel" msgid="7551159644361639436">"ರದ್ದುಮಾಡಿ"</string>
-    <string name="security_settings_face_enroll_introduction_no_thanks" msgid="6603178409726203187">"ಈಗ ಬೇಡ"</string>
+    <string name="security_settings_face_enroll_introduction_no_thanks" msgid="1820618982738898717">"ಬೇಡ ಧನ್ಯವಾದಗಳು"</string>
     <string name="security_settings_face_enroll_introduction_agree" msgid="6319476573697497750">"ನಾನು ಸಮ್ಮತಿಸುತ್ತೇನೆ"</string>
     <string name="security_settings_face_enroll_introduction_more" msgid="1970820298889710532">"ಇನ್ನಷ್ಟು"</string>
     <string name="security_settings_face_enroll_introduction_title" msgid="7061610077237098046">"ನಿಮ್ಮ ಮುಖ ಬಳಸಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿ"</string>
@@ -437,8 +447,8 @@
     <string name="security_settings_fingerprint_preference_title" msgid="2484965173528415458">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್"</string>
     <string name="security_settings_fingerprint_settings_preferences_category" msgid="8975029409126780752">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಅನ್‌ಲಾಕ್ ಬಳಸುವಾಗ"</string>
     <string name="security_settings_work_fingerprint_preference_title" msgid="2076006873519745979">"ಕೆಲಸಕ್ಕಾಗಿ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್"</string>
-    <string name="security_settings_work_fingerprint_preference_title_new" msgid="8967333987631878868">"ಕೆಲಸದ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್"</string>
-    <string name="fingerprint_check_enrolled_title" msgid="1007921571704991108">"ನೋಂದಣಿ ಮಾಡಲಾದ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
+    <string name="security_settings_work_fingerprint_preference_title_new" msgid="8967333987631878868">"ಕೆಲಸದ ಫಿಂಗರ್‌‍‍ಪ್ರಿಂಟ್"</string>
+    <string name="fingerprint_check_enrolled_title" msgid="1007921571704991108">"ನೋಂದಾಯಿಸಿದ ಫಿಂಗರ್‌‍‍ಪ್ರಿಂಟ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
     <string name="fingerprint_add_title" msgid="1837610443487902050">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೇರಿಸಿ"</string>
     <string name="security_settings_fingerprint_preference_summary" msgid="8486134175759676037">"{count,plural, =1{ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೇರಿಸಲಾಗಿದೆ}one{# ಫಿಂಗರ್‌ಪ್ರಿಂಟ್‌ ಸೇರಿಸಲಾಗಿದೆ}other{# ಫಿಂಗರ್‌ಪ್ರಿಂಟ್‌ಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ}}"</string>
     <string name="security_settings_fingerprint_preference_summary_none" msgid="1146977379031250790">"ಸೆಟಪ್ ಅಗತ್ಯವಿದೆ"</string>
@@ -452,8 +462,10 @@
     <string name="security_settings_fingerprint_enroll_introduction_footer_title_2" msgid="5663733424583416266">"ನೆನಪಿನಲ್ಲಿಡಿ"</string>
     <string name="security_settings_fingerprint_enroll_introduction_message_unlock_disabled" msgid="8957789840251747092">"ನಿಮ್ಮ ಫೋನ್ ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಅಥವಾ ಖರೀದಿಗಳನ್ನು ಅನುಮೋದಿಸಲು ನಿಮ್ಮ ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಬಳಸಿ.\n\nಗಮನಿಸಿ: ಈ ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ನಿಮ್ಮ ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಅನ್ನು ನೀವು ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="security_settings_fingerprint_enroll_introduction_cancel" msgid="6086532316718920562">"ರದ್ದುಮಾಡಿ"</string>
-    <string name="security_settings_fingerprint_enroll_introduction_no_thanks" msgid="1663906389456119842">"ಈಗ ಬೇಡ"</string>
+    <string name="security_settings_fingerprint_enroll_introduction_no_thanks" msgid="6104718999323591180">"ಬೇಡ, ಧನ್ಯವಾದಗಳು"</string>
     <string name="security_settings_fingerprint_enroll_introduction_agree" msgid="4068276083536421828">"ನಾನು ಸಮ್ಮತಿಸುತ್ತೇನೆ"</string>
+    <string name="security_settings_fingerprint_rename_description" msgid="6301505700382531086">"ಮರುಹೆಸರಿಸಲು ಡಬಲ್ ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
+    <string name="security_settings_fingerprint_recognition_description" msgid="1805171116182647136">"<xliff:g id="FP_NAME">%1$s</xliff:g> ಅನ್ನು ಗುರುತಿಸಲಾಗಿದೆ"</string>
     <string name="setup_fingerprint_enroll_skip_title" msgid="2473807887676247264">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್‌ ಸ್ಕಿಪ್ ಮಾಡಬೇಕೇ?"</string>
     <string name="setup_fingerprint_enroll_skip_after_adding_lock_text" msgid="2412645723804450304">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್‌ ಸೆಟಪ್‌ ಮಾಡಲು ಕೇವಲ ಒಂದು ಅಥವಾ ಎರಡು ನಿಮಿಷ ಸಾಕು. ನೀವು ಇದನ್ನು ಸ್ಕಿಪ್‌ ಮಾಡಿದರೆ, ನಂತರ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ನಿಮ್ಮ ಫಿಂಗರ್‌ಪ್ರಿಂಟ್‌ ಸೇರಿಸಬಹುದು."</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_message_setup" msgid="6255210343107484206">"ಈ ಐಕಾನ್‌ ನೋಡಿದ ನಂತರ ನೀವು ಆ್ಯಪ್‌ಗೆ ಸೈನ್ ಇನ್ ಆದಾಗ ಅಥವಾ ಖರೀದಿ ಅನುಮೋದಿಸಿದಾಗ, ದೃಢೀಕರಿಸಲು ನಿಮ್ಮ ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಬಳಸಿ"</string>
@@ -467,7 +479,7 @@
     <string name="fingerprint_check_enroll_touch_sensor" msgid="5010063281557456236">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೆನ್ಸರ್‌‌ ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ"</string>
     <string name="fingerprint_check_enroll_not_recognized" msgid="2779520550437394431">"ಫಿಂಗರ್ ಪ್ರಿಂಟ್ ಅನ್ನು ಗುರುತಿಸಲಾಗಿಲ್ಲ"</string>
     <string name="security_settings_activeunlock_preference_title" msgid="4257580421087062228">"ವಾಚ್ ಅನ್‌ಲಾಕ್"</string>
-    <string name="security_settings_activeunlock" msgid="8922823742770802651">"ವೀಕ್ಷಿಸಿ"</string>
+    <string name="security_settings_activeunlock" msgid="8922823742770802651">"ವಾಚ್"</string>
     <string name="biometric_settings_intro_with_activeunlock" msgid="5032953826653108646">"ನೀವು ಫೇಸ್ ಅನ್‌ಲಾಕ್ ಮತ್ತು ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್ ಅನ್‌ಲಾಕ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡಿದಾಗ, ನೀವು ಫೇಸ್ ಮಾಸ್ಕ್ ಧರಿಸಿರುವಾಗ ಅಥವಾ ಕತ್ತಲೆ ಪ್ರದೇಶದಲ್ಲಿದ್ದಾಗ ನಿಮ್ಮ ಫೋನ್ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್ ಅನ್ನು ಕೇಳುತ್ತದೆ.\n\nನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ವಾಚ್ ಅನ್‌ಲಾಕ್ ಮತ್ತೊಂದು ಅನುಕೂಲಕರ ಮಾರ್ಗವಾಗಿದೆ, ಉದಾಹರಣೆಗೆ, ನಿಮ್ಮ ಬೆರಳುಗಳು ಒದ್ದೆಯಾಗಿರುವಾಗ ಅಥವಾ ಮುಖವನ್ನು ಗುರುತಿಸದಿದ್ದಾಗ."</string>
     <string name="biometric_settings_intro_with_fingerprint" msgid="5881355884547769337">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ವಾಚ್ ಅನ್‌ಲಾಕ್ ಮತ್ತೊಂದು ಅನುಕೂಲಕರ ಮಾರ್ಗವಾಗಿದೆ, ಉದಾಹರಣೆಗೆ, ನಿಮ್ಮ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್ ಅನ್ನು ಗುರುತಿಸದಿದ್ದಾಗ."</string>
     <string name="biometric_settings_intro_with_face" msgid="7671919122230588521">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ವಾಚ್ ಅನ್‌ಲಾಕ್ ಮತ್ತೊಂದು ಅನುಕೂಲಕರ ಮಾರ್ಗವಾಗಿದೆ, ಉದಾಹರಣೆಗೆ, ನಿಮ್ಮ ಮುಖವನ್ನು ಗುರುತಿಸದಿದ್ದಾಗ."</string>
@@ -661,9 +673,9 @@
     <string name="private_space_fingerprint_enroll_introduction_message" msgid="9092068873421435300">"ನೀವು ಆ್ಯಪ್‌ಗಳಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡುವಂತೆ ಅಥವಾ ಖರೀದಿಯನ್ನು ಅನುಮೋದಿಸುವಂತೆಯೇ, ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಅಥವಾ ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಲು ನಿಮ್ಮ ಫಿಂಗರ್ ಪ್ರಿಂಟ್ ಅನ್ನು ಬಳಸಿ"</string>
     <string name="private_space_fingerprint_enroll_introduction_footer_message" msgid="7125255484447984854">"ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ನೀವು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಬಯಸದಿದ್ದರೂ ಸಹ, ನಿಮ್ಮ ಫೋನ್‍ ಅನ್ನು ನಿಮ್ಮ ಬೆರಳಿಗೆ ಟಚ್ ಮಾಡುವ ಮೂಲಕ ಯಾರಾದರೂ ಅದನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು."</string>
     <string name="private_space_fingerprint_enroll_finish_message" msgid="4754797926493316965">"ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಅಥವಾ ಖರೀದಿಗಳನ್ನು ಅನುಮೋದಿಸಲು ನಿಮ್ಮ ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್ ಅನ್ನು ಬಳಸಿ"</string>
-    <string name="private_space_face_enroll_introduction_title" msgid="3717541082520006032">"ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್‌ಗೆ ಫೇಸ್ ಅನ್‌ಲಾಕ್ ಅನ್ನು ಸೆಟಪ್‌ ಮಾಡಿ"</string>
-    <string name="private_space_face_enroll_introduction_message" msgid="250239418499081821">"ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಅಥವಾ ನೀವು ಆ್ಯಪ್‌ಗಳಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡುವಾಗ ಅಥವಾ ಖರೀದಿಯೊಂದನ್ನು ಅನುಮೋದಿಸುವಾಗ ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಲು ನಿಮ್ಮ ಮುಖವನ್ನು ಬಳಸಿ"</string>
-    <string name="private_space_face_enroll_introduction_info_looking" msgid="5694757845303924042">"ಫೋನ್ ಕಡೆ ನೋಡಿದಾಗ, ನಿಮಗೆ ಅಗತ್ಯವಿಲ್ಲದಿದ್ದರೂ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು. ನಿಮ್ಮನ್ನು ತುಂಬಾ ಹೋಲುವ ವ್ಯಕ್ತಿ, ಉದಾಹರಣೆಗೆ ನಿಮ್ಮಂತೆಯೇ ಕಾಣುವ ಒಡಹುಟ್ಟಿದವರು ಅಥವಾ ಯಾರಾದರೂ ಸಾಧನವನ್ನು ನಿಮ್ಮ ಮುಖದ ಎದುರು ಹಿಡಿದೂ ಸಹ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು."</string>
+    <string name="private_space_face_enroll_introduction_title" msgid="3717541082520006032">"ಪ್ರೈವೇಟ್ ಸ್ಪೇಸ್‌ಗೆ ಫೇಸ್ ಅನ್‌ಲಾಕ್ ಅನ್ನು ಸೆಟಪ್‌ ಮಾಡಿ"</string>
+    <string name="private_space_face_enroll_introduction_message" msgid="250239418499081821">"ನಿಮ್ಮ ಪ್ರೈವೇಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಅಥವಾ ನೀವು ಆ್ಯಪ್‌ಗಳಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡುವಾಗ ಅಥವಾ ಖರೀದಿಯೊಂದನ್ನು ಅನುಮೋದಿಸುವಾಗ ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಲು ನಿಮ್ಮ ಮುಖವನ್ನು ಬಳಸಿ"</string>
+    <string name="private_space_face_enroll_introduction_info_looking" msgid="5694757845303924042">"ಫೋನ್ ಕಡೆ ನೋಡಿದಾಗ, ನಿಮಗೆ ಅಗತ್ಯವಿಲ್ಲದಿದ್ದರೂ ಪ್ರೈವೇಟ್ ಸ್ಪೇಸ್ ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು. ನಿಮ್ಮನ್ನು ತುಂಬಾ ಹೋಲುವ ವ್ಯಕ್ತಿ, ಉದಾಹರಣೆಗೆ ನಿಮ್ಮಂತೆಯೇ ಕಾಣುವ ಒಡಹುಟ್ಟಿದವರು ಅಥವಾ ಯಾರಾದರೂ ಸಾಧನವನ್ನು ನಿಮ್ಮ ಮುಖದ ಎದುರು ಹಿಡಿದೂ ಸಹ ನಿಮ್ಮ ಪ್ರೈವೇಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು."</string>
     <string name="private_space_face_enroll_introduction_info_less_secure" msgid="8460719783943533172">"ನಿಮ್ಮ ಫೇಸ್ ಬಳಸಿಕೊಂಡು ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡುವುದು ಪ್ರಬಲವಾದ ಪ್ಯಾಟರ್ನ್, ಪಿನ್ ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್‌ಗಿಂತ ಕಡಿಮೆ ಸುರಕ್ಷಿತ ವಿಧಾನವಾಗಿರಬಹುದು"</string>
     <string name="private_space_face_settings_require_attention_details" msgid="2799569069549999689">"ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು, ನೀವು ಕಣ್ಣುಗಳನ್ನು ತೆರೆದಿರಬೇಕು. ಉತ್ತಮ ಫಲಿತಾಂಶಗಳಿಗಾಗಿ, ಸನ್‌ಗ್ಲಾಸ್‌ಗಳನ್ನು ತೆಗೆಯಿರಿ."</string>
     <string name="private_space_face_settings_footer" msgid="7722256209563543711">"ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ನಿಮ್ಮ ಮುಖವನ್ನು ಬಳಸಿ.\n\nನೆನಪಿನಲ್ಲಿಡಿ:\nನೀವು ಒಂದು ಬಾರಿಗೆ ಒಂದೇ ಮುಖವನ್ನು ಮಾತ್ರ ಸೆಟ್ ಮಾಡಬಹುದು. ಮತ್ತೊಂದು ಮುಖವನ್ನು ಸೇರಿಸಲು, ಈಗಾಗಲೇ ಇರುವ ಮುಖವನ್ನು ಅಳಿಸಿ.\n\nಫೋನ್ ಕಡೆ ನೋಡಿದರೆ, ನಿಮಗೆ ಬೇಡದಿದ್ದಾಗಲೂ ಫೋನ್ ಅನ್‌ಲಾಕ್ ಆಗಬಹುದು.\n\nನಿಮ್ಮ ಸಾಧನವನ್ನು ನಿಮ್ಮ ಮುಖದ ಎದುರು ಹಿಡಿಯುವ ಮೂಲಕ, ಬೇರೆ ಯಾರಾದರೂ ಕೂಡ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು.\n\nನಿಮ್ಮನ್ನು ತುಂಬಾ ಹೋಲುವ ವ್ಯಕ್ತಿ, ಉದಾಹರಣೆಗೆ ನಿಮ್ಮಂತೆಯೇ ಕಾಣುವ ಒಡಹುಟ್ಟಿದವರು ಕೂಡಾ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು."</string>
@@ -715,7 +727,7 @@
     <string name="private_space_apps_stopped_text" msgid="4034574118911250169"><b>"ನಿಮ್ಮ ಸ್ಪೇಸ್ ಅನ್ನು ನೀವು ಲಾಕ್ ಮಾಡಿದಾಗ ಆ್ಯಪ್‌ಗಳು ಸ್ಥಗಿತಗೊಳ್ಳುತ್ತವೆ"</b>\n"ನಿಮ್ಮ ಸ್ಪೇಸ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಿದಾಗ, ನಿಮ್ಮ ಸ್ಪೇಸ್‌ನಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳು ಸ್ಥಗಿತಗೊಳ್ಳುತ್ತವೆ ಮತ್ತು ಅವುಗಳಿಂದ ನೀವು ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ"</string>
     <string name="private_space_apps_permission_text" msgid="4416201648436201393">"ಹಿನ್ನೆಲೆಯಲ್ಲಿ ರನ್ ಆಗುವ ಅಥವಾ ವೈದ್ಯಕೀಯ ಆ್ಯಪ್‌ಗಳಂತಹ ನಿರ್ಣಾಯಕ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಕಳುಹಿಸಲು ಅಗತ್ಯವಿರುವ ಆ್ಯಪ್‌ಗಳಿಗೆ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್‌ಗಳು ಸೂಕ್ತವಲ್ಲ. ಏಕೆಂದರೆ, ನಿಮ್ಮ ಸ್ಪೇಸ್‌ ಅನ್ನು ಲಾಕ್ ಮಾಡಿದಾಗ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಹಿನ್ನೆಲೆ ಚಟುವಟಿಕೆಯನ್ನು ಸ್ಥಗಿತಗೊಳಿಸಲಾಗುತ್ತದೆ.\n\nನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಿರುವಾಗ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್‌ನಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳು ಅನುಮತಿ ನಿರ್ವಾಹಕ, ಗೌಪ್ಯತೆ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮತ್ತು ಇತರ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಗೋಚರಿಸುವುದಿಲ್ಲ.\n\nನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಹೊಸ ಸಾಧನಕ್ಕೆ ಸರಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ. ನೀವು ಮತ್ತೊಂದು ಸಾಧನದಲ್ಲಿ ಅದನ್ನು ಬಳಸಲು ಬಯಸಿದರೆ, ನೀವು ಇನ್ನೊಂದು ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ.\n\nನಿಮ್ಮ ಸಾಧನವನ್ನು ಕಂಪ್ಯೂಟರ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡುವ ಅಥವಾ ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಹಾನಿಕಾರಕ ಆ್ಯಪ್‌ಗಳನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡುವ ಯಾರಾದರೂ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
     <string name="private_space_settings_footer_text" msgid="3742468470394835356">"ಹಿನ್ನೆಲೆಯಲ್ಲಿ ರನ್ ಆಗುವ ಅಥವಾ ವೈದ್ಯಕೀಯ ಆ್ಯಪ್‌ಗಳಂತಹ ನಿರ್ಣಾಯಕ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಕಳುಹಿಸಲು ಅಗತ್ಯವಿರುವ ಆ್ಯಪ್‌ಗಳಿಗೆ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್‌ಗಳು ಸೂಕ್ತವಲ್ಲ. ಏಕೆಂದರೆ, ನಿಮ್ಮ ಸ್ಪೇಸ್‌ ಅನ್ನು ಲಾಕ್ ಮಾಡಿದಾಗ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಹಿನ್ನೆಲೆ ಚಟುವಟಿಕೆಯನ್ನು ಸ್ಥಗಿತಗೊಳಿಸಲಾಗುತ್ತದೆ.\n\nಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಿರುವಾಗ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್‌ನಲ್ಲಿರುವ ಆ್ಯಪ್‌ಗಳು ಅನುಮತಿ ನಿರ್ವಾಹಕ, ಗೌಪ್ಯತೆ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮತ್ತು ಇತರ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಗೋಚರಿಸುವುದಿಲ್ಲ.\n\nನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಹೊಸ ಸಾಧನದಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ. ನೀವು ಮತ್ತೊಂದು ಸಾಧನದಲ್ಲಿ ಅದನ್ನು ಬಳಸಲು ಬಯಸಿದರೆ, ನೀವು ಇನ್ನೊಂದು ಸ್ಪೇಸ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ.\n\nನಿಮ್ಮ ಸಾಧನವನ್ನು ಕಂಪ್ಯೂಟರ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡುವ ಅಥವಾ ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ದುರುದ್ದೇಶಪ್ರೇರಿತ ಆ್ಯಪ್‌ಗಳನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡುವ ಯಾರಾದರೂ ನಿಮ್ಮ ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಬಹುದು."</string>
-    <string name="private_space_learn_more_text" msgid="5314198983263277586">"ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
+    <string name="private_space_learn_more_text" msgid="5314198983263277586">"ಪ್ರೈವೇಟ್ ಸ್ಪೇಸ್ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="private_space_few_moments_text" msgid="7166883272914424011">"ಇದು ಕೆಲವು ಕ್ಷಣಗಳ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ"</string>
     <string name="private_space_setting_up_text" msgid="8458035555212009528">"ಖಾಸಗಿ ಸ್ಪೇಸ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
     <string name="private_space_error_screen_title" msgid="739381738044418346">"ಪ್ರೈವೆಟ್ ಸ್ಪೇಸ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"</string>
@@ -928,12 +940,16 @@
     <string name="bluetooth_pairing_shares_phonebook" msgid="4329325125260724843">"ನಿಮ್ಮ ಸಂಪರ್ಕಗಳು ಮತ್ತು ಕರೆ ಇತಿಹಾಸಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="bluetooth_pairing_phonebook_toggle_text" msgid="2474015367387690034">"ಸಂಪರ್ಕಗಳು ಮತ್ತು ಕರೆ ಇತಿಹಾಸಕ್ಕೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಸಹ ಅನುಮತಿಸಿ"</string>
     <string name="bluetooth_pairing_phonebook_toggle_details" msgid="1367197978487212581">"ಮಾಹಿತಿಯನ್ನು ಕರೆ ಪ್ರಕಟಣೆಗಳು ಮತ್ತು ಹೆಚ್ಚಿನವುಗಳಿಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ"</string>
+    <string name="bluetooth_pairing_confirmation_title" msgid="3359642089708714808">"ಪೇರಿಂಗ್ ಕೋಡ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
+    <string name="bluetooth_pairing_confirmation_msg" msgid="8204761740738350792">"ಈ ಕೋಡ್ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ನಲ್ಲಿರುವ ಕೋಡ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.\n\nನಿಮ್ಮ ಸುರಕ್ಷತೆಗಾಗಿ, ಈ ಕೋಡ್ ಅನ್ನು ಎಲ್ಲಿಯೂ ನಮೂದಿಸಬೇಡಿ."</string>
     <string name="bluetooth_error_title" msgid="2284738188253690278"></string>
     <string name="bluetooth_connecting_error_message" msgid="3941893154784152112">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಗೆ ಸಂಪರ್ಕಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."</string>
     <string name="bluetooth_preference_found_media_devices" msgid="830061195998352840">"ಲಭ್ಯವಿರುವ ಸಾಧನಗಳು"</string>
     <string name="bluetooth_device_context_connect" msgid="4913860372216815855">"ಸಂಪರ್ಕಿಸಿ"</string>
     <string name="bluetooth_device_context_disconnect" msgid="4464167389972513232">"ಡಿಸ್‌ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
     <string name="bluetooth_device_context_pair_connect" msgid="2406032703622371826">"ಜೋಡಿಸಿ ಮತ್ತು ಸಂಪರ್ಕಪಡಿಸಿ"</string>
+    <string name="bluetooth_connecting" msgid="5315496594905010438">"ಕನೆಕ್ಟ್ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
+    <string name="bluetooth_disconnecting" msgid="1643422701532873735">"ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗುತ್ತಿದೆ"</string>
     <string name="bluetooth_empty_list_bluetooth_off" msgid="7326727272747345476">"ಬ್ಲೂಟೂತ್‌‌ ಆನ್‌ ಆಗಿರುವಾಗ, ನಿಮ್ಮ ಸಾಧನವು ಸಮೀಪದ ಇತರ ಬ್ಲೂಟೂತ್‌‌ ಸಾಧನಗಳ ಜೊತೆ ಸಂವಹನ ಮಾಡಬಹುದು"</string>
     <string name="bluetooth_empty_list_bluetooth_off_auto_on_available" msgid="3430864468105204282">"ಬ್ಲೂಟೂತ್ ಆನ್ ಆಗಿರುವಾಗ, ನಿಮ್ಮ ಸಾಧನವು ಸಮೀಪದ ಇತರ ಬ್ಲೂಟೂತ್ ಸಾಧನಗಳ ಜೊತೆಗೆ ಸಂವಹನ ಮಾಡಬಹುದು. ಕ್ವಿಕ್ ಶೇರ್ ಮತ್ತು Find My Device ನಂತಹ ಫೀಚರ್‌ಗಳು ಬ್ಲೂಟೂತ್ ಅನ್ನು ಬಳಸುತ್ತವೆ."</string>
     <string name="bluetooth_scanning_on_info_message" msgid="786648535600075223">"ಬ್ಲೂಟೂತ್ ಆನ್‌ ಮಾಡಿದ ನಂತರ, ನಿಮ್ಮ ಬ್ಲೂಟೂತ್ ಸಾಧನವು ಸಮೀಪದ ಸಾಧನಗಳ ಜೊತೆ ಸಂವಹನ ಮಾಡಬಹುದು. \n\nಸಾಧನದ ಅನುಭವವನ್ನು ಸುಧಾರಿಸಲು, ಬ್ಲೂಟೂತ್‌ ಆಫ್‌ ಆಗಿದ್ದರೂ ಸಹ, ಯಾವ ಸಮಯದಲ್ಲಾದರೂ ಸಮೀಪದ ಸಾಧನಗಳಿಗೆ ಸ್ಕ್ಯಾನ್‌ ಮಾಡಲು ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳಿಗೆ ಅನುಮತಿ ನೀಡಿ. ಉದಾಹರಣೆಗೆ, ಸ್ಥಳ ಆಧಾರಿತ ಫೀಚರ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಸುಧಾರಿಸಲು ಇದನ್ನು ಬಳಸಬಹುದಾಗಿದೆ. ನೀವು ಇದನ್ನು ಸ್ಕ್ಯಾನಿಂಗ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬದಲಾಯಿಸಬಹುದು."</string>
@@ -950,7 +966,7 @@
     <string name="bluetooth_device_keyboard_settings_preference_title" msgid="3411693160917620519">"ಕೀಬೋರ್ಡ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="bluetooth_device_more_settings_preference_title" msgid="6034482566541746500">"ಇನ್ನಷ್ಟು ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="bluetooth_device_more_settings_preference_summary" msgid="7639584132778245426">"ಫರ್ಮ್‌‌ವೇರ್‌‌ ಅಪ್‌ಡೇಟ್, ಕುರಿತಾದವುಗಳು ಹಾಗೂ ಇನ್ನಷ್ಟು"</string>
-    <string name="bluetooth_device_tip_support" msgid="6072338493592606897">"ಸಲಹೆಗಳು &amp; ಬೆಂಬಲ"</string>
+    <string name="bluetooth_device_tip_support" msgid="6072338493592606897">"ಸಲಹೆಗಳು ಮತ್ತು ಬೆಂಬಲ"</string>
     <string name="bluetooth_device_mac_address" msgid="4873325074786732703">"ಸಾಧನದ ಬ್ಲೂಟೂತ್ ವಿಳಾಸ: <xliff:g id="ADDRESS">%1$s</xliff:g>"</string>
     <string name="bluetooth_multuple_devices_mac_address" msgid="4974301550897923376">"ಸಾಧನದ ಬ್ಲೂಟೂತ್ ವಿಳಾಸ:\n<xliff:g id="ADDRESS">%1$s</xliff:g>"</string>
     <string name="bluetooth_unpair_dialog_title" msgid="6943633443716052995">"ಸಾಧನವನ್ನು ಮರೆತಿದ್ದೀರಾ?"</string>
@@ -961,6 +977,8 @@
     <string name="device_details_battery" msgid="5466987755790847884">"ಬ್ಯಾಟರಿ"</string>
     <string name="device_details_battery_charging" msgid="3464969346075775143">"ಬ್ಯಾಟರಿ ಚಾರ್ಜ್ ಆಗುತ್ತಿದೆ"</string>
     <string name="device_details_key_missing_title" msgid="3568401701538114387">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಲು ಪ್ರಯತ್ನಿಸಿ. ಇದು ಕೆಲಸ ಮಾಡದಿದ್ದರೆ, ಸಾಧನವನ್ನು ತೆಗೆದುಹಾಕಿ. ನಿಮ್ಮ ಭದ್ರತೆಗಾಗಿ, ನೀವು ಸಾರ್ವಜನಿಕ ಸ್ಥಳದಲ್ಲಿ ಇಲ್ಲದಿರುವಾಗ ಮಾತ್ರ ಇದನ್ನು ಪುನಃ ಪೇರ್ ಮಾಡಿ.\n\nಈ ಸಾಧನ ಸಮೀಪದಲ್ಲಿಲ್ಲದಿದ್ದರೆ, ನೀವು ಏನನ್ನೂ ಮಾಡುವ ಅಗತ್ಯವಿಲ್ಲ."</string>
+    <string name="verbose_printer_logging_title" msgid="6525634245166402031">"ವರ್ಬೋಸ್ ಪ್ರಿಂಟ್ ಲಾಗಿಂಗ್"</string>
+    <string name="verbose_printer_logging_summary" msgid="6558076303223667013">"ಖಾಸಗಿ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡಿರಬಹುದಾದ ಇಂಟರ್ನೆಟ್ ಪ್ರಿಂಟಿಂಗ್ ಪ್ರೊಟೊಕಾಲ್ (IPP) ಸೇರಿದಂತೆ ಹೆಚ್ಚುವರಿ ಡೀಬಗ್ ಲಾಗ್‌ಗಳು."</string>
     <string name="bluetooth_unpair_dialog_forget_confirm_button" msgid="9184489424930549015">"ಸಾಧನವನ್ನು ಮರೆತುಬಿಡಿ"</string>
     <string name="bluetooth_companion_app_remove_association_confirm_button" msgid="76323555527926915">"ಆ್ಯಪ್ ಅನ್ನು ಡಿಸ್‌ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
     <string name="device_details_more_settings" msgid="950302792331611271">"ಇನ್ನಷ್ಟು ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
@@ -990,7 +1008,7 @@
     <string name="external_display_more_options_title" msgid="1222751990705118774">"ಇನ್ನಷ್ಟು ಆಯ್ಕೆಗಳು"</string>
     <string name="external_display_topology_hint" msgid="854973327795578470">"ಪ್ರದರ್ಶನಗಳನ್ನು ಮರುಹೊಂದಿಸಲು ಹೋಲ್ಡ್‌ ಮಾಡಿ ಮತ್ತು ಡ್ರ್ಯಾಗ್‌ ಮಾಡಿ."</string>
     <string name="external_display_mirroring_title" msgid="2688288527687724603">"ಮಿರರ್ ಬಿಲ್ಟ್-ಇನ್ ಡಿಸ್‌ಪ್ಲೇ"</string>
-    <string name="wifi_display_settings_title" msgid="6451625615274960175">"ಕ್ಯಾಸ್ಟ್ ಮಾಡುವಿಕೆ"</string>
+    <string name="wifi_display_settings_title" msgid="2622548133505158832">"Google Cast"</string>
     <string name="keywords_wifi_display_settings" msgid="5753883229564422679">"ಕನ್ನಡಿ"</string>
     <string name="wifi_display_enable_menu_item" msgid="7391841780777318134">"ವೈರ್‌ಲೆಸ್ ಪ್ರದರ್ಶನ ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
     <string name="wifi_display_no_devices_found" msgid="7904877793677102805">"ಸಮೀಪದಲ್ಲಿ ಯಾವುದೇ ಸಾಧನಗಳು ಸಿಕ್ಕಿಲ್ಲ."</string>
@@ -1029,6 +1047,7 @@
     <string name="android_beam_explained" msgid="5684416131846701256">"ಈ ವೈಶಿಷ್ಟ್ಯವು ಆನ್‌ ಆಗಿರುವಾಗ, ಸಾಧನಗಳನ್ನು ಒಂದಕ್ಕೊಂದು ಹತ್ತಿರ ತರುವ ಮೂಲಕ ಮತ್ತೊಂದು NFC-ಸಾಮರ್ಥ್ಯದ ಸಾಧನಕ್ಕೆ ಆ್ಯಪ್ ವಿಷಯವನ್ನು ಬೀಮ್ ಮಾಡಬಹುದು. ಉದಾಹರಣೆಗೆ, ವೆಬ್‌ ಪುಟಗಳು, YouTube ವೀಡಿಯೊಗಳು, ಜನರ ಸಂಪರ್ಕಗಳು ಮತ್ತು ಇನ್ನೂ ಹಲವನ್ನು ನೀವು ಬೀಮ್ ಮಾಡಬಹುದು.\n\n ಸಾಧನಗಳನ್ನು ಹತ್ತಿರ ತನ್ನಿ ಸಾಕು (ಹಿಮ್ಮುಖವಾಗಿ), ನಂತರ ನಿಮ್ಮ ಪರದೆಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಯಾವುದನ್ನು ಬೀಮ್ ಮಾಡಬೇಕು ಎಂಬುದನ್ನು ಆ್ಯಪ್ ನಿರ್ಧರಿಸುತ್ತದೆ."</string>
     <string name="wifi_settings" msgid="8313301946393559700">"Wi‑Fi"</string>
     <string name="wifi_settings_primary_switch_title" msgid="628360786662947258">"ವೈ-ಫೈ ಬಳಸಿ"</string>
+    <string name="wifi_networks_category" msgid="8011323954745036753">"ನೆಟ್‌ವರ್ಕ್‌ಗಳು"</string>
     <string name="wifi_settings_category" msgid="3523464780563778321">"Wi‑Fi ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="wifi_select_network" msgid="6692897876718813259">"Wi‑Fi ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="wifi_starting" msgid="6147022683967506341">"Wi‑Fi ಆನ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
@@ -1151,7 +1170,16 @@
     <string name="wifi_dpp_qr_code_is_not_valid_format" msgid="5190689503019328279">"QR ಕೋಡ್ ಮಾನ್ಯ ಫಾರ್ಮ್ಯಾಟ್‌ನಲ್ಲಿ ಇಲ್ಲ"</string>
     <string name="retry" msgid="7542103800274026915">"ಮರುಪ್ರಯತ್ನಿಸು"</string>
     <string name="wifi_shared" msgid="8850748923537589782">"ಇತರ ಸಾಧನ ಬಳಕೆದಾರರ ಜೊತೆಗೆ ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="shared_message" msgid="2104244057926025072">"ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ"</string>
+    <string name="private_message" msgid="5897966950396765392">"ಖಾಸಗಿ"</string>
+    <string name="wifi_conflict_dialog_confirm" msgid="4577313983128123779">"ದೃಢೀಕರಿಸಿ"</string>
+    <string name="wifi_conflict_dialog_cancel" msgid="5200571850377525343">"ರದ್ದುಮಾಡಿ"</string>
+    <string name="wifi_share_preference_title" msgid="6346200020322308703">"ಇದು ಹಂಚಿಕೊಂಡ ನೆಟ್‌ವರ್ಕ್ ಆಗಿದೆ"</string>
+    <string name="wifi_share_preference_summary" msgid="4356010425167713046">"ಅತಿಥಿ ಬಳಕೆದಾರರನ್ನು ಹೊರತುಪಡಿಸಿ ಎಲ್ಲಾ ಬಳಕೆದಾರರು ಈ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ವೀಕ್ಷಿಸಲು, ಎಡಿಟ್ ಮಾಡಲು ಮತ್ತು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ"</string>
+    <string name="wifi_conflict_dialog_title" msgid="1127530499054245755">"<xliff:g id="SHARED">%1$s</xliff:g> \"<xliff:g id="NETWORK_NAME">%2$s</xliff:g>\" ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಬದಲಿಸಬೇಕೆ?"</string>
+    <string name="wifi_conflict_dialog_message" msgid="3192435395074097168">"ನೀವು ಪ್ರಸ್ತುತ ಅದೇ ಹೆಸರಿನ <xliff:g id="SHARED_0">%1$s</xliff:g> ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಕನೆಕ್ಟ್ ಆಗಿದ್ದೀರಿ. ನೀವು ಬದಲಿಸಿದಾಗ, <xliff:g id="SHARED_1">%2$s</xliff:g> ನೆಟ್‌ವರ್ಕ್‌ನಿಂದ ಡಿಸ್‌ಕನೆಕ್ಟ್ ಆಗುತ್ತೀರಿ, ನಂತರ <xliff:g id="PRIVATE">%3$s</xliff:g> ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಪುನಃ ಕನೆಕ್ಟ್ ಆಗುತ್ತೀರಿ. ನಿಮಗೆ ತಾತ್ಕಾಲಿಕವಾಗಿ ಇಂಟರ್ನೆಟ್ ಕನೆಕ್ಷನ್ ಇಲ್ಲದಿರಬಹುದು."</string>
     <string name="wifi_unchanged" msgid="8026045290856150191">"(ಬದಲಾವಣೆಯಿಲ್ಲ)"</string>
+    <string name="wifi_allow_edit_configuration_title" msgid="3928254385019370063">"ಇತರ ಬಳಕೆದಾರರಿಗೆ ನೆಟ್‌ವರ್ಕ್ ಕಾನ್ಫಿಗರೇಶನ್ ಎಡಿಟ್ ಮಾಡಲು ಅನುಮತಿಸಿ"</string>
     <string name="wifi_unspecified" msgid="4561964943472312208">"ದಯವಿಟ್ಟು ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="wifi_multiple_cert_added" msgid="2151019652853383776">"(ಬಹು ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ)"</string>
     <string name="wifi_use_system_certs" msgid="5587866698144996931">"ಸಿಸ್ಟಂ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಬಳಸಿ"</string>
@@ -1165,6 +1193,11 @@
     <string name="wifi_scan_always_confirm_allow" msgid="4154200627800959777">"ಅನುಮತಿಸಿ"</string>
     <string name="wifi_scan_always_confirm_deny" msgid="6997087934558839256">"ನಿರಾಕರಿಸಿ"</string>
     <string name="wifi_field_required" msgid="6312381745503042588">"*ಅಗತ್ಯವಿದೆ"</string>
+    <string name="wifi_shared_network_login_screen_warning" msgid="7611029233083731552">"ಇದು ಹಂಚಿಕೊಂಡ ನೆಟ್‌ವರ್ಕ್ ಆಗಿದೆ. ಲಾಗಿನ್ ಆದ ನಂತರ ನೀವು ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬದಲಾಯಿಸಬಹುದು."</string>
+    <string name="share_wifi_network" msgid="4064997404339571584">"ಈ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಇತರ ಸಾಧನ ಬಳಕೆದಾರರ ಜೊತೆಗೆ ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="share_wifi_network_summary" msgid="4316236421149769333">"ಈ ಸಾಧನದಲ್ಲಿರುವ ಎಲ್ಲಾ ಬಳಕೆದಾರರು ಹಂಚಿಕೊಂಡ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ವೀಕ್ಷಿಸಬಹುದು ಮತ್ತು ಕನೆಕ್ಟ್ ಮಾಡಬಹುದು. ನಿರ್ವಾಹಕರು ಹಂಚಿಕೊಂಡ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಅಳಿಸಬಹುದು. ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
+    <string name="edit_wifi_network_configuration" msgid="5712989655083072417">"ಇತರ ಬಳಕೆದಾರರಿಗೆ ನೆಟ್‌ವರ್ಕ್ ಕಾನ್ಫಿಗರೇಶನ್ ಎಡಿಟ್ ಮಾಡಲು ಅನುಮತಿಸಿ"</string>
+    <string name="edit_wifi_network_non_owner_message" msgid="4291718452228643581">"ಈ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲು ಈ ಸಾಧನದ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="no_internet_access_text" msgid="3611993143350310936">"ಈ ನೆಟ್‌ವರ್ಕ್ ಯಾವುದೇ ಇಂಟರ್ನೆಟ್ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿಲ್ಲ. ಸಂಪರ್ಕದಲ್ಲಿರುವುದೇ?"</string>
     <string name="partial_connectivity_text" msgid="8874614799723694554">"ಸೀಮಿತ ಸಂಪರ್ಕ ಕಲ್ಪಿಸುವಿಕೆಯ ಕಾರಣದಿಂದಾಗಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದಿರಬಹುದು. ಬಳಸುವುದೇ?"</string>
     <string name="no_internet_access_remember" msgid="5113610157731269258">"ಈ ನೆಟ್‌ವರ್ಕ್ ಮತ್ತೆ ಕೇಳಬೇಡ"</string>
@@ -1209,6 +1242,14 @@
     <string name="hotspot_battery_charging_summary" msgid="6690892148553288457">"<xliff:g id="BATTERY_PERCENTAGE">%1$s</xliff:g> ‑ ಚಾರ್ಜಿಂಗ್ ಆಗುತ್ತಿದೆ"</string>
     <string name="hotspot_connection_category" msgid="4320380513982923556">"ಹಾಟ್‌ಸ್ಪಾಟ್ ಕನೆಕ್ಷನ್"</string>
     <string name="hotspot_connection_strength" msgid="87359986943768421">"ಕನೆಕ್ಷನ್ ಸಾಮರ್ಥ್ಯ"</string>
+    <string name="ethernet_dns1" msgid="6487470669719468602">"DNS 1 (ಖಾಸಗಿ DNS ನಿಂದ ಅತಿಕ್ರಮಿಸದಿದ್ದರೆ)"</string>
+    <string name="ethernet_dns2" msgid="484620572555181363">"DNS 2 (ಖಾಸಗಿ DNS ನಿಂದ ಅತಿಕ್ರಮಿಸದಿದ್ದರೆ)"</string>
+    <string name="ethernet_gateway" msgid="4064061619318875567">"ಗೇಟ್‌ವೇ"</string>
+    <string name="ethernet_network_prefix_length" msgid="3693127271457763198">"ನೆಟ್‌ವರ್ಕ್ ಪೂರ್ವಪ್ರತ್ಯಯ ಉದ್ದ"</string>
+    <string name="ethernet_ip_settings" msgid="3344064201878792090">"IP ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="ethernet_config_submit" msgid="724743720212124025">"ಸಲ್ಲಿಸಿ"</string>
+    <string name="ethernet_config_cancel" msgid="986322993908814366">"ರದ್ದುಮಾಡಿ"</string>
+    <string name="ethernet_config_title" msgid="4784063109810004382">"ಇಥರ್ನೆಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="wifi_saved_access_points_label" msgid="5691340724310548151">"ಸೇವ್ ಮಾಡಿದ ನೆಟ್‌ವರ್ಕ್‌"</string>
     <string name="wifi_subscribed_access_points_tab" msgid="7224061396195667208">"ಸಬ್‌ಸ್ಕ್ರಿಪ್ಶನ್‌ಗಳು"</string>
     <string name="wifi_saved_other_networks_tab" msgid="7942647415716557293">"ಇತರ ನೆಟ್‌ವರ್ಕ್‌ಗಳು"</string>
@@ -1342,6 +1383,11 @@
     <string name="auto_brightness_description" msgid="6807117118142381193">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಪ್ರಖರತೆಯು ನಿಮ್ಮ ಪರಿಸರ ಮತ್ತು ಚಟುವಟಿಕೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಅಡ್ಜಸ್ಟ್ ಆಗುತ್ತದೆ. ನಿಮ್ಮ ಆದ್ಯತೆಗಳನ್ನು ತಿಳಿದುಕೊಳ್ಳಲು ಅಡಾಪ್ಟಿವ್ ಪ್ರಖರತೆಗೆ ಸಹಾಯ ಮಾಡಲು ನೀವು ಹಸ್ತಚಾಲಿತವಾಗಿ ಸ್ಲೈಡರ್ ಅನ್ನು ಸರಿಸಬಹುದು."</string>
     <string name="auto_brightness_summary_on" msgid="2748088951224387004">"ಆನ್"</string>
     <string name="auto_brightness_summary_off" msgid="8077066192887677956">"ಆಫ್"</string>
+    <string name="hdr_brightness_title" msgid="6997980740096282616">"ವರ್ಧಿತ HDR ಪ್ರಖರತೆ"</string>
+    <string name="hdr_brightness_level_title" msgid="770342878327164738">"ತೀವ್ರತೆ"</string>
+    <string name="hdr_brightness_standard_image_label" msgid="8262353134660098785">"ಸ್ಟ್ಯಾಂಡರ್ಡ್ ಚಿತ್ರ"</string>
+    <string name="hdr_brightness_hdr_image_label" msgid="8068442758910393158">"HDR ಚಿತ್ರ"</string>
+    <string name="hdr_brightness_warning" msgid="2755151579539607928">"ಈ ಸೆಟ್ಟಿಂಗ್ ಹೆಚ್ಚು ಡೈನಾಮಿಕ್ ವ್ಯಾಪ್ತಿಯನ್ನು (HDR) ಬೆಂಬಲಿಸುವ ಚಿತ್ರಗಳು ಮತ್ತು ವೀಡಿಯೊಗಳ ಮೇಲೆ ಮಾತ್ರ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ."</string>
     <string name="display_white_balance_title" msgid="2624544323029364713">"ವೈಟ್ ಬ್ಯಾಲೆನ್ಸ್ ಪ್ರದರ್ಶಿಸಿ"</string>
     <string name="display_white_balance_summary" msgid="7625456704950209050"></string>
     <string name="fold_lock_behavior_title" msgid="786228803694268449">"ಫೋಲ್ಡ್‌ ಮಾಡಿದ ನಂತರ ಆ್ಯಪ್‌ಗಳ ಬಳಕೆಯನ್ನು ಮುಂದುವರಿಸಿ"</string>
@@ -1411,6 +1457,7 @@
     <string name="dark_ui_bedtime_footer_action" msgid="1493095487994054339">"ಬೆಡ್‌ಟೈಮ್ ಮೋಡ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="dark_ui_modes_footer_summary" msgid="1041117250408363391">"{count,plural,offset:2 =0{ಮೋಡ್‌ಗಳು ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಹ ಸಕ್ರಿಯಗೊಳಿಸಬಹುದು}=1{{mode_1} ಸಹ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ}=2{{mode_1} ಮತ್ತು {mode_2} ಸಹ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತವೆ}=3{{mode_1}, {mode_2} ಮತ್ತು {mode_3} ಸಹ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತವೆ}one{{mode_1}, {mode_2} ಮತ್ತು # ಇನ್ನಷ್ಟು ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತವೆ}other{{mode_1}, {mode_2} ಮತ್ತು # ಇನ್ನಷ್ಟು ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತವೆ}}"</string>
     <string name="dark_ui_modes_footer_action" msgid="80671811848446248">"ಮೋಡ್‌ಗಳ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="hdr_brigtness_text" msgid="1912629316654528876">"ಹೆಚ್ಚು ಡೈನಾಮಿಕ್ ವ್ಯಾಪ್ತಿಯ (HDR) ಚಿತ್ರಗಳು ಮತ್ತು ವೀಡಿಯೊಗಳಲ್ಲಿ ಬಣ್ಣದ ವ್ಯಾಪ್ತಿ ಮತ್ತು ಸ್ಪಷ್ಟತೆಯನ್ನು ಪ್ರಖರವಾಗಿಸಿ ಮತ್ತು ವಿಸ್ತರಿಸಿ. HDR ಕಂಟೆಂಟ್ ಹೆಚ್ಚು ಪ್ರಖರವಾಗಿ ಕಾಣಿಸುತ್ತದೆ."</string>
     <string name="screen_timeout" msgid="7709947617767439410">"ಸ್ಕ್ರೀನ್ ಟೈಮ್‌ಔಟ್"</string>
     <string name="screen_timeout_summary" msgid="5558778019594643427">"ನಿಷ್ಕ್ರಿಯತೆಯ <xliff:g id="TIMEOUT_DESCRIPTION">%1$s</xliff:g> ಆದ ಮೇಲೆ"</string>
     <string name="screen_timeout_summary_not_set" msgid="5107680774964178875">"ಸೆಟ್ ಮಾಡಿಲ್ಲ"</string>
@@ -1425,27 +1472,47 @@
     <string name="screensaver_settings_title" msgid="3588535639672365395">"ಸ್ಕ್ರೀನ್ ಸೇವರ್"</string>
     <string name="keywords_screensaver" msgid="7249337959432229172">"ಸ್ಕ್ರೀನ್‌ಸೇವರ್"</string>
     <string name="screensaver_settings_when_to_dream_bedtime" msgid="3279310576803094771">"ಬೆಡ್‌ಟೈಮ್ ಮೋಡ್ ಆನ್ ಆಗಿರುವ ಕಾರಣ ಲಭ್ಯವಿಲ್ಲ"</string>
+    <string name="screensaver_unavailable_due_to_mode" msgid="6659447961090743083">"ಲಭ್ಯವಿಲ್ಲ"</string>
     <string name="screensaver_settings_toggle_title" msgid="6194634226897244374">"ಸ್ಕ್ರೀನ್ ಸೇವರ್ ಅನ್ನು ಬಳಸಿ"</string>
     <string name="screensaver_settings_summary_either_long" msgid="371949139331896271">"ಚಾರ್ಜ್ ಮಾಡುವಾಗ ಅಥವಾ ಡಾಕ್ ಮಾಡುವಾಗ"</string>
     <string name="screensaver_settings_summary_dock_and_charging" msgid="8485905100159376156">"ಡಾಕ್ ಮಾಡಿ ಚಾರ್ಜ್ ಮಾಡುತ್ತಿರುವಾಗ"</string>
     <string name="screensaver_settings_summary_sleep" msgid="6555922932643037432">"ಚಾರ್ಜ್‌ ಆಗುತ್ತಿರುವಾಗ"</string>
     <string name="screensaver_settings_summary_dock" msgid="6997766385189369733">"ಡಾಕ್‌ ಆಗಿರುವಾಗ"</string>
     <string name="screensaver_settings_summary_never" msgid="4988141393040918450">"ಎಂದಿಗೂ ಬೇಡ"</string>
-    <string name="screensaver_settings_summary_postured" msgid="1184119124847691954">"ಸ್ಥಿರವಾಗಿರುವಾಗ"</string>
-    <string name="screensaver_settings_summary_postured_and_charging" msgid="1952047156927637506">"ಸ್ಥಿರವಾಗಿರುವಾಗ ಹಾಗೂ ಚಾರ್ಜ್ ಆಗುವಾಗ"</string>
+    <string name="screensaver_settings_summary_postured" msgid="6346392320858994892">"ನೇರವಾಗಿರುವಾಗ"</string>
+    <string name="screensaver_settings_summary_postured_and_charging" msgid="5111797042509819055">"ನೇರವಾಗಿರುವಾಗ ಮತ್ತು ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವಾಗ"</string>
     <string name="screensaver_settings_summary_on" msgid="4210827304351483645">"ಆನ್ / <xliff:g id="SCREEN_SAVER">%1$s</xliff:g>"</string>
     <string name="screensaver_settings_summary_off" msgid="8720357504939106923">"ಆಫ್"</string>
-    <string name="screensaver_settings_when_to_dream" msgid="8145025742428940520">"ಯಾವಾಗ ಪ್ರಾರಂಭಿಸಬೇಕು"</string>
+    <string name="screensaver_settings_when_to_dream" msgid="7756170756065029160">"ಯಾವಾಗ ತೋರಿಸಬೇಕು"</string>
+    <string name="screensaver_settings_low_light_mode" msgid="271972828076673743">"ಕಡಿಮೆ ಬೆಳಕಿನ ಮೋಡ್"</string>
     <string name="lift_to_wake_title" msgid="8994218158737714046">"ಎಬ್ಬಿಸಲು ಎತ್ತಿರಿ"</string>
+    <string name="screensaver_restrict_to_wireless_charging_title" msgid="8016059995446029358">"ವೈರ್‌ಲೆಸ್ ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ನಿರ್ಬಂಧಿಸಿ"</string>
+    <string name="low_light_display_behavior_main_switch_title" msgid="7138165032358139627">"ಕಡಿಮೆ ಬೆಳಕಿನ ಮೋಡ್ ಅನ್ನು ಬಳಸಿ"</string>
+    <string name="low_light_display_behavior_subtitle" msgid="1833984014035605413">"ಕಡಿಮೆ ಬೆಳಕಿನ ಮೋಡ್‌ನಲ್ಲಿ ಏನನ್ನು ತೋರಿಸಬೇಕು ಎಂಬುದನ್ನು ಆರಿಸಿ"</string>
+    <string name="low_light_display_behavior_screen_off" msgid="4203092158668290404">"ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗಿದೆ"</string>
+    <string name="low_light_display_behavior_low_light_clock_dream" msgid="2235561363691252383">"ಕಡಿಮೆ ಬೆಳಕಿನ ಗಡಿಯಾರ"</string>
+    <string name="low_light_display_behavior_summary_on" msgid="4218678742261840224">"ಆನ್ / <xliff:g id="LOW_LIGHT_MODE">%1$s</xliff:g>"</string>
+    <string name="low_light_display_behavior_summary_off" msgid="4565368094992120316">"ಆಫ್ ಆಗಿದೆ"</string>
+    <string name="low_light_display_behavior_screen_off_full_summary" msgid="6671607843870561892">"ನಿಮ್ಮ ಸುತ್ತಲೂ ಕತ್ತಲೆಯಾದಾಗ ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗುತ್ತದೆ"</string>
+    <string name="low_light_display_behavior_low_light_clock_dream_full_summary" msgid="1145914465090731721">"ನಿಮ್ಮ ಸುತ್ತಲೂ ಕತ್ತಲೆಯಾದಾಗ ಕಡಿಮೆ ಬೆಳಕಿನ ಗಡಿಯಾರ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ"</string>
     <string name="ambient_display_screen_title" msgid="8615947016991429325">"ಆಂಬಿಯೆಂಟ್ ಡಿಸ್‌ಪ್ಲೇ"</string>
     <string name="ambient_display_category_triggers" msgid="1216640141609270011">"ಯಾವಾಗ ತೋರಿಸಬೇಕು"</string>
     <string name="doze_title" msgid="1523090408230862316">"ನೋಟಿಫಿಕೇಶನ್‌ಗಾಗಿ ಸ್ಕ್ರೀನ್ ಆನ್"</string>
     <string name="doze_summary" msgid="8252867381522942804">"ಸ್ಕ್ರೀನ್ ಡಾರ್ಕ್ ಆಗಿದ್ದಾಗ, ಹೊಸ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಬಂದಾಗ ಆನ್ ಆಗುತ್ತದೆ"</string>
     <string name="doze_always_on_title" msgid="7326245192352868477">"ಯಾವಾಗಲೂ ಸಮಯ &amp; ಮಾಹಿತಿ ತೋರಿಸಿ"</string>
+    <string name="doze_always_on_title2" msgid="6806855871175589465">"ಯಾವಾಗಲೂ ಡಿಸ್‌ಪ್ಲೇ ಆನ್‌ ಆಗಿರಲಿ"</string>
     <string name="doze_always_on_summary" msgid="509097829739647852">"ಅಧಿಕ ಬ್ಯಾಟರಿ ಬಳಕೆ"</string>
+    <string name="doze_always_on_summary_with_wallpaper" msgid="7193043498368623388">"ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗಿರುವಾಗ ಲಾಕ್ ಸ್ಕ್ರೀನ್ ವಾಲ್‌ಪೇಪರ್ ಅನ್ನು ತೋರಿಸಿ"</string>
+    <string name="doze_always_on_summary_without_wallpaper" msgid="2461602415293603846">"ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗಿರುವಾಗ ಲಾಕ್ ಸ್ಕ್ರೀನ್ ವಾಲ್‌ಪೇಪರ್ ಅನ್ನು ಮರೆಮಾಡಿ"</string>
+    <string name="doze_always_on_summary_long" msgid="9198713049143867176">"ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗಿರುವಾಗ ಯಾವಾಗಲೂ ಡಿಸ್‌ಪ್ಲೇ ಆನ್‌ ಆಗಿರಲಿ, ದಿನಾಂಕ ಮತ್ತು ಹೆಚ್ಚಿನದನ್ನು ತೋರಿಸುತ್ತದೆ"</string>
+    <string name="doze_always_on_wallpaper_options" msgid="6089727555294626960">"ವಾಲ್‌ಪೇಪರ್ ಆಯ್ಕೆಗಳು"</string>
+    <string name="doze_always_on_wallpaper_title" msgid="975186604007325364">"ಲಾಕ್ ಸ್ಕ್ರೀನ್ ವಾಲ್‌ಪೇಪರ್ ಅನ್ನು ತೋರಿಸಿ"</string>
+    <string name="doze_always_on_wallpaper_description" msgid="7797570713499410605">"ಲಾಕ್ ಸ್ಕ್ರೀನ್ ವಾಲ್‌ಪೇಪರ್ ಯಾವಾಗಲೂ ಡಿಸ್‌ಪ್ಲೇ ಆನ್‌ ಆಗಿರಲಿ ಎಂಬ ಫೀಚರ್ ಮೂಲಕ ಗೋಚರಿಸುತ್ತದೆ"</string>
     <string name="force_bold_text" msgid="4620929631102086716">"ಬೋಲ್ಡ್ ಪಠ್ಯ"</string>
     <string name="title_font_size" msgid="570613010306330622">"ಫಾಂಟ್ ಗಾತ್ರ"</string>
     <string name="short_summary_font_size" msgid="8444689613442419978">"ಪಠ್ಯವನ್ನು ದೊಡ್ಡದು ಅಥವಾ ಚಿಕ್ಕದು ಮಾಡಿ"</string>
+    <string name="category_title_display_text_size" msgid="4234285020731751694">"ಗಾತ್ರದ ಆಯ್ಕೆಗಳು"</string>
+    <string name="category_title_text_style" msgid="5905015084935695611">"ಶೈಲಿ ಆಯ್ಕೆಗಳು"</string>
     <string name="sim_lock_settings" msgid="7331982427303002613">"SIM ಲಾಕ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="sim_lock_settings_category" msgid="6475255139493877786">"SIM ಲಾಕ್"</string>
     <string name="sim_pin_toggle" msgid="6814489621760857328">"SIM ಅನ್ನು ಲಾಕ್ ಮಾಡಿ"</string>
@@ -1601,8 +1668,9 @@
     <string name="when_to_auto_show_hubmode_title" msgid="2307148913387518369">"ಯಾವಾಗ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ತೋರಿಸಬೇಕು"</string>
     <string name="when_to_show_hubmode_never" msgid="976644329215156021">"ಎಂದಿಗೂ ಬೇಡ"</string>
     <string name="when_to_show_hubmode_charging" msgid="1874391105066805128">"ಚಾರ್ಜ್ ಮಾಡುವಾಗ"</string>
-    <string name="when_to_show_hubmode_charging_and_upright" msgid="6293947459712755814">"ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವಾಗ ಮತ್ತು ನೇರವಾಗಿರುವಾಗ"</string>
-    <string name="when_to_show_hubmode_docked" msgid="7107631545009933891">"ಡಾಕ್ ಆಗಿರುವಾಗ"</string>
+    <string name="when_to_show_hubmode_charging_and_upright" msgid="537039046490426922">"ನೇರವಾಗಿರುವಾಗ ಮತ್ತು ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವಾಗ"</string>
+    <string name="when_to_show_hubmode_docked" msgid="8876633401873168284">"ಡಾಕ್ ಮಾಡಿರುವಾಗ ಮತ್ತು ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವಾಗ"</string>
+    <string name="hub_restrict_to_wireless_charging_title" msgid="2234080978449692163">"ವೈರ್‌ಲೆಸ್ ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ನಿರ್ಬಂಧಿಸಿ"</string>
     <string name="apn_settings" msgid="4295467389400441299">"APN ಗಳು"</string>
     <string name="apn_edit" msgid="2003683641840248741">"ಆ್ಯಕ್ಸೆಸ್ ಪಾಯಿಂಟ್ ಎಡಿಟ್ ಮಾಡಿ"</string>
     <string name="apn_add" msgid="9069613192201630934">"ಆ್ಯಕ್ಸೆಸ್ ಪಾಯಿಂಟ್ ಅನ್ನು ಸೇರಿಸಿ"</string>
@@ -1716,6 +1784,7 @@
     <string name="rx_ethernet_speed" msgid="6642000569214969711">"ಲಿಂಕ್ ವೇಗವನ್ನು ಸ್ವೀಕರಿಸಿ"</string>
     <string name="ethernet_network_usage" msgid="3795965384177426780">"ನೆಟ್‌ವರ್ಕ್ ಬಳಕೆ"</string>
     <string name="ethernet_tether_checkbox_text" msgid="959743110824197356">"ಇಥರ್ನೆಟ್ ಟೆಥರಿಂಗ್"</string>
+    <string name="ethernet_modify" msgid="1326316717004440503">"ಮಾರ್ಪಡಿಸಿ"</string>
     <string name="tethering_footer_info" msgid="6824352505979800594">"ನಿಮ್ಮ ಡೇಟಾ ಕನೆಕ್ಷನ್‌ ಮೂಲಕ ಇತರ ಸಾಧನಗಳಿಗೆ ಇಂಟರ್ನೆಟ್ ಒದಗಿಸಲು ಹಾಟ್‌ಸ್ಪಾಟ್ ಮತ್ತು ಟೆಥರಿಂಗ್ ಬಳಸಿ. ಹತ್ತಿರದ ಸಾಧನಗಳೊಂದಿಗೆ ಕಂಟೆಂಟ್‌ ಅನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಆ್ಯಪ್‌ಗಳು ಹಾಟ್‌ಸ್ಪಾಟ್ ಅನ್ನು ಸಹ ರಚಿಸಬಹುದು."</string>
     <string name="tethering_footer_info_sta_ap_concurrency" msgid="2079039077487477676">"ನಿಮ್ಮ ವೈ-ಫೈ ಅಥವಾ ಮೊಬೈಲ್ ಡೇಟಾ ಕನೆಕ್ಷನ್ ಮೂಲಕ ಇತರ ಸಾಧನಗಳಿಗೆ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಒದಗಿಸಲು ಹಾಟ್‌ಸ್ಪಾಟ್ ಮತ್ತು ಟೆಥರಿಂಗ್ ಅನ್ನು ಬಳಸಿ. ಸಮೀಪದಲ್ಲಿರುವ ಸಾಧನಗಳ ಜೊತೆಗೆ ವಿಷಯಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಆ್ಯಪ್‌ಗಳು ಹಾಟ್‌ಸ್ಪಾಟ್ ಅನ್ನು ಸಹ ರಚಿಸಬಹುದು."</string>
     <string name="tethering_help_button_text" msgid="2823655011510912001">"ಸಹಾಯ"</string>
@@ -1741,7 +1810,7 @@
     <string name="location_high_battery_use" msgid="4277318891200626524">"ಹೆಚ್ಚು ಬ್ಯಾಟರಿಯ ಬಳಕೆ"</string>
     <string name="location_low_battery_use" msgid="5218950289737996431">"ಕಡಿಮೆ ಬ್ಯಾಟರಿಯ ಬಳಕೆ"</string>
     <string name="location_scanning_wifi_always_scanning_title" msgid="5004781272733434794">"ವೈ-ಫೈ ಸ್ಕ್ಯಾನಿಂಗ್"</string>
-    <string name="location_scanning_wifi_always_scanning_description" msgid="6236055656376931306">"ವೈ-ಫೈ ಆಫ್‌ ಆಗಿದ್ದರೂ ಸಹ, ಯಾವ ಸಮುಯದಲ್ಲಾದರೂ ವೈ-ಫೈಗೆ ಸ್ಕ್ಯಾನ್‌ ಮಾಡಲು ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಅನುಮತಿಸಿ. ಉದಾಹರಣೆಗೆ, ಸ್ಥಳ ಆಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಸುಧಾರಿಸಲು ಇದನ್ನು ಬಳಸಬಹುದಾಗಿದೆ."</string>
+    <string name="location_scanning_wifi_always_scanning_description" msgid="6236055656376931306">"ವೈ-ಫೈ ಆಫ್‌ ಆಗಿದ್ದರೂ ಸಹ, ಯಾವ ಸಮುಯದಲ್ಲಾದರೂ ವೈ-ಫೈಗೆ ಸ್ಕ್ಯಾನ್‌ ಮಾಡಲು ಆ್ಯಪ್‍‍ಗಳು ಮತ್ತು ಸೇವೆಗಳಿಗೆ ಅನುಮತಿಸಿ. ಉದಾಹರಣೆಗೆ, ಸ್ಥಳ ಆಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಸುಧಾರಿಸಲು ಇದನ್ನು ಬಳಸಬಹುದಾಗಿದೆ."</string>
     <string name="location_scanning_bluetooth_always_scanning_title" msgid="1809309545730215891">"ಬ್ಲೂಟೂತ್ ಸ್ಕ್ಯಾನಿಂಗ್"</string>
     <string name="location_scanning_bluetooth_always_scanning_description" msgid="5362988856388462841">"ಬ್ಲೂಟೂತ್‌ ಆಫ್‌ ಆಗಿದ್ದರೂ ಸಹ, ಯಾವ ಸಮಯದಲ್ಲಾದರೂ ಸಮೀಪದ ಸಾಧನಗಳಿಗೆ ಸ್ಕ್ಯಾನ್‌ ಮಾಡಲು ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಅನುಮತಿಸಿ. ಉದಾಹರಣೆಗೆ, ಸ್ಥಳ ಆಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಸುಧಾರಿಸಲು ಇದನ್ನು ಬಳಸಬಹುದಾಗಿದೆ."</string>
     <string name="location_services_preference_title" msgid="604317859531782159">"ಸ್ಥಳ ಸೇವೆಗಳು"</string>
@@ -1793,15 +1862,15 @@
     <string name="lockpassword_choose_your_profile_pattern_header" msgid="3101811498330756641">"ಕೆಲಸದ ಪ್ಯಾಟರ್ನ್ ಸೆಟ್ ಮಾಡಿ"</string>
     <string name="lockpassword_choose_your_password_header_for_fingerprint" msgid="3167261267229254090">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಬಳಸಲು, ಪಾಸ್‌ವರ್ಡ್‌ ಸೆಟ್ ಮಾಡಿ"</string>
     <string name="lockpassword_choose_your_pattern_header_for_fingerprint" msgid="4707788269512303400">"ಪಿಂಗರ್‌ಪ್ರಿಂಟ್ ಬಳಸಲು ಪ್ಯಾಟರ್ನ್ ಸೆಟ್ ಮಾಡಿ"</string>
-    <string name="lockpassword_choose_your_pin_message" msgid="7230665212172041837">"ಸುರಕ್ಷತೆಗಾಗಿ, ಪಿನ್ ಅನ್ನು ಹೊಂದಿಸಿ"</string>
+    <string name="lockpassword_choose_your_pin_message" msgid="7230665212172041837">"ಸುರಕ್ಷತೆಗಾಗಿ, ಪಿನ್ ಅನ್ನು ಸೆಟ್ ಮಾಡಿ"</string>
     <string name="lockpassword_choose_your_pin_header_for_fingerprint" msgid="2783879743691792556">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಬಳಸಲು, ಪಿನ್ ಸೆಟ್ ಮಾಡಿ"</string>
     <string name="lockpassword_confirm_your_password_header" msgid="6132312814563023990">"ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಪುನಃ ನಮೂದಿಸಿ"</string>
-    <string name="lockpassword_reenter_your_profile_password_header" msgid="3812040127714827685">"ನಿಮ್ಮ ಕೆಲಸದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರು ನಮೂದಿಸಿ"</string>
+    <string name="lockpassword_reenter_your_profile_password_header" msgid="3812040127714827685">"ನಿಮ್ಮ ಕೆಲಸದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಪುನಃ ನಮೂದಿಸಿ"</string>
     <string name="lockpassword_confirm_your_work_password_header" msgid="4647071231702288305">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪಾಸ್‌ವರ್ಡ್‌ ನಮೂದಿಸಿ"</string>
     <string name="lockpassword_confirm_your_pattern_header" msgid="4037701363240138651">"ಪ್ಯಾಟರ್ನ್ ಅನ್ನು ದೃಢೀಕರಿಸಿ"</string>
     <string name="lockpassword_confirm_your_work_pattern_header" msgid="2668883108969165844">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ಯಾಟರ್ನ್ ನಮೂದಿಸಿ"</string>
     <string name="lockpassword_confirm_your_pin_header" msgid="2241722970567131308">"ನಿಮ್ಮ ಪಿನ್‌ ಅನ್ನು ಪುನಃ ನಮೂದಿಸಿ"</string>
-    <string name="lockpassword_reenter_your_profile_pin_header" msgid="2890233614560435538">"ನಿಮ್ಮ ಕೆಲಸದ ಪಿನ್ ಅನ್ನು ಮರು ನಮೂದಿಸಿ"</string>
+    <string name="lockpassword_reenter_your_profile_pin_header" msgid="2890233614560435538">"ನಿಮ್ಮ ಕೆಲಸದ ಪಿನ್ ಅನ್ನು ಪುನಃ ನಮೂದಿಸಿ"</string>
     <string name="lockpassword_confirm_your_work_pin_header" msgid="4229765521391960255">"ನಿಮ್ಮ ಕೆಲಸದ ಪಿನ್ ನಮೂದಿಸಿ"</string>
     <string name="lockpassword_confirm_passwords_dont_match" msgid="2100071354970605232">"ಪಾಸ್‌ವರ್ಡ್‌‍ಗಳು ಮ್ಯಾಚ್ ಆಗುತ್ತಿಲ್ಲ"</string>
     <string name="lockpassword_confirm_pins_dont_match" msgid="1103699575489401030">"ಪಿನ್‌ ಮ್ಯಾಚ್ ಆಗುತ್ತಿಲ್ಲ"</string>
@@ -2074,6 +2143,7 @@
     <string name="input_setting_keys_dialog_option_200" msgid="2785528287150314940">"0.2 ಸೆಕೆಂಡ್‌ಗಳು"</string>
     <string name="input_setting_keys_dialog_option_400" msgid="91571674179896177">"0.4 ಸೆಕೆಂಡ್‌ಗಳು"</string>
     <string name="input_setting_keys_dialog_option_600" msgid="6983252972219539375">"0.6 ಸೆಕೆಂಡ್‌ಗಳು"</string>
+    <string name="input_setting_keys_dialog_option_custom" msgid="2353045390598308685">"<xliff:g id="THRESHOLD">%.1f</xliff:g> ಸೆಕೆಂಡ್‌ಗಳು"</string>
     <string name="input_setting_keys_custom_title" msgid="670425691119253202">"ಕಸ್ಟಮ್"</string>
     <string name="input_setting_keys_custom_value" msgid="4455905650507193648">"ಕಸ್ಟಮ್ ಮೌಲ್ಯ"</string>
     <string name="input_setting_bounce_keys_seekbar_desc" msgid="4575595566548124309">"ಬೌನ್ಸ್ ಕೀ ಥ್ರೆಶೋಲ್ಡ್ ಟೈಮ್"</string>
@@ -2084,12 +2154,23 @@
     <string name="sticky_keys_summary" msgid="1844953803625480623">"ಕೀಗಳನ್ನು ಜೊತೆಯಾಗಿ ಕೆಳಗೆ ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುವ ಬದಲಾಗಿ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳಿಗಾಗಿ ಒಂದು ಬಾರಿ ಒಂದು ಕೀ ಅನ್ನು ಒತ್ತಿ"</string>
     <string name="mouse_keys" msgid="6237254627808525540">"ಮೌಸ್ ಕೀಗಳು"</string>
     <string name="mouse_keys_main_title" msgid="3570638931365221460">"ಮೌಸ್ ಕೀಗಳನ್ನು ಬಳಸಿ"</string>
-    <string name="mouse_keys_summary" msgid="7030731235143286467">"ಪಾಯಿಂಟರ್ ಅನ್ನು ಕಂಟ್ರೋಲ್ ಮಾಡಲು ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಅನ್ನು ಬಳಸಿ"</string>
+    <string name="accessibility_mouse_keys_shortcut_title" msgid="7621635104533584115">"ಮೌಸ್ ಕೀಗಳ ಶಾರ್ಟ್‌ಕಟ್‌"</string>
+    <string name="mouse_keys_summary" msgid="6512910710030108693">"ಕರ್ಸರ್ ಅನ್ನು ಕಂಟ್ರೋಲ್ ಮಾಡಲು ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಅನ್ನು ಬಳಸಿ"</string>
+    <string name="mouse_keys_max_speed_title" msgid="2651688711606971145">"ವೇಗ"</string>
+    <string name="mouse_keys_seek_bar_decrease_button_description" msgid="9077624857206032509">"ಕಡಿಮೆ ಮಾಡಿ"</string>
+    <string name="mouse_keys_seek_bar_increase_button_description" msgid="2721662400858172203">"ಹೆಚ್ಚಿಸಿ"</string>
     <string name="mouse_reverse_vertical_scrolling" msgid="4067297170762853966">"ಹಿಮ್ಮುಖ ಸ್ಕ್ರಾಲ್ ಮಾಡುವಿಕೆ"</string>
+    <string name="mouse_keys_use_primary_keys_title" msgid="525897583406210252">"ಪ್ರಾಥಮಿಕ ಕೀಗಳನ್ನು ಬಳಸಿ"</string>
+    <string name="mouse_keys_reset_button_label" msgid="513004295662247230">"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ರೀಸೆಟ್ ಮಾಡಿ"</string>
+    <string name="mouse_keys_primary_keys_image_list_title" msgid="7470827693078490251">"ಪ್ರಾಥಮಿಕ ಕೀಗಳನ್ನು ಬಳಸುವುದು ಹೇಗೆ"</string>
+    <string name="mouse_keys_numpad_keys_image_list_title" msgid="6682341389811538017">"ಸಂಖ್ಯಾ ಕೀಪ್ಯಾಡ್ ಅನ್ನು ಬಳಸುವುದು ಹೇಗೆ"</string>
+    <string name="mouse_keys_numpad_keys_image_list_summary" msgid="2728318055237217919">"Num Lock ಆನ್ ಆಗಿರುವಾಗ ಯಾವಾಗಲೂ ಸಂಖ್ಯಾ ಕೀಪ್ಯಾಡ್ ಬಳಸಲಾಗುತ್ತದೆ"</string>
     <string name="mouse_reverse_vertical_scrolling_summary" msgid="3386655598642587942">"ಪುಟವನ್ನು ಕೆಳಕ್ಕೆ ಸರಿಸಲು ಮೇಲಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"</string>
     <string name="mouse_scrolling_category_title" msgid="2992126595687187296">"ಸ್ಕ್ರಾಲ್ ಮಾಡುವಿಕೆ"</string>
     <string name="mouse_scrolling_acceleration" msgid="7119758828203396430">"ನಿಯಂತ್ರಿತ ಸ್ಕ್ರಾಲ್ ಮಾಡುವಿಕೆ"</string>
     <string name="mouse_scrolling_speed" msgid="3999483025392860903">"ಸ್ಕ್ರಾಲ್ ಮಾಡುವಿಕೆಯ ವೇಗ"</string>
+    <string name="mouse_pointer_speed_make_faster_desc" msgid="7665912663672314461">"ಪಾಯಿಂಟರ್ ವೇಗವನ್ನು ಹೆಚ್ಚಿಸಿ"</string>
+    <string name="mouse_pointer_speed_make_slower_desc" msgid="116802579827902188">"ಪಾಯಿಂಟರ್ ವೇಗವನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
     <string name="mouse_swap_primary_button" msgid="4798006242525441304">"ಪ್ರಾಥಮಿಕ ಮೌಸ್ ಬಟನ್ ಅನ್ನು ಸ್ವ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="mouse_swap_primary_button_summary" msgid="3276638019321067902">"ಎಡ ಮೌಸ್ ಬಟನ್ ಅನ್ನು ನಿಮ್ಮ ಬಲ ಬಟನ್‌ ಆಗಿ ಬಳಸಿ"</string>
     <string name="mouse_pointer_acceleration" msgid="388336576055293329">"ಕರ್ಸರ್ ವೇಗವರ್ಧನೆ"</string>
@@ -2101,6 +2182,9 @@
     <string name="mouse_keys_release_summary" msgid="7209370896835993434">"ಪ್ರಾಥಮಿಕ ಮೌಸ್ ಬಟನ್ ಅನ್ನು ಬಿಟ್ಟುಬಿಡಲು \"<xliff:g id="RELEASE_LABEL">%s</xliff:g>\" ಕೀಯನ್ನು ಬಳಸಿ"</string>
     <string name="mouse_keys_toggle_scroll_summary" msgid="7492663135290108272">"ಸ್ಕ್ರಾಲ್ ಮೋಡ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಲು \"<xliff:g id="RELEASE_LABEL_1">%1$s</xliff:g>\" ಕೀಯನ್ನು ಬಳಸಿ. ಇದು \"<xliff:g id="RELEASE_LABEL_2">%2$s</xliff:g>\" ಕೀಗಳು ವೀಕ್ಷಣೆಯನ್ನು ಮೇಲಕ್ಕೆ, ಕೆಳಕ್ಕೆ, ಎಡ ಅಥವಾ ಬಲಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡುತ್ತದೆ"</string>
     <string name="mouse_keys_release2_summary" msgid="5504548339731577210">"ಸೆಕೆಂಡರಿ ಮೌಸ್ ಬಟನ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಲು \"<xliff:g id="RELEASE_2_LABEL">%s</xliff:g>\" ಕೀಯನ್ನು ಬಳಸಿ"</string>
+    <string name="mouse_keys_acceleration_seekbar_title" msgid="2329098889930361504">"ಆ್ಯಕ್ಸಿಲಿರೇಶನ್"</string>
+    <string name="mouse_keys_acceleration_fast_icon_desc" msgid="4426188473271579794">"ವೇಗ"</string>
+    <string name="mouse_keys_acceleration_slow_icon_desc" msgid="8370777074987200135">"ನಿಧಾನ"</string>
     <string name="keyboard_shortcuts_helper" msgid="6934420811737731188">"ಕೀಬೋರ್ಡ್ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
     <string name="keyboard_shortcuts_helper_summary" msgid="5979507677602559203">"ಶಾರ್ಟ್‌ಕಟ್‌ಗಳ ಪಟ್ಟಿಯನ್ನು ತೋರಿಸಿ"</string>
     <string name="language_and_input_for_work_category_title" msgid="2546950919124199743">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಕೀಬೋರ್ಡ್‌ಗಳು ಮತ್ತು ಉಪಕರಣಗಳು"</string>
@@ -2109,18 +2193,20 @@
     <string name="trackpad_settings" msgid="2071131324087677005">"ಟಚ್‌ಪ್ಯಾಡ್"</string>
     <string name="trackpad_mouse_settings" msgid="136226693583218429">"ಟಚ್‌ಪ್ಯಾಡ್ ಮತ್ತು ಮೌಸ್"</string>
     <string name="mouse_settings" msgid="7301671756721327122">"ಮೌಸ್"</string>
-    <string name="mouse_settings_summary" msgid="8732973589097368936">"ಪಾಯಿಂಟರ್ ವೇಗ, ಸ್ವಾಪ್ ಬಟನ್, ಬಟನ್ ಕಸ್ಟಮೈಸೇಶನ್"</string>
+    <string name="mouse_settings_summary" msgid="1308610072914620926">"ಪಾಯಿಂಟರ್ ವೇಗ, ಬಟನ್ ಕಸ್ಟಮೈಸೇಶನ್"</string>
     <string name="trackpad_settings_summary" msgid="3369855644136760402">"ಪಾಯಿಂಟರ್ ವೇಗ, ಗೆಸ್ಚರ್‌ಗಳು"</string>
     <string name="trackpad_tap_to_click" msgid="1938230946542070746">"ಕ್ಲಿಕ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="trackpad_tap_dragging_title" msgid="4198317837427535015">"ಐಟಂಗಳನ್ನು ಮೂವ್‌ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಎಳೆಯಿರಿ"</string>
-    <string name="trackpad_tap_dragging_summary" msgid="2935498183201422245">"ಐಟಂ ಅನ್ನು ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ, ಎರಡನೇ ಟ್ಯಾಪ್ ಮಾಡುವಾಗ ಒತ್ತಿಹಿಡಿಯಿರಿ, ತದನಂತರ ಅದನ್ನು ಮೂವ್ ಮಾಡಲು ಐಟಂ ಅನ್ನು ಡ್ರ್ಯಾಗ್ ಮಾಡಿ"</string>
+    <string name="trackpad_tap_dragging_summary" msgid="5605534150661601073">"ವಸ್ತು ಸರಿಸಲು ಟಚ್‌ಪ್ಯಾಡ್‌ನಲ್ಲಿ ಬೆರಳನ್ನು ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ, ಎಳೆಯಿರಿ"</string>
     <string name="trackpad_touchpad_gesture_title" msgid="7568052847609914436">"ಟಚ್‌ಪ್ಯಾಡ್ ಗೆಸ್ಚರ್‌ಗಳು"</string>
     <string name="trackpad_touchpad_gesture_summary" msgid="6256074591395359124">"ವೈಯಕ್ತಿಕ ಟಚ್‌ಪ್ಯಾಡ್ ನ್ಯಾವಿಗೇಷನ್ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"</string>
     <string name="trackpad_reverse_scrolling_title" msgid="422877284529360866">"ಹಿಮ್ಮುಖ ಸ್ಕ್ರಾಲ್ ಮಾಡುವಿಕೆ"</string>
     <string name="trackpad_reverse_scrolling_summary" msgid="6048648562887499036">"ನೀವು ಕೆಳಗೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿದಾಗ ವಿಷಯವು ಮೇಲಕ್ಕೆ ಸರಿಯುತ್ತದೆ"</string>
     <string name="trackpad_bottom_right_tap_title" msgid="230337692279220068">"ಕೆಳಗಿನ-ಬಲಭಾಗದ ಕ್ಲಿಕ್"</string>
     <string name="trackpad_bottom_right_tap_summary" msgid="4467915480282133447">"ಇನ್ನಷ್ಟು ಆಯ್ಕೆಗೆ ಟಚ್‌ಪ್ಯಾಡ್‌ನ ಕೆಳ ಬಲ ಮೂಲೆಯನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ"</string>
-    <string name="trackpad_pointer_speed" msgid="5672221910698079303">"ಕರ್ಸರ್ ವೇಗ"</string>
+    <string name="trackpad_pointer_speed" msgid="7786579408631352625">"ಪಾಯಿಂಟರ್ ವೇಗ"</string>
+    <string name="trackpad_pointer_speed_make_faster_desc" msgid="2855950278314583596">"ಪಾಯಿಂಟರ್ ವೇಗವನ್ನು ಹೆಚ್ಚಿಸಿ"</string>
+    <string name="trackpad_pointer_speed_make_slower_desc" msgid="6577850228762978827">"ಪಾಯಿಂಟರ್ ವೇಗವನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
     <string name="three_finger_tap_preference_title" msgid="1836080810837854140">"ಮೂರು-ಬೆರಳಿನ ಟ್ಯಾಪ್‌ ಅನ್ನು ಬಳಸಿ"</string>
     <string name="touchpad_acceleration_title" msgid="176627555191021888">"ಟಚ್‌ಪ್ಯಾಡ್ ವೇಗವರ್ಧನೆ"</string>
     <string name="touchpad_acceleration_summary" msgid="8057075483967535793">"ನಿಮ್ಮ ಟಚ್‌ಪ್ಯಾಡ್‌ನಲ್ಲಿ ವೇಗವಾದ ಮೂವ್‌ಗಳು ಕರ್ಸರ್ ಅನ್ನು ದೂರಕ್ಕೆ ಮೂವ್ ಮಾಡುತ್ತವೆ"</string>
@@ -2140,9 +2226,13 @@
     <string name="keywords_trackpad_bottom_right_tap" msgid="1285062446073929305">"ಬಲ ಕ್ಲಿಕ್, ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="three_finger_tap_middle_click" msgid="7898931632908866867">"ಮಧ್ಯದ ಮೌಸ್ ಬಟನ್"</string>
     <string name="three_finger_tap_launch_gemini" msgid="4030401656711588982">"Assistant ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ"</string>
+    <string name="three_finger_tap_launch_default_assistant" msgid="7947939159617292478">"<xliff:g id="APP_NAME">%s</xliff:g> ಅನ್ನು ಲಾಂಚ್ ಮಾಡಿ"</string>
+    <string name="three_finger_tap_launch_generic_assistant_name" msgid="1893057235983949817">"ಅಸಿಸ್ಟೆಂಟ್"</string>
     <string name="three_finger_tap_go_home" msgid="6526301745535089812">"ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ"</string>
     <string name="three_finger_tap_go_back" msgid="2898205524575684271">"ಹಿಂದಿರುಗಿ"</string>
     <string name="three_finger_tap_recent_apps" msgid="5578228979519733605">"ಇತ್ತೀಚಿನ ಆ್ಯಪ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</string>
+    <string name="three_finger_tap_launch_app_title" msgid="55761877549896819">"ಮತ್ತೊಂದು ಆ್ಯಪ್ ಅನ್ನು ತೆರೆಯಿರಿ"</string>
+    <string name="three_finger_tap_launch_app_summary" msgid="2015894823281420733">"ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲಾದ ಆ್ಯಪ್‌ಗಳ ಪಟ್ಟಿಯಿಂದ ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="gesture_title_go_home" msgid="3682238648647225933">"ಹೋಮ್‌ಗೆ ಹೋಗಿ"</string>
     <string name="gesture_summary_go_home" msgid="6409031586904205741">"ಟಚ್‌ಪ್ಯಾಡ್‌ನಲ್ಲಿ ಎಲ್ಲಿಯಾದರೂ ಮೂರು ಬೆರಳಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ"</string>
     <string name="gesture_title_go_back" msgid="6619462058488419802">"ಹಿಂದಿರುಗಿ"</string>
@@ -2157,6 +2247,23 @@
     <string name="gesture_button_next" msgid="695288092704187356">"ಮುಂದಿನದು"</string>
     <string name="gesture_button_restart" msgid="1895850891992530133">"ಮರುಪ್ರಾರಂಭ"</string>
     <string name="gesture_button_done" msgid="6387900351203032188">"ಮುಗಿದಿದೆ"</string>
+    <string name="action_corner_title" msgid="7411160165577367757">"ಕಾರ್ನರ್ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"</string>
+    <string name="action_corner_summary" msgid="695618538930535335">"ಸಿಸ್ಟಂ ಅನ್ನು ನ್ಯಾವಿಗೇಟ್ ಮಾಡಲು ಕರ್ಸರ್‌ಗಳನ್ನು ಬಳಸಿ"</string>
+    <string name="action_corner_intro" msgid="2170609118659718140">"ಕಾರ್ನರ್ ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಲು ಈ ಕೆಳಗಿನವುಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ."</string>
+    <string name="action_corner_bottom_left_title" msgid="2857258272736432174">"ಕೆಳಗಿನ-ಎಡ ಮೂಲೆ"</string>
+    <string name="action_corner_bottom_right_title" msgid="7222233500548465684">"ಕೆಳಗಿನ-ಬಲ ಮೂಲೆ"</string>
+    <string name="action_corner_top_left_title" msgid="4633975226092344210">"ಮೇಲಿನ-ಎಡ ಮೂಲೆ"</string>
+    <string name="action_corner_top_right_title" msgid="4995999693840776032">"ಮೇಲಿನ-ಬಲ ಮೂಲೆ"</string>
+    <string name="action_corner_action_none" msgid="5203163099950649999">"ಯಾವುದೂ ಅಲ್ಲ"</string>
+    <string name="action_corner_action_home" msgid="6779642573582379579">"ಮುಖಪುಟ"</string>
+    <string name="action_corner_action_recent_apps" msgid="7450480676812648813">"ಇತ್ತೀಚಿನ ಆ್ಯಪ್‌ಗಳು"</string>
+    <string name="action_corner_action_notifications" msgid="3779353356349774469">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
+    <string name="action_corner_action_quick_settings" msgid="4660901117283653069">"ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳು"</string>
+    <string name="action_corner_action_dialog_title" msgid="8253240813317885237">"<xliff:g id="CORNER">%1$s</xliff:g> ಗಾಗಿ ಶಾರ್ಟ್‌ಕಟ್ ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="action_corner_bottom_left_name" msgid="9193788067022476544">"ಕೆಳಗಿನ-ಎಡ ಮೂಲೆ"</string>
+    <string name="action_corner_bottom_right_name" msgid="1031603363418505375">"ಕೆಳಗಿನ-ಬಲ ಮೂಲೆ"</string>
+    <string name="action_corner_top_left_name" msgid="8077670910600032291">"ಮೇಲಿನ-ಎಡ ಮೂಲೆ"</string>
+    <string name="action_corner_top_right_name" msgid="6307321595919080297">"ಮೇಲಿನ-ಬಲ ಮೂಲೆ"</string>
     <string name="modifier_keys_settings" msgid="2537108435032034683">"ಮಾರ್ಪಡಿಸುವ ಕೀಗಳು"</string>
     <string name="modifier_keys_settings_summary" msgid="6933143361657444436">"ಕೀಗಳ ವರ್ತನೆಯನ್ನು ಬದಲಾಯಿಸಿ"</string>
     <string name="modifier_keys_reset_title" msgid="948294258402761066">"ಎಲ್ಲವನ್ನೂ ರೀಸೆಟ್ ಮಾಡಿ"</string>
@@ -2171,8 +2278,12 @@
     <string name="keyboard_a11y_settings_summary" msgid="1698531156574098722">"ಸ್ಟಿಕಿ ಕೀಗಳು, ಬೌನ್ಸ್ ಕೀಗಳು, ಮೌಸ್ ಕೀಗಳು"</string>
     <string name="keyboard_repeat_keys_title" msgid="6346877755243280735">"ಕೀಗಳನ್ನು ಪುನರಾವರ್ತಿಸಿ"</string>
     <string name="keyboard_repeat_keys_timeout_title" msgid="3411871149974652293">"ಪುನರಾವರ್ತನೆಗೆ ಮೊದಲು ವಿಳಂಬ"</string>
-    <string name="keyboard_repeat_keys_delay_title" msgid="7323531750483922943">"ಪುನರಾವರ್ತನೆಯ ದರ"</string>
+    <string name="keyboard_repeat_keys_increase_delay_desc" msgid="9131810864682287872">"ವಿಳಂಬವನ್ನು ಹೆಚ್ಚಿಸಿ"</string>
+    <string name="keyboard_repeat_keys_decrease_delay_desc" msgid="6762794746507398346">"ವಿಳಂಬವನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
+    <string name="keyboard_repeat_keys_delay_title" msgid="5954595732341624638">"ಪುನರಾವರ್ತನೆ ದರ"</string>
     <string name="keyboard_repeat_keys_summary" msgid="8972905345211768313">"ಕೀ ಬಿಡುಗಡೆ ಆಗುವವರೆಗೆ ಅದರ ಅಕ್ಷರವನ್ನು ಪುನರಾವರ್ತಿಸಲು ಕೀಯನ್ನು ಹೋಲ್ಡ್ ಮಾಡಿ"</string>
+    <string name="keyboard_repeat_keys_increase_rate_desc" msgid="1745229237083808184">"ಪುನರಾವರ್ತನೆ ದರವನ್ನು ಹೆಚ್ಚಿಸಿ"</string>
+    <string name="keyboard_repeat_keys_decrease_rate_desc" msgid="31236959764168589">"ಪುನರಾವರ್ತನೆ ದರವನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
     <string name="ime_label_title" msgid="8994569521516807168">"<xliff:g id="IME_LABEL">%s</xliff:g> ಲೇಔಟ್"</string>
     <string name="default_keyboard_layout" msgid="8690689331289452201">"ಡಿಫಾಲ್ಟ್"</string>
     <string name="automatic_keyboard_layout_label" msgid="9138088156046198913">"ಆಟೋಮೆಟಿಕ್: <xliff:g id="LAYOUT_LABEL">%s</xliff:g>"</string>
@@ -2231,6 +2342,7 @@
     <string name="last_time_used_label" msgid="7589377271406011659">"ಕೊನೆಯದಾಗಿ ಬಳಸಿರುವುದು"</string>
     <string name="last_time_used_never" msgid="2936073559267990034">"ಎಂದಿಗೂ ಇಲ್ಲ"</string>
     <string name="usage_time_label" msgid="9105343335151559883">"ಬಳಕೆ ಸಮಯ"</string>
+    <string name="phone_information_v2_title" msgid="3373745314543222111">"ಫೋನ್ ಮಾಹಿತಿ V2"</string>
     <string name="accessibility_settings" msgid="4713215774904704682">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ"</string>
     <string name="accessibility_settings_title" msgid="6739115703615065716">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="accessibility_settings_summary" msgid="2366627644570558503">"ಡಿಸ್‌ಪ್ಲೇ, ಸಂವಹನ, ಆಡಿಯೋ"</string>
@@ -2249,8 +2361,8 @@
     <string name="accessibility_pointer_color_customization_title" msgid="2841888132681075999">"ಕರ್ಸರ್‌ನ ಬಣ್ಣ"</string>
     <string name="accessibility_pointer_title" msgid="7427650233669997010">"ಕರ್ಸರ್‌"</string>
     <string name="accessibility_touchpad_title" msgid="5798458334122685642">"ಟಚ್‌ಪ್ಯಾಡ್"</string>
-    <string name="accessibility_touchpad_system_gestures_enable_title" msgid="1867179109603472062">"3- ಅಥವಾ 4-ಬೆರಳಿನ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಬಳಸಿ"</string>
-    <string name="accessibility_touchpad_system_gestures_enable_summary" msgid="7076378989016181266">"ಆಫ್ ಮಾಡಿದಾಗ, ನಿಮ್ಮ ಟಚ್‌ಪ್ಯಾಡ್ 3- ಅಥವಾ 4-ಫಿಂಗರ್ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ನಿರ್ಲಕ್ಷಿಸುತ್ತದೆ"</string>
+    <string name="accessibility_touchpad_system_gestures_enable_title" msgid="1867179109603472062">"3- ಅಥವಾ 4-ಬೆರಳಿನ ಜೆಶ್ಚರ್‌ಗಳನ್ನು ಬಳಸಿ"</string>
+    <string name="accessibility_touchpad_system_gestures_enable_summary" msgid="7076378989016181266">"ಆಫ್ ಮಾಡಿದಾಗ, ನಿಮ್ಮ ಟಚ್‌ಪ್ಯಾಡ್ 3- ಅಥವಾ 4-ಬೆರಳ ಜೆಶ್ಚರ್‌ಗಳನ್ನು ನಿರ್ಲಕ್ಷಿಸುತ್ತದೆ"</string>
     <string name="keywords_accessibility_touchpad_system_gestures_enable" msgid="4406441971607855466">"ಟಚ್‌ಪ್ಯಾಡ್, ಟ್ರ್ಯಾಕ್‌ಪ್ಯಾಡ್, ಸ್ವೈಪ್"</string>
     <string name="accessibility_color_contrast_title" msgid="5757724357142452378">"ಕಲರ್ ಕಾಂಟ್ರಾಸ್ಟ್‌‌"</string>
     <string name="accessibility_color_contrast_intro" msgid="7795090401101214930">"ಹೆಚ್ಚಿನ ಕಾಂಟ್ರಾಸ್ಟ್ ಪಠ್ಯ, ಬಟನ್‌ಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಎದ್ದು ಕಾಣುವಂತೆ ಮಾಡುತ್ತದೆ. ನಿಮಗೆ ಉತ್ತಮವಾಗಿ ಕಾಣುವ ಕಾಂಟ್ರಾಸ್ಟ್ ಅನ್ನು ಆರಿಸಿ."</string>
@@ -2267,10 +2379,13 @@
     <string name="interaction_control_category_title" msgid="2696474616743882372">"ಸಂವಹನ ನಿಯಂತ್ರಣಗಳು"</string>
     <string name="accessibility_tap_assistance_title" msgid="1058913033421048284">"ಸಮಯ ನಿಯಂತ್ರಣಗಳು"</string>
     <string name="accessibility_system_controls_title" msgid="6403287349518987624">"ಸಿಸ್ಟಂ ನಿಯಂತ್ರಣಗಳು"</string>
-    <string name="accessibility_feedback_title" msgid="6690472705407526006">"ಫೀಡ್‌ಬ್ಯಾಕ್"</string>
-    <string name="accessibility_feedback_summary" msgid="4576591591334314827">"ಸಮೀಕ್ಷೆಯಲ್ಲಿ ಭಾಗವಹಿಸುವ ಮೂಲಕ ಸುಧಾರಿಸಲು ಸಹಾಯ ಮಾಡಿ"</string>
-    <string name="accessibility_feedback_disabled_summary" msgid="3652321859452620942">"ಯಾವುದೇ ಸಮೀಕ್ಷೆಗಳು ಲಭ್ಯವಿಲ್ಲ"</string>
     <string name="accessibility_send_feedback_title" msgid="6455703838689943046">"ಫೀಡ್‌ಬ್ಯಾಕ್ ಕಳುಹಿಸಿ"</string>
+    <string name="accessibility_send_survey_title" msgid="7899716184811587023">"ನಮ್ಮನ್ನು ರೇಟ್ ಮಾಡಿ"</string>
+    <string name="accessibility_disability_support_title" msgid="7934160403456751664">"Google Disability ಬೆಂಬಲ ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ"</string>
+    <string name="accessibility_send_survey_notification_channel" msgid="6136555229886306184">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಸಮೀಕ್ಷೆ"</string>
+    <string name="dark_theme_survey_notification_title" msgid="4035183263314404750">"ಹೆಚ್ಚು ಆ್ಯಪ್‌ಗಳಲ್ಲಿ ಡಾರ್ಕ್ ಥೀಮ್ ಆನಂದಿಸುತ್ತಿದ್ದೀರಾ?"</string>
+    <string name="dark_theme_survey_notification_summary" msgid="801472177955048195">"ನಿಮ್ಮ ಫೀಡ್‌ಬ್ಯಾಕ್ ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="dark_theme_survey_notification_action" msgid="7693304950750954402">"ಸಮೀಕ್ಷೆಯನ್ನು ಕೈಗೊಳ್ಳಿ"</string>
     <string name="user_installed_services_category_title" msgid="2639470729311439731">"ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾದ ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="experimental_category_title" msgid="898904396646344152">"ಪ್ರಾಯೋಗಿಕ"</string>
     <string name="feature_flags_dashboard_title" msgid="348990373716658289">"ಫೀಚರ್ ಫ್ಲ್ಯಾಗ್‌ಗಳು"</string>
@@ -2293,13 +2408,19 @@
     <string name="accessibility_screen_magnification_shortcut_title" msgid="2387963646377987780">"ಹಿಗ್ಗಿಸುವಿಕೆಯ ಶಾರ್ಟ್‌ಕಟ್"</string>
     <string name="accessibility_magnification_cursor_following_title" msgid="29531257984012743">"ಕರ್ಸರ್ ಅನುಸರಿಸುವಿಕೆ"</string>
     <string name="accessibility_magnification_cursor_following_header" msgid="7283095798622223509">"ಹಿಗ್ಗಿಸುವಿಕೆ ನಿಮ್ಮ ಕರ್ಸರ್ ಅನ್ನು ಹೇಗೆ ಅನುಸರಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ."</string>
+    <string name="accessibility_magnification_cursor_following_unavailable_summary" msgid="1683880243856242269">"ಸ್ಕ್ರೀನ್‌ನ ಭಾಗವನ್ನು ಹಿಗ್ಗಿಸುವಾಗ ಮಾತ್ರ ಲಭ್ಯವಿರುವುದಿಲ್ಲ"</string>
     <string name="accessibility_magnification_cursor_following_continuous" msgid="1119319218662522794">"ಮೌಸ್ ಮೂವ್ ಆದಂತೆಲ್ಲಾ ಸ್ಕ್ರೀನ್ ಅನ್ನು ನಿರಂತರವಾಗಿ ಮೂವ್ ಮಾಡಿ"</string>
     <string name="accessibility_magnification_cursor_following_center" msgid="3504798009192014460">"ಸ್ಕ್ರೀನ್‌ನ ಮಧ್ಯದಲ್ಲಿ ಮೌಸ್ ಅನ್ನು ಇರಿಸಿ ಸ್ಕ್ರೀನ್ ಮೂವ್ ಮಾಡಿ"</string>
     <string name="accessibility_magnification_cursor_following_edge" msgid="8675207762416655758">"ಮೌಸ್, ಸ್ಕ್ರೀನ್‌ನ ಅಂಚುಗಳನ್ನು ಸ್ಪರ್ಶಿಸುವಾಗ ಸ್ಕ್ರೀನ್ ಅನ್ನು ಮೂವ್ ಮಾಡಿ"</string>
-    <string name="accessibility_screen_magnification_follow_typing_title" msgid="6379517513916651560">"ಟೈಪಿಂಗ್ ಅನ್ನು ದೊಡ್ಡದಾಗಿಸಿ"</string>
-    <string name="accessibility_screen_magnification_follow_typing_summary" msgid="2882250257391761678">"ನೀವು ಟೈಪ್ ಮಾಡುತ್ತಾ ಹೋದಂತೆ ಮ್ಯಾಗ್ನಿಫೈಯರ್ ಪಠ್ಯವನ್ನು ಅನುಸರಿಸುತ್ತದೆ"</string>
+    <string name="accessibility_screen_magnification_follow_typing_title" msgid="494025442124701045">"ಟೈಪ್ ಮಾಡಿದ ಪಠ್ಯವನ್ನು ಅನುಸರಿಸಿ"</string>
+    <string name="accessibility_screen_magnification_follow_typing_summary" msgid="2678347754211619662">"ನೀವು ಟೈಪ್ ಮಾಡುತ್ತಾ ಹೋದಂತೆ ಮ್ಯಾಗ್ನಿಫೈಯರ್ ಪಠ್ಯವನ್ನು ಅನುಸರಿಸುತ್ತದೆ"</string>
+    <string name="accessibility_screen_magnification_follow_keyboard_title" msgid="7342198645736402048">"ಕೀಬೋರ್ಡ್ ಫೋಕಸ್ ಅನ್ನು ಹಿಗ್ಗಿಸಿ"</string>
+    <string name="accessibility_screen_magnification_follow_keyboard_summary" msgid="9091733229413835358">"ಕೀಬೋರ್ಡ್ ಫೋಕಸ್‍ಗೆ ತಕ್ಕಂತೆ ಮ್ಯಾಗ್ನಿಫೈರ್ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ"</string>
+    <string name="accessibility_screen_magnification_nav_ime_title" msgid="8804501318161774285">"ಕೀಬೋರ್ಡ್ ಅನ್ನು ಹಿಗ್ಗಿಸಿ"</string>
+    <string name="accessibility_screen_magnification_nav_ime_summary" msgid="2102651227079047801">"ಫುಲ್ ಸ್ಕ್ರೀನ್ ಮ್ಯಾಗ್ನಿಫಿಕೇಶನ್ ಬಳಸುವಾಗ ಎಮೋಜಿಗಳು ಮತ್ತು ಅಕ್ಷರಗಳನ್ನು ನೋಡಲು ಕೀಬೋರ್ಡ್‌ಗೆ ಝೂಮ್ ಇನ್ ಮಾಡಿ"</string>
+    <string name="accessibility_screen_magnification_nav_ime_unavailable_summary" msgid="2248787024685382054">"ಸ್ಕ್ರೀನ್‌ನ ಭಾಗವನ್ನು ಹಿಗ್ಗಿಸುವಾಗ ಮಾತ್ರ ಲಭ್ಯವಿರುವುದಿಲ್ಲ"</string>
     <string name="accessibility_screen_magnification_always_on_title" msgid="3814297443759580936">"ಆ್ಯಪ್‌ಗಳನ್ನು ಬದಲಿಸುವಾಗ ಆನ್ ಇರುತ್ತದೆ"</string>
-    <string name="accessibility_screen_magnification_always_on_summary" msgid="306908451430863049">"ನೀವು ಆ್ಯಪ್‌ಗಳನ್ನು ಬದಲಿಸಿದಾಗ ಮ್ಯಾಗ್ನಿಫೈಯರ್ ಆನ್ ಇರುತ್ತದೆ ಮತ್ತು ಝೂಮ್ ಔಟ್ ಮಾಡುತ್ತದೆ"</string>
+    <string name="accessibility_screen_magnification_always_on_summary" msgid="642275893256862796">"ನೀವು ಆ್ಯಪ್‌ಗಳನ್ನು ಬದಲಿಸಿದಾಗ ಮ್ಯಾಗ್ನಿಫೈಯರ್ ಆನ್ ಆಗಿರುತ್ತದೆ ಮತ್ತು ಝೂಮ್ ಔಟ್ ಆಗುತ್ತದೆ"</string>
     <string name="accessibility_screen_magnification_always_on_unavailable_summary" msgid="3844732482037416038">"ಸ್ಕ್ರೀನ್‌ನ ಭಾಗವನ್ನು ಹಿಗ್ಗಿಸುವಾಗ ಮಾತ್ರ ಲಭ್ಯವಿರುವುದಿಲ್ಲ"</string>
     <string name="accessibility_screen_magnification_joystick_title" msgid="1803769708582404964">"ಜಾಯ್‌ಸ್ಟಿಕ್‌"</string>
     <string name="accessibility_screen_magnification_joystick_summary" msgid="4640300148573982720">"ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿನ ಜಾಯ್‌ಸ್ಟಿಕ್ ಜೊತೆಗೆ ವರ್ಧಕವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ಮತ್ತು ಸರಿಸಿ. ಒತ್ತಿಹಿಡಿದುಕೊಳ್ಳಿ, ನಂತರ ವರ್ಧಕವನ್ನು ನಿಯಂತ್ರಿಸಲು ಜಾಯ್‌ಸ್ಟಿಕ್ ಮೇಲೆ ಡ್ರ್ಯಾಗ್ ಮಾಡಿ. ಜಾಯ್‌ಸ್ಟಿಕ್ ಅನ್ನು ಸರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಡ್ರ್ಯಾಗ್ ಮಾಡಿ."</string>
@@ -2315,10 +2436,6 @@
     <string name="accessibility_magnification_mode_dialog_option_window" msgid="4492443201099153362">"ಸ್ಕ್ರೀನ್‌ನ ಅರ್ಧಭಾಗವನ್ನು ಝೂಮ್ ಮಾಡಿ"</string>
     <string name="accessibility_magnification_mode_dialog_option_switch" msgid="561043521011229424">"ಪೂರ್ಣ ಸ್ಕ್ರೀನ್ ಮತ್ತು ಭಾಗಶಃ ಸ್ಕ್ರೀನ್ ನಡುವೆ ಬದಲಿಸಿ"</string>
     <string name="accessibility_magnification_area_settings_mode_switch_summary" msgid="2885238806099080966">"ಎರಡು ಆಯ್ಕೆಗಳಲ್ಲಿ ನಿಮಗೆ ಬೇಕಾಗಿರುವ ಆಯ್ಕೆಯನ್ನು ಆರಿಸುವುದಕ್ಕಾಗಿ ಸ್ವಿಚ್ ಬಟನ್ ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
-    <string name="accessibility_magnification_switch_shortcut_title" msgid="3671432048806533079">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್‌ಗೆ ಬದಲಾಯಿಸಬೇಕೇ?"</string>
-    <string name="accessibility_magnification_switch_shortcut_message" msgid="7718653917415163833">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ‌ ಒಂದು ಭಾಗವನ್ನು ದೊಡ್ಡದಾಗಿಸಲು ಟ್ರಿಪಲ್ ಟ್ಯಾಪ್ ಅನ್ನು ಬಳಸುವುದರಿಂದ ಟೈಪಿಂಗ್ ಮತ್ತು ಇತರೆ ವಿಳಂಬಗಳಿಗೆ ಕಾರಣವಾಗಬಹುದು.\n\nಇತರೆ ಆ್ಯಪ್‌ಗಳಿಗಿಂತ ಸ್ಕ್ರೀನ್ ಮೇಲೆ ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಸರಿದಾಡುತ್ತದೆ. ಹಿಗ್ಗಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
-    <string name="accessibility_magnification_switch_shortcut_positive_button" msgid="2446942190957296957">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್‌ಗೆ ಬದಲಾಯಿಸಿ"</string>
-    <string name="accessibility_magnification_switch_shortcut_negative_button" msgid="7115794462123071594">"ಟ್ರಿಪಲ್ ಟ್ಯಾಪ್ ಬಳಸಿ"</string>
     <string name="accessibility_magnification_triple_tap_warning_title" msgid="8484669851397296597">"ಇದು ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಅನ್ನು ನಿಧಾನಗೊಳಿಸಬಹುದು"</string>
     <string name="accessibility_magnification_triple_tap_warning_message" msgid="2008671502848936410">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ಭಾಗವನ್ನು ಹಿಗ್ಗಿಸಲು ಟ್ರಿಪಲ್ ಟ್ಯಾಪ್ ಅನ್ನು ಬಳಸುವಾಗ ನೀವು ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ ಸಮಸ್ಯೆಗಳನ್ನು ಗಮನಿಸಬಹುದು.\n\nಇದನ್ನು ತಪ್ಪಿಸಲು, ಟ್ರಿಪಲ್ ಟ್ಯಾಪ್‌ನಿಂದ ಮತ್ತೊಂದು ಆಯ್ಕೆಗೆ ಹಿಗ್ಗಿಸುವಿಕೆ ಶಾರ್ಟ್‌ಕಟ್ ಅನ್ನು ಬದಲಾಯಿಸಬಹುದು.\n"<annotation id="link">"ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬದಲಾಯಿಸಿ"</annotation></string>
     <string name="accessibility_magnification_triple_tap_warning_positive_button" msgid="8712304035901450010">"ಹೇಗಾದರೂ ಮುಂದುವರಿಸಿ"</string>
@@ -2360,7 +2477,6 @@
     <string name="accessibility_tutorial_dialog_title_two_finger_double" msgid="5749704453829390283">"%1$d-ಬೆರಳಿನ ಡಬಲ್ ಟ್ಯಾಪ್ ಶಾರ್ಟ್‌ಕಟ್"</string>
     <string name="accessibility_tutorial_dialog_title_quick_setting" msgid="2905083277641794558">"ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳ ಶಾರ್ಟ್‌ಕಟ್"</string>
     <string name="accessibility_tutorial_dialog_title_gesture" msgid="4541649734549409614">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಗೆಸ್ಚರ್ ಶಾರ್ಟ್‌ಕಟ್"</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings" msgid="6800684770875867559">"ಆ್ಯಕ್ಸೆಸ್ಸಿಬಿಲಿಟಿ ಗೆಸ್ಚರ್ ಅನ್ನು ಬಳಸಿ"</string>
     <string name="accessibility_tutorial_dialog_message_button" msgid="8977286776192770246">"ಈ ಫೀಚರ್ ಬಳಸಲು, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಭಾಗದಲ್ಲಿರುವ ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ <xliff:g id="ACCESSIBILITY_ICON">%s</xliff:g> ಟ್ಯಾಪ್ ಮಾಡಿ.\n\nಫೀಚರ್‌ಗಳ ನಡುವೆ ಬದಲಿಸಲು, ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ ಮತ್ತು ಹೋಲ್ಡ್‌ ಮಾಡಿ."</string>
     <string name="accessibility_tutorial_dialog_message_floating_button" msgid="6631371483819355514">"ಈ ಫೀಚರ್ ಬಳಸಲು, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ಮೇಲಿನ ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="accessibility_tutorial_dialog_message_volume" msgid="3785791536286606664">"ಈ ಫೀಚರ್ ಬಳಸಲು, ಎರಡೂ ವಾಲ್ಯೂಮ್ ಕೀಗಳನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ"</string>
@@ -2372,8 +2488,6 @@
     <string name="accessibility_tutorial_dialog_message_gesture" msgid="4148062210755434854">"ಈ ಫೀಚರ್ ಬಳಸಲು, 2 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಸ್ಕ್ರೀನ್ ಕೆಳಭಾಗದಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nವೈಶಿಷ್ಟ್ಯಗಳ ನಡುವೆ ಬದಲಿಸಲು, 2 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ ಮತ್ತು ಹೋಲ್ಡ್‌ ಮಾಡಿ."</string>
     <string name="accessibility_tutorial_dialog_gesture_shortcut_instruction" msgid="7349950768250852308">"{count,plural, =1{ಈ ಫೀಚರ್‌ ಅನ್ನು ಬಳಸಲು, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಗಿನಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ}one{ಈ ಫೀಚರ್‌ ಅನ್ನು ಬಳಸಲು, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಗಿನಿಂದ # ಬೆರಳುಗಳಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ}other{ಈ ಫೀಚರ್‌ ಅನ್ನು ಬಳಸಲು, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಗಿನಿಂದ # ಬೆರಳುಗಳಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ}}"</string>
     <string name="accessibility_tutorial_dialog_message_gesture_talkback" msgid="8142847782708562793">"ಈ ಫೀಚರ್ ಬಳಸಲು, 3 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಸ್ಕ್ರೀನ್ ಕೆಳಭಾಗದಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nವೈಶಿಷ್ಟ್ಯಗಳ ನಡುವೆ ಬದಲಿಸಲು, 3 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ ಮತ್ತು ಹೋಲ್ಡ್‌ ಮಾಡಿ."</string>
-    <string name="accessibility_tutorial_dialog_message_gesture_settings" msgid="40769674586981429">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಫೀಚರ್ ಬಳಸಲು, 2 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಸ್ಕ್ರೀನ್ ಕೆಳಭಾಗದಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nವೈಶಿಷ್ಟ್ಯಗಳ ನಡುವೆ ಬದಲಿಸಲು, 2 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ ಮತ್ತು ಹೋಲ್ಡ್‌ ಮಾಡಿ."</string>
-    <string name="accessibility_tutorial_dialog_message_gesture_settings_talkback" msgid="7292969929578621958">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಫೀಚರ್ ಬಳಸಲು, 3 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಸ್ಕ್ರೀನ್ ಕೆಳಭಾಗದಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nವೈಶಿಷ್ಟ್ಯಗಳ ನಡುವೆ ಬದಲಿಸಲು, 3 ಬೆರಳುಗಳನ್ನು ಬಳಸಿ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ ಮತ್ತು ಹೋಲ್ಡ್‌ ಮಾಡಿ."</string>
     <string name="accessibility_tutorial_dialog_button" msgid="2031773187678948436">"ಅರ್ಥವಾಯಿತು"</string>
     <string name="accessibility_tutorial_dialog_link_button" msgid="13364319079385020">"ಕಸ್ಟಮೈಸ್ ಬಟನ್"</string>
     <string name="accessibility_tutorial_dialog_configure_software_shortcut_type" msgid="8041105223988170653">"ಇನ್ನಷ್ಟು ಆಯ್ಕೆಗಳು"</string>
@@ -2410,16 +2524,13 @@
     <string name="accessibility_shortcut_service_on_lock_screen_title" msgid="2301019277262462426">"ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಿಂದ ವಾಲ್ಯೂಮ್ ಕೀಗಳ ಶಾರ್ಟ್‌ಕಟ್"</string>
     <string name="accessibility_shortcut_description" msgid="2184693606202133549">"ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಿಂದ ಆನ್ ಮಾಡಲು, ಫೀಚರ್ ಶಾರ್ಟ್‌ಕಟ್ ಅನ್ನು ಅನುಮತಿಸಿ. ಎರಡೂ ವಾಲ್ಯೂಮ್ ಕೀಗಳನ್ನು ಕೆಲವು ಸೆಕೆಂಡುಗಳ ಕಾಲ ಹಿಡಿದುಕೊಳ್ಳಿ."</string>
     <string name="accessibility_button_title" msgid="5251235485581552614">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್"</string>
-    <string name="accessibility_button_gesture_title" msgid="3573456209050374139">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಮತ್ತು ಗೆಸ್ಚರ್"</string>
     <string name="accessibility_button_intro_text" msgid="80993874471745687">"ಯಾವುದಾದರೂ ಸ್ಕ್ರೀನ್ ಮೂಲಕ ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಫೀಚರ್‌ಗಳನ್ನು ತ್ವರಿತವಾಗಿ ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಿ"</string>
     <string name="accessibility_button_about_title" msgid="3581116105084067926">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಕುರಿತು"</string>
     <string name="accessibility_button_gesture_about_title" msgid="8468987303602865536">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಮತ್ತು ಗೆಸ್ಚರ್ ಕುರಿತು"</string>
     <string name="accessibility_button_gesture_footer_learn_more_content_description" msgid="4144803517680297869">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಮತ್ತು ಗೆಸ್ಚರ್ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="accessibility_button_intro" msgid="2601976470525277903">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಬಟನ್ ಬಳಸಿ. 3-ಬಟನ್ ನ್ಯಾವಿಗೇಶನ್‌ನ ಜೊತೆಗೆ ಗೆಸ್ಚರ್ ಲಭ್ಯವಿಲ್ಲ."</string>
     <string name="accessibility_button_summary" msgid="8510939012631455831">"ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿ ಫೀಚರ್‌ಗಳಿಗೆ ತ್ವರಿತವಾಗಿ ಆ್ಯಕ್ಸೆಸ್"</string>
-    <string name="accessibility_button_gesture_description" msgid="1141723096904904336">"&lt;b&gt;ಪ್ರಾರಂಭಿಸಲು&lt;/b&gt;&lt;br/&gt; {0,number,integer}. ಆ್ಯಕ್ಸೆಸ್ಸಿಬಿಲಿಟಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ&lt;br/&gt; {1,number,integer}. ಒಂದು ಫೀಚರ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ&lt;br/&gt; {2,number,integer}. ಫೀಚರ್ ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಲು ನೀವು ಬಟನ್ ಅಥವಾ ಗೆಸ್ಚರ್ ಅನ್ನು ಬಳಸಲು ಬಯಸುತ್ತೀರಾ ಎಂಬುದನ್ನು ಆರಿಸಿ&lt;br/&gt;"</string>
     <string name="accessibility_button_description" msgid="7669538706120092399">"&lt;b&gt;ಪ್ರಾರಂಭಿಸಲು&lt;/b&gt;&lt;br/&gt; {0,number,integer}. ಆ್ಯಕ್ಸೆಸ್ಸಿಬಿಲಿಟಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ&lt;br/&gt; {1,number,integer}. ಒಂದು ಫೀಚರ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ&lt;br/&gt; {2,number,integer}. ಫೀಚರ್ ಅನ್ನು ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಲು ಬಟನ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ&lt;br/&gt;"</string>
-    <string name="accessibility_button_or_gesture_title" msgid="3510075963401163529">"ಬಟನ್ ಅಥವಾ ಗೆಸ್ಚರ್ ಬಳಸಿ"</string>
     <string name="accessibility_button_location_title" msgid="7182107846092304942">"ಸ್ಥಳ"</string>
     <string name="accessibility_button_size_title" msgid="5785110470538960881">"ಗಾತ್ರ"</string>
     <string name="accessibility_button_fade_title" msgid="8081993897680588829">"ಬಳಕೆ ಮಾಡದಿದ್ದಾಗ ಮಸುಕಾಗುತ್ತದೆ"</string>
@@ -2438,10 +2549,20 @@
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_title" msgid="4987009529235165664">"ಸ್ವಯಂ ಅಪ್‍ಡೇಟ್ ಸ್ಕ್ರೀನ್‌ ವರ್ಧನೆ"</string>
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_summary" msgid="9034532513972547720">"ಆ್ಯಪ್‌ ಪರಿವರ್ತನೆಗಳಲ್ಲಿ ಸ್ಕ್ರೀನ್‌ ವರ್ಧಕವನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"</string>
     <string name="accessibility_power_button_ends_call_prerefence_title" msgid="8187306131979612144">"ಪವರ್ ಬಟನ್ ಕರೆಯನ್ನು ಕೊನೆಗೊಳಿಸುತ್ತದೆ"</string>
-    <string name="accessibility_force_invert_title" msgid="5248504501753732051">"ಇನ್ನಷ್ಟು ಆ್ಯಪ್‌ಗಳನ್ನು ಡಾರ್ಕ್ ಮಾಡಿ"</string>
-    <string name="accessibility_force_invert_summary" msgid="257503086198180749">"ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಇನ್ನಷ್ಟು ಆ್ಯಪ್‌ಗಳಿಗೆ ವಿಸ್ತೃತಗೊಳಿಸುತ್ತದೆ. ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡದಿರಬಹುದು."</string>
+    <string name="dark_theme_version_category" msgid="8563711427335567656">"ಮೋಡ್"</string>
+    <string name="accessibility_standard_dark_theme_title" msgid="7755139172613415921">"ಪ್ರಮಾಣಿತ"</string>
+    <string name="accessibility_standard_dark_theme_title_in_search" msgid="6182199392044601252">"ಪ್ರಮಾಣಿತ ಡಾರ್ಕ್ ಥೀಮ್"</string>
+    <string name="accessibility_standard_dark_theme_summary" msgid="5462837198570089294">"ನಿಮ್ಮ ಸಾಧನದಾದ್ಯಂತ ಮತ್ತು ಬೆಂಬಲಿತ ಆ್ಯಪ್‌ಗಳಾದ್ಯಂತ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಅನ್ವಯಿಸುತ್ತದೆ"</string>
+    <string name="accessibility_expanded_dark_theme_title" msgid="9221540446783335817">"ವಿಸ್ತೃತಗೊಳಿಸಲಾಗಿದೆ"</string>
+    <string name="accessibility_expanded_dark_theme_title_in_search" msgid="6003085770489582863">"ವಿಸ್ತೃತಗೊಳಿಸಲಾದ ಡಾರ್ಕ್ ಥೀಮ್"</string>
+    <string name="accessibility_expanded_dark_theme_summary" msgid="7600947929245673753">"ಸುಧಾರಿತ ಆ್ಯಕ್ಸೆಸಿಬಿಲಿಟಿಗಾಗಿ ಹೆಚ್ಚಿನ ಆ್ಯಪ್‌ಗಳಿಗೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಅನ್ವಯಿಸುತ್ತದೆ"</string>
     <string name="accessibility_disable_animations" msgid="2993529829457179058">"ಅನಿಮೇಷನ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕಿ"</string>
     <string name="accessibility_disable_animations_summary" msgid="5828228669556554565">"ಸ್ಕ್ರೀನ್ ಮೇಲೆ ಚಲನೆಗಳನ್ನು ಕಡಿಮೆಮಾಡಿ"</string>
+    <string name="accessibility_text_cursor_blink_rate_title" msgid="2560387611012958520">"ಪಠ್ಯ ಕರ್ಸರ್ ಬ್ಲಿಂಕಿಂಗ್"</string>
+    <string name="accessibility_text_cursor_blink_rate_summary" msgid="6629885087638846245">"ಪಠ್ಯ ಕರ್ಸರ್‌ನ ಬ್ಲಿಂಕಿಂಗ್ ವೇಗವನ್ನು ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ ಅಥವಾ ಬ್ಲಿಂಕಿಂಗ್ ಅನ್ನು ಆಫ್ ಮಾಡಿ. ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ವೆಬ್‌ಸೈಟ್‌ಗಳಲ್ಲಿ ಬೆಂಬಲಿತವಲ್ಲದಿರಬಹುದು."</string>
+    <string name="accessibility_text_cursor_blink_rate_slower_desc" msgid="5255697869959801747">"ಬ್ಲಿಂಕ್ ವೇಗವನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
+    <string name="accessibility_text_cursor_blink_rate_faster_desc" msgid="5236406089575390876">"ಬ್ಲಿಂಕ್ ವೇಗವನ್ನು ಹೆಚ್ಚಿಸಿ"</string>
+    <string name="accessibility_text_cursor_blink_rate_reset_button_label" msgid="393679766407314372">"ರೀಸೆಟ್ ಮಾಡಿ"</string>
     <string name="accessibility_toggle_primary_mono_title" msgid="7587152099472946571">"ಮೊನೊ ಆಡಿಯೊ"</string>
     <string name="accessibility_toggle_primary_mono_summary" msgid="1935283927319407303">"ಆಡಿಯೋ ಪ್ಲೇ ಮಾಡುತ್ತಿರುವಾಗ ಚಾನಲ್‌ಗಳನ್ನು ಒಂದುಗೂಡಿಸಿ"</string>
     <string name="accessibility_toggle_primary_balance_title" msgid="7332275200153366714">"ಆಡಿಯೋ ಬ್ಯಾಲೆನ್ಸ್"</string>
@@ -2475,12 +2596,27 @@
     <string name="accessibility_autoclick_short_summary" msgid="4106953930081213514">"0.2 ಸೆಕೆಂಡುಗಳು"</string>
     <string name="accessibility_autoclick_medium_title" msgid="3134175117576834320">"ಮಧ್ಯಮ"</string>
     <string name="accessibility_autoclick_medium_summary" msgid="1343390686514222871">"0.6 ಸೆಕೆಂಡುಗಳು"</string>
-    <string name="accessibility_autoclick_long_title" msgid="6799311820641687735">"ದೀರ್ಘವಾದ"</string>
+    <string name="accessibility_autoclick_long_title" msgid="6799311820641687735">"ದೀರ್ಘ"</string>
     <string name="accessibility_autoclick_long_summary" msgid="3747153151313563637">"1 ಸೆಕೆಂಡು"</string>
     <string name="accessibility_autoclick_custom_title" msgid="4597792235546232038">"ಕಸ್ಟಮ್"</string>
     <string name="accessibility_autoclick_shorter_desc" msgid="7631013255724544348">"ಕಡಿಮೆ ಸಮಯ"</string>
     <string name="accessibility_autoclick_longer_desc" msgid="2566025502981487443">"ಹೆಚ್ಚಿನ ಸಮಯ"</string>
     <string name="accessibility_autoclick_seekbar_desc" msgid="8363959277814621118">"ಸ್ವಯಂ ಕ್ಲಿಕ್ ಸಮಯ"</string>
+    <string name="accessibility_autoclick_main_switch_title" msgid="1968409462935503999">"ಆಟೋಕ್ಲಿಕ್ ಅನ್ನು ಬಳಸಿ (ಡ್ವೆಲ್ ಟೈಮಿಂಗ್)"</string>
+    <string name="accessibility_autoclick_shortcut_title" msgid="5337438503429302081">"ಆಟೋಕ್ಲಿಕ್ ಶಾರ್ಟ್‌ಕಟ್"</string>
+    <string name="autoclick_delay_before_click_title" msgid="4625722241966706931">"ಕ್ಲಿಕ್ ಮಾಡುವ ಮೊದಲು ವಿಳಂಬ"</string>
+    <string name="autoclick_delay_before_click_summary" msgid="3685183305849901339">"ಕರ್ಸರ್ ಚಲಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿದ ನಂತರ ಕ್ಲಿಕ್ ಮಾಡಲು ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯವನ್ನು ಸೆಟ್ ಮಾಡಿ"</string>
+    <string name="autoclick_cursor_area_size_title" msgid="8988239939645854279">"ಏರಿಯಾ ಕ್ಲಿಕ್ ಮಾಡಿ"</string>
+    <string name="autoclick_cursor_area_size_summary" msgid="6993249143332791469">"ಕರ್ಸರ್ ಕ್ಲಿಕ್ ಏರಿಯಾದ ಹೊರಗೆ ಚಲಿಸಿದರೆ, ಆಟೋಕ್ಲಿಕ್ ರದ್ದಾಗುತ್ತದೆ"</string>
+    <string name="autoclick_cursor_area_size_dialog_option_extra_large" msgid="3802014133363801617">"ತುಂಬಾ ದೊಡ್ಡದು"</string>
+    <string name="autoclick_cursor_area_size_dialog_option_large" msgid="1115930762484519488">"ದೊಡ್ಡದು"</string>
+    <string name="autoclick_cursor_area_size_dialog_option_default" msgid="4934363711068310028">"ಡಿಫಾಲ್ಟ್"</string>
+    <string name="autoclick_cursor_area_size_dialog_option_small" msgid="3987901922883658043">"ಚಿಕ್ಕದು"</string>
+    <string name="autoclick_cursor_area_size_dialog_option_extra_small" msgid="6056674574040448864">"ತುಂಬಾ ಚಿಕ್ಕದು"</string>
+    <string name="autoclick_ignore_minor_cursor_movement_title" msgid="5038721995720529808">"ಸಣ್ಣ ಕರ್ಸರ್ ಚಲನೆಯನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ"</string>
+    <string name="autoclick_revert_to_left_click_title" msgid="9213418243482609005">"ಕ್ರಿಯೆಯ ನಂತರ ಎಡ ಕ್ಲಿಕ್‌ಗೆ ಹಿಂತಿರುಗಿ"</string>
+    <string name="accessibility_autoclick_navigation_title" msgid="6808216178814576714">"ಆಟೋಕ್ಲಿಕ್ ಬಳಸಲು ನಿಮ್ಮ ನ್ಯಾವಿಗೇಷನ್ ಮೋಡ್ ಅನ್ನು ಬದಲಾಯಿಸಿ"</string>
+    <string name="accessibility_autoclick_navigation_message" msgid="112626284307103141">"ಆಟೋಕ್ಲಿಕ್ ಬಳಸುವಾಗ ಹಿಂತಿರುಗಲು, ಹೋಮ್‌‌ಗೆ ಹೋಗಲು ಮತ್ತು ಆ್ಯಪ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಲು, ಜೆಸ್ಚರ್ ನ್ಯಾವಿಗೇಷನ್ ಬದಲಿಗೆ 3-ಬಟನ್ ನ್ಯಾವಿಗೇಷನ್ ಬಳಸಿ"</string>
     <string name="accessibility_vibration_settings_title" msgid="936301142478631993">"ವೈಬ್ರೇಷನ್‌ ಮತ್ತು ಹ್ಯಾಪ್ಟಿಕ್ಸ್"</string>
     <string name="accessibility_vibration_settings_summary" msgid="3690308537483465527">"ವಿವಿಧ ಬಳಕೆಗಾಗಿ ವೈಬ್ರೇಷನ್‌ನ ಶಕ್ತಿಯನ್ನು ನಿಯಂತ್ರಿಸಿ"</string>
     <string name="accessibility_vibration_settings_state_on" msgid="5566026932372832502">"ಆನ್"</string>
@@ -2516,6 +2652,8 @@
     <string name="accessibility_daltonizer_footer_learn_more_content_description" msgid="2091679253892040910">"ಕಲರ್ ಕರೆಕ್ಷನ್ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="accessibility_color_inversion_about_title" msgid="8275754480247040136">"ಕಲರ್ ಇನ್‌ವರ್ಶನ್ ಕುರಿತು"</string>
     <string name="accessibility_color_inversion_footer_learn_more_content_description" msgid="5382579548498952445">"ಕಲರ್ ಇನ್‌ವರ್ಶನ್ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
+    <string name="accessibility_dark_theme_footer_learn_more_helper_link" msgid="7084955775821075280">"ಡಾರ್ಕ್ ಥೀಮ್ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
+    <string name="accessibility_dark_theme_preference_footer_content" msgid="4431044600779983609">"ವಿಸ್ತೃತ ಸೆಟ್ಟಿಂಗ್‌ನಲ್ಲಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಬೆಂಬಲಿಸದಿರಬಹುದು. ನೀವು ಕಾಣಿಸಿಕೊಳ್ಳುವಲ್ಲಿ ಸಮಸ್ಯೆಗಳನ್ನು ಅನುಭವಿಸಿದರೆ, ಪ್ರಮಾಣಿತ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬಳಸಿ."</string>
     <string name="accessibility_captioning_primary_switch_title" msgid="3663677340286206100">"ಶೀರ್ಷಿಕೆಗಳನ್ನು ತೋರಿಸಿ"</string>
     <string name="accessibility_captioning_primary_switch_summary" msgid="2544094070306830218">"ಬೆಂಬಲಿತ ಆ್ಯಪ್‌ಗೆ ಮಾತ್ರ"</string>
     <string name="captioning_appearance_title" msgid="3128792092290011408">"ಶೀರ್ಷಿಕೆಯ ಗಾತ್ರ ಮತ್ತು ಶೈಲಿ"</string>
@@ -2551,6 +2689,7 @@
     <string name="accessibility_hearing_device_shortcut_title" msgid="7645100199603031360">"ಶ್ರವಣ ಸಾಧನದ ಶಾರ್ಟ್‌ಕಟ್"</string>
     <string name="accessibility_hac_mode_title" msgid="2037950424429555652">"ಶ್ರವಣ ಸಾಧನ ಹೊಂದಾಣಿಕೆ"</string>
     <string name="accessibility_hac_mode_summary" msgid="5198760061256669067">"ಟೆಲಿಕಾಯಿಲ್ ಮೂಲಕ ಹೊಂದಾಣಿಕೆಯನ್ನು ಸುಧಾರಿಸುತ್ತದೆ ಮತ್ತು ಅನಗತ್ಯ ಶಬ್ದಗಳನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ"</string>
+    <string name="hac_disclaimer_message" msgid="5279579026956312543"></string>
     <string name="accessibility_hearing_device_about_title" msgid="7883758309646288250">"ಶ್ರವಣ ಸಾಧನಗಳ ಕುರಿತು"</string>
     <string name="accessibility_hearing_device_footer_summary" msgid="5513620078219951077">"ASHA ಅಥವಾ LE ಆಡಿಯೋ ಬೆಂಬಲಿಸದ ಇತರ ಶ್ರವಣ ಸಾಧನಗಳನ್ನು ಹುಡುಕಲು, &lt;b&gt;ಹೊಸ ಸಾಧನವನ್ನು ಪೇರ್ ಮಾಡಿ&lt;/b&gt; &gt; &lt;b&gt;ಇನ್ನಷ್ಟು ಸಾಧನಗಳನ್ನು ನೋಡಿ&lt;/b&gt; ಎಂಬುದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="accessibility_hearing_device_footer_summary_tts" msgid="955527026890456959">"ASHA ಅಥವಾ LE ಆಡಿಯೋ ಬೆಂಬಲಿಸದ ಇತರ ಶ್ರವಣ ಸಾಧನಗಳನ್ನು ಹುಡುಕಲು, "<b>"ಹೊಸ ಸಾಧನವನ್ನು ಪೇರ್ ಮಾಡಿ"</b>", "<b>"ಇನ್ನಷ್ಟು ಸಾಧನಗಳನ್ನು ನೋಡಿ"</b>" ಎಂಬುದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
@@ -2598,7 +2737,7 @@
     <string name="accessibilty_autoclick_preference_subtitle_short_delay" msgid="2981206111858937724">"{count,plural, =1{ಕಡಿಮೆ ({time} ಸೆಕೆಂಡ್)}one{ಕಡಿಮೆ ({time} ಸೆಕೆಂಡ್‌ಗಳು)}other{ಕಡಿಮೆ ({time} ಸೆಕೆಂಡ್‌ಗಳು)}}"</string>
     <string name="accessibilty_autoclick_preference_subtitle_medium_delay" msgid="6867395206533459204">"{count,plural, =1{ಮಧ್ಯಮ ({time} ಸೆಕೆಂಡ್)}one{ಮಧ್ಯಮ ({time} ಸೆಕೆಂಡ್‌ಗಳು)}other{ಮಧ್ಯಮ ({time} ಸೆಕೆಂಡ್‌ಗಳು)}}"</string>
     <string name="accessibilty_autoclick_preference_subtitle_long_delay" msgid="4079139970819335593">"{count,plural, =1{ದೀರ್ಘ ({time} ಸೆಕೆಂಡ್)}one{ದೀರ್ಘ ({time} ಸೆಕೆಂಡ್‌ಗಳು)}other{ದೀರ್ಘ ({time} ಸೆಕೆಂಡ್‌ಗಳು)}}"</string>
-    <string name="accessibilty_autoclick_delay_unit_second" msgid="5979297390686370567">"{count,plural, =1{{time} ಸೆಕೆಂಡ್}one{{time} ಸೆಕೆಂಡ್‌ಗಳು}other{{time} ಸೆಕೆಂಡ್‌ಗಳು}}"</string>
+    <string name="accessibility_autoclick_delay_unit_second" msgid="1562809410497613173">"{count,plural, =1{{time} ಸೆಕೆಂಡ್}one{{time} ಸೆಕೆಂಡ್‌ಗಳು}other{{time} ಸೆಕೆಂಡ್‌ಗಳು}}"</string>
     <string name="accessibility_menu_item_settings" msgid="2652637954865389271">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="accessibility_feature_state_on" msgid="1777344331063467511">"ಆನ್"</string>
     <string name="accessibility_feature_state_off" msgid="169119895905460512">"ಆಫ್"</string>
@@ -2733,8 +2872,6 @@
     <string name="controls_subtitle" msgid="3759606830916441564">"ವಿದ್ಯುತ್ ಬಳಕೆಯನ್ನು ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ"</string>
     <string name="packages_subtitle" msgid="8687690644931499428">"ಒಳಗೊಂಡ ಪ್ಯಾಕೇಜ್‌ಗಳು"</string>
     <string name="battery_tip_summary_title" msgid="321127485145626939">"ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಸಾಮಾನ್ಯವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿವೆ"</string>
-    <string name="battery_tip_replacement_title" msgid="3932335880485957919">"ಬ್ಯಾಟರಿ ಬದಲಿಸಲು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ"</string>
-    <string name="battery_tip_replacement_summary" msgid="7892640031317153349">"ಬ್ಯಾಟರಿ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ಚಾರ್ಜಿಂಗ್ ಕಾರ್ಯಕ್ಷಮತೆಯು ಕಡಿಮೆಯಾಗಿದೆ ಹಾಗೂ ಬ್ಯಾಟರಿಯನ್ನು ಬದಲಾಯಿಸಲು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ."</string>
     <string name="battery_tip_low_battery_title" msgid="4155239078744100997">"ಬ್ಯಾಟರಿ ಮಟ್ಟ ಕಡಿಮೆ ಇದೆ"</string>
     <string name="battery_tip_low_battery_summary" msgid="2629633757244297436">"ಬ್ಯಾಟರಿ ಬಾಳಿಕೆಯನ್ನು ವಿಸ್ತರಿಸಲು ಬ್ಯಾಟರಿ ಸೇವರ್ ಅನ್ನು ಆನ್ ಮಾಡಿ"</string>
     <string name="battery_tip_smart_battery_title" msgid="8925025450214912325">"ಬ್ಯಾಟರಿ ಬಾಳಿಕೆಯನ್ನು ಸುಧಾರಿಸಿ"</string>
@@ -2837,7 +2974,7 @@
     <string name="battery_percentage_description" msgid="2321465139126125541">"ಸ್ಥಿತಿ ಪಟ್ಟಿಯಲ್ಲಿ ಶೇಕಡಾವಾರು ಬ್ಯಾಟರಿ ತೋರಿಸಿ"</string>
     <string name="battery_usage_chart_graph_hint_last_full_charge" msgid="6570336408060566877">"ಪೂರ್ಣ ಚಾರ್ಜ್‌ ಆದ ನಂತರದಲ್ಲಿ ಬ್ಯಾಟರಿ ಮಟ್ಟ"</string>
     <string name="battery_usage_chart_graph_hint" msgid="9182079098173323005">"ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿನ ಬ್ಯಾಟರಿ ಮಟ್ಟ"</string>
-    <string name="battery_app_usage" msgid="8976453608783133770">"ಕೊನೆಯ ಬಾರಿ ಪೂರ್ಣ ಚಾರ್ಜ್‌ ಮಾಡಿದ ನಂತರ ಆ್ಯಪ್ ಬಳಕೆ"</string>
+    <string name="battery_app_usage" msgid="8976453608783133770">"ಕೊನೆಯ ಬಾರಿ ಪೂರ್ಣವಾಗಿ ಚಾರ್ಜ್‌ ಆದಾಗಿನಿಂದ ಈಗಿನವರೆಗಿನ ಆ್ಯಪ್ ಬಳಕೆ"</string>
     <string name="battery_app_usage_for_past_24" msgid="1234770810563940656">"ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿನ ಆ್ಯಪ್ ಬಳಕೆ"</string>
     <string name="battery_system_usage" msgid="1395943945140097585">"ಕೊನೆಯ ಪೂರ್ಣ ಚಾರ್ಜ್‌ನಿಂದ ಸಿಸ್ಟಂ ಬಳಕೆ"</string>
     <string name="battery_system_usage_for_past_24" msgid="3341520273114616263">"ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿನ ಸಿಸ್ಟಂ ಬಳಕೆ"</string>
@@ -2950,6 +3087,9 @@
     <string name="cellular_security_notifications" msgid="4619728340612184944">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
     <string name="cellular_security_notifications_controller_title" msgid="4853056963523277847">"ನೆಟ್‍ವರ್ಕ್ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
     <string name="cellular_security_notifications_controller_summary" msgid="8339863845393759958">"ನಿಮ್ಮ ಸಾಧನವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಕನೆಕ್ಟ್ ಆದಾಗ ಅಥವಾ ನೆಟ್‌ವರ್ಕ್ ನಿಮ್ಮ ಅನನ್ಯ ಸಾಧನ ಅಥವಾ SIM ID ಅನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿದಾಗ ಸೂಚನೆ ಪಡೆಯಿರಿ"</string>
+    <string name="cellular_security_2G_network_generation_header" msgid="2892850064192939887">"ನೆಟ್‌ವರ್ಕ್ ಜನರೇಶನ್"</string>
+    <string name="cellular_security_2G_network_generation_summary" msgid="979187530909112413">"2G ನೆಟ್‌ವರ್ಕ್ ರಕ್ಷಣೆಯು ಕಡಿಮೆ ಸುರಕ್ಷಿತವಾಗಿರುವ 2G ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ತಪ್ಪಿಸುತ್ತದೆ. ಇದು ಕೆಲವು ಸ್ಥಳಗಳಲ್ಲಿ ಕನೆಕ್ಟಿವಿಟಿಯನ್ನು ಮಿತಿಗೊಳಿಸಬಹುದು. ತುರ್ತು ಕರೆ ಮಾಡುವಿಕೆಯನ್ನು ಯಾವಾಗಲೂ ಅನುಮತಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="cellular_security_2G_network_generation_title" msgid="706766676947606951">"2G ನೆಟ್‌ವರ್ಕ್ ರಕ್ಷಣೆ"</string>
     <string name="cellular_security_settings_encryption_title" msgid="4013084091666375780">"ಎನ್‌ಕ್ರಿಪ್ಶನ್"</string>
     <string name="cellular_security_network_generations_title" msgid="2343026988833783854">"ನೆಟ್‌ವರ್ಕ್ ಜನರೇಶನ್‌ಗಳು"</string>
     <string name="cellular_security_network_generations_summary" msgid="139087814553929402">"ಇನ್ಸ್ಟಾಲ್ ಮಾಡಲಾಗಿರುವ ಪ್ರತಿ SIM ಕಾರ್ಡ್, 3G, 4G ಮತ್ತು 5G ಅನ್ನು ಬೆಂಬಲಿಸುವ ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗೆ ಮಾತ್ರ ಕನೆಕ್ಟ್ ಆಗುವಂತೆ ನೀವು ಕಾನ್ಫಿಗರ್ ಮಾಡಬಹುದು. ಈ SIM ಹಳೆಯ, ಅಸುರಕ್ಷಿತ 2G ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗೆ ಕನೆಕ್ಟ್ ಆಗುವುದಿಲ್ಲ. ಕೇವಲ 2G ನೆಟ್‌ವರ್ಕ್ ಲಭ್ಯವಿದ್ದಲ್ಲಿ ಈ ಸೆಟ್ಟಿಂಗ್ ನಿಮ್ಮ ಕನೆಕ್ಟಿವಿಟಿಯನ್ನು ಮಿತಿಗೊಳಿಸಬಹುದು. ತುರ್ತು ಸಂದರ್ಭದಲ್ಲಿ 2G ಅನ್ನು ಬಳಸಬಹುದು."</string>
@@ -3246,9 +3386,10 @@
     <string name="user_confirm_remove_title" msgid="3626559103278006002">"ಈ ಬಳಕೆದಾರರನ್ನು ಅಳಿಸಬೇಕೆ?"</string>
     <string name="user_profile_confirm_remove_title" msgid="3131574314149375354">"ಈ ಪ್ರೊಫೈಲ್ ತೆಗೆದುಹಾಕುವುದೇ?"</string>
     <string name="work_profile_confirm_remove_title" msgid="6229618888167176036">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ತೆಗೆದುಹಾಕಬೇಕೇ?"</string>
-    <string name="user_confirm_remove_message" msgid="362545924965977597">"ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="user_confirm_remove_message" msgid="362545924965977597">"ಎಲ್ಲ ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
     <string name="work_profile_confirm_remove_message" msgid="1037294114103024478">"ನೀವು ಮುಂದುವರಿಸಿದರೆ ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲಾ ಆ್ಯಪ್‍ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುವುದು."</string>
-    <string name="user_profile_confirm_remove_message" msgid="3641289528179850718">"ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="work_profile_confirm_remove_message_with_esim" msgid="1169605178915445183">"ನೀವು ಮುಂದುವರಿದರೆ, ಕೆಲಸದ eSIM ಗಳು ಸೇರಿದಂತೆ ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರುವ ಎಲ್ಲಾ ಆ್ಯಪ್‍ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="user_profile_confirm_remove_message" msgid="3641289528179850718">"ಎಲ್ಲ ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
     <string name="user_adding_new_user" msgid="7439602720177181412">"ಹೊಸ ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="user_delete_user_description" msgid="7764153465503821011">"ಬಳಕೆದಾರರನ್ನು ಅಳಿಸಿ"</string>
     <string name="user_delete_button" msgid="3833498650182594653">"ಅಳಿಸಿ"</string>
@@ -3389,7 +3530,6 @@
     <string name="sim_selection_channel_title" msgid="3193666315607572484">"ಸಿಮ್ ಆಯ್ಕೆ"</string>
     <string name="dashboard_title" msgid="5660733037244683387">"ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="network_dashboard_title" msgid="788543070557731240">"ನೆಟ್‌ವರ್ಕ್ ಮತ್ತು ಇಂಟರ್ನೆಟ್"</string>
-    <string name="network_dashboard_summary_mobile" msgid="7750924671970583670">"ಮೊಬೈಲ್, ವೈ-ಫೈ, ಹಾಟ್‌ಸ್ಪಾಟ್"</string>
     <string name="network_dashboard_summary_no_mobile" msgid="4022575916334910790">"ವೈ-ಫೈ, ಹಾಟ್‌ಸ್ಪಾಟ್"</string>
     <string name="connected_devices_dashboard_title" msgid="19868275519754895">"ಕನೆಕ್ಟ್ ಮಾಡಲಾಗಿರುವ ಸಾಧನಗಳು"</string>
     <string name="connected_devices_dashboard_default_summary" msgid="7211769956193710397">"ಬ್ಲೂಟೂತ್, ಜೋಡಿಸುವಿಕೆ"</string>
@@ -3438,6 +3578,7 @@
     <string name="keywords_display_wallpaper" msgid="8478137541939526564">"ಹಿನ್ನೆಲೆ, ವೈಯಕ್ತೀಕರಿಸು, ಕಸ್ಟಮೈಸ್ ಪ್ರದರ್ಶನ"</string>
     <string name="keywords_display_font_size" msgid="3593317215149813183">"ಪಠ್ಯದ ಗಾತ್ರ"</string>
     <string name="keywords_display_cast_screen" msgid="2572331770299149370">"ಪ್ರಾಜೆಕ್ಟ್, ಕ್ಯಾಸ್ಟ್, ಸ್ಕ್ರೀನ್ ಪ್ರತಿಬಿಂಬಿಸುವಿಕೆ, ಸ್ಕ್ರೀನ್ ಹಂಚಿಕೊಳ್ಳುವಿಕೆ, ಪ್ರತಿಬಿಂಬಿಸುವಿಕೆ, ಹಂಚಿಕೆ ಸ್ಕ್ರೀನ್, ಸ್ಕ್ರೀನ್ ಕ್ಯಾಸ್ಟಿಂಗ್"</string>
+    <string name="keywords_display_hdr_brightness" msgid="2553194332263860092">"HDR, ಪ್ರಖರತೆ, ಹೆಚ್ಚು ಡೈನಾಮಿಕ್ ವ್ಯಾಪ್ತಿ, ಪ್ರಖರವಾಗಿಸಿ, ಹೆಚ್ಚು ಪ್ರಖರ"</string>
     <string name="keywords_storage" msgid="3004667910133021783">"ಸ್ಥಳ, ಡಿಸ್ಕ್, ಹಾರ್ಡ್ ಡ್ರೈವ್, ಸಾಧನ, ಬಳಕೆ"</string>
     <string name="keywords_battery" msgid="7040323668283600530">"ವಿದ್ಯುತ್ ಬಳಕೆ, ಶುಲ್ಕ"</string>
     <string name="keywords_battery_usage" msgid="1763573071014260220">"ಬ್ಯಾಟರಿ ಬಳಕೆಯನ್ನು ವೀಕ್ಷಿಸಿ, ಬ್ಯಾಟರಿ ಬಳಕೆ, ಪವರ್ ಬಳಕೆ"</string>
@@ -3474,6 +3615,7 @@
     <string name="keywords_wallet" msgid="3757421969956996972">"ವಾಲೆಟ್"</string>
     <string name="keywords_payment_settings" msgid="6268791289277000043">"ಪಾವತಿಸಿ, ಟ್ಯಾಪ್ ಮಾಡಿ, ಪಾವತಿಗಳು"</string>
     <string name="keywords_backup" msgid="707735920706667685">"ಬ್ಯಾಕಪ್, ಬ್ಯಾಕ್ ಅಪ್"</string>
+    <string name="keywords_fingerprint_unlock" msgid="522579721745187402">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್, ಅನ್‌ಲಾಕ್, ಪ್ರಮಾಣೀಕರಣ, ಸೈನ್ ಇನ್"</string>
     <string name="keywords_face_unlock" msgid="545338452730885392">"ಮುಖ, ಅನ್‌ಲಾಕ್‌, ದೃಢೀಕರಣ, ಸೈನ್ ಇನ್"</string>
     <string name="keywords_biometric_unlock" msgid="8569545388717753692">"ಫೇಸ್, ಅನ್‌ಲಾಕ್, ದೃಢೀಕರಣ, ಸೈನ್ ಇನ್, ಫಿಂಗರ್‌ ಪ್ರಿಂಟ್, ಬಯೋಮೆಟ್ರಿಕ್"</string>
     <string name="keywords_imei_info" msgid="8848791606402333514">"imei, meid, min, prl ಆವೃತ್ತಿ, imei sv"</string>
@@ -3526,9 +3668,8 @@
     <string name="keywords_change_nfc_tag_apps_state" msgid="9032287964590554366">"NFC, ಟ್ಯಾಗ್, ರೀಡರ್"</string>
     <string name="keywords_keyboard_vibration" msgid="6485149510591654697">"ಕೀಬೋರ್ಡ್, ಹ್ಯಾಪ್ಟಿಕ್ಸ್, ವೈಬ್ರೇಟ್,"</string>
     <string name="sound_dashboard_summary" msgid="8254699132423665654">"ವಾಲ್ಯೂಮ್ ಮತ್ತು ವೈಬ್ರೇಷನ್‌"</string>
-    <string name="sound_dashboard_summary_with_dnd" msgid="731956092218394657">"ವಾಲ್ಯೂಮ್, ವೈಬ್ರೇಶನ್‌, ಅಡಚಣೆ ಮಾಡಬೇಡಿ"</string>
     <string name="media_volume_option_title" msgid="5966569685119475630">"ಮಾಧ್ಯಮ ವಾಲ್ಯೂಮ್"</string>
-    <string name="remote_media_volume_option_title" msgid="8760846743943305764">"ವಾಲ್ಯೂಮ್ ಕ್ಯಾಸ್ಟ್ ಮಾಡಿ"</string>
+    <string name="remote_media_volume_option_title" msgid="7907330631195715350">"Google Cast ವಾಲ್ಯೂಮ್"</string>
     <string name="call_volume_option_title" msgid="1461105986437268924">"ಕರೆಯ ವಾಲ್ಯೂಮ್"</string>
     <string name="alarm_volume_option_title" msgid="6398641749273697140">"ಅಲಾರಂ ವಾಲ್ಯೂಮ್"</string>
     <string name="ring_volume_option_title" msgid="1520802026403038560">"ರಿಂಗ್ &amp; ನೋಟಿಫಿಕೇಶನ್ ವಾಲ್ಯೂಮ್"</string>
@@ -3559,6 +3700,10 @@
     <string name="emergency_tone_alert" msgid="1977698889522966589">"ಟೋನ್‌ಗಳು"</string>
     <string name="emergency_tone_vibrate" msgid="6282296789406984698">"ವೈಬ್ರೇಷನ್‌ಗಳು"</string>
     <string name="boot_sounds_title" msgid="5033062848948884111">"ಧ್ವನಿಗಳನ್ನು ಪವರ್ ಆನ್ ಮಾಡಿ"</string>
+    <string name="sound_patterns_category_title" msgid="4290495769747444271">"ಸೌಂಡ್ ಪ್ಯಾಟರ್ನ್‌ಗಳು"</string>
+    <string name="sound_audio_category_title" msgid="3445871661303518618">"ಆಡಿಯೋ"</string>
+    <string name="system_sounds_and_vibrations_category_title" msgid="4162079598490981456">"ಸಿಸ್ಟಂ ಸೌಂಡ್‌ಗಳು ಮತ್ತು ವೈಬ್ರೇಷನ್‌ಗಳು"</string>
+    <string name="work_profile_sound_category_title" msgid="1708926655170323454">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಸೌಂಡ್"</string>
     <string name="live_caption_title" msgid="8617086825712756983">"ಲೈವ್ ಶೀರ್ಷಿಕೆ"</string>
     <string name="live_caption_summary" msgid="2898451867595161809">"ಸ್ವಯಂಚಾಲಿತ ಶೀರ್ಷಿಕೆ ಮಾಧ್ಯಮ"</string>
     <string name="spatial_audio_wired_headphones" msgid="2237355789145828648">"ವೈರ್ ಕನೆಕ್ಷನ್ ಹೊಂದಿರುವ ಹೆಡ್‌ಫೋನ್‌ಗಳು"</string>
@@ -3575,7 +3720,7 @@
     <string name="zen_mode_settings_schedules_summary" msgid="2047688589286811617">"{count,plural, =0{ಯಾವುದೂ ಇಲ್ಲ}=1{1 ವೇಳಾಪಟ್ಟಿಯನ್ನು ಸೆಟ್ ಮಾಡಲಾಗಿದೆ}one{# ವೇಳಾಪಟ್ಟಿಗಳನ್ನು ಸೆಟ್ ಮಾಡಲಾಗಿದೆ}other{# ವೇಳಾಪಟ್ಟಿಗಳನ್ನು ಸೆಟ್ ಮಾಡಲಾಗಿದೆ}}"</string>
     <string name="zen_mode_settings_title" msgid="682676757791334259">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ"</string>
     <string name="zen_modes_list_title" msgid="4796033710444068729">"ಮೋಡ್‌ಗಳು"</string>
-    <string name="zen_modes_list_intro" msgid="1795379595115088972">"ಅಡಚಣೆಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಿ ಮತ್ತು ನಿದ್ರೆ, ಕೆಲಸ, ಡ್ರೈವಿಂಗ್ ಹಾಗೂ ಇವುಗಳ ನಡುವೆ ಮಾಡುವ ಎಲ್ಲಾ ಕಾರ್ಯಗಳ ಮೇಲೆ ಮೋಡ್‌ಗಳ ಮೂಲಕ ನಿಮ್ಮ ಗಮನವನ್ನು ನಿಯಂತ್ರಿಸಿ."</string>
+    <string name="zen_modes_list_intro" msgid="1879511587535247228">"ಅಡಚಣೆಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಿ ಮತ್ತು ನಿದ್ರೆ, ಕೆಲಸ, ಡ್ರೈವಿಂಗ್ ಹಾಗೂ ಇವುಗಳ ನಡುವೆ ಮಾಡುವ ಎಲ್ಲಾ ಕಾರ್ಯಗಳಿಗೆ ಸಂಬಂಧಿಸಿದ ಮೋಡ್‌ಗಳ ಮೂಲಕ ನಿಮ್ಮ ಗಮನವನ್ನು ನಿಯಂತ್ರಿಸಿ."</string>
     <string name="zen_modes_add_mode" msgid="5926457160307593664">"ನಿಮ್ಮದೇ ಆದ ಮೋಡ್ ಅನ್ನು ರಚಿಸಿ"</string>
     <string name="zen_mode_settings_summary" msgid="6040862775514495191">"ಪ್ರಮುಖ ಜನರು ಮತ್ತು ಆ್ಯಪ್‌ಗಳಿಂದ ಮಾತ್ರ ನೋಟಿಫಿಕೇಶನ್‌ ಪಡೆಯಿರಿ"</string>
     <string name="zen_mode_select_schedule" msgid="663163931596092952">"ವೇಳಾಪಟ್ಟಿಯನ್ನು ಸೆಟ್ ಮಾಡಿ"</string>
@@ -3614,13 +3759,6 @@
     <string name="zen_mode_set_schedule_title" msgid="8767170965922472951">"ಸಮಯದ ವೇಳಾಪಟ್ಟಿ"</string>
     <string name="zen_mode_set_schedule_link" msgid="2534032127923435737">"ವೇಳಾಪಟ್ಟಿ"</string>
     <string name="zen_mode_schedule_duration" msgid="299332195675875111">"<xliff:g id="HOURS">%1$d</xliff:g> ಗಂ, <xliff:g id="MINUTES">%2$d</xliff:g> ನಿಮಿ"</string>
-    <string name="zen_mode_schedule_category_title" msgid="1381879916197350988">"ಅವಧಿ"</string>
-    <string name="zen_mode_automation_suggestion_title" msgid="7776129050500707960">"ಕೆಲವು ಸಮಯ ಫೋನ್‌ ನಿಶ್ಯಬ್ಧವಾಗಿಸಿ"</string>
-    <string name="zen_mode_automation_suggestion_summary" msgid="1946750790084170826">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ ನಿಯಮ ಸೆಟ್ ಮಾಡಿ"</string>
-    <string name="zen_mode_schedule_title" msgid="7064866561892906613">"ಅವಧಿ"</string>
-    <string name="zen_mode_use_automatic_rule" msgid="733850322530002484">"ವೇಳಾಪಟ್ಟಿಯನ್ನು ಬಳಸಿ"</string>
-    <string name="zen_mode_summary_combination" msgid="5944689309915947828">"<xliff:g id="MODE">%1$s</xliff:g>: <xliff:g id="EXIT_CONDITION">%2$s</xliff:g>"</string>
-    <string name="zen_mode_settings_category" msgid="3794956668816783447">"ಅಡಚಣೆಗಳ ಧ್ವನಿಯನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="zen_mode_visual_interruptions_settings_title" msgid="7806181124566937214">"ದೃಶ್ಯ ಅಡಚಣೆಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ"</string>
     <string name="zen_mode_visual_signals_settings_subtitle" msgid="7433077540895876672">"ದೃಶ್ಯ ಸಂಕೇತಗಳನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="mode_interruption_filter_title" msgid="6293843948349239256">"ನೋಟಿಫಿಕೇಶನ್ ಫಿಲ್ಟರ್‌ಗಳು"</string>
@@ -3635,7 +3773,7 @@
     <string name="mode_aod_title_secondary_list" msgid="8268180392811027557">"ಸ್ಕ್ರೀನ್ ಅನ್ನು ಕತ್ತಲೆಯಾಗಿ ಇರಿಸಿ"</string>
     <string name="mode_aod_summary" msgid="7516159044827627065">"ಯಾವಾಗಲೂ ಡಿಸ್‌ಪ್ಲೇ ಆನ್‌ ಆಗಿರಲಿ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ"</string>
     <string name="mode_wallpaper_title" msgid="5549693923133928374">"ವಾಲ್‌ಪೇಪರ್ ಅನ್ನು ಮಂದಗೊಳಿಸಿ"</string>
-    <string name="mode_wallpaper_title_secondary_list" msgid="5034602021811580157">"ವಾಲ್‌ಪೇಪರ್ ಅನ್ನು ಮಂದಗೊಳಿಸಿ"</string>
+    <string name="mode_wallpaper_title_secondary_list" msgid="5034602021811580157">"ವಾಲ್‌ಪೇಪರ್ ಡಿಮ್ ಮಾಡಿ"</string>
     <string name="mode_wallpaper_summary" msgid="665480011615603784">"ವಾಲ್‌ಪೇಪರ್‌ನ ಪ್ರಖರತೆಯನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
     <string name="mode_dark_theme_title" msgid="8099007897943513209">"ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
     <string name="mode_dark_theme_title_secondary_list" msgid="4761262694149772845">"ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
@@ -3644,16 +3782,6 @@
     <string name="zen_mode_allow_all_notifications" msgid="7300894425550960390">"ಎಲ್ಲಾ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="zen_mode_all_notifications_allowed" msgid="7612213309293552413">"ಜನರು, ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಧ್ವನಿಗಳು ಅಡಚಣೆ ಉಂಟುಮಾಡಬಹುದು"</string>
     <string name="zen_mode_restrict_notifications_title" msgid="4926944083757096458">"ಫಿಲ್ಟರ್ ಮಾಡಲಾದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳಿಗಾಗಿ ಡಿಸ್‌ಪ್ಲೇ ಆಯ್ಕೆಗಳು"</string>
-    <string name="zen_mode_restrict_notifications_category" msgid="5870944770935394566">"ಅಡಚಣೆ ಮಾಡಬೇಡ ಆನ್‌ ಇರುವಾಗ"</string>
-    <string name="zen_mode_restrict_notifications_mute" msgid="6692072837485018287">"ಅಧಿಸೂಚನೆಗಳಿಂದ ಯಾವುದೇ ಧ್ವನಿ ಇಲ್ಲ"</string>
-    <string name="zen_mode_restrict_notifications_mute_summary" msgid="966597459849580949">"ನಿಮ್ಮ ಪರದೆಯ ಮೇಲೆ ನೀವು ಅಧಿಸೂಚನೆಗಳನ್ನು ನೋಡುತ್ತೀರಿ"</string>
-    <string name="zen_mode_restrict_notifications_mute_footer" msgid="2152115038156049608">"ಹೊಸ ಅಧಿಸೂಚನೆಗಳು ಬಂದಾಗ ನಿಮ್ಮ ಫೋನ್ ಧ್ವನಿ ಮಾಡುವುದಿಲ್ಲ ಅಥವಾ ವೈಬ್ರೇಟ್‌ ಆಗುವುದಿಲ್ಲ."</string>
-    <string name="zen_mode_restrict_notifications_hide" msgid="5997930361607752541">"ಅಧಿಸೂಚನೆಗಳು ಬಂದಾಗ ಯಾವುದೇ ದೃಶ್ಯಗಳು ಕಾಣಿಸುವುದಿಲ್ಲ ಅಥವಾ ಧ್ವನಿಗಳಿರುವುದಿಲ್ಲ"</string>
-    <string name="zen_mode_restrict_notifications_hide_summary" msgid="6005445725686969583">"ನೀವು ಅಧಿಸೂಚನೆಗಳನ್ನು ನೋಡುವುದಿಲ್ಲ ಅಥವಾ ಆಲಿಸುವುದಿಲ್ಲ"</string>
-    <string name="zen_mode_restrict_notifications_hide_footer" msgid="3761837271201073330">"ಹೊಸ ಅಥವಾ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಅಧಿಸೂಚನೆಗಳಿಗಾಗಿ ನಿಮ್ಮ ಫೋನ್ ತೋರಿಸುವುದಿಲ್ಲ, ವೈಬ್ರೇಟ್ ಮಾಡಬಹುದು ಅಥವಾ ಧ್ವನಿಯನ್ನು ಮಾಡುವುದಿಲ್ಲ. ನೆನಪಿನಲ್ಲಿಡಿ, ಸಾಧನದ ಚಟುವಟಿಕೆಗಾಗಿ ವಿಮರ್ಶಾತ್ಮಕ ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ಸ್ಥಿತಿ ಇನ್ನೂ ಗೋಚರಿಸುತ್ತದೆ.\n\nಅಡಚಣೆ ಮಾಡಬೇಡಿ ನೀವು ಆಫ್ ಮಾಡಿದಾಗ, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡುವ ಮೂಲಕ ತಪ್ಪಿದ ಅಧಿಸೂಚನೆಗಳನ್ನು ಹುಡುಕಿ."</string>
-    <string name="zen_mode_restrict_notifications_custom" msgid="5469078057954463796">"ಕಸ್ಟಮ್"</string>
-    <string name="zen_mode_restrict_notifications_enable_custom" msgid="4303255634151330401">"ಕಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
-    <string name="zen_mode_restrict_notifications_disable_custom" msgid="5062332754972217218">"ಕಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ತೆಗೆದುಹಾಕಿ"</string>
     <string name="zen_mode_restrict_notifications_summary_muted" msgid="2826459087306271381">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ತೋರಿಸಲಾಗಿದೆ"</string>
     <string name="zen_mode_restrict_notifications_summary_custom" msgid="6455811408721183198">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಭಾಗಶಃ ಮರೆಮಾಡಲಾಗಿರುತ್ತದೆ"</string>
     <string name="zen_mode_restrict_notifications_summary_hidden" msgid="2157279412167366119">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಮರೆಮಾಡಲಾಗಿದೆ"</string>
@@ -3668,47 +3796,16 @@
     <string name="zen_mode_block_effect_badge" msgid="332151258515152429">"ಆ್ಯಪ್ ಐಕಾನ್‌ಗಳಲ್ಲಿ ನೋಟಿಫಿಕೇಶನ್ ಡಾಟ್‌ಗಳನ್ನು ಮರೆಮಾಡಿ"</string>
     <string name="zen_mode_block_effect_ambient" msgid="1247740599476031543">"ಅಧಿಸೂಚನೆಗಳು ಬಂದಾಗ ಎಚ್ಚರಿಸಬೇಡಿ"</string>
     <string name="zen_mode_block_effect_list" msgid="7549367848660137118">"ಪುಲ್-ಡೌನ್ ಶೇಡ್‌ನಿಂದ ಮರೆಮಾಡಿ"</string>
-    <string name="zen_mode_block_effect_summary_none" msgid="6688519142395714659">"ಎಂದೂ ಇಲ್ಲ"</string>
-    <string name="zen_mode_block_effect_summary_screen_off" msgid="6989818116297061488">"ಸ್ಕ್ರೀನ್ ಆಫ್ ಆಗಿರುವಾಗ"</string>
-    <string name="zen_mode_block_effect_summary_screen_on" msgid="4876016548834916087">"ಸ್ಕ್ರೀನ್ ಆನ್ ಆಗಿರುವಾಗ"</string>
-    <string name="zen_mode_block_effect_summary_sound" msgid="1559968890497946901">"ಧ್ವನಿ ಮತ್ತು ವೈಬ್ರೇಷನ್‌"</string>
-    <string name="zen_mode_block_effect_summary_some" msgid="2730383453754229650">"ಧ್ವನಿ, ವೈಬ್ರೇಷನ್ ಮತ್ತು ಅಧಿಸೂಚನೆಗಳ ಕೆಲವು ದೃಶ್ಯ ಚಿಹ್ನೆಗಳು"</string>
-    <string name="zen_mode_block_effect_summary_all" msgid="3131918059492425222">"ಧ್ವನಿ, ವೈಬ್ರೇಷನ್ ಮತ್ತು ಅಧಿಸೂಚನೆಗಳ ದೃಶ್ಯ ಚಿಹ್ನೆಗಳು"</string>
-    <string name="zen_mode_blocked_effects_footer" msgid="6403365663466620328">"ಮೂಲ ಸಾಧನದ ಚಟುವಟಿಕೆ ಮತ್ತು ಸ್ಥಿತಿಗೆ ಅಗತ್ಯವಾದ ಅಧಿಸೂಚನೆಗಳನ್ನು ಎಂದಿಗೂ ಮರೆಮಾಡಲಾಗುವುದಿಲ್ಲ."</string>
-    <string name="zen_mode_no_exceptions" msgid="1580136061336585873">"ಯಾವುದೂ ಅಲ್ಲ"</string>
-    <string name="zen_mode_other_options" msgid="3399967231522580421">"ಇತರ ಆಯ್ಕೆಗಳು"</string>
-    <string name="zen_mode_add" msgid="8789024026733232566">"ಸೇರಿಸಿ"</string>
     <string name="zen_mode_enable_dialog_turn_on" msgid="1971034397501675078">"ಆನ್ ಮಾಡಿ"</string>
-    <string name="zen_mode_button_turn_on" msgid="6583862599681052347">"ಈಗ ಆನ್ ಮಾಡಿ"</string>
-    <string name="zen_mode_button_turn_off" msgid="2060862413234857296">"ಈಗ ಆಫ್ ಮಾಡಿ"</string>
-    <string name="zen_mode_settings_dnd_manual_end_time" msgid="8251503918238985549">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ <xliff:g id="FORMATTED_TIME">%s</xliff:g> ವರೆಗೆ ಆನ್ ಆಗಿದೆ"</string>
-    <string name="zen_mode_settings_dnd_manual_indefinite" msgid="1436568478062106132">"ನೀವು ಅದನ್ನು ಆಫ್ ಮಾಡುವವರೆಗೆ ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಹಾಗೆಯೇ ಇರುತ್ತದೆ"</string>
-    <string name="zen_mode_settings_dnd_automatic_rule" msgid="1958092329238152236">"ವೇಳಾಪಟ್ಟಿಯ ಪ್ರಕಾರ (<xliff:g id="RULE_NAME">%s</xliff:g>) ಅಡಚಣೆ ಮಾಡಬೇಡ ಆಯ್ಕೆಯನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆನ್ ಮಾಡಲಾಗಿದೆ"</string>
-    <string name="zen_mode_settings_dnd_automatic_rule_app" msgid="3401685760954156067">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಅನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆ್ಯಪ್ (<xliff:g id="APP_NAME">%s</xliff:g>) ಮೂಲಕ ಆನ್ ಮಾಡಲಾಗಿದೆ"</string>
     <string name="zen_mode_settings_dnd_custom_settings_footer" msgid="6566115866660865385">"ಕಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಜೊತೆಗೆ <xliff:g id="RULE_NAMES">%s</xliff:g> ಗಾಗಿ ಅಡಚಣೆ ಮಾಡಬೇಡ ಆನ್ ಆಗಿದೆ."</string>
-    <string name="zen_mode_settings_dnd_custom_settings_footer_link" msgid="8255159194653341835">" "<annotation id="link">"ಕಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ"</annotation></string>
-    <string name="zen_interruption_level_priority" msgid="4854123502362861192">"ಆದ್ಯತೆ ಮಾತ್ರ"</string>
-    <string name="zen_mode_and_condition" msgid="8580896862841920031">"<xliff:g id="ZEN_MODE">%1$s</xliff:g>. <xliff:g id="EXIT_CONDITION">%2$s</xliff:g>"</string>
-    <string name="zen_mode_sound_summary_on_with_info" msgid="4803606180235742003">"ಆನ್ / <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="zen_mode_sound_summary_on" msgid="9077659040104989899">"ಆನ್"</string>
     <string name="zen_mode_duration_summary_always_prompt" msgid="7658172853423383037">"ಪ್ರತಿ ಬಾರಿ ಕೇಳಿ"</string>
     <string name="zen_mode_duration_summary_forever" msgid="5551992961329998606">"ನೀವು ಆಫ್ ಮಾಡುವವರೆಗೆ"</string>
     <string name="zen_mode_duration_summary_time_hours" msgid="2602655749780428308">"{count,plural, =1{1 ಗಂಟೆ}one{# ಗಂಟೆಗಳು}other{# ಗಂಟೆಗಳು}}"</string>
     <string name="zen_mode_duration_summary_time_minutes" msgid="5755536844016835693">"{count,plural, =1{1 ನಿಮಿಷ}one{# ನಿಮಿಷಗಳು}other{# ನಿಮಿಷಗಳು}}"</string>
-    <string name="zen_mode_sound_summary_off" msgid="7350437977839985836">"{count,plural, =0{ಆಫ್}=1{ಆಫ್ / 1 ವೇಳಾಪಟ್ಟಿಯನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆನ್ ಮಾಡಬಹುದು}one{ಆಫ್ / # ವೇಳಾಪಟ್ಟಿಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆನ್ ಮಾಡಬಹುದು}other{ಆಫ್ / # ವೇಳಾಪಟ್ಟಿಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆನ್ ಮಾಡಬಹುದು}}"</string>
-    <string name="zen_category_behavior" msgid="3214056473947178507">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಯಾವುದು ಅಡ್ಡಿಪಡಿಸಬಹುದು"</string>
     <string name="zen_category_people" msgid="8252926021894933047">"ಜನರು"</string>
     <string name="zen_category_apps" msgid="1167374545618451925">"ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="zen_category_exceptions" msgid="1316097981052752811">"ಅಲಾರಾಂಗಳು ಮತ್ತು ಇತರೆ ಅಡಚಣೆಗಳು"</string>
-    <string name="zen_category_schedule" msgid="2003707171924226212">"ವೇಳಾಪಟ್ಟಿಗಳು"</string>
     <string name="zen_category_duration" msgid="7515850842082631460">"ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳಿಗಾಗಿ ಅವಧಿ"</string>
-    <string name="zen_settings_general" msgid="2704932194620124153">"ಸಾಮಾನ್ಯ"</string>
-    <string name="zen_sound_footer" msgid="4090291351903631977">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಆನ್ ಇದ್ದಾಗ, ನೀವು ಮೇಲ್ಭಾಗದಲ್ಲಿ ಅನುಮತಿಸುವ ಐಟಂಗಳನ್ನು ಹೊರತುಪಡಿಸಿ, ಧ್ವನಿ ಮತ್ತು ವೈಬ್ರೇಷನ್‌ಗಳು ಮ್ಯೂಟ್ ಆಗುತ್ತವೆ."</string>
-    <string name="zen_custom_settings_dialog_title" msgid="4613603772432720380">"ಕಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
-    <string name="zen_custom_settings_dialog_review_schedule" msgid="4674671820584759928">"ವೇಳಾಪಟ್ಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
-    <string name="zen_custom_settings_dialog_ok" msgid="8842373418878278246">"ಅರ್ಥವಾಯಿತು"</string>
-    <string name="zen_custom_settings_notifications_header" msgid="7635280645171095398">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
-    <string name="zen_custom_settings_duration_header" msgid="5065987827522064943">"ಅವಧಿ"</string>
     <string name="sound_work_settings" msgid="752627453846309092">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಧ್ವನಿಗಳು"</string>
     <string name="work_use_personal_sounds_title" msgid="7729428677919173609">"ವೈಯಕ್ತಿಕ ಪ್ರೊಫೈಲ್ ಧ್ವನಿಗಳನ್ನು ಬಳಸಿ"</string>
     <string name="work_use_personal_sounds_summary" msgid="608061627969077231">"ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರೊಫೈಲ್ ಬಳಸುವ ಅದೇ ಧ್ವನಿಗಳನ್ನು ಬಳಸಿ"</string>
@@ -3749,21 +3846,25 @@
     <string name="notification_history_open_notification" msgid="2655071846911258371">"ಅಧಿಸೂಚನೆಯನ್ನು ತೆರೆಯಿರಿ"</string>
     <string name="snooze_options_title" msgid="2109795569568344617">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸ್ನೂಜ್ ಮಾಡಲು ಅನುಮತಿಸಿ"</string>
     <string name="notification_badging_title" msgid="5469616894819568917">"ಆ್ಯಪ್ ಐಕಾನ್‌ ಮೇಲೆ ನೋಟಿಫಿಕೇಶನ್‌ ಡಾಟ್"</string>
-    <string name="notification_bundles" msgid="3614044525822580826">"ನೋಟಿಫಿಕೇಶನ್ ಬಂಡಲ್‌ಗಳು"</string>
+    <string name="notification_bundles" msgid="496852738958148317">"ನೋಟಿಫಿಕೇಶನ್ ಆರ್ಗನೈಜರ್"</string>
+    <string name="notification_bundle_promotions_summary" msgid="3196830882575438887">"ಮಾರಾಟ, ಹೊಸ ಫೀಚರ್‌ಗಳು ಹಾಗೂ ಇನ್ನಷ್ಟು"</string>
+    <string name="notification_bundle_news_summary" msgid="2524877244105778120">"ಟಾಪ್ ಸ್ಟೋರಿಗಳು, ಎಡಿಟೋರಿಯಲ್‌ಗಳು ಹಾಗೂ ಇನ್ನಷ್ಟು"</string>
+    <string name="notification_bundle_social_summary" msgid="1880042768055317701">"ಲೈಕ್‌ಗಳು, ಪೋಸ್ಟ್‌ಗಳು ಹಾಗೂ ಇನ್ನಷ್ಟು"</string>
+    <string name="notification_bundle_recs_summary" msgid="9200357300848343691">"ಸುದ್ದಿ ಪತ್ರಗಳು, ಶಿಫಾರಸು ಮಾಡಿರುವ ಮೀಡಿಯಾ ಹಾಗೂ ಇನ್ನಷ್ಟು"</string>
+    <string name="notification_ai_features_title" msgid="6497959797331796296">"AI-ಚಾಲಿತ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
     <string name="notification_summarization_title" msgid="1516039882005781529">"ನೋಟಿಫಿಕೇಶನ್ ಸಾರಾಂಶಗಳು"</string>
-    <string name="notification_summarization_on" msgid="5692758038788359790">"ಆನ್"</string>
-    <string name="notification_summarization_off" msgid="4660131515915234037">"ಆಫ್"</string>
+    <string name="notification_summarization_summary" msgid="1963425736716175590">"ದೀರ್ಘ ಸಂದೇಶಗಳ ತ್ವರಿತ ರೀಕ್ಯಾಪ್ ಪಡೆಯಿರಿ"</string>
     <string name="notification_summarization_main_control_title" msgid="3341727937605794607">"ನೋಟಿಫಿಕೇಶನ್ ಸಾರಾಂಶಗಳನ್ನು ಬಳಸಿ"</string>
-    <string name="notification_summarization_description" msgid="8787422238462516765">"ಆ್ಯಪ್‌ಗಳಿಂದ ಬರುವ ಸಂಭಾಷಣೆ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಾರಾಂಶ ಮಾಡಿ"</string>
-    <string name="notification_summarization_excluded_description" msgid="3772411462994322275">"ಈ ಆ್ಯಪ್‌‌ಗಳಿಂದ ಬರುವ ಸಂಭಾಷಣೆ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸಾರಾಂಶ ಮಾಡಲಾಗುವುದಿಲ್ಲ"</string>
+    <string name="notification_summarization_description" msgid="341128754705513791">"ತ್ವರಿತ ರೀಕ್ಯಾಪ್‌ಗಳನ್ನು ಪಡೆಯಲು ದೀರ್ಘ ಸಂದೇಶಗಳನ್ನು ಮತ್ತು ಗುಂಪು ಸಂವಾದಗಳನ್ನು ಸಾರಾಂಶಗೊಳಿಸಿ. ಸಾರಾಂಶಗಳು AI-ಚಾಲಿತವಾಗಿವೆ ಮತ್ತು ದೋಷಗಳನ್ನು ಹೊಂದಿರಬಹುದು."</string>
+    <string name="notification_summarization_excluded_description" msgid="5819160700526641394">"ಈ ಆ್ಯಪ್‌‌ಗಳಿಂದ ಬರುವ ಸಂಭಾಷಣೆ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸಾರಾಂಶಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ"</string>
     <string name="notification_summarization_manage_excluded_apps" msgid="1691177835156220384">"ಆ್ಯಪ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"</string>
     <string name="notification_summarization_manage_excluded_apps_title" msgid="1299744594788208296">"ಆ್ಯಪ್‌ಗಳಿಗೆ ನೋಟಿಫಿಕೇಶನ್ ಸಾರಾಂಶಗಳನ್ನು ಅನುಮತಿಸಿ"</string>
-    <string name="notification_excluded_apps" msgid="6648267716069216826">"ಆ್ಯಪ್‌ ವಿನಾಯಿತಿಗಳು"</string>
+    <string name="notification_excluded_apps" msgid="317898848790046528">"ಈ ಆ್ಯಪ್‌ಗಳನ್ನು ಸೇರಿಸಬೇಡಿ"</string>
     <string name="notification_app_level_summarize_title" msgid="3829343457958246733">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸಾರಾಂಶ ಮಾಡಿ"</string>
     <string name="notification_app_level_summarize_subtext" msgid="7949649262631157728">"ಈ ಆ್ಯಪ್‌ನಿಂದ ಸಂಭಾಷಣೆ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸಾರಾಂಶ ಮಾಡಿ"</string>
     <string name="live_notifications" msgid="4650406646292963831">"ಲೈವ್ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
-    <string name="live_notifications_switch" msgid="50547709843410137">"ಲೈವ್ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಿ"</string>
-    <string name="live_notifications_desc" msgid="7383414458419053003">"ಪಿನ್ ಮಾಡಲಾದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಆ್ಯಪ್‌ಗಳಿಂದ ಲೈವ್ ಮಾಹಿತಿಯನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತವೆ ಹಾಗೂ ಅವುಗಳು ಯಾವಾಗಲೂ ಸ್ಥಿತಿ ಪಟ್ಟಿ ಮತ್ತು ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಗೋಚರಿಸುತ್ತವೆ"</string>
+    <string name="live_notifications_switch" msgid="7745275403210881110">"ಲೈವ್ ಅಪ್‌ಡೇಟ್‌ಗಳು"</string>
+    <string name="live_notifications_desc" msgid="6857161077319125625">"ಜರುಗುತ್ತಿರುವ, ಸಮಯ-ಸೂಕ್ಷ್ಮ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸ್ಥಿತಿ ಪಟ್ಟಿ ಮತ್ತು ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಪ್ರದರ್ಶಿಸಿ"</string>
     <string name="notification_bubbles_title" msgid="5681506665322329301">"ಬಬಲ್ಸ್"</string>
     <string name="bubbles_app_toggle_title" msgid="5319021259954576150">"ಬಬಲ್ಸ್"</string>
     <string name="bubbles_conversation_toggle_title" msgid="5225039214083311316">"ಈ ಸಂಭಾಷಣೆಗೆ ಬಬಲ್ ಗುರುತು ಮಾಡಿ"</string>
@@ -3815,7 +3916,8 @@
     <string name="lock_screen_notifications_summary_hide_profile" msgid="2183455323048921579">"ಸೂಕ್ಷ್ಮ ಕೆಲಸದ ಕಂಟೆಂಟ್‍ ಅನ್ನು ಮರೆಮಾಡಿ"</string>
     <string name="lock_screen_notifications_interstitial_message_profile" msgid="1456262034599029028">"ನಿಮ್ಮ ಸಾಧನವು ಲಾಕ್‌ ಆಗಿರುವಾಗ, ನೀವು ಪ್ರೊಫೈಲ್‌ ಅಧಿಸೂಚನೆಗಳನ್ನು ಹೇಗೆ ತೋರಿಸಲು ಬಯಸುವಿರಿ?"</string>
     <string name="lockscreen_notification_what_to_show_title" msgid="707880305538256400">"ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಏನು ತೋರಿಸಬೇಕು"</string>
-    <string name="lock_screen_notification_show_seen_title" msgid="1407033848315515970">"ವೀಕ್ಷಿಸಲಾದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ತೋರಿಸಿ"</string>
+    <string name="lock_screen_notification_show_viewed_notifs" msgid="4104703346314965171">"ವೀಕ್ಷಿಸಿದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ತೋರಿಸಿ"</string>
+    <string name="lock_screen_notification_show_viewed_notif_icons" msgid="1197681203638927375">"ವೀಕ್ಷಿಸಿದ ನೋಟಿಫಿಕೇಶನ್ ಐಕಾನ್‌ಗಳನ್ನು ತೋರಿಸಿ"</string>
     <string name="lock_screen_notification_show_silent_title" msgid="9177971841517814916">"ಸೈಲೆಂಟ್ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ತೋರಿಸಿ"</string>
     <string name="lock_screen_notification_show_sensitive_content_title" msgid="3184973371036065258">"ಸೆನ್ಸಿಟಿವ್ ಕಂಟೆಂಟ್ ಅನ್ನು ತೋರಿಸಿ"</string>
     <string name="lock_screen_notification_show_sensitive_work_content_title" msgid="532300440507441426">"ಸೂಕ್ಷ್ಮವಾದ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಕಂಟೆಂಟ್‌ ಅನ್ನು ತೋರಿಸಿ"</string>
@@ -3859,7 +3961,7 @@
     <string name="notification_channel_summary_min" msgid="8823399508450176842">"ಪುಲ್-ಡೌನ್ ಶೇಡ್‌ನಲ್ಲಿ ಅಧಿಸೂಚನೆಗಳನ್ನು ಒಂದು ಸಾಲಿಗೆ ಕುಗ್ಗಿಸಿ"</string>
     <string name="notification_channel_summary_low" msgid="5549662596677692000">"ಯಾವುದೇ ಧ್ವನಿ ಅಥವಾ ವೈಬ್ರೇಷನ್‌ ಆಗುವುದಿಲ್ಲ"</string>
     <string name="notification_conversation_summary_low" msgid="6352818857388412326">"ಯಾವುದೇ ಧ್ವನಿ ಅಥವಾ ವೈಬ್ರೇಷನ್‌ ಆಗುವುದಿಲ್ಲ, ಸಂಭಾಷಣೆ ವಿಭಾಗದ ಕೆಳಭಾಗದಲ್ಲಿ ಗೋಚರಿಸುತ್ತದೆ"</string>
-    <string name="notification_channel_summary_default" msgid="1168420867670390611">"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಆಧರಿಸಿ ಸಾಧನ ರಿಂಗ್ ಅಥವಾ ವೈಬ್ರೇಟ್ ಆಗುತ್ತದೆ"</string>
+    <string name="notification_channel_summary_default" msgid="1168420867670390611">"ಸಾಧನ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಆಧರಿಸಿ ರಿಂಗ್ ಅಥವಾ ವೈಬ್ರೇಟ್ ಆಗುತ್ತದೆ"</string>
     <string name="notification_channel_summary_high" msgid="3411637309360617621">"ಸಾಧನವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿದಾಗ, ಅಧಿಸೂಚನೆಗಳನ್ನು ಪರದೆಯ ಮೇಲ್ಭಾಗದಲ್ಲಿ ಬ್ಯಾನರ್‌ ಆಗಿ ತೋರಿಸಿ"</string>
     <string name="notification_switch_label" msgid="8029371325967501557">"ಎಲ್ಲಾ \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" ಅಧಿಸೂಚನೆಗಳು"</string>
     <string name="notification_app_switch_label" msgid="4422902423925084193">"ಎಲ್ಲಾ <xliff:g id="APP_NAME">%1$s</xliff:g> ಅಧಿಸೂಚನೆಗಳು"</string>
@@ -3883,9 +3985,7 @@
     <string name="nls_feature_reply_title" msgid="7925455553821362039">"ಸಂದೇಶಗಳಿಗೆ ಪ್ರತ್ಯುತ್ತರ ನೀಡಿ"</string>
     <string name="nls_feature_reply_summary" msgid="4492543411395565556">"ಇದು ಸಂದೇಶಗಳಿಗೆ ಪ್ರತ್ಯುತ್ತರ ನೀಡಬಹುದು ಮತ್ತು ಅಧಿಸೂಚನೆಗಳನ್ನು ಸ್ನೂಜ್ ಮಾಡುವುದು ಅಥವಾ ವಜಾಗೊಳಿಸುವುದು ಮತ್ತು ಕರೆಗಳಿಗೆ ಉತ್ತರಿಸುವುದು ಸೇರಿದಂತೆ ಅಧಿಸೂಚನೆಗಳಲ್ಲಿನ ಬಟನ್‌ಗಳ ಮೇಲೆ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳಬಹುದು."</string>
     <string name="nls_feature_settings_title" msgid="8208164329853194414">"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಿ"</string>
-    <string name="nls_feature_settings_summary" msgid="3770028705648985689">"ಇದು, ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಫೀಚರ್ ಅನ್ನು ಆನ್ ಅಥವಾ ಆಫ್ ಮಾಡುವ ಮತ್ತು ಸಂಬಂಧಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಬದಲಾಯಿಸುವ ಸಾಮರ್ಥ್ಯವನ್ನು ಹೊಂದಿದೆ."</string>
     <string name="nls_feature_modes_settings_summary" msgid="70022458305195595">"ಇದು ಮೋಡ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಬಹುದು ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಬಹುದು ಹಾಗೂ ಸಂಬಂಧಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಬಹುದು."</string>
-    <string name="notification_listener_disable_warning_summary" msgid="205200471571837170">"<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> ಗಾಗಿ ನೀವು ನೋಟಿಫಿಕೇಶನ್ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಆಫ್ ಮಾಡಿದರೆ, ಅಡಚಣೆ ಮಾಡಬೇಡಿ ನಿಯಂತ್ರಣ ಸಹ ಆಫ್ ಆಗಬಹುದು."</string>
     <string name="notification_listener_disable_modes_warning_summary" msgid="7528432011433844158">"<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> ಗೆ ನೀವು ನೋಟಿಫಿಕೇಶನ್ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಆಫ್ ಮಾಡಿದರೆ, ಮೋಡ್‌ಗಳ ಆ್ಯಕ್ಸೆಸ್ ಸಹ ಆಫ್ ಆಗಬಹುದು."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="841492108402184976">"ಆಫ್ ಮಾಡಿ"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8802784105045594324">"ರದ್ದು ಮಾಡಿ"</string>
@@ -3910,15 +4010,14 @@
     <string name="notification_polite_description" msgid="6137533404978878957">"ನೀವು ಕಡಿಮೆ ಸಮಯದಲ್ಲಿ ಹೆಚ್ಚು ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸ್ವೀಕರಿಸಿದಾಗ, ನಿಮ್ಮ ಸಾಧನವು 1 ನಿಮಿಷದವರೆಗೆ ತನ್ನ ವಾಲ್ಯೂಮ್ ಅನ್ನು ತಗ್ಗಿಸುತ್ತದೆ ಮತ್ತು ಅಲರ್ಟ್‌ಗಳನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. ಕರೆಗಳು, ಅಲಾರಂಗಳು ಮತ್ತು ಆದ್ಯತೆಯ ಸಂಭಾಷಣೆಗಳು ಪ್ರಭಾವಿತವಾಗುವುದಿಲ್ಲ. \n\nಕೂಲ್‌ಡೌನ್ ಸಮಯದಲ್ಲಿ ಸ್ವೀಕರಿಸಿದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಸ್ಕ್ರೀನ್‌ನ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಎಳೆಯುವ ಮೂಲಕ ಕಾಣಬಹುದಾಗಿದೆ."</string>
     <string name="notification_polite_work" msgid="8823596456640216391">"ಉದ್ಯೋಗದ ಪ್ರೊಫೈಲ್‌ಗಳಿಗೆ ಅನ್ವಯಿಸಿ"</string>
     <string name="notification_polite_work_summary" msgid="5014189280132951378">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಆ್ಯಪ್‌ಗಳಿಗೆ ಅನ್ವಯಿಸಿ"</string>
-    <string name="notification_bundle_title" msgid="460988459835922719">"ಬಂಡಲ್ ಮಾಡಲಾದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
-    <string name="notification_bundle_on" msgid="1596327200778050642">"ಆನ್ ಆಗಿದೆ"</string>
-    <string name="notification_bundle_off" msgid="1550261372988157377">"ಆಫ್ ಆಗಿದೆ"</string>
-    <string name="notification_bundle_main_control_title" msgid="4746182488388939403">"ನೋಟಿಫಿಕೇಶನ್ ಬಂಡಲ್ ಮಾಡುವಿಕೆಯನ್ನು ಬಳಸಿ"</string>
-    <string name="notification_bundle_description" msgid="3896142878395333784">"ನಿಶ್ಯಬ್ದವಾದ ಅನುಭವಕ್ಕಾಗಿ ಸಮಾನವಾದ ಥೀಮ್‌ಗಳನ್ನು ಹೊಂದಿರುವ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ನಿಶ್ಯಬ್ದಗೊಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಒಟ್ಟಿಗೆ ಗುಂಪು ಮಾಡಲಾಗುತ್ತದೆ. ಬಂಡಲ್ ಮಾಡುವುದರಿಂದ ಆ್ಯಪ್‌ನ ಸ್ವಂತ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಅತಿಕ್ರಮಣಗೊಳ್ಳುತ್ತವೆ."</string>
+    <string name="notification_bundle_title" msgid="6679586974995981433">"ನೋಟಿಫಿಕೇಶನ್ ಆರ್ಗನೈಜರ್"</string>
+    <string name="notification_bundle_summary" msgid="8924550009829960969">"ಕಡಿಮೆ ಆದ್ಯತೆಯ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಬಂಡಲ್ ಮಾಡಿ ಮತ್ತು ನಿಶ್ಶಬ್ದಗೊಳಿಸಿ"</string>
+    <string name="notification_bundle_main_control_title" msgid="2632661768990540295">"ನೋಟಿಫಿಕೇಶನ್ ಆರ್ಗನೈಜರ್ ಅನ್ನು ಬಳಸಿ"</string>
+    <string name="notification_bundle_description" msgid="8439963475488583612">"ಅಡಚಣೆಗಳನ್ನು ಕಡಿಮೆಗೊಳಿಸುವುದಕ್ಕಾಗಿ ನೀವು ನಿಶ್ಶಬ್ದಗೊಳಿಸಲು ಅಥವಾ ಒಟ್ಟಿಗೆ ಬಂಡಲ್ ಮಾಡಲು ಬಯಸುವ ನೋಟಿಫಿಕೇಶನ್ ಪ್ರಕಾರಗಳನ್ನು ಆರಿಸಿ. ಬಂಡಲಿಂಗ್ AI-ಚಾಲಿತವಾಗಿದೆ ಮತ್ತು ದೋಷಗಳನ್ನು ಹೊಂದಿರಬಹುದು."</string>
     <string name="notification_app_level_bundle_title" msgid="8917807675495480483">"ಬಂಡಲ್ ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"</string>
     <string name="notification_app_level_bundle_subtext" msgid="7330731485247761388">"ನಿಶ್ಯಬ್ದವಾದ ಅನುಭವಕ್ಕಾಗಿ ಸಮಾನವಾದ ಥೀಮ್‌ಗಳನ್ನು ಹೊಂದಿರುವ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ನಿಶ್ಯಬ್ದಗೊಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಒಟ್ಟಿಗೆ ಗುಂಪು ಮಾಡಲಾಗುತ್ತದೆ"</string>
-    <string name="notification_bundle_excluded_description" msgid="7249934130756103812">"ಈ ಆ್ಯಪ್‌‌ಗಳಿಂದ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸಲಾಗುವುದಿಲ್ಲ."</string>
     <string name="notification_bundle_manage_excluded_apps_title" msgid="7019831234073590293">"ಆ್ಯಪ್‌ಗಳಿಗೆ ನೋಟಿಫಿಕೇಶನ್ ಬಂಡಲ್ ಮಾಡುವಿಕೆಯನ್ನು ಅನುಮತಿಸಿ"</string>
+    <string name="notification_adjustment_work_switch_title" msgid="5858034709870660002">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ ಆ್ಯಪ್‌ಗಳಿಗೆ ಅನ್ವಯಿಸಿ"</string>
     <string name="vr_listeners_title" msgid="4960357292472540964">"VR ಸಹಾಯ ಸೇವೆಗಳು"</string>
     <string name="no_vr_listeners" msgid="8442646085375949755">"ಯಾವುದೇ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿದ ಆ್ಯಪ್‌ಗಳು VR ಅಸಿಸ್ಟೆಂಟ್ ಸೇವೆಗಳ ರೀತಿಯಲ್ಲಿ ರನ್ ಮಾಡಲು ವಿನಂತಿಸಿಲ್ಲ."</string>
     <string name="vr_listener_security_warning_title" msgid="7026351795627615177">"<xliff:g id="SERVICE">%1$s</xliff:g> ಗೆ VR ಸೇವೆ ಪ್ರವೇಶವನ್ನು ಅನುಮತಿಸುವುದೇ?"</string>
@@ -3953,9 +4052,6 @@
     <string name="interact_across_profiles_install_work_app_title" msgid="2821669067014436056">"ಈ ಆ್ಯಪ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಲು, ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ <xliff:g id="NAME">%1$s</xliff:g> ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ"</string>
     <string name="interact_across_profiles_install_personal_app_title" msgid="4790651223324866344">"ಈ ಆ್ಯಪ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಲು, ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿ <xliff:g id="NAME">%1$s</xliff:g> ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ"</string>
     <string name="interact_across_profiles_install_app_summary" msgid="7715324358034968657">"ಆ್ಯಪ್ ಅನ್ನು ಪಡೆದುಕೊಳ್ಳಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
-    <string name="manage_zen_access_title" msgid="4123905441114743974">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ ನಿಯಂತ್ರಣ"</string>
-    <string name="zen_access_detail_switch" msgid="4183681772666138993">"\'ಅಡಚಣೆ ಮಾಡಬೇಡಿ\' ಅನುಮತಿಸಿ"</string>
-    <string name="zen_access_empty_text" msgid="2662270585004373785">"ಯಾವುದೇ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲಾದ ಆ್ಯಪ್‌ಗಳು ಅಡಚಣೆ ಮಾಡಬೇಡಿ ನಿಯಂತ್ರಣವನ್ನು ವಿನಂತಿಸಿಲ್ಲ"</string>
     <string name="manage_zen_modes_access_title" msgid="2520680004915648824">"ಮೋಡ್‌ಗಳ ಆ್ಯಕ್ಸೆಸ್"</string>
     <string name="zen_modes_access_detail_switch" msgid="4060429747631111299">"ಮೋಡ್‌ಗಳ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="zen_modes_access_empty_text" msgid="8750927923904377110">"ಯಾವುದೇ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿದ ಆ್ಯಪ್‌ಗಳು ಎಚ್ಚರಿಕೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ವಿನಂತಿಸಿಲ್ಲ"</string>
@@ -4045,7 +4141,6 @@
     <string name="zen_mode_messages_title" msgid="1777598523485334405">"ಸಂದೇಶಗಳು"</string>
     <string name="zen_mode_messages_header" msgid="253721635061451577">"ಅಡಚಣೆ ಉಂಟುಮಾಡಬಹುದಾದ ಸಂದೇಶಗಳು"</string>
     <string name="zen_mode_messages_footer" msgid="6002468050854126331">"ಅನುಮತಿಸಿದ ಸಂದೇಶಗಳ ಧ್ವನಿ ಕೇಳಿಸುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು, ಸಾಧನವನ್ನು \"ರಿಂಗ್\"ಗೆ ಹೊಂದಿಸಲಾಗಿದೆಯೇ ಎಂಬುದನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
-    <string name="zen_mode_custom_messages_footer" msgid="7545180036949550830">"‘<xliff:g id="SCHEDULE_NAME">%1$s</xliff:g>’ ಗಾಗಿ ಒಳಬರುವ ಸಂದೇಶಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಸ್ನೇಹಿತರು, ಕುಟುಂಬ ಅಥವಾ ಇತರ ಸಂಪರ್ಕಗಳು ನಿಮ್ಮನ್ನು ತಲುಪಲು ಅನುಮತಿ ನೀಡುವಂತೆ ನೀವು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಸರಿಹೊಂದಿಸಬಹುದು."</string>
     <string name="zen_mode_all_messages_summary" msgid="3756267858343104554">"ಎಲ್ಲಾ ಸಂದೇಶಗಳು ನಿಮ್ಮನ್ನು ತಲುಪಬಹುದು"</string>
     <string name="zen_mode_all_calls_summary" msgid="7337907849083824698">"ಎಲ್ಲಾ ಕರೆಗಳು ನಿಮ್ಮನ್ನು ತಲುಪಬಹುದು"</string>
     <string name="zen_mode_contacts_count" msgid="6568631261119795799">"{count,plural, =0{ಯಾವುದೂ ಇಲ್ಲ}=1{1 ಸಂಪರ್ಕ}one{# ಸಂಪರ್ಕಗಳು}other{# ಸಂಪರ್ಕಗಳು}}"</string>
@@ -4186,7 +4281,7 @@
     <string name="memtag_off_pending" msgid="1543177181383593726">"ಮರುಪ್ರಾರಂಭಿಸಿದ ನಂತರ ಆಫ್ ಆಗುತ್ತದೆ"</string>
     <string name="memtag_force_off" msgid="1143468955988138470">"ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಪ್ರಸ್ತುತ ಲಭ್ಯವಿಲ್ಲ"</string>
     <string name="memtag_force_on" msgid="3254349938627883664">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಯಾವಾಗಲೂ ಆನ್ ಇರುತ್ತದೆ"</string>
-    <string name="memtag_footer" msgid="8480784485124271376">"ಸುಧಾರಿತ ಮೆಮೊರಿ ರಕ್ಷಣೆಯನ್ನು ಆನ್ ಅಥವಾ ಆಫ್ ಮಾಡಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಮರುಪ್ರಾರಂಭಿಸಬೇಕಾಗುತ್ತದೆ. ಅದು ಆನ್ ಆಗಿರುವಾಗ, ನಿಮ್ಮ ಸಾಧನದ ಕಾರ್ಯಕ್ಷಮತೆ ಕಡಿಮೆಯಾಗುವುದನ್ನು ನೀವು ಗಮನಿಸಬಹುದು."</string>
+    <string name="memtag_footer" msgid="8480784485124271376">"ಸುಧಾರಿತ ಮೆಮೊರಿ ರಕ್ಷಣೆಯನ್ನು ಆನ್ ಅಥವಾ ಆಫ್ ಮಾಡಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಮರುಪ್ರಾರಂಭಿಸಬೇಕಾಗುತ್ತದೆ. ಅದು ಆನ್ ಆಗಿರುವಾಗ, ನಿಮ್ಮ ಸಾಧನದ ಪರ್ಫಾರ್ಮೆನ್ಸ್ ಕಡಿಮೆಯಾಗುವುದನ್ನು ನೀವು ಗಮನಿಸಬಹುದು."</string>
     <string name="memtag_reboot_title" msgid="1413471876903578769">"ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಬೇಕೆ?"</string>
     <string name="memtag_reboot_message_on" msgid="3270256606602439418">"ಸುಧಾರಿತ ಮೆಮೊರಿ ರಕ್ಷಣೆಯನ್ನು ಆನ್ ಮಾಡಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಮರುಪ್ರಾರಂಭಿಸಬೇಕಾಗುತ್ತದೆ."</string>
     <string name="memtag_reboot_message_off" msgid="2567062468140476451">"ಸುಧಾರಿತ ಮೆಮೊರಿ ರಕ್ಷಣೆಯನ್ನು ಆಫ್ ಮಾಡಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಮರುಪ್ರಾರಂಭಿಸಬೇಕಾಗುತ್ತದೆ."</string>
@@ -4247,6 +4342,8 @@
     <string name="app_permissions" msgid="8666537659217653626">"ಅನುಮತಿ ನಿರ್ವಾಹಕ"</string>
     <string name="app_data_sharing_updates_title" msgid="1694297952320402788">"ಸ್ಥಳದ ಡೇಟಾ ಹಂಚಿಕೊಳ್ಳುವಿಕೆ ಕುರಿತ ಅಪ್‌ಡೇಟ್‌ಗಳು"</string>
     <string name="app_data_sharing_updates_summary" msgid="4465929918457739443">"ನಿಮ್ಮ ಸ್ಥಳ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳುವ ವಿಧಾನವನ್ನು ಬದಲಾಯಿಸಿದ ಆ್ಯಪ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
+    <string name="app_function_access_settings_title" msgid="1474765429611652468">"ಇತರ ಆ್ಯಪ್‌ಗಳ ಏಜೆಂಟ್ ನಿಯಂತ್ರಣ"</string>
+    <string name="app_function_access_settings_summary" msgid="6465715820745848068">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಮತ್ತು ಇತರ ಆ್ಯಪ್‌ಗಳಲ್ಲಿ ಕ್ರಿಯೆಗಳನ್ನು ಮಾಡಿ"</string>
     <string name="tap_to_wake" msgid="3313433536261440068">"ಎಚ್ಚರಗೊಳಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="tap_to_wake_summary" msgid="6641039858241611072">"ಸಾಧನವನ್ನು ಎಚ್ಚರಗೊಳಿಸಲು ಪರದೆಯ ಯಾವುದೇ ಭಾಗದಲ್ಲಿ ಎರಡು ಬಾರಿ ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="domain_urls_title" msgid="7012209752049678876">"ಲಿಂಕ್‍‍ಗಳನ್ನು ತೆರೆಯುವುದು"</string>
@@ -4341,7 +4438,7 @@
     <string name="no_memory_use_summary" msgid="6708111974923274436">"ಕಳೆದ 3 ಗಂಟೆಗಳಿಂದ ಯಾವುದೇ ಮೆಮೊರಿ ಬಳಸಲಾಗಿಲ್ಲ"</string>
     <string name="sort_avg_use" msgid="4416841047669186903">"ಸರಾಸರಿ ಬಳಕೆ ಪ್ರಕಾರವಾಗಿ ವಿಂಗಡಿಸಿ"</string>
     <string name="sort_max_use" msgid="3370552820889448484">"ಗರಿಷ್ಠ ಬಳಕೆ ಪ್ರಕಾರವಾಗಿ ವಿಂಗಡಿಸಿ"</string>
-    <string name="memory_performance" msgid="5448274293336927570">"ಕಾರ್ಯಕ್ಷಮತೆ"</string>
+    <string name="memory_performance" msgid="5448274293336927570">"ಪರ್ಫಾರ್ಮೆನ್ಸ್"</string>
     <string name="total_memory" msgid="5244174393008910567">"ಒಟ್ಟು ಮೆಮೊರಿ"</string>
     <string name="average_used" msgid="690235917394070169">"ಸರಾಸರಿ ಬಳಕೆ (%)"</string>
     <string name="free_memory" msgid="439783742246854785">"ಲಭ್ಯವಿರುವುದು"</string>
@@ -4353,11 +4450,7 @@
     <string name="running_frequency" msgid="7260225121706316639">"ಫ್ರೀಕ್ವೆನ್ಸಿ"</string>
     <string name="memory_maximum_usage" msgid="2047013391595835607">"ಗರಿಷ್ಠ ಬಳಕೆ"</string>
     <string name="no_data_usage" msgid="4665617440434654132">"ಡೇಟಾ ಬಳಸಲಾಗಿಲ್ಲ"</string>
-    <string name="zen_access_warning_dialog_title" msgid="6323325813123130154">"<xliff:g id="APP">%1$s</xliff:g> ಗೆ ಅಡಚಣೆ ಮಾಡಬೇಡಿಗೆ ಆ್ಯಕ್ಸೆಸ್ ಅನುಮತಿಸುವುದೇ?"</string>
-    <string name="zen_access_warning_dialog_summary" msgid="8468714854067428987">"ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಆನ್/ಆಫ್ ಮಾಡಲು ಹಾಗೂ ಸಂಬಂಧಿಸಿದ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
     <string name="zen_access_disabled_package_warning" msgid="6565908224294537889">"ನೋಟಿಫಿಕೇಶನ್‍ ಆ್ಯಕ್ಸೆಸ್ ಆನ್ ಆಗಿರುವ ಕಾರಣ ಕಡ್ಡಾಯವಾಗಿ ಆನ್ ಆಗಿ ಉಳಿಯಬೇಕು"</string>
-    <string name="zen_access_revoke_warning_dialog_title" msgid="7377261509261811449">"<xliff:g id="APP">%1$s</xliff:g> ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಅಡಚಣೆ ಮಾಡಬೇಡಿಗೆ ಪ್ರವೇಶವನ್ನು ಹಿಂತೆಗೆದುಕೊಳ್ಳುವುದೇ?"</string>
-    <string name="zen_access_revoke_warning_dialog_summary" msgid="8689801842914183595">"ಈ ಆ್ಯಪ್‌ ರಚಿಸಿರುವಂತಹ ಎಲ್ಲ ಅಡಚಣೆ ಮಾಡಬೇಡಿ ನಿಯಮಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ."</string>
     <string name="zen_modes_access_warning_dialog_title" msgid="8372164559156809659">"<xliff:g id="APP">%1$s</xliff:g> ಗಾಗಿ ಮೋಡ್‌ಗಳಿಗೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಅನುಮತಿಸಬೇಕೇ?"</string>
     <string name="zen_modes_access_warning_dialog_summary" msgid="2432178679607798200">"ಅಡಚಣೆ ಮಾಡಬೇಡಿ ಅನ್ನು ಆನ್/ಆಫ್ ಮಾಡಲು, ಮೋಡ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಲು ಹಾಗೂ ಸಂಬಂಧಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲು ಆ್ಯಪ್‌ಗೆ ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
     <string name="zen_modes_access_revoke_warning_dialog_title" msgid="189454396436517964">"<xliff:g id="APP">%1$s</xliff:g> ಗಾಗಿ ಮೋಡ್‌ಗಳಿಗೆ ಆ್ಯಕ್ಸೆಸ್ ಅನ್ನು ಹಿಂಪಡೆಯಬೇಕೇ?"</string>
@@ -4410,8 +4503,8 @@
     <string name="screen_zoom_short_summary" msgid="756254364808639194">"ಎಲ್ಲವನ್ನೂ ದೊಡ್ಡದು ಅಥವಾ ಚಿಕ್ಕದು ಮಾಡಿ"</string>
     <string name="screen_zoom_keywords" msgid="5964023524422386592">"ಸಾಂದ್ರತೆ, ಸ್ಕ್ರೀನ್ ಝೂಮ್, ಅಳತೆ, ಅಳತೆಯ ಪ್ರಮಾಣವನ್ನು ಪ್ರದರ್ಶಿಸಿ"</string>
     <string name="screen_zoom_preview_title" msgid="5288355628444562735">"ಪೂರ್ವವೀಕ್ಷಣೆ"</string>
-    <string name="screen_zoom_make_smaller_desc" msgid="2628662648068995971">"ಚಿಕ್ಕದಾಗಿಸು"</string>
-    <string name="screen_zoom_make_larger_desc" msgid="7268794713428853139">"ದೊಡ್ಡದಾಗಿಸು"</string>
+    <string name="screen_zoom_make_smaller_desc" msgid="1450649885198381123">"ಡಿಸ್‌ಪ್ಲೇ ಗಾತ್ರವನ್ನು ಚಿಕ್ಕದಾಗಿಸಿ"</string>
+    <string name="screen_zoom_make_larger_desc" msgid="7125594310562596457">"ಡಿಸ್‌ಪ್ಲೇ ಗಾತ್ರವನ್ನು ದೊಡ್ಡದಾಗಿಸಿ"</string>
     <string name="disconnected" msgid="3469373726996129247">"ಕನೆಕ್ಟ್ ಆಗಿಲ್ಲ"</string>
     <string name="keyboard_disconnected" msgid="796053864561894531">"ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ"</string>
     <string name="apps_summary" msgid="4007416751775414252">"<xliff:g id="COUNT">%1$d</xliff:g> ಆ್ಯಪ್‌ಗಳನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲಾಗಿದೆ"</string>
@@ -4431,6 +4524,8 @@
     <string name="disabled_by_policy_title_financed_device" msgid="2328740314082888228">"ನಿಮ್ಮ ಕ್ರೆಡಿಟ್ ಒದಗಿಸುವವರಿಂದ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ"</string>
     <string name="disabled_by_policy_title_biometric_parental_consent" msgid="2463673997797134678">"ಪೋಷಕರ ಅಗತ್ಯವಿದೆ"</string>
     <string name="disabled_by_policy_content_biometric_parental_consent" msgid="7124116806784305206">"ಇದನ್ನು ಸೆಟಪ್ ಮಾಡಲು ನಿಮ್ಮ ಪೋಷಕರ ಸಹಾಯವನ್ನು ಪಡೆದುಕೊಳ್ಳಿ"</string>
+    <string name="disabled_by_policy_title_parental_controls" msgid="8875976588644052371">"ಪೋಷಕರ ನಿಯಂತ್ರಣಗಳಿಂದ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ"</string>
+    <string name="disabled_by_policy_content_parental_controls" msgid="4648160125103768738">"ನಿಮ್ಮ ಪೋಷಕರ ನಿಯಂತ್ರಣಗಳನ್ನು ನಿರ್ವಹಿಸುವ ವ್ಯಕ್ತಿ ಮಾತ್ರ ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬದಲಾಯಿಸಬಹುದು"</string>
     <string name="disabled_by_policy_parental_consent" msgid="9166060049019018978">"ಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಬದಲಾಯಿಸಲು ಅನುಮತಿಸಲು ಫೋನ್ ಅನ್ನು ನಿಮ್ಮ ಪೋಷಕರಿಗೆ ಹಸ್ತಾಂತರಿಸಿ."</string>
     <string name="default_admin_support_msg" msgid="8816296554831532033">"ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ"</string>
     <string name="admin_support_more_info" msgid="8407433155725898290">"ಇನ್ನಷ್ಟು ವಿವರಗಳು"</string>
@@ -4474,6 +4569,8 @@
     <string name="condition_grayscale_title" msgid="9029271080007984542">"ಗ್ರೇಸ್ಕೇಲ್"</string>
     <string name="condition_grayscale_summary" msgid="1306034149271251292">"ಬೂದು ಬಣ್ಣದಲ್ಲಿ ಮಾತ್ರ ಡಿಸ್‌ಪ್ಲೇ ಮಾಡಿ"</string>
     <string name="homepage_condition_footer_content_description" msgid="1568313430995646108">"ಕುಗ್ಗಿಸಿ"</string>
+    <string name="homepage_unnumbered_alert_description" msgid="8393737409248958672">"ಈ ಐಟಂ ಅಲರ್ಟ್ ಅನ್ನು ಒಳಗೊಂಡಿದೆ"</string>
+    <string name="homepage_numbered_alert_description" msgid="4965963469296900322">"ಈ ಐಟಂ <xliff:g id="ALERT_COUNT">%1$s</xliff:g> ಅಲರ್ಟ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ"</string>
     <string name="color_temperature" msgid="8256912135746305176">"ತಂಪು ಬಣ್ಣದ ತಾಪಮಾನ"</string>
     <string name="color_temperature_desc" msgid="6713259535885669622">"ತಂಪಾದ ಪ್ರದರ್ಶನ ಬಣ್ಣಗಳನ್ನು ಬಳಸಿ"</string>
     <string name="color_temperature_toast" msgid="7611532183532407342">"ಬಣ್ಣದ ಬದಲಾವಣೆಯನ್ನು ಅನ್ವಯಿಸಲು, ಸ್ಕ್ರೀನ್ ಆಫ್ ಮಾಡಿ"</string>
@@ -4544,7 +4641,7 @@
     <string name="battery_tips_card_action_button_check" msgid="1535140204105479318">"ಪರಿಶೀಲಿಸಿ"</string>
     <string name="battery_tips_card_dismiss_button" msgid="1885756985544936618">"ಅರ್ಥವಾಯಿತು"</string>
     <string name="battery_tips_card_feedback_info" msgid="767117835675157298">"ಈ ಸಂದೇಶ ಉಪಯುಕ್ತವಾಗಿದೆಯೇ?"</string>
-    <string name="battery_hints_warning_icon_a11y" msgid="5312542323401447620">"ಬ್ಯಾಟರಿ ಸಲಹೆಗಳ ಎಚ್ಚರಿಕೆ ಐಕಾನ್"</string>
+    <string name="battery_hints_warning_icon_a11y" msgid="709629805028175434">"ಬ್ಯಾಟರಿ ಎಚ್ಚರಿಕೆ ಸಲಹೆಗಳು"</string>
     <string name="battery_tips_settings_summary_brightness" msgid="546145032616077783">"ಬ್ಯಾಟರಿ ಬಾಳಿಕೆಯನ್ನು ವಿಸ್ತರಿಸಲು ಅಡಾಪ್ಟಿವ್ ಬ್ರೈಟ್‌ನೆಸ್ ಅನ್ನು ಆನ್ ಮಾಡಿ"</string>
     <string name="battery_tips_settings_summary_screen_timeout" msgid="556801426050962077">"ಬ್ಯಾಟರಿ ಬಾಳಿಕೆಯನ್ನು ವಿಸ್ತರಿಸಲು ಸ್ಕ್ರೀನ್ ಟೈಮ್‌ಔಟ್ ಅವಧಿಯನ್ನು ಕಡಿಮೆ ಮಾಡಿ"</string>
     <string name="battery_tips_apps_summary_always_high" msgid="6334519477067044920">"<xliff:g id="APP_LABEL">%1$s</xliff:g> ನಿಂದ ಹೆಚ್ಚು ಬ್ಯಾಟರಿ ಬಳಸಲಾಗಿದೆ"</string>
@@ -4603,7 +4700,7 @@
     <string name="reset_shortcut_manager_throttling_complete" msgid="8949943009096885470">"ShortcutManager ದರ-ಮಿತಿಗೊಳಿಸುವಿಕೆಯನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ"</string>
     <string name="notification_suggestion_title" msgid="6309263655965785411">"ಲಾಕ್ ಪರದೆಯ ಮೇಲೆ ನಿಯಂತ್ರಣದ ಮಾಹಿತಿ"</string>
     <string name="notification_suggestion_summary" msgid="7615611244249276113">"ಅಧಿಸೂಚನೆಯ ವಿಷಯವನ್ನು ತೋರಿಸು ಅಥವಾ ಮರೆಮಾಡು"</string>
-    <string name="page_tab_title_support" msgid="3235725053332345773">"ಸಲಹೆಗಳು &amp; ಬೆಂಬಲ"</string>
+    <string name="page_tab_title_support" msgid="3235725053332345773">"ಸಲಹೆಗಳು ಮತ್ತು ಬೆಂಬಲ"</string>
     <string name="developer_smallest_width" msgid="632354817870920911">"ಚಿಕ್ಕದಾದ ಅಗಲ"</string>
     <string name="premium_sms_none" msgid="4718916765158062108">"ಯಾವುದೇ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿದ ಆ್ಯಪ್‌ಗಳು ಪ್ರೀಮಿಯಂ SMS ವಿನಂತಿಸಿಲ್ಲ"</string>
     <string name="premium_sms_warning" msgid="2192300872411073324">"ಪ್ರೀಮಿಯಂ SMS ನಿಮ್ಮ ವೆಚ್ಚಗಳಿಗೆ ಕಾರಣವಾಗಬಹುದು ಮತ್ತು ಇದನ್ನು ನಿಮ್ಮ ವಾಹಕ ಬಿಲ್‌ಗಳಿಗೆ ಸೇರಿಸಲಾಗುತ್ತದೆ. ನೀವು ಆ್ಯಪ್‌ಗೆ ಅನುಮತಿಯನ್ನು ಸಕ್ರೀಯಗೊಳಿಸಿದರೆ, ನೀವು ಆ ಆ್ಯಪ್‌ ಬಳಸಿಕೊಂಡು ಪ್ರೀಮಿಯಂ SMS ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತದೆ."</string>
@@ -4644,18 +4741,30 @@
     <string name="double_tap_power_camera_action_summary" msgid="4942585540579590444">"ಕ್ಯಾಮರಾ ತೆರೆಯಿರಿ"</string>
     <string name="double_tap_power_wallet_action_title" msgid="2460162990983117189">"ವಾಲೆಟ್"</string>
     <string name="double_tap_power_wallet_action_summary" msgid="3463748484407928770">"Wallet ಅನ್ನು ತೆರೆಯಿರಿ"</string>
+    <string name="double_tap_power_lockscreen_shortcut_tip_title" msgid="9210589521260265387">"ಲಾಕ್ ಸ್ಕ್ರೀನ್ ಶಾರ್ಟ್‌ಕಟ್ ಬದಲಾಯಿಸುವುದೇ?"</string>
+    <string name="double_tap_power_lockscreen_shortcut_tip_description" msgid="7572626485518591928">"<xliff:g id="DOUBLE_TAP_POWER_TARGET_ACTION">%1$s</xliff:g> ನಿಮ್ಮ ಲಾಕ್ ಸ್ಕ್ರೀನ್ ಶಾರ್ಟ್‌ಕಟ್ ಕೂಡ ಆಗಿದೆ. ಅದನ್ನು ಬದಲಾಯಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
+    <string name="double_tap_power_wallet_footer_title" msgid="4626950875173822614">"ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಡೀಫಾಲ್ಟ್ ವಾಲೆಟ್ ಆ್ಯಪ್ ಈ ಜೆಸ್ಚರ್ ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"</string>
+    <string name="double_tap_power_wallet_footer_learn_more_text" msgid="4871482943751760132">"ಡೀಫಾಲ್ಟ್ ವಾಲೆಟ್ ಅನ್ನು ಬದಲಾಯಿಸಿ"</string>
     <string name="double_twist_for_camera_mode_title" msgid="472455236910935684">"ಸೆಲ್ಫೀ ತೆಗೆಯಲು ಕ್ಯಾಮರಾ ತಿರುಗಿಸಿ"</string>
     <string name="double_twist_for_camera_mode_summary" msgid="592503740044744951"></string>
     <string name="system_navigation_title" msgid="4890381153527184636">"ನ್ಯಾವಿಗೇಶನ್ ಮೋಡ್"</string>
     <string name="swipe_up_to_switch_apps_title" msgid="6677266952021118342">"2-ಬಟನ್ ನ್ಯಾವಿಗೇಶನ್"</string>
     <string name="swipe_up_to_switch_apps_summary" msgid="1415457307836359560">"ಆ್ಯಪ್‌ಗಳನ್ನು ಸ್ವಿಚ್ ಮಾಡಲು, ಹೋಮ್ ಬಟನ್ ಮೇಲೆ ಸ್ವೈಪ್ ಅಪ್ ಮಾಡಿ. ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು, ಇನ್ನೊಮ್ಮೆ ಸ್ವೈಪ್ ಅಪ್ ಮಾಡಿ. ಹಿಂದಕ್ಕೆ ಹೋಗಲು, ಹಿಂದೆ ಬಟನ್ ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
+    <string name="shade_panels_title" msgid="6816157397029469997">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಮತ್ತು ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="keywords_shade_panels" msgid="6181844937287087945">"ಶೇಡ್, ಪ್ಯಾನೆಲ್‌ಗಳು, ನೋಟಿಫಿಕೇಶನ್‌ಗಳು, ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳು, qs, ಪ್ರತ್ಯೇಕ, ಸಂಯೋಜಿತ, ಡ್ಯುಯಲ್, ಸಿಂಗಲ್"</string>
+    <string name="shade_panels_category" msgid="3262351355390846546">"ಪ್ಯಾನೆಲ್‌ಗಳು"</string>
+    <string name="shade_panels_separate_title" msgid="7839124123668116363">"ಪ್ರತ್ಯೇಕ"</string>
+    <string name="shade_panels_separate_summary" msgid="4879360492042964895">"ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಲು ಮೇಲೆ ಬಲಬದಿಯಿಂದ ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ. ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ತೆರೆಯಲು ಮೇಲೆ ಎಡಬದಿಯಿಂದ ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ."</string>
+    <string name="shade_panels_combined_title" msgid="2812149031368941984">"ಸಂಯೋಜಿತ (ಕ್ಲಾಸಿಕ್)"</string>
+    <string name="shade_panels_combined_summary" msgid="5884627562590432068">"ನೋಟಿಫಿಕೇಶನ್‌ಗಳು ಮತ್ತು ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಸಂಯೋಜಿಸುವ ಕ್ಲಾಸಿಕ್ ಪ್ಯಾನೆಲ್ ಅನ್ನು ಆ್ಯಕ್ಸೆಸ್ ಮಾಡಲು ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಮೇಲ್ಭಾಗದಿಂದ ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ."</string>
+    <string name="shade_panels_foldables_footer_message" msgid="3974376428811063936">"ಸಂಯೋಜಿತ (ಕ್ಲಾಸಿಕ್) ವೀಕ್ಷಣೆಯು ಫೋಲ್ಡ್ ಮಾಡಬಹುದಾದ ನಿಮ್ಮ ಸಾಧನದ ಹೊರ ಸ್ಕ್ರೀನ್‌ಗೆ ಸೀಮಿತವಾಗಿದೆ"</string>
     <string name="emergency_settings_preference_title" msgid="6183455153241187148">"ಸುರಕ್ಷತೆ ಮತ್ತು ತುರ್ತು ಪರಿಸ್ಥಿತಿ"</string>
     <string name="emergency_dashboard_summary" msgid="401033951074039302">"ತುರ್ತು SOS, ವೈದ್ಯಕೀಯ ಮಾಹಿತಿ, ಎಚ್ಚರಿಕೆಗಳು"</string>
-    <string name="edge_to_edge_navigation_title" msgid="714427081306043819">"ಗೆಸ್ಚರ್ ನ್ಯಾವಿಗೇಶನ್"</string>
+    <string name="edge_to_edge_navigation_title" msgid="714427081306043819">"ಜೆಸ್ಚರ್ ನ್ಯಾವಿಗೇಶನ್"</string>
     <string name="edge_to_edge_navigation_summary" msgid="818109176611921504">"ಹೋಮ್‌ಗೆ ಹೋಗಲು, ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಭಾಗದಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಆ್ಯಪ್‌ಗಳನ್ನು ಬದಲಿಸಲು, ಕೆಳಭಾಗದಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ, ಹಿಡಿದುಕೊಳ್ಳಿ, ನಂತರ ಬಿಟ್ಟುಬಿಡಿ. ಹಿಂದಕ್ಕೆ ಹೋಗಲು, ಎಡ ಅಥವಾ ಬಲ ಅಂಚಿನಿಂದ ಸ್ವೈಪ್ ಮಾಡಿ."</string>
     <string name="legacy_navigation_title" msgid="7877402855994423727">"3-ಬಟನ್ ನ್ಯಾವಿಗೇಶನ್"</string>
     <string name="legacy_navigation_summary" msgid="5905301067778326433">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಕೆಳಭಾಗದಲ್ಲಿನ ಬಟನ್‌ಗಳೊಂದಿಗೆ ಹಿಂದಕ್ಕೆ, ಹೋಮ್‌ಗೆ ಹೋಗಿ ಮತ್ತು ಆ್ಯಪ್‌ಗಳನ್ನು ಬದಲಿಸಿ."</string>
-    <string name="nav_tutorial_button_description" msgid="7195363082216233970">"ಗೆಸ್ಚರ್ ನ್ಯಾವಿಗೇಶನ್ ಟುಟೋರಿಯಲ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ."</string>
+    <string name="nav_tutorial_button_description" msgid="7195363082216233970">"ಜೆಸ್ಚರ್ ನ್ಯಾವಿಗೇಶನ್ ಟುಟೋರಿಯಲ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ."</string>
     <string name="keywords_system_navigation" msgid="3131782378486554934">"ಸಿಸ್ಟಂ ನ್ಯಾವಿಗೇಶನ್, 2 ಬಟನ್ ನ್ಯಾವಿಗೇಶನ್, 3 ಬಟನ್ ನ್ಯಾವಿಗೇಶನ್, ಗೆಸ್ಚರ್ ನ್ಯಾವಿಗೇಶನ್, ಸ್ವೈಪ್"</string>
     <string name="assistant_gesture_category_title" msgid="2478251256585807920">"ಡಿಜಿಟಲ್ ಅಸಿಸ್ಟೆಂಟ್"</string>
     <string name="assistant_corner_gesture_title" msgid="1895061522687002106">"ಅಸಿಸ್ಟೆಂಟ್ ಅನ್ನು ಶುರು ಮಾಡಲು ಸ್ವೈಪ್ ಮಾಡಿ"</string>
@@ -4808,7 +4917,7 @@
     <string name="storage_temporary_files" msgid="8254109904032452219">"ತಾತ್ಕಾಲಿಕ ಸಿಸ್ಟಮ್ ಫೈಲ್‌ಗಳು"</string>
     <string name="storage_trash" msgid="2807138998886084856">"ಟ್ರ್ಯಾಶ್"</string>
     <string name="storage_trash_dialog_title" msgid="2296169576049935200">"ಅನುಪಯುಕ್ತವನ್ನು ಖಾಲಿ ಮಾಡಬೇಕೇ?"</string>
-    <string name="storage_trash_dialog_ask_message" msgid="8982602137242358798">"ಅನುಪಯುಕ್ತದಲ್ಲಿ <xliff:g id="TOTAL">%1$s</xliff:g> ಫೈಲ್‌ಗಳಿವೆ. ಎಲ್ಲಾ ಐಟಂಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮಗೆ ಅವುಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."</string>
+    <string name="storage_trash_dialog_ask_message" msgid="8982602137242358798">"ಟ್ರ್ಯಾಶ್‌ನಲ್ಲಿ <xliff:g id="TOTAL">%1$s</xliff:g> ಫೈಲ್‌ಗಳಿವೆ. ಎಲ್ಲಾ ಐಟಂಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮಗೆ ಅವುಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."</string>
     <string name="storage_trash_dialog_empty_message" msgid="7334670765528691400">"ಟ್ರ್ಯಾಶ್ ಖಾಲಿಯಾಗಿದೆ"</string>
     <string name="storage_trash_dialog_confirm" msgid="1707723334982760436">"ಅನುಪಯುಕ್ತವನ್ನು ಖಾಲಿ ಮಾಡಿ"</string>
     <string name="storage_usage_summary" msgid="4591121727356723463">"<xliff:g id="NUMBER">%1$s</xliff:g> <xliff:g id="UNIT">%2$s</xliff:g> ಬಳಸಲಾಗಿದೆ"</string>
@@ -4835,6 +4944,8 @@
     <string name="autofill_confirmation_message" msgid="4888767934273494272">"&lt;b&gt;ನಿಮಗೆ ಈ ಆ್ಯಪ್‌ ಮೇಲೆ ವಿಶ್ವಾಸವಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ &lt;/b&gt; &lt;br/&gt; &lt;br/&gt; ಯಾವ ಕ್ಷೇತ್ರಗಳನ್ನು ಸ್ವಯಂ-ಭರ್ತಿ ಮಾಡಬಹುದು ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸಲು &lt;xliff:g id=app_name example=Google Autofill&gt;%1$s&lt;/xliff:g&gt; ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‍ನಲ್ಲಿನ ಮಾಹಿತಿಯನ್ನು ಬಳಸಿಕೊಳ್ಳುತ್ತದೆ."</string>
     <string name="credman_autofill_confirmation_message" msgid="843829628024668466">"&lt;b&gt;Use &lt;xliff:g id=app_name example=Provider&gt;%1$s&lt;/xliff:g&gt;?&lt;/b&gt; &lt;br/&gt; &lt;br/&gt; ಈಗಿನಿಂದ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್‌ಗಳು, ಪಾಸ್‌ಕೀಗಳು ಮತ್ತು ಇತರ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಉಳಿಸಲಾಗುತ್ತದೆ. ಏನನ್ನು ಆಟೋಫಿಲ್ ಮಾಡಬಹುದು ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸಲು &lt;xliff:g id=app_name example=Provider&gt;%1$s&lt;/xliff:g&gt; ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ಮೇಲಿರುವುದನ್ನು ಬಳಸಬಹುದು."</string>
     <string name="credman_picker_title" msgid="8442086614222006564">"ಪಾಸ್‌ವರ್ಡ್‌ಗಳು, ಪಾಸ್‌ಕೀಗಳು ಮತ್ತು ಆಟೋಫಿಲ್‌ಗಾಗಿ ಆದ್ಯತೆಯ ಸೇವೆಗಳು"</string>
+    <string name="credman_picker_title_new" msgid="4292105803864397398">"ಆದ್ಯತೆಯ ಸೇವೆ"</string>
+    <string name="credman_picker_page_summary" msgid="4633938046738617332">"ಸೈನ್-ಇನ್ ಮತ್ತು ಆಟೋಫಿಲ್ ಸಲಹೆಗಳಿಗಾಗಿ ಡೇಟಾವನ್ನು ಸೇವ್ ಮಾಡಲು ನಿಮ್ಮ ಆದ್ಯತೆಯ ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
     <string name="credman_confirmation_message_title" msgid="8847900085593880729">"1$s ಅನ್ನು ಆಫ್ ಮಾಡಬೇಕೆ?"</string>
     <string name="credman_confirmation_message" msgid="2357324543658635239">"&lt;b&gt;ಈ ಸೇವೆಯನ್ನು ಆಫ್ ಮಾಡಬೇಕೇ?&lt;/b&gt; &lt;br/&gt; &lt;br/&gt; ಪಾಸ್‌ವರ್ಡ್‌ಗಳು, ಪಾಸ್‌ಕೀಗಳು, ಪಾವತಿ ವಿಧಾನಗಳಂತಹ ಸೇವ್ ಮಾಡಿದ ಮಾಹಿತಿಯನ್ನು ಮತ್ತು ಇತರ ಮಾಹಿತಿಯನ್ನು ನೀವು ಸೈನ್ ಇನ್ ಮಾಡಿದಾಗ ಭರ್ತಿ ಮಾಡಲಾಗುವುದಿಲ್ಲ. ನಿಮ್ಮ ಸೇವ್ ಮಾಡಿದ ಮಾಹಿತಿಯನ್ನು ಬಳಸಲು, ಪಾಸ್‌ವರ್ಡ್, ಪಾಸ್‌ಕೀ ಅಥವಾ ಡೇಟಾ ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ."</string>
     <string name="account_dashboard_title_with_passkeys" msgid="648242372086733541">"ಪಾಸ್‌ವರ್ಡ್‌ಗಳು, ಪಾಸ್‌ಕೀಗಳು ಮತ್ತು ಖಾತೆಗಳು"</string>
@@ -4858,8 +4969,6 @@
     <string name="autofill_reset_developer_options" msgid="6425613608979498608">"ಡಿಫಾಲ್ಟ್ ಮೌಲ್ಯಗಳಿಗೆ ಮರುಹೊಂದಿಸಿ"</string>
     <string name="autofill_reset_developer_options_complete" msgid="1276741935956594965">"ಸ್ವಯಂ ಭರ್ತಿ ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ"</string>
     <string name="location_category" msgid="3496759112306219062">"ಸ್ಥಳ"</string>
-    <string name="location_indicator_settings_title" msgid="6655916258720093451">"ಸ್ಥಿತಿ ಪಟ್ಟಿ ಸ್ಥಳ ಸೂಚಕ"</string>
-    <string name="location_indicator_settings_description" msgid="2888022085372804021">"ನೆಟ್‌ವರ್ಕ್ ಮತ್ತು ಸಂಪರ್ಕ ಕಲ್ಪಿಸುವಿಕೆಯನ್ನು ಒಳಗೊಂಡಂತೆ ಎಲ್ಲಾ ಸ್ಥಳಗಳನ್ನು ತೋರಿಸಿ"</string>
     <string name="enable_gnss_raw_meas_full_tracking" msgid="1206679951510243341">"ಫೋರ್ಸ್‌ ಫುಲ್ GNSS ಅಳತೆಗಳು"</string>
     <string name="enable_gnss_raw_meas_full_tracking_summary" msgid="3841463141138247167">"ಯಾವುದೇ ಡ್ಯೂಟಿ ಸೈಕ್ಲಿಂಗ್ ಇಲ್ಲದೆ ಎಲ್ಲಾ GNSS ಕಾನ್ಸ್ಟಲೇಶನ್‌ಗಳು ಮತ್ತು ಆವರ್ತನೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ"</string>
     <string name="input_method_category" msgid="2252659253631639005">"ಇನ್‌ಪುಟ್ ವಿಧಾನ"</string>
@@ -4941,7 +5050,7 @@
     <string name="network_connected" msgid="7637745547242487795">"ಸಂಪರ್ಕಗೊಂಡಿದೆ"</string>
     <string name="network_connecting" msgid="6856124847029124041">"ಸಂಪರ್ಕಿಸುತ್ತಿದೆ…"</string>
     <string name="network_could_not_connect" msgid="676574629319069922">"ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ"</string>
-    <string name="empty_networks_list" msgid="6519489879480673428">"ಯಾವುದೇ ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಕಂಡುಬಂದಿಲ್ಲ."</string>
+    <string name="empty_networks_list" msgid="7263167074321380983">"ಯಾವುದೇ ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಕಂಡುಬಂದಿಲ್ಲ"</string>
     <string name="network_query_error" msgid="6406348372070035274">"ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಹುಡುಕಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="forbidden_network" msgid="7404863971282262991">"(ನಿಷೇಧಿತ)"</string>
     <string name="sim_card" msgid="6381158752066377709">"ಸಿಮ್"</string>
@@ -5039,31 +5148,32 @@
     <string name="roaming_check_price_warning" msgid="5876977438036791361">"ಬೆಲೆ ನಿಗದಿಗಾಗಿ ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್ ಪೂರೈಕೆದಾರರೊಂದಿಗೆ ಪರಿಶೀಲಿಸಿ."</string>
     <string name="mobile_network_mode_error" msgid="9222056129897416074">"ಅಮಾನ್ಯ ನೆಟ್‌ವರ್ಕ್‌ ಮೋಡ್‌ <xliff:g id="NETWORKMODEID">%1$d</xliff:g>. ನಿರ್ಲಕ್ಷಿಸಿ."</string>
     <string name="satellite_setting" msgid="4650503806634496443">"ಸ್ಯಾಟಲೈಟ್ ಕನೆಕ್ಟಿವಿಟಿ"</string>
-    <string name="satellite_setting_enabled_summary" msgid="3554127722727530845">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಿ. ನಿಮ್ಮ ಖಾತೆಯ ಜೊತೆಗೆ ಸೇರಿಸಲಾಗಿದೆ."</string>
-    <string name="satellite_setting_disabled_summary" msgid="8428393986403708690">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಿ. ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸೇರಿಸಲಾಗಿಲ್ಲ."</string>
-    <string name="satellite_setting_summary_without_entitlement" msgid="5284998840770992554">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಿ. ವಿವರಗಳಿಗಾಗಿ ನಿಮ್ಮ ವಾಹಕ ಕಂಪನಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="satellite_setting_enabled_summary" msgid="2114544331827193266">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಿ. ಈ ಸೌಲಭ್ಯವನ್ನು ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿ ಸೇರಿಸಲಾಗಿದೆ."</string>
+    <string name="satellite_setting_disabled_summary" msgid="8193743637158939283">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಿ. ಈ ಸೌಲಭ್ಯವನ್ನು ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿ ಸೇರಿಸಲಾಗಿಲ್ಲ."</string>
+    <string name="satellite_setting_summary_without_entitlement" msgid="7010003955751606421">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಿ ಮತ್ತು ಸ್ವೀಕರಿಸಿ. ವಿವರಗಳಿಗಾಗಿ ನಿಮ್ಮ ವಾಹಕ ಕಂಪನಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="keywords_satellite_setting" msgid="613553612424945946">"ಸ್ಯಾಟಲೈಟ್ ಮೆಸೇಜಿಂಗ್, ಸ್ಯಾಟಲೈಟ್ ಕನೆಕ್ಟಿವಿಟಿ"</string>
     <string name="category_name_about_satellite_connectivity" msgid="3971142716898783631">"ಸ್ಯಾಟಲೈಟ್ ಕನೆಕ್ಟಿವಿಟಿ ಕುರಿತು"</string>
-    <string name="description_about_satellite_setting" msgid="5539359064330584941">"ಅರ್ಹ <xliff:g id="CARRIER_NAME">%1$s</xliff:g> ಖಾತೆಯನ್ನು ಬಳಸಿಕೊಂಡು ನೀವು ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಬಹುದು ಮತ್ತು ಸ್ವೀಕರಿಸಬಹುದು ಹಾಗೂ ಕೆಲವು ಆ್ಯಪ್‌ಗಳನ್ನು ಬಳಸಬಹುದು"</string>
+    <string name="description_about_satellite_setting" msgid="8212911110428998767">"ನೀವು ಅರ್ಹ <xliff:g id="CARRIER_NAME">%1$s</xliff:g> ಖಾತೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಕಳುಹಿಸಬಹುದು ಮತ್ತು ಸ್ವೀಕರಿಸಬಹುದು"</string>
     <string name="category_title_your_satellite_plan" msgid="8169426217950247126">"ನಿಮ್ಮ <xliff:g id="CARRIER_NAME">%1$s</xliff:g> ಖಾತೆ"</string>
-    <string name="title_have_satellite_plan" msgid="2048372355699977947">"ಸ್ಯಾಟಲೈಟ್ ಸಂದೇಶ ಕಳುಹಿಸುವಿಕೆಯು ನಿಮ್ಮ ಖಾತೆಯ ಜೊತೆಯಲ್ಲಿ ಸೇರಿದೆ"</string>
-    <string name="title_no_satellite_plan" msgid="2876056203035197505">"ಸ್ಯಾಟಲೈಟ್ ಸಂದೇಶ ಕಳುಹಿಸುವಿಕೆಯು ನಿಮ್ಮ ಖಾತೆಯ ಜೊತೆಯಲ್ಲಿ ಸೇರಿಲ್ಲ"</string>
+    <string name="title_have_satellite_plan" msgid="857337944804101443">"ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸಂದೇಶ ಕಳುಹಿಸುವಿಕೆಯನ್ನು ಸೇರಿಸಲಾಗಿದೆ"</string>
+    <string name="title_no_satellite_plan" msgid="7255726881685672846">"ಸ್ಯಾಟಲೈಟ್ ಸಂದೇಶ ಕಳುಹಿಸುವ ಸೌಲಭ್ಯವನ್ನು ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿ ಸೇರಿಸಲಾಗಿಲ್ಲ"</string>
     <string name="summary_add_satellite_setting" msgid="190359698593056946">"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="category_name_how_it_works" msgid="585303230539269496">"ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ"</string>
-    <string name="title_satellite_connection_guide" msgid="3294802307913609072">"ನೀವು ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಹೊಂದಿಲ್ಲದಿದ್ದಾಗ"</string>
+    <string name="title_satellite_connection_guide" msgid="4730763872034574368">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಮೊಬೈಲ್ ಅಥವಾ ವೈ-ಫೈ ನೆಟ್‌ವರ್ಕ್ ಇಲ್ಲದಿದ್ದಾಗ"</string>
     <string name="title_satellite_connection_guide_for_manual_type" msgid="7223875100977941341">"ಫೋನ್ ಸಂಖ್ಯೆಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ"</string>
     <string name="summary_satellite_connection_guide" msgid="3496123195218418456">"ನಿಮ್ಮ ಫೋನ್ ಸ್ಯಾಟಲೈಟ್‌ಗೆ ಆಟೋ-ಕನೆಕ್ಟ್ ಆಗುತ್ತದೆ. ಉತ್ತಮ ಕನೆಕ್ಷನ್‌ಗಾಗಿ, ಆಕಾಶ ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣುವ ಹಾಗೆ ಇರಿಸಿ."</string>
-    <string name="summary_satellite_connection_guide_for_manual_type" msgid="5075149380084376662">"ನೀವು ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಹೊಂದಿಲ್ಲದಿದ್ದರೆ, ನಿಮಗೆ ಸ್ಯಾಟಲೈಟ್ ಮೆಸೇಜಿಂಗ್ ಅನ್ನು ಬಳಸುವ ಆಯ್ಕೆ ಕಾಣುತ್ತದೆ."</string>
+    <string name="summary_satellite_connection_guide_for_manual_type" msgid="2106091974353287661">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಲಭ್ಯವಿಲ್ಲದಿದ್ದರೆ, ನಿಮಗೆ ಸ್ಯಾಟಲೈಟ್ ಅನ್ನು ಬಳಸುವ ಆಯ್ಕೆ ಕಾಣಿಸುತ್ತದೆ."</string>
     <string name="title_supported_service" msgid="4275535165812691571">"ನಿಮ್ಮ ಫೋನ್ ಸ್ಯಾಟಲೈ‌ಟ್‌ಗೆ ಕನೆಕ್ಟ್ ಆದ ನಂತರ"</string>
     <string name="title_supported_service_for_manual_type" msgid="6009284624466359864">"ಸ್ಯಾಟಲೈಟ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡಲು ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ"</string>
-    <string name="summary_supported_service" msgid="4320535903444834786">"ತುರ್ತು ಸೇವೆಗಳಿಗೂ ಸಹಿತ, ನೀವು ಯಾರಿಗಾದರೂ ಸಂದೇಶ ಕಳುಹಿಸಬಹುದು. ಲಭ್ಯವಿರುವಾಗ ನಿಮ್ಮ ಫೋನ್ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ರೀಕನೆಕ್ಟ್ ಆಗುತ್ತದೆ."</string>
+    <string name="summary_supported_service" msgid="6380533552383355977">"ನೀವು ತುರ್ತು ಸೇವೆಗಳು ಸೇರಿದ ಹಾಗೆ, ಯಾರಿಗಾದರೂ ಸಂದೇಶ ಕಳುಹಿಸಬಹುದು ಮತ್ತು ಕೆಲವು ಆ್ಯಪ್‌ಗಳಲ್ಲಿ ಸೀಮಿತ ಡೇಟಾವನ್ನು ಬಳಸಬಹುದು. ಲಭ್ಯವಿರುವಾಗ ನಿಮ್ಮ ಫೋನ್ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಪುನಃ ಕನೆಕ್ಟ್ ಮಾಡುತ್ತದೆ."</string>
+    <string name="summary_supported_service_without_data_supported" msgid="179845377285866178">"ತುರ್ತು ಸೇವೆಗಳಿಗೂ ಸೇರಿದಂತೆ, ನೀವು ಯಾರಿಗಾದರೂ ಪಠ್ಯ ಸಂದೇಶ ಕಳುಹಿಸಬಹುದು. ಲಭ್ಯವಿರುವಾಗ ನಿಮ್ಮ ಫೋನ್ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಪುನಃ ಕನೆಕ್ಟ್ ಆಗುತ್ತದೆ."</string>
     <string name="summary_supported_service_for_manual_type" msgid="2147958362763058271">"ನಿಮ್ಮ ಫೋನ್ ಕನೆಕ್ಟ್ ಆದ ನಂತರ, ತುರ್ತು ಸೇವೆಗಳು ಸೇರಿದಂತೆ ಯಾರಿಗಾದರೂ ನೀವು ಸಂದೇಶ ಕಳುಹಿಸಬಹುದು."</string>
     <string name="satellite_footer_content_section_0" msgid="4169483813004415556">"ನೆನಪಿನಲ್ಲಿಡಿ"</string>
     <string name="satellite_footer_content_section_1" msgid="7925931577373229601">"ಸ್ಯಾಟಲೈಟ್ ಕನೆಕ್ಟಿವಿಟಿಯು ಹೆಚ್ಚು ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು ಮತ್ತು ಇದು ಕೆಲವು ಪ್ರದೇಶಗಳಲ್ಲಿ ಮಾತ್ರ ಲಭ್ಯವಿರುತ್ತದೆ."</string>
     <string name="satellite_footer_content_section_2" msgid="7699185178461362541">"ಹವಾಮಾನ ಮತ್ತು ಕೆಲವೊಂದು ರಚನೆಗಳು ನಿಮ್ಮ ಸ್ಯಾಟಲೈಟ್ ಕನೆಕ್ಷನ್ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರಬಹುದು."</string>
-    <string name="satellite_footer_content_section_3" msgid="4652426135622555607">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಕರೆ ಮಾಡುವ ಸೌಲಭ್ಯ ಲಭ್ಯವಿಲ್ಲ."</string>
+    <string name="satellite_footer_content_section_3" msgid="4686525535095321485">"ಸ್ಯಾಟಲೈಟ್ ಮೂಲಕ ಕರೆ ಮಾಡುವ ಸೌಲಭ್ಯ ಲಭ್ಯವಿಲ್ಲ."</string>
     <string name="satellite_footer_content_section_4" msgid="2294227482962815751">"ತುರ್ತು ಕರೆಗಳು ಈಗಲೂ ಕನೆಕ್ಟ್ ಆಗಬಹುದು."</string>
-    <string name="satellite_footer_content_section_5" msgid="3053256489735265540">"ಬಾಹ್ಯ ಲಿಂಕ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಮೊಬೈಲ್ ಅಥವಾ ವೈ-ಫೈ ನೆಟ್‌ವರ್ಕ್ ಅಗತ್ಯವಿದೆ."</string>
+    <string name="satellite_footer_content_section_5" msgid="2466353040832630785">"ಬಾಹ್ಯ ಲಿಂಕ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಮೊಬೈಲ್ ಅಥವಾ ವೈ-ಫೈ ನೆಟ್‌ವರ್ಕ್ ಅಗತ್ಯವಿದೆ."</string>
     <string name="satellite_footer_content_section_6" msgid="1448633393918612418">"ತುರ್ತು ಸೇವೆಗಳ ಮೂಲಕ ಪಠ್ಯ ಸಂದೇಶ ಕಳುಹಿಸುವಿಕೆಯು ಎಲ್ಲಾ ಪ್ರದೇಶಗಳಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲದಿರಬಹುದು."</string>
     <string name="satellite_footer_content_section_7" msgid="5524773673918954918">"ಖಾತೆ ಬದಲಾವಣೆಗಳು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳಲು ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು. ವಿವರಗಳಿಗಾಗಿ <xliff:g id="CARRIER_NAME">%1$s</xliff:g> ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="more_about_satellite_connectivity" msgid="9110502891919936054">"ಸ್ಯಾಟಲೈಟ್ ಕನೆಕ್ಟಿವಿಟಿ ಕುರಿತು ಇನ್ನಷ್ಟು"</string>
@@ -5075,7 +5185,7 @@
     <string name="description_satellite_setting_messaging" msgid="4367494645429198805">"ಸ್ಯಾಟಲೈಟ್ ಮೆಸೇಜಿಂಗ್"</string>
     <string name="title_have_satellite_data_plan" msgid="5614932315409789011">"ಡೇಟಾದ ಬಳಕೆಯನ್ನು ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸೇರಿಸಲಾಗಿದೆ"</string>
     <string name="category_title_satellite_supported_apps" msgid="8445659428502119518">"ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ಬೆಂಬಲಿಸುವ ಆ್ಯಪ್‌ಗಳು"</string>
-    <string name="title_satellite_supported_app_list_entry" msgid="3227843312488003028">"ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳನ್ನು ನೋಡಿ"</string>
+    <string name="title_satellite_supported_app_list_entry" msgid="891155574898209245">"ಸ್ಯಾಟಲೈಟ್ ಸೇವೆಗೆ ಬೆಂಬಲವಿರುವ ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳನ್ನು ನೋಡಿ"</string>
     <string name="title_satellite_supported_app_list_page" msgid="318806852682483512">"ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ಬೆಂಬಲಿಸುವ ಆ್ಯಪ್‌ಗಳು"</string>
     <string name="title_satellite_dialog_for_sim_restriction" msgid="454718192423216397">"SIM ಅನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="description_satellite_dialog_for_sim_restriction" msgid="5465487347427595435">"ನೀವು SIM ಸೇರಿಸುವ ಮೊದಲು ಸೆಟಲೈಟ್ ಕನೆಕ್ಷನ್ ಅನ್ನು ಕೊನೆಗೊಳಿಸಿ"</string>
@@ -5204,7 +5314,7 @@
     <string name="low_storage_summary" msgid="1979492757417779718">"ಸಂಗ್ರಹಣೆಯು ಕಡಿಮೆ ಇದೆ. <xliff:g id="PERCENTAGE">%1$s</xliff:g> ಬಳಸಲಾಗಿದೆ - <xliff:g id="FREE_SPACE">%2$s</xliff:g> ಖಾಲಿ ಇದೆ"</string>
     <string name="contextual_card_feedback_send" msgid="7409408664417908922">"ಫೀಡ್‌ಬ್ಯಾಕ್ ಕಳುಹಿಸಿ"</string>
     <string name="contextual_card_feedback_confirm_message" msgid="3186334562157665381">"ಈ ಸಲಹೆಯನ್ನು ಆಧರಿಸಿ ನೀವು ನಮಗೆ ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಲು ಬಯಸುವಿರಾ?"</string>
-    <string name="copyable_slice_toast" msgid="1008251852798990606">"<xliff:g id="COPY_CONTENT">%1$s</xliff:g> ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ."</string>
+    <string name="copyable_slice_toast" msgid="1008251852798990606">"<xliff:g id="COPY_CONTENT">%1$s</xliff:g> ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಕಾಪಿ ಮಾಡಲಾಗಿದೆ."</string>
     <string name="search_bar_account_avatar_content_description" msgid="880523277036898350"></string>
     <string name="accessibility_usage_title" msgid="9190967143518779145">"ಪ್ರವೇಶಿಸುವಿಕೆಯ ಬಳಕೆ"</string>
     <string name="accessibility_usage_summary" msgid="4348285359995227813">"{count,plural, =1{1 ಆ್ಯಪ್ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಸಂಪೂರ್ಣ ಆ್ಯಕ್ಸೆಸ್ ಹೊಂದಿದೆ}one{# ಆ್ಯಪ್‌ಗಳು ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಸಂಪೂರ್ಣ ಆ್ಯಕ್ಸೆಸ್ ಹೊಂದಿವೆ}other{# ಆ್ಯಪ್‌ಗಳು ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಸಂಪೂರ್ಣ ಆ್ಯಕ್ಸೆಸ್ ಹೊಂದಿವೆ}}"</string>
@@ -5219,13 +5329,13 @@
     <string name="capture_system_heap_dump_title" msgid="9210974110606886455">"ಸಿಸ್ಟಂ ಹೀಪ್ ಡಂಪ್ ಅನ್ನು ಕ್ಯಾಪ್ಚರ್ ಮಾಡಿ"</string>
     <string name="development_memtag_page_title" msgid="3546667618748029188">"ಮೆಮೊರಿ ಟ್ಯಾಗಿಂಗ್ ಎಕ್ಸ್‌ಟೆನ್ಶನ್‌"</string>
     <string name="development_memtag_intro" msgid="8032596625527637164">"ಮೆಮೊರಿ ಟ್ಯಾಗಿಂಗ್ ಎಕ್ಸ್‌ಟೆನ್ಷನ್‌ (MTE) ನಿಮ್ಮ ಆ್ಯಪ್‌ನಲ್ಲಿನ ಮೆಮೊರಿ ಸುರಕ್ಷತೆ ಸಮಸ್ಯೆಗಳನ್ನು ಹುಡುಕುವುದನ್ನು ಸುಲಭವಾಗಿಸುತ್ತದೆ ಮತ್ತು ಅದರಲ್ಲಿನ ನೇಟಿವ್‌ ಕೋಡ್ ಅನ್ನು ಹೆಚ್ಚು ಸುರಕ್ಷಿತವಾಗಿಸುತ್ತದೆ."</string>
-    <string name="development_memtag_footer" msgid="5681925148773626562">"MTE ಅನ್ನು ಆನ್ ಮಾಡುವುದರಿಂದ ಸಾಧನದ ಕಾರ್ಯಕ್ಷಮತೆ ನಿಧಾನವಾಗಬಹುದು."</string>
+    <string name="development_memtag_footer" msgid="5681925148773626562">"MTE ಅನ್ನು ಆನ್ ಮಾಡುವುದರಿಂದ ಸಾಧನದ ಪರ್ಫಾರ್ಮೆನ್ಸ್ ನಿಧಾನವಾಗಬಹುದು."</string>
     <string name="development_memtag_learn_more" msgid="8961984806973926704">"MTE ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"</string>
     <string name="development_memtag_toggle" msgid="2474420239518386894">"ನೀವು MTE ಅನ್ನು ಆಫ್ ಮಾಡುವವರೆಗೆ ಅದನ್ನು ಸಕ್ರಿಯವಾಗಿರಿಸಿ"</string>
     <string name="development_memtag_reboot_message_on" msgid="8100075676107327847">"MTE ಅನ್ನು ಆನ್ ಮಾಡಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಮರುಪ್ರಾರಂಭಿಸಬೇಕಾಗುತ್ತದೆ."</string>
     <string name="development_memtag_reboot_message_off" msgid="3703925647922079456">"MTE ಅನ್ನು ಆಫ್ ಮಾಡಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಮರುಪ್ರಾರಂಭಿಸಬೇಕಾಗುತ್ತದೆ."</string>
     <string name="reboot_with_mte_title" msgid="2320125810211279">"ಒಂದು ಬಾರಿಯ ಸೆಷನ್‌ಗಾಗಿ MTE ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
-    <string name="reboot_with_mte_message" msgid="1232881567956207641">"ಸಿಸ್ಟಂ ಮರುಪ್ರಾರಂಭವಾಗುತ್ತದೆ ಹಾಗೂ ಮೆಮೊರಿ ಟ್ಯಾಗಿಂಗ್ ಎಕ್ಸ್‌ಟೆನ್ಷನ್‌ನೊಂದಿಗೆ (MTE) ಪ್ರಯೋಗ ಮಾಡಲು ಅನುಮತಿಸುತ್ತದೆ. MTE, ಸಿಸ್ಟಂ ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ಸ್ಥಿರತೆಯ ಮೇಲೆ ನಕಾರಾತ್ಮಕವಾಗಿ ಪ್ರಭಾವ ಬೀರಬಹುದು. ಮುಂದಿನ ಬಾರಿಯ ರೀಬೂಟ್‌ನಲ್ಲಿ ರೀಸೆಟ್ ಮಾಡಲಾಗುತ್ತದೆ."</string>
+    <string name="reboot_with_mte_message" msgid="1232881567956207641">"ಸಿಸ್ಟಂ ಮರುಪ್ರಾರಂಭವಾಗುತ್ತದೆ ಹಾಗೂ ಮೆಮೊರಿ ಟ್ಯಾಗಿಂಗ್ ಎಕ್ಸ್‌ಟೆನ್ಷನ್‌ನೊಂದಿಗೆ (MTE) ಪ್ರಯೋಗ ಮಾಡಲು ಅನುಮತಿಸುತ್ತದೆ. MTE, ಸಿಸ್ಟಂ ಪರ್ಫಾರ್ಮೆನ್ಸ್ ಮತ್ತು ಸ್ಥಿರತೆಯ ಮೇಲೆ ನಕಾರಾತ್ಮಕವಾಗಿ ಪ್ರಭಾವ ಬೀರಬಹುದು. ಮುಂದಿನ ಬಾರಿಯ ರೀಬೂಟ್‌ನಲ್ಲಿ ರೀಸೆಟ್ ಮಾಡಲಾಗುತ್ತದೆ."</string>
     <string name="reboot_with_mte_summary" msgid="3896537791216432882">"MTE ಸಕ್ರಿಯ ಒಂದು ಬಾರಿಯ ಸೆಷನ್‌ಗಾಗಿ ಮರುಪ್ರಾರಂಭಿಸಿ"</string>
     <string name="reboot_with_mte_already_enabled" msgid="4439168867613407167">"ಈಗಾಗಲೇ MTE ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"</string>
     <string name="capturing_system_heap_dump_message" msgid="8410503247477360622">"ಸಿಸ್ಟ್ಂ ಹೀಪ್ ಡಂಪ್ ಅನ್ನು ಕ್ಯಾಪ್ಚರ್ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
@@ -5241,7 +5351,7 @@
     <string name="enable_mms_notification_summary" msgid="6432752438276672500">"ಮೊಬೈಲ್ ಡೇಟಾ ಆಫ್ ಇರುವಾಗ, <xliff:g id="OPERATOR_NAME">%1$s</xliff:g> ನಲ್ಲಿ MMS ಸಂದೇಶ ಕಳುಹಿಸುವುದನ್ನು ಅನುಮತಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ"</string>
     <string name="enable_mms_notification_channel_title" msgid="1798206332620642108">"MMS ಸಂದೇಶ"</string>
     <string name="sim_combination_warning_notification_title" msgid="1365401631492986487">"SIM ನ ಸಂಯೋಜನೆಯಲ್ಲಿ ಸಮಸ್ಯೆಯಿದೆ"</string>
-    <string name="dual_cdma_sim_warning_notification_summary" msgid="2826474790710586487">"<xliff:g id="OPERATOR_NAMES">%1$s</xliff:g> ಬಳಸುವುದರಿಂದ ಕಾರ್ಯಕ್ಷಮತೆ ಸೀಮಿತವಾಗಬಹುದು. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
+    <string name="dual_cdma_sim_warning_notification_summary" msgid="2826474790710586487">"<xliff:g id="OPERATOR_NAMES">%1$s</xliff:g> ಬಳಸುವುದರಿಂದ ಪರ್ಫಾರ್ಮೆನ್ಸ್ ಸೀಮಿತವಾಗಬಹುದು. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
     <string name="dual_cdma_sim_warning_notification_channel_title" msgid="1049161096896074364">"SIM ನ ಸಂಯೋಜನೆ"</string>
     <string name="work_policy_privacy_settings" msgid="2702644843505242596">"ನಿಮ್ಮ ಕೆಲಸದ ನೀತಿಯ ಮಾಹಿತಿ"</string>
     <string name="work_policy_privacy_settings_summary" msgid="690118670737638405">"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಂದ ನಿರ್ವಹಿಸುತ್ತಾರೆ"</string>
@@ -5249,14 +5359,13 @@
     <string name="enable_16k_pages" msgid="1758111531461408337">"16 KB ಪುಟದ ಗಾತ್ರದೊಂದಿಗೆ ಬೂಟ್ ಮಾಡಿ"</string>
     <string name="enable_16k_pages_summary" msgid="1937836453571509085">"16KB ಪುಟ ಗಾತ್ರ ಬೆಂಬಲಿತ ಕೆರ್ನಲ್ ಬಳಸಿ ಸಾಧನ ಬೂಟ್ ಮಾಡಿ"</string>
     <string name="confirm_enable_16k_pages_title" msgid="5477376227161609124">"4 KB ಮೋಡ್‌ನಿಂದ 16 KB ಮೋಡ್‌ಗೆ ಬದಲಿಸಿ"</string>
+    <string name="confirm_enable_16k_pages_update_wipe" msgid="4760548401414644138">"16 KB ಡೆವಲಪರ್ ಆಯ್ಕೆಯನ್ನು ಬಳಸುವ ಮೊದಲು ಈ ಸಾಧನದ ಡೇಟಾ ಪಾರ್ಟಿಶನ್ ಅನ್ನು ext4 ಗೆ ಪರಿವರ್ತಿಸುವ ಅಗತ್ಯವಿದೆ. ಸಾಧನವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ದೃಢೀಕರಣದ ನಂತರ ಫೈಲ್‌ಸಿಸ್ಟಮ್ ಅನ್ನು ext4 ಗೆ ಬದಲಾಯಿಸಲಾಗುತ್ತದೆ. ನೀವು 4 KB ಕೆರ್ನಲ್ ಅನ್ನು ಚಲಾಯಿಸುವ ಪ್ರೊಡಕ್ಷನ್ ಮೋಡ್‌ನಲ್ಲಿದ್ದೀರಿ, ಮತ್ತು ನೀವು 16 KB ಮೋಡ್‌ಗೆ ಬದಲಾಯಿಸುತ್ತಿದ್ದೀರಿ. ಒಮ್ಮೆ ನೀವು ಈ ಮೋಡ್‌ಗೆ ಬಂದರೆ, ಒಂದೇ ರೀಬೂಟ್‌ನೊಂದಿಗೆ ನೀವು 4 KB ಮತ್ತು 16 KB ಮೋಡ್‌ಗಳ ನಡುವೆ ಹಿಂದಕ್ಕೆ ಮತ್ತು ಮುಂದಕ್ಕೆ ಬದಲಾಯಿಸಬಹುದು. ಈ ಮೋಡ್‌ನಲ್ಲಿ ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಟಿಗ್ರಿಟಿಯ ಭರವಸೆ ನೀಡಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಬೂಟ್‌ಲೋಡರ್ ಅನ್‌ಲಾಕ್ ಆಗಿರುವಾಗ ಫೋನ್‌ನಲ್ಲಿ ಸಂಗ್ರಹವಾಗಿರುವ ಯಾವುದೇ ಡೇಟಾ ಅಪಾಯದಲ್ಲಿರಬಹುದು. ಈ ಮೋಡ್‌ಗಳಲ್ಲಿ ಕೆಲವು ಫೀಚರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಸಾಧನವನ್ನು ಪ್ರೊಡಕ್ಷನ್ ಮೋಡ್‌ಗೆ ಮರಳಿಸಲು, ನೀವು 4 KB ಮೋಡ್‌ಗೆ ಹಿಂತಿರುಗಿ ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ, ಇದು ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ರೀಸೆಟ್ ಮಾಡುತ್ತದೆ. ಸಾಧನವು ಯಶಸ್ವಿಯಾಗಿ Android ಗೆ ಬೂಟ್ ಆದ ನಂತರ, ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳಲ್ಲಿ OEM ಅನ್‌ಲಾಕಿಂಗ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ಮುಂದುವರಿಯಲು, \'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸಿ ಮತ್ತು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ\' ಎಂಬುದನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ. ಇದು ಸಾಧನವನ್ನು ರೀಬೂಟ್ ಮಾಡುತ್ತದೆ."</string>
     <string name="confirm_enable_16k_pages_text" msgid="6211693250692246982">"ನೀವು 4 KB ಕೆರ್ನಲ್ ಅನ್ನು ರನ್ ಮಾಡುತ್ತಿರುವ, ಪೇಜ್-ಅಗ್ನೋಸ್ಟಿಕ್ ಮೋಡ್‌ನಲ್ಲಿರುವಿರಿ ಮತ್ತು ನೀವು 16 KB ಮೋಡ್‌ಗೆ ಬದಲಾಯಿಸುತ್ತಿರುವಿರಿ. ಈ ಮೋಡ್‌ನಲ್ಲಿ ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಟಿಗ್ರಿಟಿಯ ಭರವಸೆ ನೀಡಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಬೂಟ್‌ಲೋಡರ್ ಅನ್‌ಲಾಕ್ ಆಗಿರುವಾಗ ಫೋನ್‌ನಲ್ಲಿ ಸಂಗ್ರಹಣೆ ಮಾಡಲಾಗಿರುವ ಯಾವುದೇ ಡೇಟಾ ಅಪಾಯದಲ್ಲಿರಬಹುದು. ಇದು ಸಾಧನವನ್ನು ರೀಬೂಟ್ ಮಾಡುತ್ತದೆ. ಈ ಮೋಡ್‌ಗಳಲ್ಲಿ ಕೆಲವು ಫೀಚರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಸಾಧನವನ್ನು ಪ್ರೊಡಕ್ಷನ್ ಮೋಡ್‌ಗೆ ಮರಳಿಸಲು, ನೀವು 4 KB ಮೋಡ್‌ಗೆ ಹಿಂತಿರುಗಿ ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ, ಇದು ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ರೀಸೆಟ್ ಮಾಡುತ್ತದೆ. ಸಾಧನವು ಯಶಸ್ವಿಯಾಗಿ Android ಗೆ ಬೂಟ್ ಆದ ನಂತರ, ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳಲ್ಲಿ OEM ಅನ್‌ಲಾಕಿಂಗ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ."</string>
     <string name="confirm_enable_4k_pages_title" msgid="3001009010581393119">"16 KB ಮೋಡ್‌ನಿಂದ 4 KB ಮೋಡ್‌ಗೆ ಬದಲಿಸಿ"</string>
     <string name="confirm_enable_4k_pages_text" msgid="3398001587586470689">"ನೀವು 16 KB ಕೆರ್ನಲ್ ಅನ್ನು ರನ್ ಮಾಡುತ್ತಿರುವ, ಪೇಜ್-ಅಗ್ನೋಸ್ಟಿಕ್ ಮೋಡ್‌ನಲ್ಲಿರುವಿರಿ ಮತ್ತು ನೀವು 4 KB ಮೋಡ್‌ಗೆ ಬದಲಾಯಿಸುತ್ತಿರುವಿರಿ. ಈ ಮೋಡ್‌ನಲ್ಲಿ ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಟಿಗ್ರಿಟಿಯ ಭರವಸೆ ನೀಡಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಬೂಟ್‌ಲೋಡರ್ ಅನ್‌ಲಾಕ್ ಆಗಿರುವಾಗ ಫೋನ್‌ನಲ್ಲಿ ಸಂಗ್ರಹಣೆ ಮಾಡಲಾಗಿರುವ ಯಾವುದೇ ಡೇಟಾ ಅಪಾಯದಲ್ಲಿರಬಹುದು. ಇದು ಸಾಧನವನ್ನು ರೀಬೂಟ್ ಮಾಡುತ್ತದೆ. ಈ ಮೋಡ್‌ಗಳಲ್ಲಿ ಕೆಲವು ಫೀಚರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಸಾಧನವನ್ನು ಪ್ರೊಡಕ್ಷನ್ ಮೋಡ್‌ಗೆ ಮರಳಿಸಲು, ನೀವು ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ, ಇದು ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ರೀಸೆಟ್‌ ಮಾಡುತ್ತದೆ. ಸಾಧನವು ಯಶಸ್ವಿಯಾಗಿ Android ಗೆ ಬೂಟ್ ಆದ ನಂತರ, ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳಲ್ಲಿ OEM ಅನ್‌ಲಾಕಿಂಗ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ."</string>
     <string name="toast_16k_update_failed_text" msgid="7848383020572918850">"ಕೆರ್ನಲ್ ಅನ್ನು 16 KB ಪುಟಗಳ ಹೊಂದಾಣಿಕೆಯ ಕೆರ್ನಲ್‌ಗೆ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ."</string>
     <string name="progress_16k_ota_title" msgid="2117218313875523741">"ಬದಲಾವಣೆಯನ್ನು ಅನ್ವಯಿಸಲಾಗುತ್ತಿದೆ"</string>
-    <string name="confirm_format_ext4_title" msgid="4754057414728537125">"ಸಾಧನವನ್ನು ext4 ಗೆ ಮರುಫಾರ್ಮ್ಯಾಟ್ ಮಾಡಬೇಕೇ? (16 KB ಮೋಡ್‌ಗೆ ಅಗತ್ಯವಿದೆ)"</string>
-    <string name="confirm_format_ext4_text" msgid="432847493298532536">"16 KB ಡೆವಲಪರ್ ಆಯ್ಕೆಯನ್ನು ಬಳಸುವ ಮೊದಲು ಈ ಸಾಧನದ ಡೇಟಾ ಪಾರ್ಟಿಶನ್ ಅನ್ನು ext4 ಗೆ ಪರಿವರ್ತಿಸುವ ಅಗತ್ಯವಿದೆ. ಈ ಮೋಡ್‌ನಲ್ಲಿ ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಟಿಗ್ರಿಟಿಯ ಭರವಸೆ ನೀಡಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಬೂಟ್‌ಲೋಡರ್ ಅನ್‌ಲಾಕ್ ಆಗಿರುವಾಗ ಫೋನ್‌ನಲ್ಲಿ ಸಂಗ್ರಹಣೆ ಮಾಡಲಾಗಿರುವ ಯಾವುದೇ ಡೇಟಾ ಅಪಾಯದಲ್ಲಿರಬಹುದು. 16 KB ಆಯ್ಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಇದರ ನಂತರ ಮತ್ತೊಮ್ಮೆ ರೀಬೂಟ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ. ಒಮ್ಮೆ ನೀವು ಈ ಮೋಡ್‌ಗೆ ಬಂದರೆ, ಒಂದೇ ರೀಬೂಟ್‌ನೊಂದಿಗೆ ನೀವು 4 KB ಮತ್ತು 16 KB ಮೋಡ್‌ಗಳ ನಡುವೆ ಹಿಂದಕ್ಕೆ ಮತ್ತು ಮುಂದಕ್ಕೆ ಬದಲಾಯಿಸಬಹುದು. ಈ ಮೋಡ್‌ಗಳಲ್ಲಿ ಕೆಲವು ಫೀಚರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಸಾಧನವನ್ನು ಪ್ರೊಡಕ್ಷನ್ ಮೋಡ್‌ಗೆ ಮರಳಿಸಲು, ನೀವು 4 KB ಮೋಡ್‌ಗೆ ಹಿಂತಿರುಗಿ ನಂತರ ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಲಾಕ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ, ಇದು ಸಾಧನವನ್ನು ಫ್ಯಾಕ್ಟರಿ ರೀಸೆಟ್ ಮಾಡುತ್ತದೆ. ಸಾಧನವು ಯಶಸ್ವಿಯಾಗಿ Android ಗೆ ಬೂಟ್ ಆದ ನಂತರ, ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳಲ್ಲಿ OEM ಅನ್‌ಲಾಕಿಂಗ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ಸಾಧನವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ದೃಢೀಕರಣದ ನಂತರ ಫೈಲ್‌ಸಿಸ್ಟಮ್ ಅನ್ನು ext4 ಗೆ ಬದಲಾಯಿಸಲಾಗುತ್ತದೆ. ಇದು ಪೂರ್ಣಗೊಂಡ ನಂತರ, ಮತ್ತೆ 16 KB ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಹಿಂತಿರುಗಿ."</string>
-    <string name="confirm_ext4_button_text" msgid="6045501984773738407">"ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸಿ"</string>
+    <string name="confirm_ext4_button_text" msgid="697563319110759422">"ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸಿ ಮತ್ತು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"</string>
     <string name="format_ext4_failure_toast" msgid="8059453995800471549">"ಡೇಟಾ ವಿಭಾಗವನ್ನು ext4 ಗೆ ಮರು ಫಾರ್ಮ್ಯಾಟ್ ಮಾಡಲು ಮತ್ತು ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ."</string>
     <string name="confirm_oem_unlock_for_16k_title" msgid="6062041826568112078">"ಬೂಟ್‌ಲೋಡರ್ ಅನ್‌ಲಾಕ್ ಮಾಡುವ ಅಗತ್ಯವಿದೆ"</string>
     <string name="confirm_oem_unlock_for_16k_text" msgid="8089310116854544106">"16 KB ಡೆವಲಪರ್ ಆಯ್ಕೆಯನ್ನು ಬಳಸುವ ಮೊದಲು ಈ ಸಾಧನದಲ್ಲಿ ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬೇಕಾಗಿದೆ. ಈ ಮೋಡ್‌ನಲ್ಲಿ ಸಾಫ್ಟ್‌ವೇರ್ ಇಂಟಿಗ್ರಿಟಿಯ ಭರವಸೆ ನೀಡಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಬೂಟ್‌ಲೋಡರ್ ಅನ್‌ಲಾಕ್ ಆಗಿರುವಾಗ ಫೋನ್‌ನಲ್ಲಿ ಸಂಗ್ರಹಣೆ ಮಾಡಲಾಗಿರುವ ಯಾವುದೇ ಡೇಟಾ ಅಪಾಯದಲ್ಲಿರಬಹುದು. 16 KB ಮೋಡ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುವಾಗ ಬಳಕೆದಾರರ ಎಲ್ಲಾ ಡೇಟಾ ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ. ಒಮ್ಮೆ ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿದ ನಂತರ, 16 KB ಆಯ್ಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಎರಡು ರೀಬೂಟ್‌ಗಳ ಅಗತ್ಯವಿರುತ್ತದೆ. ಒಮ್ಮೆ ನೀವು ಈ ಮೋಡ್‌ಗೆ ಬಂದರೆ, ಒಂದೇ ರೀಬೂಟ್‌ನೊಂದಿಗೆ ನೀವು 4 KB ಮತ್ತು 16 KB ಮೋಡ್‌ಗಳ ನಡುವೆ ಹಿಂದಕ್ಕೆ ಮತ್ತು ಮುಂದಕ್ಕೆ ಬದಲಾಯಿಸಬಹುದು. ಈ ಮೋಡ್‌ಗಳಲ್ಲಿ ಕೆಲವು ಫೀಚರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಕೆಲವು ಆ್ಯಪ್‌ಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಸಾಧನವನ್ನು ಪ್ರೊಡಕ್ಷನ್ ಮೋಡ್‌ಗೆ ಹಿಂತಿರುಗಿಸಲು, ನೀವು 4 KB ಮೋಡ್‌ಗೆ ಹಿಂತಿರುಗಬೇಕು ಮತ್ತು ನಂತರ ಸಾಧನವನ್ನು OEM/ಬೂಟ್‌ಲೋಡರ್ ಲಾಕ್ (ಫ್ಯಾಕ್ಟರಿ ರೀಸೆಟ್) ಮಾಡಬೇಕು. ಬೂಟ್‌ಲೋಡರ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿ ಮತ್ತು ಪುನಃ ಪ್ರಯತ್ನಿಸಿ. ಇದನ್ನು ಹೇಗೆ ಮಾಡುವುದು ಎಂಬುದರ ಸೂಚನೆಗಳನ್ನು ನೀವು &lt;a href=\"https://source.android.com/docs/core/architecture/bootloader/locking_unlocking\"&gt;https://source.android.com/docs/core/architecture/bootloader/locking_unlocking&lt;/a&gt; ಎಂಬಲ್ಲಿ ನೋಡಬಹುದು"</string>
@@ -5331,6 +5440,8 @@
     <string name="media_controls_lockscreen_description" msgid="3320333660404439510">"ಪ್ಲೇಬ್ಯಾಕ್ ಅನ್ನು ತ್ವರಿತವಾಗಿ ಪುನರಾರಂಭಿಸಲು, ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಮೀಡಿಯಾ ಪ್ಲೇಯರ್ ತೆರೆದಿರುತ್ತದೆ"</string>
     <string name="media_controls_hide_player" msgid="2751439192580884015">"ಪ್ಲೇಯರ್ ಮರೆಮಾಡಿ"</string>
     <string name="media_controls_show_player" msgid="8504571042365814021">"ಪ್ಲೇಯರ್ ತೋರಿಸಿ"</string>
+    <string name="media_controls_suggestions_title" msgid="4089438765632340413">"ಮೀಡಿಯಾ ಸಲಹೆಗಳು"</string>
+    <string name="media_controls_suggestions_description" msgid="5001121785028325037">"ನಿಮ್ಮ ಚಟುವಟಿಕೆ ಮತ್ತು ಸ್ಥಳವನ್ನು ಆಧರಿಸಿ ಮಾಧ್ಯಮ ಆ್ಯಪ್‌ಗಳಿಂದ ಮೀಡಿಯಾ ಸಲಹೆಗಳನ್ನು ಒದಗಿಸಿ."</string>
     <string name="keywords_media_controls" msgid="8345490568291778638">"ಮಾಧ್ಯಮ"</string>
     <string name="camera_extensions_fallback_title" msgid="3604579046777004989">"ಕ್ಯಾಮರಾ ಸಾಫ್ಟ್‌ವೇರ್ ಎಕ್ಸ್‌ಟೆನ್ಶನ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ"</string>
     <string name="camera_extensions_fallback_description" msgid="4306833827773277263">"HDR, ರಾತ್ರಿ ಅಥವಾ ಇತರ ಕ್ಯಾಮರಾ ಎಕ್ಸ್‌ಟೆನ್ಶನ್‌ಗಳಂತಹ ಸುಧಾರಿತ ಕ್ಯಾಮರಾ ಫೀಚರ್‌ಗಳ ಡೀಫಾಲ್ಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಕಾರ್ಯಗತಗೊಳಿಸುವಿಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ."</string>
@@ -5395,12 +5506,13 @@
     <string name="category_name_general" msgid="7737273712848115886">"ಸಾಮಾನ್ಯ"</string>
     <string name="dark_theme_main_switch_title" msgid="4045147031947562280">"ಡಾರ್ಕ್‌ ಥೀಮ್ ಬಳಸಿ"</string>
     <string name="bluetooth_main_switch_title" msgid="8409835540311309632">"ಬ್ಲೂಟೂತ್ ಬಳಸಿ"</string>
+    <string name="hdr_brightness_main_switch_title" msgid="1850974699921514297">"ವರ್ಧಿತ HDR ಪ್ರಖರತೆಯನ್ನು ಬಳಸಿ"</string>
     <string name="prevent_ringing_main_switch_title" msgid="4726252811262086643">"ರಿಂಗ್‌ ಆಗುವುದನ್ನು ತಡೆಯುವ ಸ್ವಿಚ್ ಬಳಸಿ"</string>
     <string name="use_wifi_hotsopt_main_switch_title" msgid="3909731167290690539">"ವೈ-ಫೈ ಹಾಟ್‌ಸ್ಪಾಟ್ ಬಳಸಿ"</string>
     <string name="app_pinning_main_switch_title" msgid="5465506660064032876">"ಆ್ಯಪ್ ಪಿನ್ನಿಂಗ್ ಬಳಸಿ"</string>
     <string name="developer_options_main_switch_title" msgid="1720074589554152501">"ಡೆವಲಪರ್ ಆಯ್ಕೆಗಳನ್ನು ಬಳಸಿ"</string>
     <string name="default_print_service_main_switch_title" msgid="4697133737128324036">"ಪ್ರಿಂಟ್ ಸೇವೆಯನ್ನು ಬಳಸಿ"</string>
-    <string name="multiple_users_main_switch_title" msgid="9158796544835843201">"ಬಳಕೆದಾರರ ಬದಲಾಯಿಸುವಿಕೆಯನ್ನು ಅನುಮತಿಸಿ"</string>
+    <string name="multiple_users_main_switch_title" msgid="9158796544835843201">"ಬಳಕೆದಾರರ ಬದಲಾಯಿಸುವಿಕೆ ಅನುಮತಿಸಿ"</string>
     <string name="multiple_users_main_switch_keywords" msgid="4845954458094134356">"ಅನುಮತಿಸಿ, ಬಹು, ಬಳಕೆದಾರರು, ಪರವಾನಗಿ, ಹಲವು"</string>
     <string name="multiple_users_title_keywords" msgid="2395593167746225172">"ಅನೇಕ, ಬಳಕೆದಾರರು, ಪ್ರೊಫೈಲ್‌ಗಳು, ಜನರು, ಖಾತೆಗಳು, ಸ್ವಿಚ್, ಹಲವು"</string>
     <string name="wireless_debugging_main_switch_title" msgid="8463499572781441719">"ವೈರ್‌ಲೆಸ್ ಡೀಬಗಿಂಗ್ ಅನ್ನು ಬಳಸಿ"</string>
@@ -5617,7 +5729,7 @@
     <string name="audio_sharing_device_group_title" msgid="3019780581643956943">"ಸಕ್ರಿಯ ಮಾಧ್ಯಮ ಸಾಧನಗಳು"</string>
     <string name="audio_sharing_call_audio_title" msgid="7978867452289583929">"ಆಡಿಯೋ ಕರೆ ಮಾಡಿ"</string>
     <string name="audio_sharing_call_audio_description" msgid="6573621048260616924">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಸಾಧನದಲ್ಲಿ ಮಾತ್ರ ಪ್ಲೇ ಮಾಡಿ"</string>
-    <string name="audio_sharing_test_sound_title" msgid="6438868185641027763">"ಪರೀಕ್ಷಾ ಧ್ವನಿಯನ್ನು ಪ್ಲೇ ಮಾಡಿ"</string>
+    <string name="audio_sharing_test_sound_title" msgid="6438868185641027763">"ಟೆಸ್ಟ್ ಸೌಂಡ್ ಅನ್ನು ಪ್ಲೇ ಮಾಡಿ"</string>
     <string name="audio_sharing_test_sound_description" msgid="4072462502371937399">"ಆಲಿಸುತ್ತಿರುವ ಪ್ರತಿಯೊಬ್ಬರೂ ಅದನ್ನು ಕೇಳಬೇಕು"</string>
     <string name="audio_sharing_stream_settings_title" msgid="1374391898689242036">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
     <string name="audio_sharing_stream_name_title" msgid="8156859441897180940">"ಹೆಸರು"</string>
@@ -5675,6 +5787,7 @@
     <string name="audio_sharing_block_pairing_dialog_content" msgid="6352030314206654722">"ಹೊಸ ಸಾಧನವನ್ನು ಜೋಡಿಸಲು, ಮೊದಲು ಆಡಿಯೋ ಹಂಚಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಆಫ್ ಮಾಡಿ."</string>
     <string name="audio_sharing_turn_off_button_label" msgid="1934956352475393641">"ಆಫ್ ಮಾಡಿ"</string>
     <string name="share_audio_notification_title" msgid="5201976754820387782">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆ ಆಡಿಯೋ ಹಂಚಿಕೊಳ್ಳಿ"</string>
+    <string name="audio_sharing_device_volume_description" msgid="3218967346006222765">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ವಾಲ್ಯೂಮ್"</string>
     <string name="audio_streams_category_title" msgid="4878022761829895463">"LE ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
     <string name="audio_streams_pref_title" msgid="6320485086288646209">"ಸಮೀಪದ ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗಳು"</string>
     <string name="audio_streams_title" msgid="6617990880383079165">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗಳು"</string>
@@ -5687,6 +5800,8 @@
     <string name="audio_streams_add_source_bad_code_state_summary" msgid="6527086906921868757">"ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ ಹಾಗೂ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ"</string>
     <string name="audio_streams_add_source_failed_state_summary" msgid="3937546443978562322">"ಕನೆಕ್ಟ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="audio_streams_connecting_summary" msgid="7237827765572331702">"ಕನೆಕ್ಟ್ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
+    <string name="audio_streams_dialog_failed_to_join" msgid="4942840673393552978">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗೆ ಸೇರಿಕೊಳ್ಳಲು ವಿಫಲವಾಗಿದೆ"</string>
+    <string name="audio_streams_dialog_failed_to_join_detail" msgid="1498719800517594252">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗೆ ಕನೆಕ್ಟ್ ಆಗಲು ವಿಫಲವಾಗಿದೆ"</string>
     <string name="audio_streams_dialog_stream_is_not_available" msgid="4032878851270690546">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ ಲಭ್ಯವಿಲ್ಲ"</string>
     <string name="audio_streams_is_not_playing" msgid="8480293894696007941">"ಈ ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ ಸದ್ಯಕ್ಕೆ ಏನನ್ನೂ ಪ್ಲೇ ಮಾಡುತ್ತಿಲ್ಲ"</string>
     <string name="audio_streams_dialog_close" msgid="8177201719298408431">"ಮುಚ್ಚಿರಿ"</string>
@@ -5707,11 +5822,15 @@
     <string name="audio_streams_dialog_turn_off_talkback_title" msgid="6824585115302786690">"Talkback ಅನ್ನು ತಾತ್ಕಾಲಿಕವಾಗಿ ಆಫ್ ಮಾಡಿ"</string>
     <string name="audio_streams_dialog_turn_off_talkback_subtitle" msgid="2394295776096273919">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗಳನ್ನು ಕೇಳುವಾಗ Talkback ಅನ್ನು ಬಳಸಲಾಗುವುದಿಲ್ಲ. ಆಲಿಸುವುದನ್ನು ಪ್ರಾರಂಭಿಸುವುದಕ್ಕಾಗಿ TalkBack ಅನ್ನು ಆಫ್ ಮಾಡಿ."</string>
     <string name="audio_streams_dialog_turn_off_talkback_button" msgid="8049097689955037626">"ಆಫ್ ಮಾಡಿ"</string>
+    <string name="audio_streams_dialog_turn_off_audio_sharing_title" msgid="1017164439467110153">"ಹಂಚಿಕೊಳ್ಳುವಾಗ ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗಳನ್ನು ಆಲಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ"</string>
+    <string name="audio_streams_dialog_turn_off_audio_sharing_subtitle" msgid="5856842223436525336">"ಈ ಸ್ಟ್ರೀಮ್ ಅನ್ನು ಆಲಿಸಲು, ಆಡಿಯೋ ಹಂಚಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಆಫ್ ಮಾಡಿ."</string>
     <string name="audio_streams_dialog_no_le_device_button" msgid="4484355549428642588">"ಸಾಧನವನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಿ"</string>
     <string name="audio_streams_detail_page_title" msgid="7884132061275273766">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ ವಿವರಗಳು"</string>
     <string name="audio_streams_qr_code_page_title" msgid="9169570362469544641">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ QR ಕೋಡ್‌"</string>
     <string name="audio_streams_qr_code_page_password" msgid="7268475614131297060">"ಪಾಸ್‌ವರ್ಡ್: <xliff:g id="PASSWORD">%1$s</xliff:g>"</string>
     <string name="audio_streams_qr_code_page_description" msgid="1317961663706630428">"<xliff:g id="STREAM_NAME">%1$s</xliff:g> ಅನ್ನು ಆಲಿಸಲು, ಇತರ ಜನರು ತಮ್ಮ Android ಸಾಧನದಲ್ಲಿ ಹೊಂದಾಣಿಕೆಯ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಕನೆಕ್ಟ್‌ ಮಾಡಬಹುದು. ನಂತರ ಅವರು ಈ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಬಹುದು."</string>
+    <string name="audio_streams_preference_subtitle" msgid="4098552511880220046">"Auracast ಪ್ರಸಾರವನ್ನು ಆಲಿಸಿ"</string>
+    <string name="audio_streams_preference_subtitle_audio_sharing_on" msgid="2382924714414148028">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್‌ಗಳನ್ನು ಹುಡುಕಲು ಆಡಿಯೋ ಹಂಚಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಆಫ್ ಮಾಡಿ"</string>
     <string name="audio_streams_main_page_title" msgid="1838380471076527639">"ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ ಅನ್ನು ಹುಡುಕಿ"</string>
     <string name="audio_streams_main_page_subtitle" msgid="3251995732921981539">"ಆಡಿಯೋವನ್ನು ಹಂಚಿಕೊಳ್ಳುವ ಸಾಧನ ಅಥವಾ ಸಮೀಪದಲ್ಲಿರುವ Auracast ಪ್ರಸಾರವನ್ನು ಆಲಿಸಿ"</string>
     <string name="audio_streams_main_page_device_title" msgid="2635744035523908253">"ನಿಮ್ಮ ಆಡಿಯೋ ಸಾಧನ"</string>
@@ -5723,6 +5842,7 @@
     <string name="audio_streams_main_page_qr_code_scanner_summary" msgid="5312980105735143360">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಜೊತೆ ಕೇಳಲು ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"</string>
     <string name="audio_streams_main_page_password_dialog_cannot_edit" msgid="9020898619297520153">"ಹಂಚಿಕೊಳ್ಳುವಾಗ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಎಡಿಟ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ. ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು, ಮೊದಲು ಆಡಿಯೋ ಹಂಚಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಆಫ್ ಮಾಡಿ."</string>
     <string name="audio_streams_main_page_password_dialog_format_alert" msgid="4129498127640454717">"ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ 4-16 ಅಕ್ಷರಗಳನ್ನು ಹೊಂದಿರಬೇಕು ಮತ್ತು ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು ಮತ್ತು ಚಿಹ್ನೆಗಳನ್ನು ಮಾತ್ರ ಬಳಸಬೇಕು"</string>
+    <string name="audio_streams_main_page_name_dialog_format_alert" msgid="6797839340871206774">"ನಿಮ್ಮ ಆಡಿಯೋ ಸ್ಟ್ರೀಮ್ ಹೆಸರು 4-32 ಅಕ್ಷರಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು ಮತ್ತು ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು ಹಾಗೂ ಚಿಹ್ನೆಗಳನ್ನು ಮಾತ್ರ ಒಳಗೊಂಡಿರಬೇಕು"</string>
     <string name="audio_streams_qr_code_scanner_label" msgid="8799703301071378034">"QR ಕೋಡ್ ಸ್ಕ್ಯಾನರ್"</string>
     <string name="audio_streams_qr_code_help_with_link" msgid="5542328067190486479"><annotation id="link">"ಸಹಾಯ ಬೇಕೇ?"</annotation></string>
     <string name="homepage_search" msgid="6759334912284663559">"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಹುಡುಕಿ"</string>
@@ -5734,31 +5854,44 @@
     <string name="contacts_storage_set_default_account_error_message" msgid="849847649756411393">"ಡೀಫಾಲ್ಟ್ ಖಾತೆಯನ್ನು ಸೆಟ್ ಮಾಡುವಾಗ ದೋಷ ಎದುರಾಗಿದೆ"</string>
     <string name="contacts_storage_no_account_set_summary" msgid="7454973781666475276">"ಡೀಫಾಲ್ಟ್ ಆಗಿ ಯಾವುದನ್ನೂ ಸೆಟ್ ಮಾಡಿಲ್ಲ"</string>
     <string name="contacts_storage_local_account_summary" msgid="5034805108128685712">"ಸಾಧನ ಮಾತ್ರ"</string>
-    <string name="contacts_storage_account_title" msgid="7334522539665856395">"ಸಾಧನ ಮತ್ತು; %1$s"</string>
+    <string name="contacts_storage_account_title" msgid="7334522539665856395">"ಸಾಧನ ಮತ್ತು %1$s"</string>
     <string name="contacts_storage_first_time_add_account_message" msgid="5161093169928132323">"ಪ್ರಾರಂಭಿಸಲು ಒಂದು ಖಾತೆಯನ್ನು ಸೇರಿಸಿ"</string>
     <string name="contacts_storage_account_category_title" msgid="6427149157377815586">"ಸಂಪರ್ಕಗಳನ್ನು ಎಲ್ಲಿ ಸೇವ್ ಮಾಡಬೇಕು"</string>
     <string name="search_gesture_feature_title" msgid="7037117019612710960">"ಹುಡುಕಲು ಒಂದು ಸರ್ಕಲ್ ರಚಿಸಿ"</string>
     <string name="search_gesture_feature_summary" msgid="1793056495030564014">"ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ಮೇಲಿನ ಕಂಟೆಂಟ್ ಅನ್ನು ಬಳಸಿಕೊಂಡು ಹುಡುಕಲು ಹೋಮ್ ಬಟನ್ ಅಥವಾ ನ್ಯಾವಿಗೇಶನ್ ಹ್ಯಾಂಡಲ್ ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ ಮತ್ತು ಒತ್ತಿ ಹಿಡಿಯಿರಿ."</string>
     <string name="device_detail_icon_content_description" msgid="6699151424374841937">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>. ಸಾಧನದ ವಿವರಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ."</string>
-    <string name="supervision_settings_title" msgid="8383827215386872736">"ಮೇಲ್ವಿಚಾರಣೆ"</string>
-    <string name="supervision_settings_summary" msgid="5020634300370322741">"ಕಂಟೆಂಟ್ ನಿರ್ಬಂಧಗಳು ಮತ್ತು ಇತರ ಮಿತಿಗಳು"</string>
-    <string name="device_supervision_switch_title" msgid="3203958797412413373">"ಸಾಧನದ ಮೇಲ್ವಿಚಾರಣೆಯನ್ನು ಬಳಸಿ"</string>
-    <string name="device_supervision_switch_no_pin_summary" msgid="8294396978464347129">"ಪ್ರಾರಂಭಿಸಲು ಪಿನ್ ಸೆಟಪ್ ಮಾಡಿ"</string>
-    <string name="keywords_supervision_settings" msgid="2580555201483955376">"ಮೇಲ್ವಿಚಾರಣೆ, ಪೋಷಕರ ಮೇಲ್ವಿಚಾರಣೆ, ಪೋಷಕ ನಿಯಂತ್ರಣಗಳು"</string>
-    <string name="supervision_pin_management_preference_title" msgid="961680798581006465">"ಪಿನ್ ಅನ್ನು ನಿರ್ವಹಿಸಿ"</string>
-    <string name="supervision_pin_management_preference_summary_add" msgid="3244161328612671896">"ಪಿನ್ ರಿಕವರಿ ವಿಧಾನವನ್ನು ಸೇರಿಸಿ"</string>
+    <string name="supervision_settings_title" msgid="8507163323870367711">"ಪೋಷಕ ನಿಯಂತ್ರಣಗಳು"</string>
+    <string name="supervision_settings_summary" msgid="6304257872307136073">"ಡಿಜಿಟಲ್ ಗ್ರೌಂಡ್ ನಿಯಮಗಳು ಮತ್ತು ವೀಕ್ಷಣಾ ಅವಧಿಯ ಮಿತಿಗಳು"</string>
+    <string name="device_supervision_switch_no_pin_summary" msgid="4869563544571033220">"ಪಿನ್ ಸೆಟಪ್"</string>
+    <string name="keywords_supervision_settings" msgid="43064288661561602">"ಮೇಲ್ವಿಚಾರಣೆ, ಪೋಷಕರ ನಿಯಂತ್ರಣಗಳು, ಪೋಷಕರು, ಮೇಲ್ವಿಚಾರಣಾ ಪಿನ್, ಪಿನ್"</string>
+    <string name="supervision_pin_management_preference_title" msgid="7721501202320841845">"ನಿಮ್ಮ ಪಿನ್ ಅನ್ನು ನಿರ್ವಹಿಸಿ"</string>
+    <string name="supervision_pin_management_preference_keywords" msgid="5034450635706621750">"ಪೇರೆಂಟ್ PIN, ಪೋಷಕರ ನಿಯಂತ್ರಣ ಪಿನ್"</string>
+    <string name="supervision_pin_management_preference_summary_add" msgid="2247921267270577374">"ಮರುಪ್ರಾಪ್ತಿಯಾದ ಇಮೇಲ್ ಅನ್ನು ಸೇರಿಸಿ"</string>
+    <string name="supervision_pin_management_preference_summary_verify_recovery" msgid="5072554239108915119">"ಮರುಪ್ರಾಪ್ತಿ ಇಮೇಲ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ"</string>
     <string name="supervision_change_pin_preference_title" msgid="2288584039438231801">"ಪಿನ್‌ ಬದಲಾಯಿಸಿ"</string>
     <string name="supervision_add_forgot_pin_preference_title" msgid="8939945404255748516">"ಪಿನ್ ಮರೆತಿರುವಿರಾ"</string>
-    <string name="supervision_web_content_filters_title" msgid="3653430162065686156">"ವೆಬ್ ಕಂಟೆಂಟ್ ಫಿಲ್ಟರ್‌ಗಳು"</string>
-    <string name="supervision_web_content_filters_browser_title" msgid="979037187423952892">"Google Chrome ಮತ್ತು ವೆಬ್"</string>
-    <string name="supervision_web_content_filters_browser_block_explicit_sites_title" msgid="7923982596891796260">"ಅಶ್ಲೀಲ ಸೈಟ್‌ಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲು ಪ್ರಯತ್ನಿಸಿ"</string>
-    <string name="supervision_web_content_filters_browser_block_explicit_sites_summary" msgid="1477766506765966613">"ಯಾವುದೇ ಫಿಲ್ಟರ್ ಪರಿಪೂರ್ಣವಲ್ಲ, ಆದರೆ ಇದು ಲೈಂಗಿಕ ಅಶ್ಲೀಲತೆಯ ಕಂಟೆಂಟ್ ಇರುವ ಸೈಟ್‌ಗಳನ್ನು ಮರೆಮಾಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ"</string>
-    <string name="supervision_web_content_filters_browser_allow_all_sites_title" msgid="3909739592466381845">"ಎಲ್ಲಾ ಸೈಟ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ"</string>
-    <string name="supervision_web_content_filters_search_title" msgid="726335318009305564">"Google Search"</string>
-    <string name="supervision_web_content_filters_search_filter_on_title" msgid="4855846261141136285">"ಸುರಕ್ಷಿತ ಹುಡುಕಾಟದ ಫಿಲ್ಟರಿಂಗ್ ಆನ್ ಆಗಿದೆ"</string>
-    <string name="supervision_web_content_filters_search_filter_on_summary" msgid="1162258144140293269">"ಈ ಸಾಧನದಲ್ಲಿನ ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳಿಂದ ಅಶ್ಲೀಲ ಚಿತ್ರಗಳು, ಪಠ್ಯ ಮತ್ತು ಲಿಂಕ್‌ಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ"</string>
-    <string name="supervision_web_content_filters_search_filter_off_title" msgid="6049461395304222346">"ಸುರಕ್ಷಿತ ಹುಡುಕಾಟದ ಫಿಲ್ಟರಿಂಗ್ ಆಫ್ ಆಗಿದೆ"</string>
-    <string name="supervision_web_content_filters_search_filter_off_summary" msgid="3834238970190924433">"ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಈಗಲೂ ಅಶ್ಲೀಲ ಫಲಿತಾಂಶಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಬಹುದು ಅಥವಾ ಬ್ಲರ್ ಮಾಡಬಹುದು"</string>
-    <string name="supervision_full_screen_pin_verification_title" msgid="78513043528333399">"ಮೇಲ್ವಿಚಾರಣೆಯ ಪಿನ್ ನಮೂದಿಸಿ"</string>
+    <string name="supervision_auth_prompt_forgot_pin_button_label" msgid="1019337828884793557">"ಪಿನ್ ಮರೆತಿದ್ದೀರಾ?"</string>
+    <string name="supervision_update_recovery_email_preference_title" msgid="2057393838251915087">"ಮರುಪ್ರಾಪ್ತಿ ಇಮೇಲ್ ಅನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಿ"</string>
+    <string name="supervision_delete_pin_preference_title" msgid="8447541098148430866">"ಪಿನ್ ಅನ್ನು ಅಳಿಸಿ"</string>
+    <string name="supervision_add_pin_recovery_title" msgid="3487098027604685794">"ಮರುಪ್ರಾಪ್ತಿಯಾದ ಇಮೇಲ್ ಅನ್ನು ಸೇರಿಸಿ"</string>
+    <string name="supervision_verify_pin_recovery_title" msgid="3166602415814821497">"ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ದೃಢೀಕರಿಸಿ"</string>
+    <string name="supervision_web_content_filters_title" msgid="2412562442507104921">"ವೆಬ್‌ಸೈಟ್ ಕಂಟೆಂಟ್ ಫಿಲ್ಟರ್‌ಗಳು"</string>
+    <string name="supervision_web_content_filters_keywords" msgid="8469519676189544447">"ವೆಬ್‌ಸೈಟ್ ಫಿಲ್ಟರ್‌ಗಳು, ಸೈಟ್‌ಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ, ಬ್ರೌಸರ್ ಫಿಲ್ಟರ್‌ಗಳು, ಅಶ್ಲೀಲ ಸೈಟ್‌ಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ, ಸೈಟ್‌ಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ, ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ, ಅಶ್ಲೀಲ ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ, ಕಂಟೆಂಟ್ ನಿರ್ಬಂಧಗಳು"</string>
+    <string name="supervision_web_content_filters_top_intro" msgid="5264773769840566499">"ಈ ಸಾಧನದಲ್ಲಿ ವೆಬ್‌ಸೈಟ್‌ಗಳಲ್ಲಿನ ವಯಸ್ಕರರಿಗೆ ಸಂಬಂಧಿಸಿದ ಕಂಟೆಂಟ್ ಮತ್ತು ಬೆಂಬಲಿತ ಆ್ಯಪ್‌ಗಳಲ್ಲಿ ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ. ಬೆಂಬಲವಿಲ್ಲದ ಆ್ಯಪ್‌ಗಳು ಇನ್ನೂ ಅಶ್ಲೀಲ ಕಂಟೆಂಟ್ ಅನ್ನು ತೋರಿಸಬಹುದು."</string>
+    <string name="supervision_web_content_filters_browser_title" msgid="8737341514264129889">"ವೆಬ್‌ಸೈಟ್‌ಗಳು"</string>
+    <string name="supervision_web_content_filters_browser_filter_title" msgid="7957976669412075070">"ಅಶ್ಲೀಲ ಸೈಟ್‌ಗಳನ್ನು ನಿರ್ಬಂಧಿಸಿ"</string>
+    <string name="supervision_web_content_filters_search_title" msgid="8608480392956106029">"ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳು"</string>
+    <string name="supervision_web_content_filters_search_filter_title" msgid="4212134055017429017">"ಅಶ್ಲೀಲ ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ"</string>
+    <string name="supervision_full_screen_pin_verification_title" msgid="7685279446792771815">"ಪೋಷಕ ನಿಯಂತ್ರಣಗಳ ಪಿನ್ ಅನ್ನು ನಮೂದಿಸಿ"</string>
+    <string name="supervision_choose_your_pin_header" msgid="3872062168986738629">"ಪೋಷಕ ನಿಯಂತ್ರಣಗಳ ಪಿನ್ ಅನ್ನು ಸೆಟ್ ಮಾಡಿ"</string>
+    <string name="supervision_confirm_your_pin_header" msgid="8236956712482718354">"ಪಿನ್ ಅನ್ನು ದೃಢೀಕರಿಸಿ"</string>
+    <string name="supervision_pin_reset_success_toast" msgid="9163550161698311831">"ಪಿನ್ ಅನ್ನು ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿದೆ"</string>
+    <string name="supervision_promo_footer_action_button_description" msgid="7617359721703338141">"ಆ್ಯಪ್ ತೆರೆಯಿರಿ"</string>
+    <string name="supervision_delete_pin_confirm_header" msgid="8499276643990949268">"ಪಿನ್ ಅನ್ನು ಅಳಿಸಬೇಕೇ?"</string>
+    <string name="supervision_delete_pin_confirm_message" msgid="5482080400973042178">"ಇದರಿಂದ ಈ ಸಾಧನದಲ್ಲಿರುವ ಎಲ್ಲಾ ಬಳಕೆದಾರರಿಗೆ ಸಂಬಂಧಿಸಿದಂತೆ ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಪಿನ್ ಅನ್ನು ಅಳಿಸಿಹೋಗುತ್ತದೆ ಮತ್ತು ನೀವು ಹೊಂದಿಸಿರುವ ಕಂಟ್ರೋಲ್‌ಗಳು ನಿಷ್ಕ್ರಿಯಗೊಳ್ಳುತ್ತವೆ. ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."</string>
+    <string name="supervision_delete_pin_supervision_enabled_header" msgid="2072311894107038402">"ಮೊದಲು ಇತರ ಪ್ರೊಫೈಲ್‌ಗಳಲ್ಲಿ ಕಂಟ್ರೋಲ್‌ಗಳನ್ನು ವಿರಾಮಗೊಳಿಸಿ"</string>
+    <string name="supervision_delete_pin_supervision_enabled_message" msgid="5643922966568203196">"ಈ ಪಿನ್ ಅನ್ನು ಅಳಿಸಲು ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ರೀಸೆಟ್ ಮಾಡಲು ಮುಂದುವರಿಯಲು, ಇತರ ಎಲ್ಲಾ ಪ್ರೊಫೈಲ್‌ಗಳಲ್ಲಿ ಕಂಟ್ರೋಲ್‌ಗಳನ್ನು ವಿರಾಮಗೊಳಿಸಿ."</string>
+    <string name="supervision_delete_pin_error_header" msgid="1271034883245391839">"ಪಿನ್ ಅನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
+    <string name="supervision_delete_pin_error_message" msgid="3400536232973539259">"ಪಿನ್ ಅನ್ನು ಅಳಿಸಲು ಪ್ರಯತ್ನಿಸುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ."</string>
     <string name="accessibility_illustration_content_description" msgid="557376174860150903">"<xliff:g id="FEATURE">%1$s</xliff:g> ಆ್ಯನಿಮೇಶನ್"</string>
 </resources>

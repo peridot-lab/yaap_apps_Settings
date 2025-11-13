@@ -26,12 +26,9 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
-import static org.robolectric.Shadows.shadowOf;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Handler;
-import android.os.Message;
 import android.os.RemoteException;
 import android.view.Display.Mode;
 
@@ -46,7 +43,6 @@ import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayDeque;
 import java.util.List;
 
 public class ExternalDisplayTestBase {
@@ -54,48 +50,17 @@ public class ExternalDisplayTestBase {
     static final int OVERLAY_DISPLAY_ID = 2;
 
     @Mock
-    ExternalDisplaySettingsConfiguration.Injector mMockedInjector;
+    ConnectedDisplayInjector mMockedInjector;
     @Mock
     Resources mResources;
     FakeFeatureFlagsImpl mFlags = new FakeFeatureFlagsImpl();
+    DesktopExperienceFlags mInjectedFlags = new DesktopExperienceFlags(mFlags);
     Context mContext;
     DisplayListener mListener;
     TestHandler mHandler;
     PreferenceManager mPreferenceManager;
     PreferenceScreen mPreferenceScreen;
     List<DisplayDevice> mDisplays;
-
-    static class TestHandler extends Handler {
-        private final ArrayDeque<Message> mPending = new ArrayDeque<>();
-        private final Handler mSubhandler;
-
-        TestHandler(Handler subhandler) {
-            mSubhandler = subhandler;
-        }
-
-        ArrayDeque<Message> getPendingMessages() {
-            return mPending;
-        }
-
-        /**
-         * Schedules to send the message upon next invocation of {@link #flush()}. This ignores the
-         * time argument since our code doesn't meaningfully use it, but this is the most convenient
-         * way to intercept both Message and Callback objects synchronously.
-         */
-        @Override
-        public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
-            mPending.add(msg);
-            return true;
-        }
-
-        void flush() {
-            for (var msg : mPending) {
-                mSubhandler.sendMessage(msg);
-            }
-            mPending.clear();
-            shadowOf(mSubhandler.getLooper()).idle();
-        }
-    }
 
     /**
      * Setup.
@@ -115,11 +80,11 @@ public class ExternalDisplayTestBase {
         mDisplays = List.of(
                 createExternalDisplay(DisplayIsEnabled.YES),
                 createOverlayDisplay(DisplayIsEnabled.YES));
-        doReturn(mDisplays).when(mMockedInjector).getConnectedDisplays();
+        doReturn(mDisplays).when(mMockedInjector).getDisplays();
         for (var display : mDisplays) {
             doReturn(display).when(mMockedInjector).getDisplay(display.getId());
         }
-        doReturn(mFlags).when(mMockedInjector).getFlags();
+        doReturn(mInjectedFlags).when(mMockedInjector).getFlags();
         mHandler = new TestHandler(mContext.getMainThreadHandler());
         doReturn(mHandler).when(mMockedInjector).getHandler();
         doReturn("").when(mMockedInjector).getSystemProperty(
@@ -135,24 +100,21 @@ public class ExternalDisplayTestBase {
 
     DisplayDevice createExternalDisplay(DisplayIsEnabled isEnabled) {
         int displayId = EXTERNAL_DISPLAY_ID;
-        var supportedModes = List.of(
-                new Mode(0, 1920, 1080, 60, 60, new float[0], new int[0]),
+        var supportedModes = List.of(new Mode(0, 1920, 1080, 60, 60, new float[0], new int[0]),
                 new Mode(1, 800, 600, 60, 60, new float[0], new int[0]),
                 new Mode(2, 320, 240, 70, 70, new float[0], new int[0]),
                 new Mode(3, 640, 480, 60, 60, new float[0], new int[0]),
                 new Mode(4, 640, 480, 50, 60, new float[0], new int[0]),
                 new Mode(5, 2048, 1024, 60, 60, new float[0], new int[0]),
                 new Mode(6, 720, 480, 60, 60, new float[0], new int[0]));
-        return new DisplayDevice(
-                displayId, "HDMI", supportedModes.get(0), supportedModes, isEnabled);
+        return new DisplayDevice(displayId, "HDMI", supportedModes.get(0), supportedModes,
+                isEnabled, /* isConnectedDisplay= */ true);
     }
 
     DisplayDevice createOverlayDisplay(DisplayIsEnabled isEnabled) {
         int displayId = OVERLAY_DISPLAY_ID;
-        var supportedModes = List.of(
-                new Mode(0, 1240, 780, 60, 60, new float[0],
-                    new int[0]));
-        return new DisplayDevice(
-                displayId, "Overlay #1", supportedModes.get(0), supportedModes, isEnabled);
+        var supportedModes = List.of(new Mode(0, 1240, 780, 60, 60, new float[0], new int[0]));
+        return new DisplayDevice(displayId, "Overlay #1", supportedModes.get(0), supportedModes,
+                isEnabled, /* isConnectedDisplay= */ true);
     }
 }

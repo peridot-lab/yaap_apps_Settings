@@ -20,6 +20,8 @@ import static android.os.UserManager.SWITCHABILITY_STATUS_OK;
 import static android.os.UserManager.SWITCHABILITY_STATUS_USER_IN_CALL;
 import static android.os.UserManager.SWITCHABILITY_STATUS_USER_SWITCH_DISALLOWED;
 
+import static com.android.settings.users.UserDetailsSettings.REQUEST_CONFIRM_REMOVE;
+
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.junit.Assume.assumeTrue;
@@ -42,6 +44,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.UserInfo;
+import android.content.res.Resources;
 import android.multiuser.Flags;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -60,6 +63,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SubSettings;
 import com.android.settings.testutils.shadow.ShadowDevicePolicyManager;
+import com.android.settings.testutils.shadow.ShadowLockPatternUtils;
 import com.android.settings.testutils.shadow.ShadowUserManager;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedPreference;
@@ -87,7 +91,8 @@ import java.util.List;
 @Config(shadows = {
         ShadowUserManager.class,
         com.android.settings.testutils.shadow.ShadowFragment.class,
-        ShadowDevicePolicyManager.class
+        ShadowDevicePolicyManager.class,
+        ShadowLockPatternUtils.class
 })
 public class UserDetailsSettingsTest {
 
@@ -103,6 +108,8 @@ public class UserDetailsSettingsTest {
 
     @Mock
     private TelephonyManager mTelephonyManager;
+    @Mock
+    private Resources mResources;
 
     private ShadowUserManager mUserManager;
 
@@ -136,6 +143,7 @@ public class UserDetailsSettingsTest {
 
         mActivity = spy(ActivityController.of(new FragmentActivity()).get());
         mContext = spy(RuntimeEnvironment.application);
+        doReturn(mResources).when(mContext).getResources();
         mUserCapabilities = UserCapabilities.create(mContext);
         mUserCapabilities.mUserSwitcherEnabled = true;
         mFragment = spy(new UserDetailsSettings());
@@ -252,7 +260,6 @@ public class UserDetailsSettingsTest {
     }
 
     @Test
-    @RequiresFlagsEnabled({Flags.FLAG_NEW_MULTIUSER_SETTINGS_UX})
     public void onResume_UserSwitcherDisabled_shouldDisableSwitchPref() {
         setupSelectedUser();
         mUserCapabilities.mUserSwitcherEnabled = false;
@@ -289,9 +296,11 @@ public class UserDetailsSettingsTest {
     }
 
     @Test
-    public void initialize_adminWithTelephony_shouldShowPhonePreference() {
+    public void initialize_adminWithTelephonyVoiceCapable_shouldShowPhonePreference() {
         setupSelectedUser();
-        doReturn(true).when(mTelephonyManager).isVoiceCapable();
+        doReturn(true).when(mTelephonyManager).isDeviceVoiceCapable();
+        doReturn(true).when(mResources)
+                .getBoolean(com.android.settings.R.bool.config_show_sim_info);
         mUserManager.setIsAdminUser(true);
 
         mFragment.initialize(mActivity, mArguments);
@@ -301,9 +310,11 @@ public class UserDetailsSettingsTest {
     }
 
     @Test
-    public void initialize_adminNoTelephony_shouldNotShowPhonePreference() {
+    public void initialize_adminNoVoiceCapable_shouldNotShowPhonePreference() {
         setupSelectedUser();
-        doReturn(false).when(mTelephonyManager).isVoiceCapable();
+        doReturn(false).when(mTelephonyManager).isDeviceVoiceCapable();
+        doReturn(true).when(mResources)
+                .getBoolean(com.android.settings.R.bool.config_show_sim_info);
         mUserManager.setIsAdminUser(true);
         doReturn(null).when(mActivity).getSystemService(Context.TELEPHONY_SERVICE);
 
@@ -313,9 +324,25 @@ public class UserDetailsSettingsTest {
     }
 
     @Test
-    public void initialize_nonAdminWithTelephony_shouldNotShowPhonePreference() {
+    public void initialize_adminNoTelephony_shouldNotShowPhonePreference() {
         setupSelectedUser();
-        doReturn(true).when(mTelephonyManager).isVoiceCapable();
+        doReturn(true).when(mTelephonyManager).isDeviceVoiceCapable();
+        doReturn(false).when(mResources)
+                .getBoolean(com.android.settings.R.bool.config_show_sim_info);
+        mUserManager.setIsAdminUser(true);
+        doReturn(null).when(mActivity).getSystemService(Context.TELEPHONY_SERVICE);
+
+        mFragment.initialize(mActivity, mArguments);
+
+        verify(mFragment).removePreference(KEY_ENABLE_TELEPHONY);
+    }
+
+    @Test
+    public void initialize_nonAdminWithTelephonyVoiceCapable_shouldNotShowPhonePreference() {
+        setupSelectedUser();
+        doReturn(true).when(mTelephonyManager).isDeviceVoiceCapable();
+        doReturn(true).when(mResources)
+                .getBoolean(com.android.settings.R.bool.config_show_sim_info);
         mUserManager.setIsAdminUser(false);
 
         mFragment.initialize(mActivity, mArguments);
@@ -371,7 +398,9 @@ public class UserDetailsSettingsTest {
     public void initialize_adminSelectsRestrictedUser_shouldSetupPreferences() {
         setupSelectedRestrictedUser();
         mUserManager.setIsAdminUser(true);
-        doReturn(true).when(mTelephonyManager).isVoiceCapable();
+        doReturn(true).when(mTelephonyManager).isDeviceVoiceCapable();
+        doReturn(true).when(mResources)
+                .getBoolean(com.android.settings.R.bool.config_show_sim_info);
 
         mFragment.initialize(mActivity, mArguments);
 
@@ -599,6 +628,42 @@ public class UserDetailsSettingsTest {
         verify(mMetricsFeatureProvider).action(any(), eq(SettingsEnums.ACTION_REMOVE_USER));
         verify(mFragment).canDeleteUser();
         verify(mFragment).showDialog(DIALOG_CONFIRM_REMOVE);
+    }
+
+    @Test
+    @RequiresFlagsEnabled(Flags.FLAG_REQUIRE_PIN_BEFORE_USER_DELETION)
+    public void runKeyguardConfirmation_userHasScreenLock_shouldLaunchAuthenticationActivity() {
+        setupSelectedUser();
+        mFragment.mUserInfo = mUserInfo;
+        mUserManager.setIsAdminUser(true);
+
+        mUserManager.addProfile(new UserInfo(UserHandle.myUserId(), "Bob", null,
+                UserInfo.FLAG_FULL | UserInfo.FLAG_MAIN));
+
+        ShadowLockPatternUtils.setKeyguardStoredPasswordQuality(
+                DevicePolicyManager.PASSWORD_QUALITY_NUMERIC);
+        doNothing().when(mFragment).startActivityForResult(any(), anyInt(), any());
+        ShadowUserManager.getShadow().setProfileIdsWithDisabled(new int[]{UserHandle.myUserId()});
+
+        assertThat(mFragment.runUserRemovalKeyguardConfirmation()).isTrue();
+        verify(mFragment).startActivityForResult(any(Intent.class), eq(REQUEST_CONFIRM_REMOVE),
+                any());
+    }
+
+    @Test
+    @RequiresFlagsEnabled(Flags.FLAG_REQUIRE_PIN_BEFORE_USER_DELETION)
+    public void runKeyguardConfirmation_userHasNoScreenLock_shouldNotLaunchAuthentication() {
+        setupSelectedUser();
+        mFragment.mUserInfo = mUserInfo;
+        mUserManager.setIsAdminUser(true);
+
+        mUserManager.addProfile(new UserInfo(UserHandle.myUserId(), "Bob", null,
+                UserInfo.FLAG_FULL | UserInfo.FLAG_MAIN));
+
+        ShadowUserManager.getShadow().setProfileIdsWithDisabled(new int[]{UserHandle.myUserId()});
+        assertThat(mFragment.runUserRemovalKeyguardConfirmation()).isFalse();
+        verify(mFragment, never()).startActivityForResult(any(Intent.class),
+                eq(REQUEST_CONFIRM_REMOVE), any());
     }
 
     @Test

@@ -23,8 +23,8 @@ import static com.android.internal.accessibility.common.ShortcutConstants.UserSh
 import static com.android.internal.accessibility.common.ShortcutConstants.UserShortcutType.TWOFINGER_DOUBLETAP;
 import static com.android.settings.accessibility.AccessibilityUtil.State.OFF;
 import static com.android.settings.accessibility.AccessibilityUtil.State.ON;
-import static com.android.settings.accessibility.MagnificationCapabilities.MagnificationMode;
 import static com.android.settings.accessibility.ToggleScreenMagnificationPreferenceFragment.KEY_MAGNIFICATION_SHORTCUT_PREFERENCE;
+import static com.android.settings.accessibility.ToggleScreenMagnificationPreferenceFragment.MAGNIFICATION_SURVEY_KEY;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -137,6 +137,13 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
             Settings.Secure.ACCESSIBILITY_MAGNIFICATION_ALWAYS_ON_ENABLED;
     private static final String KEY_JOYSTICK =
             Settings.Secure.ACCESSIBILITY_MAGNIFICATION_JOYSTICK_ENABLED;
+    private static final String KEY_MAGNIFY_NAV_AND_IME =
+            Settings.Secure.ACCESSIBILITY_MAGNIFICATION_MAGNIFY_NAV_AND_IME;
+    private static final String KEY_FOLLOW_KEYBOARD =
+            Settings.Secure.ACCESSIBILITY_MAGNIFICATION_FOLLOW_KEYBOARD_ENABLED;
+
+    private static final int SHADOW_MOUSE_DEVICE_ID = 1;
+    private static final int SHADOW_KEYBOARD_DEVICE_ID = 2;
 
     private FragmentController<ToggleScreenMagnificationPreferenceFragment> mFragController;
     private Context mContext;
@@ -225,6 +232,35 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
                 MagnificationFollowTypingPreferenceController.PREF_KEY);
         assertThat(switchPreference).isNotNull();
         assertThat(switchPreference.isChecked()).isFalse();
+    }
+
+    @Test
+    @EnableFlags(Flags.FLAG_ENABLE_MAGNIFICATION_MAGNIFY_NAV_BAR_AND_IME)
+    public void onResume_disableMagnifyNavAndIme_preferenceNotChecked() {
+        setKeyMagnifyNavAndImeEnabled(false);
+
+        mFragController.create(R.id.main_content, /* bundle= */ null).start().resume();
+
+        final TwoStatePreference switchPreference =
+                mFragController.get().findPreference(
+                        MagnifyNavAndImePreferenceController.PREF_KEY);
+
+        assertThat(switchPreference).isNotNull();
+        assertThat(switchPreference.isChecked()).isFalse();
+    }
+
+    @Test
+    @EnableFlags(Flags.FLAG_ENABLE_MAGNIFICATION_MAGNIFY_NAV_BAR_AND_IME)
+    public void onResume_enableMagnifyNavAndIme_preferenceIsChecked() {
+        setKeyMagnifyNavAndImeEnabled(true);
+
+        mFragController.create(R.id.main_content, /* bundle= */ null).start().resume();
+
+        final TwoStatePreference switchPreference =
+                mFragController.get().findPreference(
+                        MagnifyNavAndImePreferenceController.PREF_KEY);
+        assertThat(switchPreference).isNotNull();
+        assertThat(switchPreference.isChecked()).isTrue();
     }
 
     @Test
@@ -341,23 +377,43 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(Flags.FLAG_ENABLE_LOW_VISION_HATS)
-    public void onResume_enableLowVisionHaTS_feedbackPreferenceShouldReturnNotNull() {
+    @EnableFlags(android.view.accessibility.Flags.FLAG_REQUEST_RECTANGLE_WITH_SOURCE)
+    public void onResume_noKeyboardAttached_noFollowKeyboardPreference() {
         mFragController.create(R.id.main_content, /* bundle= */ null).start().resume();
 
-        final Preference feedbackPreference = mFragController.get().findPreference(
-                MagnificationFeedbackPreferenceController.PREF_KEY);
-        assertThat(feedbackPreference).isNotNull();
+        final TwoStatePreference switchPreference = mFragController.get().findPreference(
+                MagnificationFollowKeyboardPreferenceController.PREF_KEY);
+        assertThat(switchPreference).isNull();
     }
 
     @Test
-    @DisableFlags(Flags.FLAG_ENABLE_LOW_VISION_HATS)
-    public void onResume_disableLowVisionHaTS_feedbackPreferenceShouldReturnNull() {
+    @EnableFlags(android.view.accessibility.Flags.FLAG_REQUEST_RECTANGLE_WITH_SOURCE)
+    @Config(shadows = ShadowInputDevice.class)
+    public void onResume_defaultStateForFollowingKeyboard_switchPreferenceShouldReturnFalse() {
+        addKeyboardDevice();
+        setKeyFollowKeyboardEnabled(false);
+
         mFragController.create(R.id.main_content, /* bundle= */ null).start().resume();
 
-        final Preference feedbackPreference = mFragController.get().findPreference(
-                MagnificationFeedbackPreferenceController.PREF_KEY);
-        assertThat(feedbackPreference).isNull();
+        final TwoStatePreference switchPreference = mFragController.get().findPreference(
+                MagnificationFollowKeyboardPreferenceController.PREF_KEY);
+        assertThat(switchPreference).isNotNull();
+        assertThat(switchPreference.isChecked()).isFalse();
+    }
+
+    @Test
+    @EnableFlags(android.view.accessibility.Flags.FLAG_REQUEST_RECTANGLE_WITH_SOURCE)
+    @Config(shadows = ShadowInputDevice.class)
+    public void onResume_enableFollowingKeyboard_switchPreferenceShouldReturnTrue() {
+        addKeyboardDevice();
+        setKeyFollowKeyboardEnabled(true);
+
+        mFragController.create(R.id.main_content, /* bundle= */ null).start().resume();
+
+        final TwoStatePreference switchPreference = mFragController.get().findPreference(
+                MagnificationFollowKeyboardPreferenceController.PREF_KEY);
+        assertThat(switchPreference).isNotNull();
+        assertThat(switchPreference.isChecked()).isTrue();
     }
 
     @Test
@@ -372,6 +428,10 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
                         Settings.Secure.ACCESSIBILITY_QS_TARGETS),
                 Settings.Secure.getUriFor(
                         Settings.Secure.ACCESSIBILITY_MAGNIFICATION_FOLLOW_TYPING_ENABLED),
+                Settings.Secure.getUriFor(
+                        Settings.Secure.ACCESSIBILITY_MAGNIFICATION_FOLLOW_KEYBOARD_ENABLED),
+                Settings.Secure.getUriFor(
+                        Settings.Secure.ACCESSIBILITY_MAGNIFICATION_MAGNIFY_NAV_AND_IME),
                 Settings.Secure.getUriFor(
                         Settings.Secure.ACCESSIBILITY_MAGNIFICATION_ALWAYS_ON_ENABLED)
         };
@@ -690,6 +750,15 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
+    public void getSurveyKey_returnCorrectKey() {
+        ToggleScreenMagnificationPreferenceFragment fragment =
+                mFragController.create(
+                        R.id.main_content, /* bundle= */ null).start().resume().get();
+
+        assertThat(fragment.getSurveyKey()).isEqualTo(MAGNIFICATION_SURVEY_KEY);
+    }
+
+    @Test
     @DisableFlags(Flags.FLAG_ENABLE_MAGNIFICATION_ONE_FINGER_PANNING_GESTURE)
     public void
             onProcessArguments_defaultArgumentUnavailableAndFlagOff_shouldSetDefaultArguments() {
@@ -747,10 +816,7 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     @EnableFlags(Flags.FLAG_ENABLE_MAGNIFICATION_KEYBOARD_CONTROL)
     @Config(shadows = ShadowInputDevice.class)
     public void getCurrentHtmlDescription_includesKeyboardInfoIfKeyboardAttached() {
-        int deviceId = 1;
-        ShadowInputDevice.sDeviceIds = new int[]{deviceId};
-        InputDevice device = ShadowInputDevice.makeFullKeyboardInputDevicebyId(deviceId);
-        ShadowInputDevice.addDevice(deviceId, device);
+        addKeyboardDevice();
 
         ToggleScreenMagnificationPreferenceFragment fragment =
                 mFragController.create(
@@ -874,17 +940,17 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH)
     public void getRawDataToIndex_returnsAllPreferenceKeys() {
         final List<String> expectedSearchKeys = List.of(
                 KEY_MAGNIFICATION_SHORTCUT_PREFERENCE,
                 MagnificationModePreferenceController.PREF_KEY,
                 MagnificationFollowTypingPreferenceController.PREF_KEY,
+                MagnificationFollowKeyboardPreferenceController.PREF_KEY,
                 MagnificationOneFingerPanningPreferenceController.PREF_KEY,
                 MagnificationAlwaysOnPreferenceController.PREF_KEY,
                 MagnificationJoystickPreferenceController.PREF_KEY,
                 MagnificationCursorFollowingModePreferenceController.PREF_KEY,
-                MagnificationFeedbackPreferenceController.PREF_KEY);
+                MagnifyNavAndImePreferenceController.PREF_KEY);
 
         final List<SearchIndexableRaw> rawData = ToggleScreenMagnificationPreferenceFragment
                 .SEARCH_INDEX_DATA_PROVIDER.getRawDataToIndex(mContext, true);
@@ -894,54 +960,33 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH)
-    public void getNonIndexableKeys_windowMagnificationNotSupported_onlyShortcutSearchable() {
+    public void getNonIndexableKeys_windowMagnificationUnSupported_returnWindowMagDependentPrefs() {
         setWindowMagnificationSupported(false, false);
 
         final List<String> niks = ToggleScreenMagnificationPreferenceFragment
                 .SEARCH_INDEX_DATA_PROVIDER.getNonIndexableKeys(mContext);
-        final List<SearchIndexableRaw> rawData = ToggleScreenMagnificationPreferenceFragment
-                .SEARCH_INDEX_DATA_PROVIDER.getRawDataToIndex(mContext, true);
-        // Expect all search data, except the shortcut preference, to be in NIKs.
-        final List<String> expectedNiks = rawData.stream().map(raw -> raw.key)
-                .filter(key -> !key.equals(KEY_MAGNIFICATION_SHORTCUT_PREFERENCE))
-                .toList();
+
+        final List<String> windowMagDependentPrefs = List.of(
+                MagnificationModePreferenceController.PREF_KEY,
+                MagnifyNavAndImePreferenceController.PREF_KEY,
+                MagnificationFollowTypingPreferenceController.PREF_KEY,
+                MagnificationOneFingerPanningPreferenceController.PREF_KEY,
+                MagnificationAlwaysOnPreferenceController.PREF_KEY,
+                MagnificationJoystickPreferenceController.PREF_KEY
+        );
 
         // In NonIndexableKeys == not searchable
-        assertThat(niks).containsExactlyElementsIn(expectedNiks);
+        assertThat(niks).containsAtLeastElementsIn(windowMagDependentPrefs);
+        assertThat(niks).doesNotContain(KEY_MAGNIFICATION_SHORTCUT_PREFERENCE);
     }
 
     @Test
     @EnableFlags({
-            com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH,
-            Flags.FLAG_ENABLE_LOW_VISION_HATS})
-    public void
-            getNonIndexableKeys_windowMagnificationNotSupportedHatsOn_shortcutFeedbackSearchable() {
-        setWindowMagnificationSupported(false, false);
-
-        final List<String> niks = ToggleScreenMagnificationPreferenceFragment
-                .SEARCH_INDEX_DATA_PROVIDER.getNonIndexableKeys(mContext);
-        final List<SearchIndexableRaw> rawData = ToggleScreenMagnificationPreferenceFragment
-                .SEARCH_INDEX_DATA_PROVIDER.getRawDataToIndex(mContext, true);
-        // Expect all search data, except the shortcut preference and feedback preference, to be in
-        // NIKs.
-        final List<String> expectedNiks = rawData.stream().map(raw -> raw.key)
-                .filter(key ->
-                        !key.equals(KEY_MAGNIFICATION_SHORTCUT_PREFERENCE)
-                        && !key.equals(MagnificationFeedbackPreferenceController.PREF_KEY))
-                .toList();
-
-        // In NonIndexableKeys == not searchable
-        assertThat(niks).containsExactlyElementsIn(expectedNiks);
-    }
-
-    @Test
-    @EnableFlags({
-            com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH,
             Flags.FLAG_ENABLE_MAGNIFICATION_ONE_FINGER_PANNING_GESTURE,
-            Flags.FLAG_ENABLE_LOW_VISION_HATS,
+            Flags.FLAG_ENABLE_MAGNIFICATION_MAGNIFY_NAV_BAR_AND_IME,
             com.android.settings.accessibility.Flags
-                    .FLAG_ENABLE_MAGNIFICATION_CURSOR_FOLLOWING_DIALOG})
+                    .FLAG_ENABLE_MAGNIFICATION_CURSOR_FOLLOWING_DIALOG,
+            android.view.accessibility.Flags.FLAG_REQUEST_RECTANGLE_WITH_SOURCE})
     @Config(shadows = ShadowInputDevice.class)
     public void getNonIndexableKeys_hasShortcutAndAllFeaturesEnabled_allItemsSearchable() {
         mShadowAccessibilityManager.setAccessibilityShortcutTargets(
@@ -949,6 +994,7 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
         setAlwaysOnSupported(true);
         setJoystickSupported(true);
         addMouseDevice();
+        addKeyboardDevice();
 
         final List<String> niks = ToggleScreenMagnificationPreferenceFragment
                 .SEARCH_INDEX_DATA_PROVIDER.getNonIndexableKeys(mContext);
@@ -958,7 +1004,6 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH)
     public void getNonIndexableKeys_noShortcut_alwaysOnSupported_notSearchable() {
         mShadowAccessibilityManager.setAccessibilityShortcutTargets(
                 TRIPLETAP, List.of());
@@ -972,7 +1017,6 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH)
     public void getNonIndexableKeys_hasShortcut_alwaysOnNotSupported_notSearchable() {
         mShadowAccessibilityManager.setAccessibilityShortcutTargets(
                 TRIPLETAP, List.of(MAGNIFICATION_CONTROLLER_NAME));
@@ -986,7 +1030,6 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH)
     @DisableFlags(Flags.FLAG_ENABLE_MAGNIFICATION_ONE_FINGER_PANNING_GESTURE)
     public void getNonIndexableKeys_oneFingerPanningNotSupported_notSearchable() {
         final List<String> niks = ToggleScreenMagnificationPreferenceFragment
@@ -997,7 +1040,6 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(com.android.settings.accessibility.Flags.FLAG_FIX_A11Y_SETTINGS_SEARCH)
     public void getNonIndexableKeys_joystickNotSupported_notSearchable() {
         setJoystickSupported(false);
 
@@ -1006,20 +1048,6 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
 
         // In NonIndexableKeys == not searchable
         assertThat(niks).contains(MagnificationJoystickPreferenceController.PREF_KEY);
-    }
-
-    @Test
-    @DisableFlags(Flags.FLAG_ENABLE_LOW_VISION_HATS)
-    public void getNonIndexableKeys_hatsNotSupported_notSearchable() {
-        final List<String> niks = ToggleScreenMagnificationPreferenceFragment
-                .SEARCH_INDEX_DATA_PROVIDER.getNonIndexableKeys(mContext);
-
-        // In NonIndexableKeys == not searchable
-        assertThat(niks).contains(MagnificationFeedbackPreferenceController.PREF_KEY);
-    }
-
-    private void putStringIntoSettings(String key, String componentName) {
-        Settings.Secure.putString(mContext.getContentResolver(), key, componentName);
     }
 
     private void putUserShortcutTypeIntoSharedPreference(Context context,
@@ -1033,6 +1061,11 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
 
     private void setKeyFollowTypingEnabled(boolean enabled) {
         Settings.Secure.putInt(mContext.getContentResolver(), KEY_FOLLOW_TYPING,
+                enabled ? ON : OFF);
+    }
+
+    private void setKeyMagnifyNavAndImeEnabled(boolean enabled) {
+        Settings.Secure.putInt(mContext.getContentResolver(), KEY_MAGNIFY_NAV_AND_IME,
                 enabled ? ON : OFF);
     }
 
@@ -1067,21 +1100,21 @@ public class ToggleScreenMagnificationPreferenceFragmentTest {
                 enabled ? ON : OFF);
     }
 
-    private void addMouseDevice() {
-        int deviceId = 1;
-        ShadowInputDevice.sDeviceIds = new int[]{deviceId};
-        InputDevice device = ShadowInputDevice.makeInputDevicebyIdWithSources(deviceId,
-                InputDevice.SOURCE_MOUSE);
-        ShadowInputDevice.addDevice(deviceId, device);
+    private void setKeyFollowKeyboardEnabled(boolean enabled) {
+        Settings.Secure.putInt(mContext.getContentResolver(), KEY_FOLLOW_KEYBOARD,
+                enabled ? ON : OFF);
     }
 
-    private String getStringFromSettings(String key) {
-        return Settings.Secure.getString(mContext.getContentResolver(), key);
+    private static void addMouseDevice() {
+        InputDevice device = ShadowInputDevice
+                .makeInputDevicebyIdWithSources(SHADOW_MOUSE_DEVICE_ID, InputDevice.SOURCE_MOUSE);
+        ShadowInputDevice.addDevice(SHADOW_MOUSE_DEVICE_ID, device);
     }
 
-    private boolean getMagnificationTripleTapStatus() {
-        return Settings.Secure.getInt(mContext.getContentResolver(), TRIPLETAP_SHORTCUT_KEY, OFF)
-                == ON;
+    private static void addKeyboardDevice() {
+        InputDevice device = ShadowInputDevice
+                .makeFullKeyboardInputDevicebyId(SHADOW_KEYBOARD_DEVICE_ID);
+        ShadowInputDevice.addDevice(SHADOW_KEYBOARD_DEVICE_ID, device);
     }
 
     private void setWindowMagnificationSupported(boolean magnificationAreaSupported,

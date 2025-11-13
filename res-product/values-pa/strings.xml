@@ -427,7 +427,7 @@
     <string name="data_usage_limit_dialog_mobile" product="desktop" msgid="407387299340649944">"ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਤੁਹਾਡੇ ਵੱਲੋਂ ਸੈੱਟ ਕੀਤੀ ਮੋਬਾਈਲ ਡਾਟੇ ਦੀ ਸੀਮਾ ਤੱਕ ਪਹੁੰਚਣ \'ਤੇ ਮੋਬਾਈਲ ਡਾਟਾ ਬੰਦ ਕਰ ਦੇਵੇਗਾ।\n\nਕਿਉਂਕਿ ਡਾਟਾ ਵਰਤੋਂ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਵੱਲੋਂ ਮਾਪੀ ਜਾਂਦੀ ਹੈ ਅਤੇ ਤੁਹਾਡਾ ਕੈਰੀਅਰ ਵਰਤੋਂ ਦਾ ਹਿਸਾਬ ਵੱਖਰੇ ਢੰਗ ਨਾਲ ਲਗਾ ਸਕਦਾ ਹੈ, ਇਸ ਕਰਕੇ ਜੋ ਸੀਮਾ ਤੁਸੀਂ ਸੈੱਟ ਕਰਨ ਜਾ ਰਹੇ ਹੋ, ਉਸ ਤੋਂ ਥੋੜ੍ਹੀ ਘੱਟ ਸੀਮਾ ਸੈੱਟ ਕਰਨ ਬਾਰੇ ਵਿਚਾਰ ਕਰੋ।"</string>
     <string name="user_settings_footer_text" product="device" msgid="8543171604218174424">"ਨਵੇਂ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰਕੇ ਆਪਣਾ ਡੀਵਾਈਸ ਸਾਂਝਾ ਕਰੋ। ਹਰੇਕ ਵਰਤੋਂਕਾਰ ਨੂੰ ਵਿਉਂਤੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨਾਂ, ਖਾਤਿਆਂ, ਐਪਾਂ, ਸੈਟਿੰਗਾਂ ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਲਈ ਤੁਹਾਡੇ ਡੀਵਾਈਸ \'ਤੇ ਨਿੱਜੀ ਜਗ੍ਹਾ ਮਿਲਦੀ ਹੈ।"</string>
     <string name="user_settings_footer_text" product="tablet" msgid="4749331578207116797">"ਨਵੇਂ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰ ਕੇ ਆਪਣਾ ਟੈਬਲੈੱਟ ਸਾਂਝਾ ਕਰੋ। ਹਰੇਕ ਵਰਤੋਂਕਾਰ ਨੂੰ ਵਿਉਂਤੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨਾਂ, ਖਾਤਿਆਂ, ਐਪਾਂ, ਸੈਟਿੰਗਾਂ ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਲਈ ਤੁਹਾਡੇ ਟੈਬਲੈੱਟ \'ਤੇ ਨਿੱਜੀ ਜਗ੍ਹਾ ਮਿਲਦੀ ਹੈ।"</string>
-    <string name="user_settings_footer_text" product="default" msgid="5440172971747221370">"ਨਵੇਂ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰਕੇ ਆਪਣਾ ਫ਼ੋਨ ਸਾਂਝਾ ਕਰੋ। ਹਰੇਕ ਵਰਤੋਂਕਾਰ ਨੂੰ ਵਿਉਂਤੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨਾਂ, ਖਾਤਿਆਂ, ਐਪਾਂ, ਸੈਟਿੰਗਾਂ ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਲਈ ਤੁਹਾਡੇ ਫ਼ੋਨ \'ਤੇ ਨਿੱਜੀ ਜਗ੍ਹਾ ਮਿਲਦੀ ਹੈ।"</string>
+    <string name="user_settings_footer_text" product="default" msgid="5440172971747221370">"ਨਵੇਂ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰ ਕੇ ਆਪਣਾ ਫ਼ੋਨ ਸਾਂਝਾ ਕਰੋ। ਹਰੇਕ ਵਰਤੋਂਕਾਰ ਨੂੰ ਵਿਉਂਤੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨਾਂ, ਖਾਤਿਆਂ, ਐਪਾਂ, ਸੈਟਿੰਗਾਂ ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਲਈ ਤੁਹਾਡੇ ਫ਼ੋਨ \'ਤੇ ਨਿੱਜੀ ਜਗ੍ਹਾ ਮਿਲਦੀ ਹੈ।"</string>
     <string name="user_settings_footer_text" product="desktop" msgid="8543171604218174424">"ਨਵੇਂ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰਕੇ ਆਪਣਾ ਡੀਵਾਈਸ ਸਾਂਝਾ ਕਰੋ। ਹਰੇਕ ਵਰਤੋਂਕਾਰ ਨੂੰ ਵਿਉਂਤੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨਾਂ, ਖਾਤਿਆਂ, ਐਪਾਂ, ਸੈਟਿੰਗਾਂ ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਲਈ ਤੁਹਾਡੇ ਡੀਵਾਈਸ \'ਤੇ ਨਿੱਜੀ ਜਗ੍ਹਾ ਮਿਲਦੀ ਹੈ।"</string>
     <string name="user_cannot_manage_message" product="tablet" msgid="5566619500245432179">"ਕੇਵਲ ਟੈਬਲੈੱਟ ਦਾ ਮਾਲਕ ਹੀ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰ ਸਕਦਾ ਹੈ।"</string>
     <string name="user_cannot_manage_message" product="default" msgid="8596259161937605316">"ਕੇਵਲ ਫ਼ੋਨ ਦਾ ਮਾਲਕ ਹੀ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰ ਸਕਦਾ ਹੈ।"</string>
@@ -484,7 +484,10 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਣਲਾਕ ਕੀਤੇ ਬਿਨਾਂ"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"ਆਪਣੇ ਟੈਬਲੈੱਟ ਨੂੰ ਅਣਲਾਕ ਕੀਤੇ ਬਿਨਾਂ"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"ਆਪਣੇ ਡੀਵਾਈਸ ਨੂੰ ਅਣਲਾਕ ਕਰਨ ਤੋ ਬਿਨਾਂ"</string>
-    <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"ਜਦੋਂ ਤੁਸੀਂ ਆਪਣੇ ਫ਼ੋਨ \'ਤੇ ਪੋਰਟਰੇਟ ਅਤੇ ਲੈਂਡਸਕੇਪ ਮੋਡ ਵਿਚਕਾਰ ਅਦਲਾ-ਬਦਲੀ ਕਰਦੇ ਹੋ"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"ਇਸ ਫ਼ੋਨ ਲਈ ਕੰਟਰੋਲ"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"ਇਸ ਟੈਬਲੈੱਟ ਲਈ ਕੰਟਰੋਲ"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"ਇਸ ਡੀਵਾਈਸ ਲਈ ਕੰਟਰੋਲ"</string>
+    <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"ਜਦੋਂ ਤੁਸੀਂ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਪੋਰਟਰੇਟ ਅਤੇ ਲੈਂਡਸਕੇਪ ਮੋਡ ਵਿਚਕਾਰ ਹਿਲਾਉਂਦੇ ਹੋ"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"ਜਦੋਂ ਤੁਸੀਂ ਆਪਣੇ ਟੈਬਲੈੱਟ \'ਤੇ ਪੋਰਟਰੇਟ ਅਤੇ ਲੈਂਡਸਕੇਪ ਮੋਡ ਵਿਚਕਾਰ ਅਦਲਾ-ਬਦਲੀ ਕਰਦੇ ਹੋ"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"ਜਦੋਂ ਤੁਸੀਂ ਆਪਣੇ ਡੀਵਾਈਸ ਨੂੰ ਪੋਰਟਰੇਟ ਅਤੇ ਲੈਂਡਸਕੇਪ ਮੋਡ ਵਿਚਾਲੇ ਇੱਧਰ-ਉੱਧਰ ਲਿਜਾਉਂਦੇ ਹੋ"</string>
     <string name="daltonizer_feature_summary" product="default" msgid="3940653889277283702">"ਆਪਣੇ ਫ਼ੋਨ \'ਤੇ ਰੰਗਾਂ ਨੂੰ ਦਿਖਾਉਣ ਦੇ ਤਰੀਕੇ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"ਆਡੀਓ ਨੂੰ ਸਾਂਝਾ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ, ਪਹਿਲਾਂ LE ਆਡੀਓ ਹੈੱਡਫ਼ੋਨਾਂ ਨੂੰ ਆਪਣੇ ਟੈਬਲੈੱਟ ਨਾਲ ਕਨੈਕਟ ਕਰੋ। "<annotation id="link">"ਅਨੁਰੂਪ ਡੀਵਾਈਸਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"ਆਡੀਓ ਨੂੰ ਸਾਂਝਾ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ, ਪਹਿਲਾਂ LE ਆਡੀਓ ਹੈੱਡਫ਼ੋਨਾਂ ਨੂੰ ਆਪਣੇ ਡੀਵਾਈਸ ਨਾਲ ਕਨੈਕਟ ਕਰੋ। "<annotation id="link">"ਅਨੁਰੂਪ ਡੀਵਾਈਸਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"ਆਡੀਓ ਨੂੰ ਸਾਂਝਾ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ, ਪਹਿਲਾਂ LE ਆਡੀਓ ਹੈੱਡਫ਼ੋਨਾਂ ਨੂੰ ਆਪਣੇ ਡੀਵਾਈਸ ਨਾਲ ਕਨੈਕਟ ਕਰੋ। "<annotation id="link">"ਅਨੁਰੂਪ ਡੀਵਾਈਸਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"ਮੋਬਾਈਲ, ਵਾਈ-ਫਾਈ, ਹੌਟਸਪੌਟ"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"ਵਾਈ-ਫਾਈ, ਮੋਬਾਈਲ, ਹੌਟਸਪੌਟ"</string>
 </resources>

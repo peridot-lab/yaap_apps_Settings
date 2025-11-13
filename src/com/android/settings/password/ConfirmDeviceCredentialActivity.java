@@ -134,7 +134,7 @@ public class ConfirmDeviceCredentialActivity extends FragmentActivity {
                         showConfirmCredentials();
                     } else {
                         Log.i(TAG, "Finishing, device credential not requested");
-                        if (Flags.mandatoryBiometrics()
+                        if (!Flags.bpFallbackOptions()
                                 && errorCode == BiometricPrompt.BIOMETRIC_ERROR_LOCKOUT_PERMANENT) {
                             setResult(BIOMETRIC_LOCKOUT_ERROR_RESULT);
                         }

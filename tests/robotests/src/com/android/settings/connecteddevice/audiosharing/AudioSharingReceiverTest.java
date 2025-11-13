@@ -229,7 +229,9 @@ public class AudioSharingReceiverTest {
 
         verify(mNm).cancel(R.drawable.ic_bt_le_audio_sharing);
         verify(mFeatureFactory.metricsFeatureProvider)
-                .action(mContext, SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
+                .action(
+                        mContext,
+                        SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
                         ACTION_LE_AUDIO_SHARING_STATE_CHANGE);
     }
 
@@ -245,7 +247,9 @@ public class AudioSharingReceiverTest {
 
         verify(mNm).cancel(R.drawable.ic_bt_le_audio_sharing);
         verify(mFeatureFactory.metricsFeatureProvider)
-                .action(mContext, SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
+                .action(
+                        mContext,
+                        SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
                         ACTION_LE_AUDIO_SHARING_STATE_CHANGE);
     }
 
@@ -263,7 +267,9 @@ public class AudioSharingReceiverTest {
         verifyNoInteractions(mBroadcast);
         verify(mNm).cancel(R.drawable.ic_bt_le_audio_sharing);
         verify(mFeatureFactory.metricsFeatureProvider)
-                .action(mContext, SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
+                .action(
+                        mContext,
+                        SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
                         ACTION_LE_AUDIO_SHARING_STOP);
     }
 
@@ -282,7 +288,9 @@ public class AudioSharingReceiverTest {
         verify(mBroadcast, never()).stopBroadcast(broadcastId);
         verify(mNm).cancel(R.drawable.ic_bt_le_audio_sharing);
         verify(mFeatureFactory.metricsFeatureProvider)
-                .action(mContext, SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
+                .action(
+                        mContext,
+                        SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
                         ACTION_LE_AUDIO_SHARING_STOP);
     }
 
@@ -303,13 +311,17 @@ public class AudioSharingReceiverTest {
                 .action(mContext, SettingsEnums.ACTION_STOP_AUDIO_SHARING_FROM_NOTIFICATION);
         verify(mNm, never()).cancel(R.drawable.ic_bt_le_audio_sharing);
         verify(mFeatureFactory.metricsFeatureProvider, never())
-                .action(mContext, SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
+                .action(
+                        mContext,
+                        SettingsEnums.ACTION_CANCEL_AUDIO_SHARING_NOTIFICATION,
                         ACTION_LE_AUDIO_SHARING_STOP);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_broadcastDisabled_doNothing() {
         mShadowBluetoothAdapter.setIsLeAudioBroadcastSourceSupported(
                 BluetoothStatusCodes.ERROR_BLUETOOTH_NOT_ENABLED);
@@ -321,9 +333,11 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
@@ -337,14 +351,18 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_nullArg_doNothing() {
         setAppInForeground(false);
         Intent intent = new Intent(ACTION_LE_AUDIO_SHARING_DEVICE_CONNECTED);
@@ -352,14 +370,18 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_showDialog() {
         setAppInForeground(true);
         Intent intent = new Intent(ACTION_LE_AUDIO_SHARING_DEVICE_CONNECTED);
@@ -368,20 +390,27 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivity(intentCaptor.capture());
-        assertThat(intentCaptor.getValue().getComponent().getClassName()).isEqualTo(
-                AudioSharingJoinHandlerActivity.class.getName());
-        assertThat(intentCaptor.getValue().getParcelableExtra(EXTRA_BLUETOOTH_DEVICE,
-                BluetoothDevice.class)).isEqualTo(mDevice);
+        assertThat(intentCaptor.getValue().getComponent().getClassName())
+                .isEqualTo(AudioSharingJoinHandlerActivity.class.getName());
+        assertThat(
+                        intentCaptor
+                                .getValue()
+                                .getParcelableExtra(EXTRA_BLUETOOTH_DEVICE, BluetoothDevice.class))
+                .isEqualTo(mDevice);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_notInBroadcast_noNotif() {
         setAppInForeground(false);
         when(mBroadcast.isEnabled(null)).thenReturn(false);
@@ -392,14 +421,18 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_invalidGroupId_noNotif() {
         setAppInForeground(false);
         when(mBroadcast.isEnabled(null)).thenReturn(true);
@@ -417,14 +450,19 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING, Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_alreadyTwoSinks_noNotif() {
         setAppInForeground(false);
         when(mBroadcast.isEnabled(null)).thenReturn(true);
@@ -453,16 +491,20 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING, Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
-    public void
-            broadcastReceiver_receiveAudioSharingDeviceConnected_alreadyHasSource_cancelNotif() {
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
+    public void broadcastReceiver_receiveAudioSharingDeviceConnected_alreadyHasSource_noNotif() {
         setAppInForeground(false);
         when(mBroadcast.isEnabled(null)).thenReturn(true);
         when(mBroadcast.getLatestBroadcastId()).thenReturn(1);
@@ -483,14 +525,19 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mNm, never()).notify(
-                eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm, never())
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING, Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingDeviceConnected_showNotification() {
         setAppInForeground(false);
         when(mBroadcast.isEnabled(null)).thenReturn(true);
@@ -520,13 +567,19 @@ public class AudioSharingReceiverTest {
         audioSharingReceiver.onReceive(mContext, intent);
 
         verify(mContext, never()).startActivity(any());
-        verify(mNm).notify(eq(com.android.settings.R.string.share_audio_notification_title),
-                any(Notification.class));
+        verify(mNm)
+                .notify(
+                        eq(com.android.settings.R.string.share_audio_notification_title),
+                        any(Notification.class));
+        verify(mFeatureFactory.metricsFeatureProvider)
+                .action(mContext, SettingsEnums.ACTION_SHOW_ADD_SOURCE_NOTIFICATION);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_broadcastDisabled_cancelNotif() {
         mShadowBluetoothAdapter.setIsLeAudioBroadcastSourceSupported(
                 BluetoothStatusCodes.ERROR_BLUETOOTH_NOT_ENABLED);
@@ -537,28 +590,37 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class),
-                anyBoolean());
+        verify(mAssistant, never())
+                .addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class), anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_nullArg_cancelNotif() {
         Intent intent = new Intent(ACTION_LE_AUDIO_SHARING_ADD_SOURCE);
         intent.setPackage(mContext.getPackageName());
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(any(BluetoothDevice.class),
-                any(BluetoothLeBroadcastMetadata.class), anyBoolean());
+        verify(mAssistant, never())
+                .addSource(
+                        any(BluetoothDevice.class),
+                        any(BluetoothLeBroadcastMetadata.class),
+                        anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_notInBroadcast_cancelNotif() {
         when(mBroadcast.isEnabled(null)).thenReturn(false);
 
@@ -568,14 +630,17 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class),
-                anyBoolean());
+        verify(mAssistant, never())
+                .addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class), anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_notConnected_cancelNotif() {
         when(mBroadcast.isEnabled(null)).thenReturn(true);
         when(mAssistant.getAllConnectedDevices()).thenReturn(ImmutableList.of());
@@ -586,14 +651,17 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class),
-                anyBoolean());
+        verify(mAssistant, never())
+                .addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class), anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_invalidGroupId_cancelNotif() {
         when(mBroadcast.isEnabled(null)).thenReturn(true);
         CachedBluetoothDeviceManager deviceManager = mock(CachedBluetoothDeviceManager.class);
@@ -610,14 +678,18 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class),
-                anyBoolean());
+        verify(mAssistant, never())
+                .addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class), anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING, Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_alreadyTwoSinks_cancelNotif() {
         when(mBroadcast.isEnabled(null)).thenReturn(true);
         when(mBroadcast.getLatestBroadcastId()).thenReturn(1);
@@ -645,14 +717,18 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class),
-                anyBoolean());
+        verify(mAssistant, never())
+                .addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class), anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING, Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_alreadyHasSource_cancelNotif() {
         when(mBroadcast.isEnabled(null)).thenReturn(true);
         when(mBroadcast.getLatestBroadcastId()).thenReturn(1);
@@ -673,14 +749,18 @@ public class AudioSharingReceiverTest {
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
-        verify(mAssistant, never()).addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class),
-                anyBoolean());
+        verify(mAssistant, never())
+                .addSource(eq(mDevice), any(BluetoothLeBroadcastMetadata.class), anyBoolean());
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verifyNoInteractions(mFeatureFactory.metricsFeatureProvider);
     }
 
     @Test
-    @EnableFlags({Flags.FLAG_ENABLE_LE_AUDIO_SHARING, Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
-            Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE})
+    @EnableFlags({
+        Flags.FLAG_ENABLE_LE_AUDIO_SHARING,
+        Flags.FLAG_AUDIO_SHARING_HYSTERESIS_MODE_FIX,
+        Flags.FLAG_PROMOTE_AUDIO_SHARING_FOR_SECOND_AUTO_CONNECTED_LEA_DEVICE
+    })
     public void broadcastReceiver_receiveAudioSharingAddSource_addSource() {
         when(mBroadcast.isEnabled(null)).thenReturn(true);
         when(mBroadcast.getLatestBroadcastId()).thenReturn(1);
@@ -710,6 +790,18 @@ public class AudioSharingReceiverTest {
 
         verify(mAssistant).addSource(mDevice, metadata, /* isGroupOp= */ false);
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verify(mFeatureFactory.metricsFeatureProvider, never())
+                .action(mContext, SettingsEnums.ACTION_CANCEL_ADD_SOURCE_NOTIFICATION);
+        verify(mFeatureFactory.metricsFeatureProvider)
+                .action(
+                        SettingsEnums.ACTION_SHOW_ADD_SOURCE_NOTIFICATION,
+                        SettingsEnums.ACTION_AUDIO_SHARING_ADD_SOURCE,
+                        SettingsEnums.ACTION_SHOW_ADD_SOURCE_NOTIFICATION,
+                        AudioSharingUtils.buildAddSourceEventData(
+                                        SettingsEnums.ACTION_SHOW_ADD_SOURCE_NOTIFICATION,
+                                        /* userTriggered= */ false)
+                                .toString(),
+                        /* changedPreferenceIntValue */ 0);
     }
 
     @Test
@@ -717,12 +809,14 @@ public class AudioSharingReceiverTest {
     public void broadcastReceiver_receiveAudioSharingCancelNotif_cancel() {
         Intent intent = new Intent(ACTION_LE_AUDIO_SHARING_CANCEL_NOTIF);
         intent.setPackage(mContext.getPackageName());
-        intent.putExtra(EXTRA_NOTIF_ID,
-                com.android.settings.R.string.share_audio_notification_title);
+        intent.putExtra(
+                EXTRA_NOTIF_ID, com.android.settings.R.string.share_audio_notification_title);
         AudioSharingReceiver audioSharingReceiver = getAudioSharingReceiver(intent);
         audioSharingReceiver.onReceive(mContext, intent);
 
         verify(mNm).cancel(com.android.settings.R.string.share_audio_notification_title);
+        verify(mFeatureFactory.metricsFeatureProvider)
+                .action(mContext, SettingsEnums.ACTION_CANCEL_ADD_SOURCE_NOTIFICATION);
     }
 
     private AudioSharingReceiver getAudioSharingReceiver(Intent intent) {
@@ -738,12 +832,15 @@ public class AudioSharingReceiverTest {
     private void setAppInForeground(boolean foreground) {
         ActivityManager activityManager = mock(ActivityManager.class);
         when(mContext.getSystemService(ActivityManager.class)).thenReturn(activityManager);
-        when(activityManager.getPackageImportance(mContext.getPackageName())).thenReturn(
-                foreground ? ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
-                        : ActivityManager.RunningAppProcessInfo.IMPORTANCE_SERVICE);
+        when(activityManager.getPackageImportance(mContext.getPackageName()))
+                .thenReturn(
+                        foreground
+                                ? ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+                                : ActivityManager.RunningAppProcessInfo.IMPORTANCE_SERVICE);
         PackageManager packageManager = mock(PackageManager.class);
         when(mContext.getPackageManager()).thenReturn(packageManager);
-        when(packageManager.checkPermission(Manifest.permission.PACKAGE_USAGE_STATS,
-                mContext.getPackageName())).thenReturn(PackageManager.PERMISSION_GRANTED);
+        when(packageManager.checkPermission(
+                        Manifest.permission.PACKAGE_USAGE_STATS, mContext.getPackageName()))
+                .thenReturn(PackageManager.PERMISSION_GRANTED);
     }
 }

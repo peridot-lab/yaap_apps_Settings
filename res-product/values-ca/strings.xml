@@ -366,7 +366,7 @@
     <string name="ethernet_tethering_subtext" product="device" msgid="454840171632885947">"Comparteix la connexió a Internet del dispositiu per Ethernet"</string>
     <string name="ethernet_tethering_subtext" product="desktop" msgid="454840171632885947">"Comparteix la connexió a Internet del dispositiu per Ethernet"</string>
     <string name="about_settings" product="tablet" msgid="1471390492111370330">"Sobre la tauleta"</string>
-    <string name="about_settings" product="default" msgid="2621311564780208250">"Informació del telèfon"</string>
+    <string name="about_settings" product="default" msgid="2621311564780208250">"Sobre el telèfon"</string>
     <string name="about_settings" product="device" msgid="7595574154492383452">"Informació del dispositiu"</string>
     <string name="about_settings" product="desktop" msgid="7595574154492383452">"Informació del dispositiu"</string>
     <string name="about_settings" product="emulator" msgid="1099246296173401003">"Sobre el dispositiu emulat"</string>
@@ -484,6 +484,9 @@
     <string name="lockscreen_trivial_controls_summary" product="default" msgid="42562533085885152">"Sense desbloquejar el telèfon"</string>
     <string name="lockscreen_trivial_controls_summary" product="tablet" msgid="9052068482124729345">"Sense desbloquejar la tauleta"</string>
     <string name="lockscreen_trivial_controls_summary" product="desktop" msgid="8183513643394359332">"Sense desbloquejar el dispositiu"</string>
+    <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"Controls per a aquest telèfon"</string>
+    <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"Controls per a aquesta tauleta"</string>
+    <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"Controls per a aquest dispositiu"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"Quan poses el telèfon en vertical o en horitzontal"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"Quan poses la tauleta en vertical o en horitzontal"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"Quan canvies entre el mode vertical i horitzontal al dispositiu"</string>
@@ -518,4 +521,6 @@
     <string name="audio_sharing_confirm_dialog_content_with_link" product="tablet" msgid="282597208139437138">"Per començar a compartir àudio, primer connecta els auriculars LE Audio a la tauleta. "<annotation id="link">"Més informació sobre els dispositius compatibles"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="device" msgid="668964968208427465">"Per començar a compartir àudio, primer connecta els auriculars LE Audio al dispositiu. "<annotation id="link">"Més informació sobre els dispositius compatibles"</annotation></string>
     <string name="audio_sharing_confirm_dialog_content_with_link" product="desktop" msgid="668964968208427465">"Per començar a compartir àudio, primer connecta els auriculars LE Audio al dispositiu. "<annotation id="link">"Més informació sobre els dispositius compatibles"</annotation></string>
+    <string name="network_dashboard_summary_mobile" product="default" msgid="1856501121269595911">"Dades mòbils, Wi‑Fi, punt d\'accés Wi‑Fi"</string>
+    <string name="network_dashboard_summary_mobile" product="desktop" msgid="8770767156162473221">"Wi‑Fi, mòbil, punt d\'accés Wi‑Fi"</string>
 </resources>

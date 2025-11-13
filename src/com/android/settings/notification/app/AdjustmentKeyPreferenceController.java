@@ -15,6 +15,8 @@
  */
 package com.android.settings.notification.app;
 
+import static android.service.notification.Adjustment.KEY_TYPE;
+
 import android.app.Flags;
 import android.content.Context;
 import android.service.notification.Adjustment;
@@ -47,12 +49,16 @@ public class AdjustmentKeyPreferenceController extends
 
     @Override
     public boolean isAvailable() {
+        return isAvailable(mKey, mBackend, mAppRow.pkg, mAppRow.uid) && super.isAvailable();
+    }
+
+    static boolean isAvailable(String key, NotificationBackend backend, String pkg, int uid) {
         if (!(Flags.notificationClassificationUi() || Flags.nmSummarizationUi()
                 || Flags.nmSummarization())) {
             return false;
         }
-        boolean isBundlePref = Adjustment.KEY_TYPE.equals(mKey);
-        boolean isSummarizePref = Adjustment.KEY_SUMMARIZATION.equals(mKey);
+        boolean isBundlePref = Adjustment.KEY_TYPE.equals(key);
+        boolean isSummarizePref = Adjustment.KEY_SUMMARIZATION.equals(key);
         if (!Flags.notificationClassificationUi() && isBundlePref) {
             return false;
         }
@@ -62,11 +68,11 @@ public class AdjustmentKeyPreferenceController extends
         if (!isSummarizePref && !isBundlePref) {
             return false;
         }
-        if (isSummarizePref && !(mBackend.hasSentValidMsg(mAppRow.pkg, mAppRow.uid)
-                || mBackend.isInInvalidMsgState(mAppRow.pkg, mAppRow.uid))) {
+        if (isSummarizePref && !(backend.hasSentValidMsg(pkg, uid)
+                || backend.isInInvalidMsgState(pkg, uid))) {
             return false;
         }
-        return super.isAvailable();
+        return backend.getAllowedAssistantAdjustments().contains(key);
     }
 
     @Override
@@ -84,7 +90,8 @@ public class AdjustmentKeyPreferenceController extends
         if (pref != null && mAppRow != null) {
             pref.setDisabledByAdmin(mAdmin);
             pref.setEnabled(!pref.isDisabledByAdmin());
-            pref.setChecked(mBackend.getAllowedAssistantAdjustments(mAppRow.pkg).contains(mKey));
+            pref.setChecked(
+                    mBackend.isAdjustmentSupportedForPackage(mAppRow.userId, mKey, mAppRow.pkg));
             pref.setOnPreferenceChangeListener(this);
         }
     }
@@ -92,7 +99,7 @@ public class AdjustmentKeyPreferenceController extends
     @Override
     public boolean onPreferenceChange(@NonNull Preference preference, @NonNull Object newValue) {
         final boolean allowedForPkg = (Boolean) newValue;
-        mBackend.setAdjustmentSupportedForPackage(mKey, mAppRow.pkg, allowedForPkg);
+        mBackend.setAdjustmentSupportedForPackage(mAppRow.userId, mKey, mAppRow.pkg, allowedForPkg);
         return true;
     }
 }

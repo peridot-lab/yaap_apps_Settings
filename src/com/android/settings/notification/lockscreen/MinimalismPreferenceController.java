@@ -18,6 +18,8 @@ package com.android.settings.notification.lockscreen;
 
 import static android.provider.Settings.Secure.LOCK_SCREEN_NOTIFICATION_MINIMALISM;
 import static android.provider.Settings.Secure.LOCK_SCREEN_SHOW_NOTIFICATIONS;
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS;
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_YES;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -51,7 +53,7 @@ public class MinimalismPreferenceController
     private static final int LS_SHOW_NOTIF_ON = 1;
     private static final int LS_SHOW_NOTIF_OFF = 0;
     private static final int LS_MINIMALISM_OFF = 0;
-    private static final int LS_MINIMALISM_ON = 1;
+    public static final int LS_MINIMALISM_ON = 1;
     private static final String KEY_MINIMALISM_PREFERENCE = "ls_minimalism";
     private static final String KEY_FULL_LIST_ILLUSTRATION = "full_list_illustration";
     private static final String KEY_COMPACT_ILLUSTRATION = "compact_illustration";
@@ -60,7 +62,8 @@ public class MinimalismPreferenceController
     private static final Uri URI_LOCK_SCREEN_SHOW_NOTIFICATIONS =
             Settings.Secure.getUriFor(LOCK_SCREEN_SHOW_NOTIFICATIONS);
 
-    @Nullable private LayoutPreference mPreference;
+    @Nullable
+    private LayoutPreference mPreference;
     private Map<Integer, LinearLayout> mButtons = new HashMap<>();
     private Map<Integer, IllustrationPreference> mIllustrations = new HashMap<>();
 
@@ -150,7 +153,17 @@ public class MinimalismPreferenceController
     }
 
     private void highlightButton(int currentValue) {
-        mButtons.forEach((value, button) -> button.setSelected(currentValue == value));
+        mButtons.forEach(
+                (value, button) -> {
+                    button.setSelected(currentValue == value);
+                    if (currentValue == value) {
+                        button.setImportantForAccessibility(
+                                IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
+                    } else {
+                        button.setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
+                    }
+                }
+        );
     }
 
     private void highlightIllustration(int currentValue) {
@@ -165,7 +178,12 @@ public class MinimalismPreferenceController
 
     private void refreshState(@Nullable Uri uri) {
         if (mPreference == null) return;
-        if (URI_LOCK_SCREEN_SHOW_NOTIFICATIONS.equals(uri) && !lockScreenShowNotification()) {
+        if (!Flags.notificationMinimalism()) {
+            // When minimalism flag is off, show the full list illustration
+            highlightIllustration(LS_MINIMALISM_OFF);
+            mPreference.setVisible(false);
+        } else if (URI_LOCK_SCREEN_SHOW_NOTIFICATIONS.equals(uri)
+                && !lockScreenShowNotification()) {
             // hide all preferences when showing notifications on lock screen is disabled
             mIllustrations.forEach((value, preference)
                     -> preference.setVisible(false));

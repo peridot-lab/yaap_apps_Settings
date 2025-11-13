@@ -17,6 +17,7 @@
 package com.android.settings.testutils
 
 import android.content.Context
+import com.android.settings.accessibility.AccessibilityDisabilitySupportFeatureProvider
 import com.android.settings.accessibility.AccessibilityFeedbackFeatureProvider
 import com.android.settings.accessibility.AccessibilityPageIdFeatureProvider
 import com.android.settings.accessibility.AccessibilitySearchFeatureProvider
@@ -29,6 +30,7 @@ import com.android.settings.bluetooth.BluetoothFeatureProvider
 import com.android.settings.connecteddevice.audiosharing.AudioSharingFeatureProvider
 import com.android.settings.connecteddevice.fastpair.FastPairFeatureProvider
 import com.android.settings.connecteddevice.stylus.StylusFeatureProvider
+import com.android.settings.connecteddevice.threadnetwork.ThreadNetworkFeatureProvider
 import com.android.settings.dashboard.DashboardFeatureProvider
 import com.android.settings.dashboard.suggestions.SuggestionFeatureProvider
 import com.android.settings.deviceinfo.hardwareinfo.HardwareInfoFeatureProvider
@@ -127,6 +129,9 @@ class FakeFeatureFactory : FeatureFactory() {
         get() = TODO("Not yet implemented")
     override val securitySettingsFeatureProvider: SecuritySettingsFeatureProvider
         get() = TODO("Not yet implemented")
+    override val accessibilityDisabilitySupportFeatureProvider:
+            AccessibilityDisabilitySupportFeatureProvider
+        get() = TODO("Not yet implemented")
     override val accessibilityFeedbackFeatureProvider: AccessibilityFeedbackFeatureProvider
         get() = TODO("Not yet implemented")
     override val accessibilitySearchFeatureProvider: AccessibilitySearchFeatureProvider
@@ -140,6 +145,8 @@ class FakeFeatureFactory : FeatureFactory() {
     override val keyboardSettingsFeatureProvider: KeyboardSettingsFeatureProvider
         get() = TODO("Not yet implemented")
     override val stylusFeatureProvider: StylusFeatureProvider
+        get() = TODO("Not yet implemented")
+    override val threadNetworkFeatureProvider: ThreadNetworkFeatureProvider
         get() = TODO("Not yet implemented")
     override val fastPairFeatureProvider: FastPairFeatureProvider
         get() = TODO("Not yet implemented")

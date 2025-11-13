@@ -25,18 +25,20 @@ import android.telephony.SubscriptionManager
 import android.util.EventLog
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.annotation.OpenForTesting
 import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import com.android.settings.R
+import com.android.settings.Utils
 import com.android.settings.dashboard.DashboardFragment
 import com.android.settings.datausage.lib.BillingCycleRepository
 import com.android.settings.datausage.lib.NetworkUsageData
-import com.android.settings.network.SubscriptionUtil
 import com.android.settings.network.telephony.SubscriptionRepository
 import com.android.settingslib.spa.framework.util.collectLatestWithLifecycle
 import com.android.settingslib.spaprivileged.framework.common.userManager
+import com.android.settingslib.widget.LayoutPreference
 import kotlin.jvm.optionals.getOrNull
 
 /**
@@ -97,11 +99,13 @@ open class DataUsageList : DashboardFragment() {
 
     private fun updateWarning() {
         val template = template ?: return
-        val warningPreference = findPreference<Preference>(KEY_WARNING)!!
+        val preference = findPreference<LayoutPreference>(KEY_WARNING) ?: return
+        val textView = preference.findViewById<TextView>(R.id.text) ?: return
+        val context = requireContext()
         if (template.matchRule != NetworkTemplate.MATCH_WIFI) {
-            warningPreference.setSummary(R.string.operator_warning)
-        } else if (SubscriptionUtil.isSimHardwareVisible(context)) {
-            warningPreference.setSummary(R.string.non_carrier_data_usage_warning)
+            textView.text = context.getString(R.string.operator_warning)
+        } else if (Utils.isMobileDataCapable(context)) {
+            textView.text = context.getString(R.string.non_carrier_data_usage_warning)
         }
     }
 
