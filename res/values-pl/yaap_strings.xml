@@ -603,12 +603,6 @@
     <string name="qs_show_battery_estimate_summary_on">Pokaż szacunki baterii w QS</string>
     <string name="qs_show_battery_estimate_summary_off">Ukryj szacunki baterii w QS</string>
 
-    <!-- Clock position -->
-    <string name="statusbar_clock_position_title">Pozycja zegara</string>
-    <string name="statusbar_clock_position_left">Lewa</string>
-    <string name="statusbar_clock_position_center">Środek</string>
-    <string name="statusbar_clock_position_right">Prawa</string>
-
     <!-- SystemUI tuner -->
     <string name="ui_tuner_title">Tuner SystemUI</string>
 
