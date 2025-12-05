@@ -98,32 +98,20 @@
             settings:userRestriction="no_adjust_volume"
             settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
 
-        <SwitchPreferenceCompat
-            android:key="volume_panel_on_left"
-            android:title="@string/volume_panel_on_left_title"
-            android:summary="@string/volume_panel_on_left_summary"
-            android:order="-145" />
-
-        <SwitchPreferenceCompat
-            android:key="volume_panel_on_left_land"
-            android:title="@string/volume_panel_on_left_land_title"
-            android:summary="@string/volume_panel_on_left_land_summary"
-            android:order="-146" />
-
         <!-- Volume dialog haptics -->
         <com.yasp.settings.preferences.SystemSettingSwitchPreference
             android:key="volume_panel_haptics"
             android:title="@string/volume_panel_haptics_title"
             android:summary="@string/volume_panel_haptics_summary"
             android:defaultValue="true"
-            android:order="-147" />
+            android:order="-135" />
 
         <!-- Volume dialog timeout -->
         <com.yasp.settings.preferences.CustomSeekBarPreference
             android:key="volume_dialog_dismiss_timeout"
             android:title="@string/volume_dialog_timeout_title"
             android:summary="@string/volume_dialog_timeout_summary"
-            android:order="-148"
+            android:order="-130"
             android:max="7"
             android:min="1"
             android:defaultValue="3"

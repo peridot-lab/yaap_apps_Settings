@@ -43,7 +43,6 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.sound.HandsFreeProfileOutputPreferenceController;
 import com.android.settings.sound.SliderVolumizer;
-import com.android.settings.sound.VolumeDialogPositionPreferenceController;
 import com.android.settings.sound.VolumeDialogTimeoutPreferenceController;
 import com.android.settings.sound.VolumeSliderPreference;
 import com.android.settings.widget.PreferenceCategoryController;
@@ -318,10 +317,7 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
                 new VibrateIconPreferenceController(context, fragment, lifecycle);
         final VolumeDialogTimeoutPreferenceController volumeDialogTimeoutPreferenceController =
                 new VolumeDialogTimeoutPreferenceController(context);
-        final VolumeDialogPositionPreferenceController volumeDialogPositionPreferenceController =
-                new VolumeDialogPositionPreferenceController(context);
 
-        controllers.add(volumeDialogPositionPreferenceController);
         controllers.add(volumeDialogTimeoutPreferenceController);
         controllers.add(dialPadTonePreferenceController);
         controllers.add(inCallNotificationsPreferenceController);
