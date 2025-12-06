@@ -51,11 +51,6 @@ public class FirmwareVersionSettings extends DashboardFragment {
     }
 
     @Override
-    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
-        return FirmwareVersionScreen.KEY;
-    }
-
-    @Override
     protected int getPreferenceScreenResId() {
         return R.xml.firmware_version;
     }
