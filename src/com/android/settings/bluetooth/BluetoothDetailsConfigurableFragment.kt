@@ -48,6 +48,7 @@ import com.android.settings.bluetooth.ui.model.DeviceSettingPreferenceModel
 import com.android.settings.bluetooth.ui.model.FragmentTypeModel
 import com.android.settings.bluetooth.ui.view.DeviceDetailsMoreSettingsFragment
 import com.android.settings.bluetooth.ui.viewmodel.BluetoothDeviceDetailsViewModel
+import com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment
 import com.android.settings.core.SubSettingLauncher
 import com.android.settings.dashboard.RestrictedDashboardFragment
 import com.android.settings.flags.Flags
@@ -61,6 +62,7 @@ import com.android.settingslib.bluetooth.devicesettings.shared.model.DeviceSetti
 import com.android.settingslib.bluetooth.devicesettings.shared.model.DeviceSettingConfigItemModel
 import com.android.settingslib.bluetooth.devicesettings.shared.model.DeviceSettingIcon
 import com.android.settingslib.spa.widget.ui.LinearLoadingBar
+import com.android.settingslib.widget.BannerMessagePreference
 import com.android.settingslib.widget.CardPreference
 import com.android.settingslib.widget.FooterPreference
 import com.android.settingslib.widget.SegmentedButtonPreference
@@ -118,6 +120,8 @@ abstract class BluetoothDetailsConfigurableFragment :
                 ?: run {
                     Log.w(TAG, "onAttach() address is null!")
                     super.onAttach(context)
+                    // Go to connected devices screen if address is null.
+                    launchConnectedDevicesScreen()
                     finish()
                     return
                 }
@@ -126,6 +130,8 @@ abstract class BluetoothDetailsConfigurableFragment :
                 ?: run {
                     Log.w(TAG, "onAttach() CachedDevice is null!")
                     super.onAttach(context)
+                    // Go to connected devices screen if the device is not found.
+                    launchConnectedDevicesScreen()
                     finish()
                     return
                 }
@@ -201,9 +207,8 @@ abstract class BluetoothDetailsConfigurableFragment :
                 // UntitledPreferenceCategory here.
                 val categoryKey = getPreferenceCategoryKey(settingId)
                 configDisplayOrder.add(categoryKey)
-                currentContainer = UntitledPreferenceCategory(requireContext()).apply {
-                    key = categoryKey
-                }
+                currentContainer =
+                    UntitledPreferenceCategory(requireContext()).apply { key = categoryKey }
                 preferenceScreen.addPreference(currentContainer)
             }
             if (existingPrefKey != null) {
@@ -254,14 +259,17 @@ abstract class BluetoothDetailsConfigurableFragment :
                         val item =
                             it
                                 ?: run {
-                                    existedPref?.let {
-                                        container.removePreference(existedPref)
-                                    }
+                                    existedPref?.let { container.removePreference(existedPref) }
                                     return@onEach
                                 }
                         addPreference(
                             container,
-                            existedPref, row, item, prefKey, settingItem.highlighted)
+                            existedPref,
+                            row,
+                            item,
+                            prefKey,
+                            settingItem.highlighted,
+                        )
                     }
                     .launchIn(lifecycleScope)
                     .also { uiJobs.add(it) }
@@ -515,9 +523,43 @@ abstract class BluetoothDetailsConfigurableFragment :
             }
 
             is DeviceSettingPreferenceModel.HelpPreference -> {}
+
+            is DeviceSettingPreferenceModel.BannerPreference -> {
+                val pref =
+                    existedPref as? BannerMessagePreference
+                        ?: BannerMessagePreference(requireContext())
+                pref.apply {
+                    setAttentionLevel(BannerMessagePreference.AttentionLevel.NORMAL)
+                    key = prefKey
+                    order = prefOrder
+                    title = model.title
+                    summary = model.message
+                    icon = getDrawable(model.icon, false)
+                    if (model.positiveButton != null && model.positiveButton.action != null) {
+                        setPositiveButtonText(model.positiveButton.label)
+                        setPositiveButtonOnClickListener {
+                            model.positiveButton.action?.let { triggerAction(it) }
+                        }
+                        setPositiveButtonEnabled(true)
+                        setPositiveButtonVisible(true)
+                    }
+                    if (model.negativeButton != null && model.negativeButton.action != null) {
+                        setNegativeButtonText(model.negativeButton.label)
+                        setNegativeButtonOnClickListener {
+                            model.negativeButton.action?.let { triggerAction(it) }
+                        }
+                        setNegativeButtonEnabled(true)
+                        setNegativeButtonVisible(true)
+                    }
+                }
+                container.addPreference(pref)
+            }
         }
 
-    private fun getDrawable(deviceSettingIcon: DeviceSettingIcon?): Drawable? =
+    private fun getDrawable(
+        deviceSettingIcon: DeviceSettingIcon?,
+        applyTint: Boolean = true,
+    ): Drawable? =
         when (deviceSettingIcon) {
             is DeviceSettingIcon.BitmapIcon ->
                 deviceSettingIcon.bitmap.toDrawable(requireContext().resources)
@@ -525,13 +567,15 @@ abstract class BluetoothDetailsConfigurableFragment :
             is DeviceSettingIcon.ResourceIcon -> context?.getDrawable(deviceSettingIcon.resId)
             null -> null
         }?.apply {
-            setTint(
-                requireContext()
-                    .getColor(
-                        com.android.settingslib.widget.theme.R.color
-                            .settingslib_materialColorOnSurfaceVariant
-                    )
-            )
+            if (applyTint) {
+                setTint(
+                    requireContext()
+                        .getColor(
+                            com.android.settingslib.widget.theme.R.color
+                                .settingslib_materialColorOnSurfaceVariant
+                        )
+                )
+            }
         }
 
     @Composable
@@ -672,11 +716,23 @@ abstract class BluetoothDetailsConfigurableFragment :
         if (cachedDevice != null) {
             return cachedDevice
         }
+        if (remoteDevice.bondState != BluetoothDevice.BOND_BONDED) {
+            return null
+        }
         Log.i(TAG, "Add device to cached device manager: " + remoteDevice.anonymizedAddress)
         return localBluetoothManager.cachedDeviceManager.addDevice(remoteDevice)
     }
 
     protected fun isCachedDeviceInitialized() = ::cachedDevice.isInitialized
+
+    private fun launchConnectedDevicesScreen() {
+        SubSettingLauncher(context)
+            .setDestination(ConnectedDeviceDashboardFragment::class.java.getName())
+            .setTitleRes(R.string.connected_devices_dashboard_title)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .setSourceMetricsCategory(SettingsEnums.BLUETOOTH_DEVICE_DETAILS)
+            .launch()
+    }
 
     private class SpotlightPreference(context: Context) : Preference(context) {
         init {
@@ -702,7 +758,8 @@ abstract class BluetoothDetailsConfigurableFragment :
         private const val EVENT_INVISIBLE = 0
         private const val EVENT_VISIBLE = 1
 
-        private fun getPreferenceKey(settingId: Int) = "DEVICE_SETTING_${settingId}"
-        private fun getPreferenceCategoryKey(settingId: Int) = "CATEGORY_STARTS_WITH_${settingId}"
+        private fun getPreferenceKey(settingId: Int) = "DEVICE_SETTING_$settingId"
+
+        private fun getPreferenceCategoryKey(settingId: Int) = "CATEGORY_STARTS_WITH_$settingId"
     }
 }

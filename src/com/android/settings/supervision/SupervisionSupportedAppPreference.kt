@@ -16,7 +16,7 @@
 package com.android.settings.supervision
 
 import android.content.Context
-import androidx.preference.Preference
+import android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES
 import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.preference.PreferenceBinding
 
@@ -28,12 +28,16 @@ class SupervisionSupportedAppPreference(
     override val key: String
         get() = KEY
 
-    override fun isIndexable(context: Context) = false
+    override val indexable
+        get() = false
 
     override fun createWidget(context: Context) =
-        Preference(context, /* attrs= */ null).apply {
+        NonClickablePreference(context, /* attrs= */ null).apply {
             val packageManager = context.packageManager
-            val icon = packageManager.getApplicationIcon(packageName)
+
+            val applicationInfo =
+                packageManager.getApplicationInfo(packageName, MATCH_UNINSTALLED_PACKAGES)
+            val icon = packageManager.getApplicationIcon(applicationInfo)
 
             title = titleString
             summary = summaryString
@@ -41,6 +45,6 @@ class SupervisionSupportedAppPreference(
         }
 
     companion object {
-        const val KEY = "browser_filters_supported_app"
+        const val KEY = "web_content_filters_supported_app"
     }
 }

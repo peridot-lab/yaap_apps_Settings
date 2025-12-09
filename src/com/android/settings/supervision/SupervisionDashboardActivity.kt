@@ -17,8 +17,9 @@
 package com.android.settings.supervision
 
 import android.content.Intent
-import android.os.Bundle
+import android.util.Log
 import com.android.settings.CatalystSettingsActivity
+import com.android.settingslib.supervision.SupervisionLog.TAG
 
 /**
  * Activity to display the Supervision settings landing page (Settings > Supervision).
@@ -30,35 +31,74 @@ class SupervisionDashboardActivity :
         SupervisionDashboardScreen.KEY,
         SupervisionDashboardFragment::class.java,
     ) {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+    override fun onResume() {
+        super.onResume()
+
+        if (shouldRedirectToSupervisionApp()) {
+            val redirectIntent = getSupervisionAppIntent()
+            // We don't expect the intent to be null, but if it happens, we just skip the redirect.
+            if (redirectIntent != null) {
+                startActivity(redirectIntent)
+                finish()
+                return
+            }
+            Log.w(TAG, "Should redirect to supervision app but no intent available.")
+        }
+
+        // If the supervision package doesn't have the necessary components, the dashboard can't be
+        // directly loaded.
+        if (!hasNecessarySupervisionComponent(matchAll = true)) {
+            // Check if the app provides any mitigating actions and trigger them if so.
+            val installActivityInfo = getSupervisionAppInstallActivityInfo()
+            if (installActivityInfo != null) {
+                if (installActivityInfo.isEnabled()) {
+                    // There is a mitigating action available, launch it.
+                    val installIntent =
+                        Intent(SupervisionHelper.INSTALL_SUPERVISION_APP_ACTION)
+                            .setPackage(installActivityInfo.packageName)
+                    startActivity(installIntent)
+                } else {
+                    // There is a mitigating action available, but the component is disabled.
+                    // Launch the loading screen to try to enable it.
+                    val loadingActivity =
+                        Intent(this, SupervisionDashboardLoadingActivity::class.java)
+                    startActivity(loadingActivity)
+                }
+            }
+            finish()
+            return
+        }
+
+        // If the supervision package has the necessary component but not in the enabled state,
+        // launch a loading screen while trying to enable it.
         if (!hasNecessarySupervisionComponent()) {
             val loadingActivity = Intent(this, SupervisionDashboardLoadingActivity::class.java)
             startActivity(loadingActivity)
             finish()
-        }
-
-        if (shouldRedirectToFullSupervision()) {
-            val intent =
-                Intent(FULL_SUPERVISION_REDIRECT_ACTION).setPackage(systemSupervisionPackageName)
-            startActivity(intent)
-            finish()
+            return
         }
     }
 
-    private fun shouldRedirectToFullSupervision(): Boolean {
-        // The user is deemed to be fully supervised if the supervision role holder is not empty
-        if (supervisionRoleHolders.isEmpty() || systemSupervisionPackageName == null) {
-            return false
-        }
+    private fun shouldRedirectToSupervisionApp(): Boolean {
+        return supervisionRoleHolders.isNotEmpty() || isSupervisionPackageProfileOwner()
+    }
 
-        val intent =
-            Intent(FULL_SUPERVISION_REDIRECT_ACTION).setPackage(systemSupervisionPackageName)
-        return packageManager.queryIntentActivitiesAsUser(intent, 0, userId).isNotEmpty()
+    private fun getSupervisionAppIntent(): Intent? {
+        val packageName = readDefaultSupervisionPackageNameFromResources() ?: return null
+
+        val intent = Intent(INTERSTITIAL_REDIRECT_ACTION).setPackage(packageName)
+
+        if (packageManager.queryIntentActivitiesAsUser(intent, 0, userId).isNotEmpty()) {
+            return intent
+        } else {
+            Log.w(TAG, "Should redirect to supervision app but $intent did not resolve.")
+            return null
+        }
     }
 
     companion object {
-        const val FULL_SUPERVISION_REDIRECT_ACTION = "android.app.supervision.action.VIEW_SETTINGS"
+        const val INTERSTITIAL_REDIRECT_ACTION =
+            "android.app.supervision.action.INTERSTITIAL_SCREEN"
     }
 }

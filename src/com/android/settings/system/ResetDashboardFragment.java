@@ -20,6 +20,7 @@ import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.settings.R;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Settings fragment containing reset options. */
+// LINT.IfChange
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class ResetDashboardFragment extends DashboardFragment {
 
@@ -67,13 +69,10 @@ public class ResetDashboardFragment extends DashboardFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         use(EraseEuiccDataController.class).setFragment(this);
-        if (android.multiuser.Flags.enablePrivateSpaceFeatures()
-                && android.multiuser.Flags.deletePrivateSpaceFromReset()) {
-            ResetOptionsDeletePrivateSpaceController resetOptionsDeletePrivateSpaceController =
-                    use(ResetOptionsDeletePrivateSpaceController.class);
-            if (resetOptionsDeletePrivateSpaceController != null) {
-                resetOptionsDeletePrivateSpaceController.setFragment(this);
-            }
+        ResetOptionsDeletePrivateSpaceController resetOptionsDeletePrivateSpaceController =
+                use(ResetOptionsDeletePrivateSpaceController.class);
+        if (resetOptionsDeletePrivateSpaceController != null) {
+            resetOptionsDeletePrivateSpaceController.setFragment(this);
         }
         FactoryResetPreferenceController factoryResetPreferenceController =
                 use(FactoryResetPreferenceController.class);
@@ -113,4 +112,11 @@ public class ResetDashboardFragment extends DashboardFragment {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
+        return ResetDashboardScreen.KEY;
+    }
 }
+// LINT.ThenChange(ResetDashboardScreen.kt)
+

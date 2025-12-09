@@ -37,6 +37,7 @@ import com.android.settingslib.core.lifecycle.events.OnStart;
 import com.android.settingslib.core.lifecycle.events.OnStop;
 import com.android.settings.core.BasePreferenceController;
 
+// LINT.IfChange
 public class DoubleTapPowerPreferenceController extends BasePreferenceController
         implements LifecycleObserver, OnStart, OnStop {
 
@@ -147,3 +148,4 @@ public class DoubleTapPowerPreferenceController extends BasePreferenceController
         return mContext.getText(com.android.settings.R.string.gesture_setting_off);
     }
 }
+// LINT.ThenChange(DoubleTapPowerScreen.kt)

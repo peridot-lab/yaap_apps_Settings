@@ -133,7 +133,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4669222334822978847">"None"</item>
     <item msgid="6242198071587397280">"Manual"</item>
-    <item msgid="464383874780058242">"Proxy Auto-Config"</item>
+    <item msgid="464383874780058242">"Proxy auto-config"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="2900892411844440682">"None"</item>
@@ -548,5 +548,6 @@
     <item msgid="953234843613969792">"Recent apps"</item>
     <item msgid="1713942773283586136">"Notifications"</item>
     <item msgid="5687603742365489342">"Quick Settings"</item>
+    <item msgid="5454862951059393431">"Lock screen"</item>
   </string-array>
 </resources>

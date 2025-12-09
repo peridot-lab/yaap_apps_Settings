@@ -17,6 +17,7 @@
 package com.android.settings.users;
 
 import static com.android.settings.flags.Flags.hideUserListForNonAdmins;
+import static com.android.settings.flags.Flags.showUserDetailsSettingsForSelf;
 import static com.android.settingslib.Utils.getColorAttrDefaultColor;
 
 import android.Manifest;
@@ -25,7 +26,10 @@ import android.annotation.RequiresPermission;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
+import android.app.admin.DevicePolicyIdentifiers;
 import android.app.admin.DevicePolicyManager;
+import android.app.admin.EnforcingAdmin;
+import android.app.admin.PolicyEnforcementInfo;
 import android.app.settings.SettingsEnums;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -63,6 +67,7 @@ import android.view.WindowManagerGlobal;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AlertDialog;
@@ -73,15 +78,12 @@ import androidx.preference.PreferenceScreen;
 import com.android.internal.util.UserIcons;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
-import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.core.SubSettingLauncher;
 import com.android.settings.password.ChooseLockGeneric;
 import com.android.settings.password.ChooseLockSettingsHelper;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.widget.MainSwitchBarController;
-import com.android.settings.widget.SettingsMainSwitchBar;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 import com.android.settingslib.RestrictedLockUtilsInternal;
 import com.android.settingslib.RestrictedPreference;
@@ -135,6 +137,8 @@ public class UserSettings extends SettingsPreferenceFragment
     private static final String KEY_ADD_USER = "user_add";
     private static final String KEY_ADD_SUPERVISED_USER = "supervised_user_add";
     private static final String KEY_ADD_USER_WHEN_LOCKED = "user_settings_add_users_when_locked";
+    private static final String KEY_ADD_USER_FROM_SIGNIN = "add_users_from_signin";
+    private static final String KEY_ADD_USER_SETTINGS_CATEGORY = "add_user_settings_category";
     private static final String KEY_ENABLE_GUEST_TELEPHONY = "enable_guest_calling";
     private static final String KEY_MULTIUSER_TOP_INTRO = "multiuser_top_intro";
     private static final String KEY_TIMEOUT_TO_DOCK_USER = "timeout_to_dock_user_preference";
@@ -202,6 +206,9 @@ public class UserSettings extends SettingsPreferenceFragment
     PreferenceGroup mGuestUserCategory;
     @VisibleForTesting
     PreferenceGroup mGuestCategory;
+    @SuppressWarnings("NullAway")
+    @VisibleForTesting
+    PreferenceGroup mAddUserSettingsCategory;
     @VisibleForTesting
     Preference mGuestResetPreference;
     @VisibleForTesting
@@ -230,8 +237,7 @@ public class UserSettings extends SettingsPreferenceFragment
 
     private MultiUserSwitchBarController mSwitchBarController;
 
-    //TODO: Add @NonNull during Flags.changeSwitchBarIntoMainPreference() cleanup
-    @SuppressWarnings("NullAway")
+    @NonNull
     private MultiUserMainSwitchPreferenceController mMainSwitchController;
 
     private EditUserInfoController mEditUserInfoController =
@@ -239,6 +245,8 @@ public class UserSettings extends SettingsPreferenceFragment
     private CreateUserDialogController mCreateUserDialogController =
             new CreateUserDialogController(Utils.FILE_PROVIDER_AUTHORITY);
     private AddUserWhenLockedPreferenceController mAddUserWhenLockedPreferenceController;
+    @SuppressWarnings("NullAway")
+    private AddUserFromSignInPreferenceController mAddUserFromSignInPreferenceController;
     private GuestTelephonyPreferenceController mGuestTelephonyPreferenceController;
     private RemoveGuestOnExitPreferenceController mRemoveGuestOnExitPreferenceController;
     private MultiUserTopIntroPreferenceController mMultiUserTopIntroPreferenceController;
@@ -303,25 +311,8 @@ public class UserSettings extends SettingsPreferenceFragment
         boolean openUserEditDialog = getIntent().getBooleanExtra(
                 EXTRA_OPEN_DIALOG_USER_PROFILE_EDITOR, false);
 
-        if (Flags.changeSwitchBarIntoMainPreference()) {
-            if (openUserEditDialog) {
-                showDialog(DIALOG_USER_PROFILE_EDITOR);
-            }
-        } else {
-            final SettingsActivity activity = (SettingsActivity) getActivity();
-            final SettingsMainSwitchBar switchBar = activity.getSwitchBar();
-            switchBar.setTitle(getContext().getString(R.string.multiple_users_main_switch_title));
-            if (!mUserCaps.mIsGuest && mUserCaps.mUserSwitchingUiEnabled) {
-                switchBar.show();
-            } else {
-                switchBar.hide();
-            }
-            mSwitchBarController = new MultiUserSwitchBarController(activity,
-                    new MainSwitchBarController(switchBar), this /* listener */);
-            getSettingsLifecycle().addObserver(mSwitchBarController);
-            if (switchBar.isChecked() && openUserEditDialog) {
-                showDialog(DIALOG_USER_PROFILE_EDITOR);
-            }
+        if (openUserEditDialog) {
+            showDialog(DIALOG_USER_PROFILE_EDITOR);
         }
     }
 
@@ -341,6 +332,9 @@ public class UserSettings extends SettingsPreferenceFragment
         mAddUserWhenLockedPreferenceController = new AddUserWhenLockedPreferenceController(
                 activity, KEY_ADD_USER_WHEN_LOCKED);
 
+        mAddUserFromSignInPreferenceController = new AddUserFromSignInPreferenceController(
+                activity, KEY_ADD_USER_FROM_SIGNIN);
+
         mGuestTelephonyPreferenceController = new GuestTelephonyPreferenceController(
                 activity, KEY_ENABLE_GUEST_TELEPHONY);
 
@@ -353,25 +347,24 @@ public class UserSettings extends SettingsPreferenceFragment
         mTimeoutToDockUserPreferenceController = new TimeoutToDockUserPreferenceController(
                 activity, KEY_TIMEOUT_TO_DOCK_USER);
 
-        if (Flags.changeSwitchBarIntoMainPreference()) {
-            mMainSwitchController = new MultiUserMainSwitchPreferenceController(
-                    activity, KEY_USER_SWITCH_TOGGLE);
-        }
+        mMainSwitchController = new MultiUserMainSwitchPreferenceController(
+                activity, KEY_USER_SWITCH_TOGGLE);
 
         final PreferenceScreen screen = getPreferenceScreen();
         mAddUserWhenLockedPreferenceController.displayPreference(screen);
+        mAddUserFromSignInPreferenceController.displayPreference(screen);
         mGuestTelephonyPreferenceController.displayPreference(screen);
         mRemoveGuestOnExitPreferenceController.displayPreference(screen);
         mMultiUserTopIntroPreferenceController.displayPreference(screen);
         mTimeoutToDockUserPreferenceController.displayPreference(screen);
-        if (Flags.changeSwitchBarIntoMainPreference()) {
-            mMainSwitchController.displayPreference(screen);
-        } else {
-            screen.findPreference(KEY_USER_SWITCH_TOGGLE).setVisible(false);
-        }
+        mMainSwitchController.displayPreference(screen);
+
 
         screen.findPreference(mAddUserWhenLockedPreferenceController.getPreferenceKey())
                 .setOnPreferenceChangeListener(mAddUserWhenLockedPreferenceController);
+
+        screen.findPreference(mAddUserFromSignInPreferenceController.getPreferenceKey())
+                .setOnPreferenceChangeListener(mAddUserFromSignInPreferenceController);
 
         screen.findPreference(mGuestTelephonyPreferenceController.getPreferenceKey())
                 .setOnPreferenceChangeListener(mGuestTelephonyPreferenceController);
@@ -402,6 +395,9 @@ public class UserSettings extends SettingsPreferenceFragment
         mMePreference = new UserPreference(getPrefContext(), null /* attrs */, myUserId);
         mMePreference.setKey(KEY_USER_ME);
         mMePreference.setOnPreferenceClickListener(this);
+        if (showUserDetailsSettingsForSelf()) {
+            mMePreference.setOnEditClickListener((view) -> showDialog(DIALOG_USER_PROFILE_EDITOR));
+        }
 
         mGuestCategory = findPreference(KEY_GUEST_CATEGORY);
 
@@ -427,6 +423,8 @@ public class UserSettings extends SettingsPreferenceFragment
         mAddSupervisedUser = findPreference(KEY_ADD_SUPERVISED_USER);
         mAddSupervisedUser.setOnPreferenceClickListener(this);
 
+        mAddUserSettingsCategory = findPreference(KEY_ADD_USER_SETTINGS_CATEGORY);
+
         activity.registerReceiverAsUser(
                 mUserChangeReceiver, UserHandle.ALL, USER_REMOVED_INTENT_FILTER, null, mHandler,
                 Context.RECEIVER_EXPORTED_UNAUDITED);
@@ -446,17 +444,15 @@ public class UserSettings extends SettingsPreferenceFragment
 
         mAddUserWhenLockedPreferenceController.updateState(screen.findPreference(
                 mAddUserWhenLockedPreferenceController.getPreferenceKey()));
+        mAddUserFromSignInPreferenceController.updateState(screen.findPreference(
+                mAddUserFromSignInPreferenceController.getPreferenceKey()));
         mGuestTelephonyPreferenceController.updateState(screen.findPreference(
                 mGuestTelephonyPreferenceController.getPreferenceKey()));
         mTimeoutToDockUserPreferenceController.updateState(screen.findPreference(
                 mTimeoutToDockUserPreferenceController.getPreferenceKey()));
         mRemoveGuestOnExitPreferenceController.updateState(screen.findPreference(
                 mRemoveGuestOnExitPreferenceController.getPreferenceKey()));
-        if (Flags.changeSwitchBarIntoMainPreference()) {
-            mMainSwitchController.updateState();
-        } else {
-            mSwitchBarController.updateState();
-        }
+        mMainSwitchController.updateState();
         if (mShouldUpdateUserList) {
             updateUI();
         }
@@ -501,19 +497,37 @@ public class UserSettings extends SettingsPreferenceFragment
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         int pos = 0;
-        if (!mUserCaps.mIsMain && !isCurrentUserGuest() && !mUserManager.isProfile()) {
+        if (!mUserCaps.mIsMain
+                && !isCurrentUserGuest()
+                && !mUserManager.isProfile()
+                && !showUserDetailsSettingsForSelf()) {
             String nickname = mUserManager.getUserName();
             MenuItem removeThisUser = menu.add(0, MENU_REMOVE_USER, pos++,
                     getResources().getString(R.string.user_remove_user_menu, nickname));
             removeThisUser.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+            applyRemoveUserAdminRestriction(removeThisUser);
+        }
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
+    private void applyRemoveUserAdminRestriction(MenuItem removeThisUser) {
+        if (android.app.admin.flags.Flags.policyTransparencyRefactorEnabled()) {
+            DevicePolicyManager dpm = getContext().getSystemService(DevicePolicyManager.class);
+            PolicyEnforcementInfo info = dpm.getEnforcingAdminsForPolicy(
+                    DevicePolicyIdentifiers.getIdentifierForUserRestriction(
+                            UserManager.DISALLOW_REMOVE_USER), UserHandle.myUserId());
+            EnforcingAdmin enforcingAdmin =
+                    info.isOnlyEnforcedBySystem() ? null : info.getMostImportantEnforcingAdmin();
+            RestrictedLockUtilsInternal.setMenuItemAsDisabledByAdmin(
+                    getContext(), removeThisUser,
+                    enforcingAdmin, UserManager.DISALLOW_REMOVE_USER);
+        } else {
             final EnforcedAdmin disallowRemoveUserAdmin =
                     RestrictedLockUtilsInternal.checkIfRestrictionEnforced(getContext(),
                             UserManager.DISALLOW_REMOVE_USER, UserHandle.myUserId());
             RestrictedLockUtilsInternal.setMenuItemAsDisabledByAdmin(getContext(), removeThisUser,
                     disallowRemoveUserAdmin);
         }
-        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -617,7 +631,7 @@ public class UserSettings extends SettingsPreferenceFragment
         } else if (mGuestUserAutoCreated && requestCode == REQUEST_EDIT_GUEST
                 && resultCode == RESULT_GUEST_REMOVED) {
             scheduleGuestCreation();
-        } else if (Flags.requirePinBeforeUserDeletion() && requestCode == REQUEST_DELETE_USER) {
+        } else if (requestCode == REQUEST_DELETE_USER) {
             if (resultCode == Activity.RESULT_OK) {
                 removeUserNow();
             } else {
@@ -756,8 +770,7 @@ public class UserSettings extends SettingsPreferenceFragment
                         UserDialogs.createRemoveDialog(getActivity(), mRemovingUserId,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        if (Flags.requirePinBeforeUserDeletion()
-                                                && runUserRemovalKeyguardConfirmation()) {
+                                        if (runUserRemovalKeyguardConfirmation()) {
                                             mUserRemovalCredentialConfirmationPending = true;
                                             return;
                                         }
@@ -859,12 +872,12 @@ public class UserSettings extends SettingsPreferenceFragment
             case DIALOG_CONFIRM_EXIT_GUEST_NON_EPHEMERAL: {
                 Dialog dlg = new AlertDialog.Builder(context)
                         .setTitle(
-                            com.android.settingslib.R.string.guest_exit_dialog_title_non_ephemeral)
+                                com.android.settingslib.R.string.guest_exit_dialog_title_non_ephemeral)
                         .setMessage(
-                            com.android.settingslib
-                                .R.string.guest_exit_dialog_message_non_ephemeral)
+                                com.android.settingslib
+                                        .R.string.guest_exit_dialog_message_non_ephemeral)
                         .setPositiveButton(
-                            com.android.settingslib.R.string.guest_exit_save_data_button,
+                                com.android.settingslib.R.string.guest_exit_save_data_button,
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -872,7 +885,7 @@ public class UserSettings extends SettingsPreferenceFragment
                                     }
                                 })
                         .setNegativeButton(
-                            com.android.settingslib.R.string.guest_exit_clear_data_button,
+                                com.android.settingslib.R.string.guest_exit_clear_data_button,
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -909,11 +922,11 @@ public class UserSettings extends SettingsPreferenceFragment
             case DIALOG_CONFIRM_RESET_AND_RESTART_GUEST: {
                 Dialog dlg = new AlertDialog.Builder(context)
                         .setTitle(
-                            com.android.settingslib.R.string.guest_reset_and_restart_dialog_title)
+                                com.android.settingslib.R.string.guest_reset_and_restart_dialog_title)
                         .setMessage(
-                            com.android.settingslib.R.string.guest_reset_and_restart_dialog_message)
+                                com.android.settingslib.R.string.guest_reset_and_restart_dialog_message)
                         .setPositiveButton(
-                            com.android.settingslib.R.string.guest_reset_guest_confirm_button,
+                                com.android.settingslib.R.string.guest_reset_guest_confirm_button,
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -1007,6 +1020,7 @@ public class UserSettings extends SettingsPreferenceFragment
 
     /**
      * Checks if the creation of a new admin user is allowed.
+     *
      * @return {@code true} if creating a new admin is allowed, {@code false} otherwise.
      */
     private boolean canCreateAdminUser() {
@@ -1055,18 +1069,6 @@ public class UserSettings extends SettingsPreferenceFragment
                 mRemovingUserId = -1;
                 mUserRemovalCredentialConfirmationPending = false;
             }
-        } else if (!Flags.requirePinBeforeUserDeletion()) {
-            // This method is only called when a user deletes themselves so this part of code is
-            // never executed and can be removed.
-            ThreadUtils.postOnBackgroundThread(new Runnable() {
-                @Override
-                public void run() {
-                    synchronized (mUserLock) {
-                        mUserManager.removeUser(mRemovingUserId);
-                        mHandler.sendEmptyMessage(MESSAGE_UPDATE_LIST);
-                    }
-                }
-            });
         }
     }
 
@@ -1350,6 +1352,8 @@ public class UserSettings extends SettingsPreferenceFragment
                 pref.setSummary(R.string.user_owner);
             } else if (user.isAdmin()) {
                 pref.setSummary(R.string.user_admin);
+            } else {
+                pref.setSummary(null);
             }
             if (user.id != UserHandle.myUserId() && !user.isGuest() && !user.isInitialized()) {
                 // sometimes after creating a guest the initialized flag isn't immediately set
@@ -1413,6 +1417,10 @@ public class UserSettings extends SettingsPreferenceFragment
                 mAddUserWhenLockedPreferenceController.getPreferenceKey());
         mAddUserWhenLockedPreferenceController.updateState(addUserOnLockScreen);
 
+        final Preference addUserFromSignInScreen = getPreferenceScreen().findPreference(
+                mAddUserFromSignInPreferenceController.getPreferenceKey());
+        mAddUserFromSignInPreferenceController.updateState(addUserFromSignInScreen);
+
         final Preference guestCallPreference = getPreferenceScreen().findPreference(
                 mGuestTelephonyPreferenceController.getPreferenceKey());
         mGuestTelephonyPreferenceController.updateState(guestCallPreference);
@@ -1424,6 +1432,7 @@ public class UserSettings extends SettingsPreferenceFragment
         updateGuestCategory(context, users);
         updateAddUser(context);
         updateAddSupervisedUser(context);
+        updateAddUserSettingsCategory();
 
         for (UserPreference userPreference : userPreferences) {
             userPreference.setOrder(Preference.DEFAULT_ORDER);
@@ -1519,7 +1528,7 @@ public class UserSettings extends SettingsPreferenceFragment
             pref.setKey(KEY_USER_GUEST);
             pref.setOrder(Preference.DEFAULT_ORDER);
 
-            pref.setDisabledByAdmin(null);
+            pref.setDisabledByAdmin((EnforcingAdmin) null);
             mGuestUserCategory.addPreference(pref);
             // guest user preference is shown hence also make guest category visible
             mGuestUserCategory.setVisible(true);
@@ -1560,29 +1569,48 @@ public class UserSettings extends SettingsPreferenceFragment
                 mAddGuest.setEnabled(false);
             } else {
                 mAddGuest.setTitle(com.android.settingslib.R.string.guest_new_guest);
-                if (mUserCaps.mDisallowAddUserSetByAdmin) {
-                    mAddGuest.setDisabledByAdmin(mUserCaps.mEnforcedAdmin);
-                } else if (mUserCaps.mDisallowAddUser) {
-                    final List<UserManager.EnforcingUser> enforcingUsers =
-                            mUserManager.getUserRestrictionSources(UserManager.DISALLOW_ADD_USER,
-                                    UserHandle.of(UserHandle.myUserId()));
-                    if (!enforcingUsers.isEmpty()) {
-                        final UserManager.EnforcingUser enforcingUser = enforcingUsers.get(0);
-                        final int restrictionSource = enforcingUser.getUserRestrictionSource();
-                        if (restrictionSource == UserManager.RESTRICTION_SOURCE_SYSTEM) {
-                            mAddGuest.setEnabled(false);
-                        } else {
-                            mAddGuest.setVisible(false);
-                        }
-                    }
-                } else {
-                    mAddGuest.setEnabled(true);
-                }
+                applyAddGuestUserRestrictions();
             }
         } else {
             mAddGuest.setVisible(false);
         }
         return isVisible;
+    }
+
+    private void applyAddGuestUserRestrictions() {
+        if (android.app.admin.flags.Flags.policyTransparencyRefactorEnabled()) {
+            if (!mUserCaps.mDisallowAddUser) {
+                mAddGuest.setEnabled(true);
+                return;
+            }
+            // A restriction can be enforced by the system or an admin.
+            if (mUserCaps.mDisallowAddUserRestrictionEnforcementInfo.isOnlyEnforcedBySystem()) {
+                mAddGuest.setEnabled(false);
+            } else {
+                mAddGuest.setDisabledByAdmin(
+                        mUserCaps.mDisallowAddUserRestrictionEnforcementInfo
+                                .getMostImportantEnforcingAdmin());
+            }
+        } else {
+            if (mUserCaps.mDisallowAddUserSetByAdmin) {
+                mAddGuest.setDisabledByAdmin(mUserCaps.mEnforcedAdmin);
+            } else if (mUserCaps.mDisallowAddUser) {
+                final List<UserManager.EnforcingUser> enforcingUsers =
+                        mUserManager.getUserRestrictionSources(UserManager.DISALLOW_ADD_USER,
+                                UserHandle.of(UserHandle.myUserId()));
+                if (!enforcingUsers.isEmpty()) {
+                    final UserManager.EnforcingUser enforcingUser = enforcingUsers.get(0);
+                    final int restrictionSource = enforcingUser.getUserRestrictionSource();
+                    if (restrictionSource == UserManager.RESTRICTION_SOURCE_SYSTEM) {
+                        mAddGuest.setEnabled(false);
+                    } else {
+                        mAddGuest.setVisible(false);
+                    }
+                }
+            } else {
+                mAddGuest.setEnabled(true);
+            }
+        }
     }
 
     private void updateAddUser(Context context) {
@@ -1605,45 +1633,78 @@ public class UserSettings extends SettingsPreferenceFragment
 
     private void updateAddUserCommon(Context context, RestrictedPreference addUser,
             boolean canAddRestrictedProfile) {
-        if (mUserCaps.mCanAddUser && !mUserCaps.mDisallowAddUserSetByAdmin
-                && WizardManagerHelper.isDeviceProvisioned(context)) {
-            addUser.setVisible(true);
-            addUser.setSelectable(true);
-            final boolean canAddMoreUsers =
-                    mUserManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_SECONDARY)
-                            || (canAddRestrictedProfile
-                            && mUserManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_RESTRICTED));
-            addUser.setEnabled(canAddMoreUsers && !mAddingUser);
-
-            if (!canAddMoreUsers) {
-                addUser.setSummary(getString(R.string.user_add_max_count));
-            } else {
-                addUser.setSummary(null);
-            }
-            if (addUser.isEnabled()) {
-                addUser.setDisabledByAdmin(
-                        mUserCaps.mDisallowAddUser ? mUserCaps.mEnforcedAdmin : null);
-            }
-        } else if (mUserCaps.mDisallowAddUserSetByAdmin) {
-            addUser.setVisible(true);
-            addUser.setDisabledByAdmin(mUserCaps.mEnforcedAdmin);
-        } else if (mUserCaps.mDisallowAddUser) {
-            final List<UserManager.EnforcingUser> enforcingUsers =
-                    mUserManager.getUserRestrictionSources(UserManager.DISALLOW_ADD_USER,
-                            UserHandle.of(UserHandle.myUserId()));
-            if (!enforcingUsers.isEmpty()) {
-                final UserManager.EnforcingUser enforcingUser = enforcingUsers.get(0);
-                final int restrictionSource = enforcingUser.getUserRestrictionSource();
-                if (restrictionSource == UserManager.RESTRICTION_SOURCE_SYSTEM) {
-                    addUser.setVisible(true);
-                    addUser.setEnabled(false);
+        if (android.app.admin.flags.Flags.policyTransparencyRefactorEnabled()) {
+            // If mUserCaps.mCanAddUser is true, it means that adding user is not restricted by
+            // any admin nor system. mUserCaps.mDisallowAddUser will be false in this case.
+            if (mUserCaps.mCanAddUser && WizardManagerHelper.isDeviceProvisioned(context)) {
+                addUser.setVisible(true);
+                addUser.setSelectable(true);
+                final boolean canAddMoreUsers =
+                        mUserManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_SECONDARY)
+                                || (canAddRestrictedProfile
+                                && mUserManager.canAddMoreUsers(
+                                UserManager.USER_TYPE_FULL_RESTRICTED));
+                addUser.setEnabled(canAddMoreUsers && !mAddingUser);
+                addUser.setSummary(canAddMoreUsers ? null : getString(R.string.user_add_max_count));
+            } else if (mUserCaps.mDisallowAddUser) {
+                addUser.setVisible(true);
+                // If disallow add user restriction is set, it can either be enforced by an admin
+                // or the system. If it's enforced by an admin, show the admin disabled UI.
+                if (mUserCaps.mDisallowAddUserSetByAdmin) {
+                    addUser.setDisabledByAdmin(
+                            mUserCaps.mDisallowAddUserRestrictionEnforcementInfo
+                                    .getMostImportantEnforcingAdmin());
                 } else {
-                    addUser.setVisible(false);
+                    addUser.setEnabled(false);
                 }
+            } else {
+                addUser.setVisible(false);
             }
         } else {
-            addUser.setVisible(false);
+            if (mUserCaps.mCanAddUser && !mUserCaps.mDisallowAddUserSetByAdmin
+                    && WizardManagerHelper.isDeviceProvisioned(context)) {
+                addUser.setVisible(true);
+                addUser.setSelectable(true);
+                final boolean canAddMoreUsers =
+                        mUserManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_SECONDARY)
+                                || (canAddRestrictedProfile
+                                && mUserManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_RESTRICTED));
+                addUser.setEnabled(canAddMoreUsers && !mAddingUser);
+
+                if (!canAddMoreUsers) {
+                    addUser.setSummary(getString(R.string.user_add_max_count));
+                } else {
+                    addUser.setSummary(null);
+                }
+                if (addUser.isEnabled()) {
+                    addUser.setDisabledByAdmin(
+                            mUserCaps.mDisallowAddUser ? mUserCaps.mEnforcedAdmin : null);
+                }
+            } else if (mUserCaps.mDisallowAddUserSetByAdmin) {
+                addUser.setVisible(true);
+                addUser.setDisabledByAdmin(mUserCaps.mEnforcedAdmin);
+            } else if (mUserCaps.mDisallowAddUser) {
+                final List<UserManager.EnforcingUser> enforcingUsers =
+                        mUserManager.getUserRestrictionSources(UserManager.DISALLOW_ADD_USER,
+                                UserHandle.of(UserHandle.myUserId()));
+                if (!enforcingUsers.isEmpty()) {
+                    final UserManager.EnforcingUser enforcingUser = enforcingUsers.get(0);
+                    final int restrictionSource = enforcingUser.getUserRestrictionSource();
+                    if (restrictionSource == UserManager.RESTRICTION_SOURCE_SYSTEM) {
+                        addUser.setVisible(true);
+                        addUser.setEnabled(false);
+                    } else {
+                        addUser.setVisible(false);
+                    }
+                }
+            } else {
+                addUser.setVisible(false);
+            }
         }
+    }
+
+    private void updateAddUserSettingsCategory() {
+        mAddUserSettingsCategory.setVisible(mAddUserFromSignInPreferenceController.isAvailable());
     }
 
     private Drawable centerAndTint(Drawable icon) {
@@ -1652,7 +1713,7 @@ public class UserSettings extends SettingsPreferenceFragment
 
         Drawable bg = getContext().getDrawable(com.android.settingslib.R.drawable.user_avatar_bg)
                 .mutate();
-        LayerDrawable ld = new LayerDrawable(new Drawable[] {bg, icon});
+        LayerDrawable ld = new LayerDrawable(new Drawable[]{bg, icon});
         int size = getContext().getResources().getDimensionPixelSize(
                 R.dimen.multiple_users_avatar_size);
         int bgSize = getContext().getResources().getDimensionPixelSize(
@@ -1730,7 +1791,12 @@ public class UserSettings extends SettingsPreferenceFragment
         }
         if (pref == mMePreference) {
             if (!isCurrentUserGuest()) {
-                showDialog(DIALOG_USER_PROFILE_EDITOR);
+                if (showUserDetailsSettingsForSelf()) {
+                    UserInfo userInfo = mUserManager.getUserInfo(UserHandle.myUserId());
+                    openUserDetails(userInfo, false);
+                } else {
+                    showDialog(DIALOG_USER_PROFILE_EDITOR);
+                }
                 return true;
             }
         } else if (pref instanceof UserPreference) {

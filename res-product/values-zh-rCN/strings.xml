@@ -164,10 +164,10 @@
     <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_consent_4" product="tablet" msgid="8772005555323461143">"您和您的孩子可以随时在“设置”中删除其指纹图像和模型或关闭指纹解锁功能。指纹图像和模型会存储在平板电脑上，直到被删除为止。"</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_consent_4" product="device" msgid="7254955922685507093">"您和您的孩子可以随时在“设置”中删除其指纹图像和模型或关闭指纹解锁功能。指纹图像和模型会存储在设备上，直到被删除为止。"</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_consent_4" product="desktop" msgid="7254955922685507093">"您和您的孩子可以随时在“设置”中删除其指纹图像和模型或关闭指纹解锁功能。指纹图像和模型会存储在设备上，直到被删除为止。"</string>
-    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="default" msgid="6272159089589340181">"您的手机有可能在您并未要求的情况下解锁，例如有人让手机触碰到您的手指时，手机可能会解锁。"</string>
-    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="tablet" msgid="2420109998272019149">"您的平板电脑有可能会意外解锁，例如有人让平板电脑触碰到您的手指时。"</string>
-    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="device" msgid="5915844445830045866">"您的设备有可能会意外解锁，例如有人让设备触碰到您的手指时。"</string>
-    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="desktop" msgid="5915844445830045866">"您的设备有可能会意外解锁，例如有人让设备触碰到您的手指时。"</string>
+    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="default" msgid="6838578698434849838">"您的手机有可能会在您并未要求的情况下解锁，例如有人用手机去触碰您的手指时。"</string>
+    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="tablet" msgid="7796353046744228477">"您的平板电脑有可能会意外解锁，例如有人让平板电脑触碰到您的手指时"</string>
+    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="device" msgid="5075445491909690772">"您的设备有可能会意外解锁，例如他人用设备去触碰您的手指"</string>
+    <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_5" product="desktop" msgid="5075445491909690772">"您的设备有可能会意外解锁，例如他人用设备去触碰您的手指"</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_consent_5" product="default" msgid="6556725426776167791">"您孩子的手机有可能会意外解锁，例如有人让您孩子的手机触碰到您孩子的手指时。"</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_consent_5" product="tablet" msgid="5156581794964551571">"您孩子的平板电脑有可能会意外解锁，例如有人让您孩子的平板电脑触碰到您孩子的手指时。"</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_footer_message_consent_5" product="device" msgid="8309101436391515400">"您孩子的设备有可能会意外解锁，例如有人让您孩子的设备触碰到您孩子的手指时。"</string>
@@ -386,9 +386,6 @@
     <string name="accessibility_daltonizer_about_intro_text" product="default" msgid="5234458848997942613">"调整手机上的颜色显示方式"</string>
     <string name="accessibility_daltonizer_about_intro_text" product="tablet" msgid="5300401841391736534">"调整平板电脑上的颜色显示方式"</string>
     <string name="accessibility_daltonizer_about_intro_text" product="desktop" msgid="8908526728447739478">"调整设备上的颜色显示方式"</string>
-    <string name="reduce_bright_colors_preference_summary" product="default" msgid="2025941326724094318">"将屏幕调得比手机最低亮度更暗"</string>
-    <string name="reduce_bright_colors_preference_summary" product="tablet" msgid="3106979202311807559">"将屏幕调得比平板电脑最低亮度更暗"</string>
-    <string name="reduce_bright_colors_preference_summary" product="desktop" msgid="7810358416215416035">"将屏幕调得比设备最低亮度更暗"</string>
     <string name="reduce_bright_colors_preference_subtitle" product="default" msgid="9162440023310121356">"“极暗”功能适用于以下情况：&lt;ol&gt; &lt;li&gt;手机的默认最低亮度依然太亮&lt;/li&gt; &lt;li&gt;在夜间或睡前黑暗房间等昏暗环境中使用手机&lt;/li&gt; &lt;/ol&gt;"</string>
     <string name="reduce_bright_colors_preference_subtitle" product="tablet" msgid="5747242697890472822">"“极暗”功能适用于以下情况：&lt;ol&gt; &lt;li&gt;平板电脑的默认最低亮度依然太亮&lt;/li&gt; &lt;li&gt;在夜间或睡前黑暗房间等昏暗环境中使用平板电脑&lt;/li&gt; &lt;/ol&gt;"</string>
     <string name="reduce_bright_colors_preference_subtitle" product="desktop" msgid="3114657547062643684">"“极暗”功能适用于以下情况：&lt;ol&gt; &lt;li&gt;设备的默认最低亮度依然太亮&lt;/li&gt; &lt;li&gt;在较暗环境中（例如在夜间或睡前在昏暗房间内）使用设备&lt;/li&gt; &lt;/ol&gt;"</string>
@@ -435,7 +432,7 @@
     <string name="user_confirm_remove_self_message" product="tablet" msgid="6880861846664267876">"您将丢失自己在这台平板电脑上的空间和数据，此操作无法撤消。"</string>
     <string name="user_confirm_remove_self_message" product="default" msgid="3209762447055039706">"您将丢失自己在这部手机上的空间和数据，此操作无法撤消。"</string>
     <string name="user_confirm_remove_self_message" product="desktop" msgid="3652163924130510374">"您将丢失自己在这台设备上的空间和数据，此操作无法撤消。"</string>
-    <string name="support_summary" product="default" msgid="2044721479256103419">"帮助中心文章、电话与聊天支持"</string>
+    <string name="support_summary" product="default" msgid="2044721479256103419">"帮助文章、电话与聊天支持"</string>
     <string name="support_summary" product="tablet" msgid="2588832599234347108">"帮助文章、平板电脑与聊天支持"</string>
     <string name="support_summary" product="device" msgid="6821511162132497205">"帮助文章、设备与聊天支持"</string>
     <string name="support_summary" product="desktop" msgid="6821511162132497205">"帮助文章、设备与聊天支持"</string>
@@ -487,6 +484,21 @@
     <string name="device_supervision_switch_title" product="default" msgid="5711051584668311080">"对此手机进行控制"</string>
     <string name="device_supervision_switch_title" product="tablet" msgid="5400384750840247844">"对此平板电脑进行控制"</string>
     <string name="device_supervision_switch_title" product="desktop" msgid="2140192989162020111">"对此设备进行控制"</string>
+    <string name="supervision_pin_length_message" product="default" msgid="7142997986515800901">"{count,plural, =1{请输入至少 # 位数的 PIN 码。您在管理此手机上的控制选项时将需要使用该 PIN 码。}other{请输入至少 # 位数的 PIN 码。您在管理此手机上的控制选项时将需要使用该 PIN 码。}}"</string>
+    <string name="supervision_pin_length_message" product="tablet" msgid="1772471880165492225">"{count,plural, =1{请输入至少为 # 位数的 PIN 码。您在管理此平板电脑上的控制选项时将需要使用该 PIN 码。}other{请输入至少为 # 位数的 PIN 码。您在管理此平板电脑上的控制选项时将需要使用该 PIN 码。}}"</string>
+    <string name="supervision_pin_length_message" product="desktop" msgid="7689193597679628648">"{count,plural, =1{请输入至少为 # 位数的 PIN 码。您在管理此设备上的控制选项时将需要使用该 PIN 码。}other{请输入至少为 # 位数的 PIN 码。您在管理此设备上的控制选项时将需要使用该 PIN 码。}}"</string>
+    <string name="supervision_delete_pin_supervision_enabled_message" product="default" msgid="3538726164054428290">"家长控制 PIN 码已应用于所有用户。如要删除 PIN 码，必须为此手机上的所有用户关闭使用此 PIN 码的控制功能。"</string>
+    <string name="supervision_delete_pin_supervision_enabled_message" product="tablet" msgid="5923679321161365699">"家长控制 PIN 码已应用于所有用户。如要删除 PIN 码，必须为此平板电脑上的所有用户关闭使用此 PIN 码的控制功能。"</string>
+    <string name="supervision_delete_pin_supervision_enabled_message" product="desktop" msgid="4418588055965155673">"家长控制 PIN 码已应用于所有用户。如要删除 PIN 码，必须为此设备上的所有用户关闭使用此 PIN 码的控制功能。"</string>
+    <string name="supervision_delete_pin_confirm_message" product="default" msgid="4142432379507014709">"家长控制 PIN 码会永久删除。您使用此 PIN 码为此手机上的用户设置的所有控制功能都将关闭。"</string>
+    <string name="supervision_delete_pin_confirm_message" product="tablet" msgid="3676061526109959657">"家长控制 PIN 码会永久删除。您使用此 PIN 码为此平板电脑上的用户设置的所有控制功能都将关闭。"</string>
+    <string name="supervision_delete_pin_confirm_message" product="desktop" msgid="9122403113168273844">"家长控制 PIN 码会永久删除。您使用此 PIN 码为此设备上的用户设置的所有控制功能都将关闭。"</string>
+    <string name="device_supervision_pin_management_footer" product="default" msgid="6890338658180593450">"此手机上所有用户的家长控制 PIN 码都相同"</string>
+    <string name="device_supervision_pin_management_footer" product="tablet" msgid="4013172842200145374">"此平板电脑上所有用户的家长控制 PIN 码都相同"</string>
+    <string name="device_supervision_pin_management_footer" product="desktop" msgid="6539340160423866980">"此设备上所有用户的家长控制 PIN 码都相同"</string>
+    <string name="supervision_multi_profile_error_message" product="default" msgid="4185376425933293903">"此手机上有多份个人资料，因此无法开启家长控制功能。"</string>
+    <string name="supervision_multi_profile_error_message" product="tablet" msgid="5021937906206996760">"此平板电脑上有多份个人资料，因此无法开启家长控制功能。"</string>
+    <string name="supervision_multi_profile_error_message" product="desktop" msgid="7222938263475617299">"此设备上有多份个人资料，因此无法开启家长控制功能。"</string>
     <string name="auto_rotate_summary_a11y" product="default" msgid="2813368383309985185">"变换手机持握方向时，自动调整为相应的竖屏或横屏模式"</string>
     <string name="auto_rotate_summary_a11y" product="tablet" msgid="4708833814245913981">"当您在纵向与横向之间变换平板电脑持握方向时"</string>
     <string name="auto_rotate_summary_a11y" product="desktop" msgid="1342493478927297535">"在纵向和横向之间切换设备方向时"</string>

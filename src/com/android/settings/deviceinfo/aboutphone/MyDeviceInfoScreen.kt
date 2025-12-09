@@ -25,6 +25,9 @@ import androidx.fragment.app.Fragment
 import com.android.settings.R
 import com.android.settings.Settings.MyDeviceInfoActivity
 import com.android.settings.core.PreferenceScreenMixin
+import com.android.settings.deviceinfo.DeviceNamePreference
+import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionScreen
+import com.android.settings.deviceinfo.hardwareinfo.HardwareInfoScreen
 import com.android.settings.deviceinfo.imei.ImeiPreference
 import com.android.settings.deviceinfo.simstatus.SimEidPreference
 import com.android.settings.flags.Flags
@@ -38,6 +41,7 @@ import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
 import com.android.settingslib.widget.SettingsThemeHelper.isExpressiveTheme
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 @ProvidePreferenceScreen(MyDeviceInfoScreen.KEY)
 open class MyDeviceInfoScreen :
@@ -56,8 +60,7 @@ open class MyDeviceInfoScreen :
     override fun getIcon(context: Context) =
         when {
             isExpressiveTheme(context) -> R.drawable.ic_homepage_about
-            Flags.homepageRevamp() -> R.drawable.ic_settings_about_device_filled
-            else -> R.drawable.ic_settings_about_device
+            else -> R.drawable.ic_settings_about_device_filled
         }
 
     override val highlightMenuKey: Int
@@ -74,16 +77,29 @@ open class MyDeviceInfoScreen :
 
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
         preferenceHierarchy(context) {
+            if (Flags.catalystAboutPhoneDeviceName()) {
+                +PreferenceCategory(
+                    BASIC_INFO_CATEGORY,
+                    R.string.my_device_info_basic_info_category_title,
+                ) +=
+                    {
+                        +DeviceNamePreference(context) order 1
+                    }
+            }
             +PreferenceCategory(
-                "device_detail_category",
+                DEVICE_DETAIL_CATEGORY,
                 R.string.my_device_info_device_details_category_title,
             ) +=
                 {
-                    +SimEidPreference(context) order 31
+                    if (Flags.catalystDeviceModel()) +HardwareInfoScreen.KEY order 30
+                    addAsync(coroutineScope, Dispatchers.Default) {
+                        +SimEidPreference(context) order 31
+                    }
                     val activeModemCount = context.activeModemCount
                     for (i in 0 until activeModemCount) {
                         +ImeiPreference(context, i, activeModemCount) order (i + 33)
                     }
+                    if (Flags.catalystFirmwareVersion()) +FirmwareVersionScreen.KEY order 42
                 }
         }
 
@@ -91,5 +107,7 @@ open class MyDeviceInfoScreen :
 
     companion object {
         const val KEY = "my_device_info_pref_screen"
+        internal const val BASIC_INFO_CATEGORY = "basic_info_category"
+        internal const val DEVICE_DETAIL_CATEGORY = "device_detail_category"
     }
 }

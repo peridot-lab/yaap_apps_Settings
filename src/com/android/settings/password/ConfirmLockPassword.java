@@ -21,7 +21,6 @@ import static android.app.admin.DevicePolicyResources.Strings.Settings.CONFIRM_W
 import static android.app.admin.DevicePolicyResources.Strings.Settings.WORK_PROFILE_LAST_PASSWORD_ATTEMPT_BEFORE_WIPE;
 import static android.app.admin.DevicePolicyResources.Strings.Settings.WORK_PROFILE_LAST_PIN_ATTEMPT_BEFORE_WIPE;
 import static android.app.admin.DevicePolicyResources.UNDEFINED;
-import static android.os.UserManager.USER_TYPE_PROFILE_SUPERVISING;
 
 import static com.android.settings.biometrics.GatekeeperPasswordProvider.containsGatekeeperPasswordHandle;
 import static com.android.settings.biometrics.GatekeeperPasswordProvider.getGatekeeperPasswordHandle;
@@ -61,6 +60,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.insets.ProtectionLayout;
 import androidx.fragment.app.Fragment;
 
 import com.android.internal.widget.LockPatternChecker;
@@ -70,6 +70,7 @@ import com.android.internal.widget.TextViewInputDisabler;
 import com.android.settings.R;
 import com.android.settings.SetupRedactionInterstitial;
 import com.android.settings.Utils;
+import com.android.settings.flags.Flags;
 import com.android.settings.widget.ImeAwareTextInputEditText;
 import com.android.settingslib.animation.AppearAnimationUtils;
 import com.android.settingslib.animation.DisappearAnimationUtils;
@@ -78,6 +79,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.setupdesign.util.ThemeHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ConfirmLockPassword extends ConfirmDeviceCredentialBaseActivity {
 
@@ -156,6 +158,17 @@ public class ConfirmLockPassword extends ConfirmDeviceCredentialBaseActivity {
             };
             View view = inflater.inflate(layoutId, container, false);
             mGlifLayout = view.findViewById(R.id.setup_wizard_layout);
+
+            // TODO(b/440023111):This can be removed once SetupDesignLib and SettingsLib have
+            //  integrated the solution.
+            if (Flags.removeProtectionLayout() && ThemeHelper.shouldApplyGlifExpressiveStyle(
+                    getContext())) {
+                final ProtectionLayout protect = mGlifLayout.findViewById(
+                        com.google.android.setupdesign.R.id.sud_layout_protection);
+                if (protect != null) {
+                    protect.setProtections(Collections.emptyList());
+                }
+            }
             mPasswordEntry = (EditText) view.findViewById(R.id.password_entry);
             mPasswordEntry.setOnEditorActionListener(this);
             // EditText inside ScrollView doesn't automatically get focus.
@@ -188,9 +201,7 @@ public class ConfirmLockPassword extends ConfirmDeviceCredentialBaseActivity {
                     Context.INPUT_METHOD_SERVICE);
 
             mIsManagedProfile = UserManager.get(getActivity()).isManagedProfile(mEffectiveUserId);
-            boolean isSupervisingProfile =
-                    android.multiuser.Flags.allowSupervisingProfile() && UserManager.get(
-                            getActivity()).isUserOfType(USER_TYPE_PROFILE_SUPERVISING);
+            boolean isSupervisingProfile = Utils.isSupervisingProfile(mUserId, getActivity());
 
             Intent intent = getActivity().getIntent();
             if (intent != null) {
@@ -324,10 +335,8 @@ public class ConfirmLockPassword extends ConfirmDeviceCredentialBaseActivity {
             if (mRemoteValidation) {
                 return getString(R.string.lockpassword_remote_validation_header);
             }
-            if (android.multiuser.Flags.allowSupervisingProfile() && !mIsAlpha) {
-                if (UserManager.get(getActivity()).isUserOfType(USER_TYPE_PROFILE_SUPERVISING)) {
-                    return getString(R.string.supervision_full_screen_pin_verification_title);
-                }
+            if (Utils.isSupervisingProfile(mUserId, getActivity()) && !mIsAlpha) {
+                return getString(R.string.supervision_full_screen_pin_verification_title);
             }
             if (mIsManagedProfile) {
                 if (mIsAlpha) {
@@ -340,8 +349,7 @@ public class ConfirmLockPassword extends ConfirmDeviceCredentialBaseActivity {
                         CONFIRM_WORK_PROFILE_PIN_HEADER,
                         () -> getString(R.string.lockpassword_confirm_your_work_pin_header));
             }
-            if (android.multiuser.Flags.showCustomUnlockTitleInsidePrivateProfile()
-                    && Utils.isPrivateProfile(mEffectiveUserId, getActivity())
+            if (Utils.isPrivateProfile(mEffectiveUserId, getActivity())
                     && !UserManager.get(getActivity())
                     .isQuietModeEnabled(UserHandle.of(mEffectiveUserId))) {
                 return mIsAlpha ? getString(R.string.private_space_confirm_your_password_header)

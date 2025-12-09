@@ -18,10 +18,15 @@ package com.android.settings.network
 
 import android.app.settings.SettingsEnums
 import android.content.Context
+import android.content.Intent
+import android.telephony.SubscriptionManager
 import androidx.fragment.app.Fragment
 import com.android.settings.R
+import com.android.settings.Settings.AdaptiveConnectivitySettingsActivity
 import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.flags.Flags
+import com.android.settings.utils.makeLaunchIntent
+import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
 import kotlinx.coroutines.CoroutineScope
@@ -45,14 +50,27 @@ open class AdaptiveConnectivityScreen : PreferenceScreenMixin {
 
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
         preferenceHierarchy(context) {
-            +AdaptiveConnectivityTogglePreference()
-            if (Flags.enableNestedToggleSwitches()) {
+            if (Flags.enableAdaptiveConnectivityToggleSwitches()) {
                 +WifiScorerTogglePreference()
-                +AdaptiveMobileNetworkTogglePreference()
+                val subscriptionManager = context.getSystemService(SubscriptionManager::class.java)
+                val shouldHideMobileNetworkToggle =
+                    subscriptionManager != null &&
+                        SubscriptionUtil.hasSubscriptionForMobileNetworkToggleDisable(
+                            context,
+                            subscriptionManager,
+                        )
+                if (!shouldHideMobileNetworkToggle) {
+                    +AdaptiveMobileNetworkTogglePreference()
+                }
+            } else {
+                +AdaptiveConnectivityTogglePreference()
             }
         }
 
     override fun hasCompleteHierarchy() = false
+
+    override fun getLaunchIntent(context: Context, metadata: PreferenceMetadata?): Intent? =
+        makeLaunchIntent(context, AdaptiveConnectivitySettingsActivity::class.java, metadata?.key)
 
     companion object {
         const val KEY = "adaptive_connectivity"

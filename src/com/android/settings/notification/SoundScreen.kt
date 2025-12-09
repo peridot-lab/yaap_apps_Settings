@@ -47,8 +47,7 @@ open class SoundScreen : PreferenceScreenMixin, PreferenceIconProvider {
     override fun getIcon(context: Context) =
         when {
             isExpressiveTheme(context) -> R.drawable.ic_homepage_sound
-            Flags.homepageRevamp() -> R.drawable.ic_volume_up_filled
-            else -> R.drawable.ic_volume_up_24dp
+            else -> R.drawable.ic_volume_up_filled
         }
 
     override val highlightMenuKey: Int
@@ -83,7 +82,8 @@ open class SoundScreen : PreferenceScreenMixin, PreferenceIconProvider {
             ) order -111 +=
                 {
                     +DialPadTonePreference() order -50
-                    if (Flags.catalystSoundScreen25q4()) {
+                    // TODO(b/432624175): rollback to Flags.catalystSoundScreen25q4
+                    if (Flags.deeplinkSoundAndVibration25q4()) {
                         +ScreenLockSoundPreference() order -45
                         +ChargingSoundPreference() order -40
                         +DockingSoundPreference() order -35

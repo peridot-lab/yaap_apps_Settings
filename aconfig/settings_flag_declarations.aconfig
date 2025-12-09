@@ -16,20 +16,6 @@ flag {
 }
 
 flag {
-    name: "homepage_revamp"
-    namespace: "android_settings"
-    description: "Feature flag to enable new settings homepage UX."
-    bug: "321612737"
-}
-
-flag {
-    name: "dynamic_injection_category"
-    namespace: "android_settings"
-    description: "Feature flag to enable injection into PreferenceCategory."
-    bug: "333547416"
-}
-
-flag {
     name: "slices_retirement"
     namespace: "android_settings"
     description: "Feature flag to remove relevant slices dependencies."
@@ -62,16 +48,6 @@ flag {
   namespace: "android_settings"
   description: "Flag for catalyst service"
   bug: "323791114"
-}
-
-flag {
-  name: "utils_return_user_handle_for_current_user_id"
-  namespace: "profile_experiences"
-  description: "Don't ignore the current user id when checking for existing profiles."
-  bug: "378471943"
-  metadata {
-    purpose: PURPOSE_BUGFIX
-  }
 }
 
 flag {
@@ -113,11 +89,11 @@ flag {
 }
 
 flag {
-  name: "fix_touchpad_and_mouse_settings_search_index"
+  name: "disable_update_height_profile_select_location_services"
   namespace: "android_settings"
-  description: "Fix TouchpadAndMouseSettings indexing logic"
-  bug: "421850832"
+  description: "Disable updateHeight in the Location Services page to allow scrolling in certain screen sizes / orientations"
+  bug: "418876165"
   metadata {
-      purpose: PURPOSE_BUGFIX
-    }
+    purpose: PURPOSE_BUGFIX
+  }
 }

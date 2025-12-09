@@ -33,6 +33,7 @@ import android.util.ArrayMap;
 import android.view.accessibility.AccessibilityManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -55,6 +56,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Activity with the accessibility settings. */
+// LINT.IfChange
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class AccessibilitySettings extends BaseSupportFragment implements
         InputManager.InputDeviceListener {
@@ -84,16 +86,11 @@ public class AccessibilitySettings extends BaseSupportFragment implements
     static final String EXTRA_RESOLVE_INFO = "resolve_info";
     static final String EXTRA_SUMMARY = "summary";
     static final String EXTRA_INTRO = "intro";
-    static final String EXTRA_SETTINGS_TITLE = "settings_title";
     public static final String EXTRA_COMPONENT_NAME = "component_name";
-    static final String EXTRA_SETTINGS_COMPONENT_NAME = "settings_component_name";
-    static final String EXTRA_TILE_SERVICE_COMPONENT_NAME = "tile_service_component_name";
     static final String EXTRA_LAUNCHED_FROM_SUW = "from_suw";
     static final String EXTRA_ANIMATED_IMAGE_RES = "animated_image_res";
     static final String EXTRA_HTML_DESCRIPTION = "html_description";
-    static final String EXTRA_TIME_FOR_LOGGING = "start_time_to_log_a11y_tool";
-    static final String EXTRA_METRICS_CATEGORY = "metrics_category";
-    static final String EXTRA_FEEDBACK_CATEGORY = "feedback_category";
+    public static final String EXTRA_TIME_FOR_LOGGING = "start_time_to_log_a11y_tool";
 
     // Timeout before we update the services if packages are added/removed
     // since the AccessibilityManagerService has to do that processing first
@@ -185,13 +182,6 @@ public class AccessibilitySettings extends BaseSupportFragment implements
     @Override
     public int getMetricsCategory() {
         return SettingsEnums.ACCESSIBILITY;
-    }
-
-    @Override
-    protected String getDisabilitySupportUrl() {
-        return FeatureFactory.getFeatureFactory()
-                .getAccessibilityDisabilitySupportFeatureProvider()
-                .getUrl();
     }
 
     @Override
@@ -405,7 +395,7 @@ public class AccessibilitySettings extends BaseSupportFragment implements
                         UserHandle.myUserId());
         final List<AccessibilityServiceInfo> installedServiceList =
                 a11yManager.getInstalledAccessibilityServiceList();
-        final List<RestrictedPreference> preferenceList = getInstalledAccessibilityPreferences(
+        final List<Preference> preferenceList = getInstalledAccessibilityPreferences(
                 getPrefContext(), installedShortcutList, installedServiceList);
 
         removeNonPreinstalledComponents(mPreBundledServiceComponentToCategoryMap,
@@ -415,7 +405,7 @@ public class AccessibilitySettings extends BaseSupportFragment implements
                 mCategoryToPrefCategoryMap.get(CATEGORY_DOWNLOADED_SERVICES);
 
         for (int i = 0, count = preferenceList.size(); i < count; ++i) {
-            final RestrictedPreference preference = preferenceList.get(i);
+            final Preference preference = preferenceList.get(i);
             final ComponentName componentName = preference.getExtras().getParcelable(
                     EXTRA_COMPONENT_NAME);
             PreferenceCategory prefCategory = downloadedServicesCategory;
@@ -462,17 +452,18 @@ public class AccessibilitySettings extends BaseSupportFragment implements
      * @param installedShortcutList A list of installed {@link AccessibilityShortcutInfo}s.
      * @param installedServiceList  A list of installed {@link AccessibilityServiceInfo}s.
      */
-    private static List<RestrictedPreference> getInstalledAccessibilityPreferences(Context context,
+    private static List<Preference> getInstalledAccessibilityPreferences(Context context,
             List<AccessibilityShortcutInfo> installedShortcutList,
             List<AccessibilityServiceInfo> installedServiceList) {
-        final RestrictedPreferenceHelper preferenceHelper = new RestrictedPreferenceHelper(context);
+        final InstalledA11yFeaturesPreferenceHelper
+                preferenceHelper = new InstalledA11yFeaturesPreferenceHelper(context);
 
         final List<AccessibilityActivityPreference> activityList =
                 preferenceHelper.createAccessibilityActivityPreferenceList(installedShortcutList);
         final List<RestrictedPreference> serviceList =
                 preferenceHelper.createAccessibilityServicePreferenceList(installedServiceList);
 
-        final List<RestrictedPreference> preferenceList = new ArrayList<>();
+        final List<Preference> preferenceList = new ArrayList<>();
         preferenceList.addAll(activityList);
         preferenceList.addAll(serviceList);
 
@@ -549,6 +540,11 @@ public class AccessibilitySettings extends BaseSupportFragment implements
                 findPreference(controller.getPreferenceKey())));
     }
 
+    @Override
+    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
+        return AccessibilityScreen.KEY;
+    }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider(R.xml.accessibility_settings) {
                 @Override
@@ -573,14 +569,14 @@ public class AccessibilitySettings extends BaseSupportFragment implements
                     AccessibilitySearchFeatureProvider a11ySearchFeatureProvider =
                             FeatureFactory.getFeatureFactory()
                                     .getAccessibilitySearchFeatureProvider();
-                    List<RestrictedPreference> installedA11yFeaturesPref =
+                    List<Preference> installedA11yFeaturesPref =
                             AccessibilitySettings.getInstalledAccessibilityPreferences(
                                     context,
                                     a11yManager.getInstalledAccessibilityShortcutListAsUser(
                                             context, UserHandle.myUserId()),
                                     a11yManager.getInstalledAccessibilityServiceList()
                             );
-                    for (RestrictedPreference pref : installedA11yFeaturesPref) {
+                    for (Preference pref : installedA11yFeaturesPref) {
                         SearchIndexableRaw indexableRaw = new SearchIndexableRaw(context);
                         indexableRaw.key = pref.getKey();
                         indexableRaw.title = pref.getTitle().toString();
@@ -615,3 +611,4 @@ public class AccessibilitySettings extends BaseSupportFragment implements
         mHandler.postDelayed(mUpdateRunnable, DELAY_UPDATE_SERVICES_MILLIS);
     }
 }
+// LINT.ThenChange(AccessibilityScreen.kt)

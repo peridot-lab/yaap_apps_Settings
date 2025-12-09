@@ -56,6 +56,12 @@ class SupervisionPinManagementScreen :
     override val title: Int
         get() = R.string.supervision_pin_management_preference_title
 
+    override val screenTitle: Int
+        get() = R.string.supervision_pin_management_screen_title
+
+    override val indexable
+        get() = true
+
     override val keywords: Int
         get() = R.string.supervision_pin_management_preference_keywords
 
@@ -116,9 +122,8 @@ class SupervisionPinManagementScreen :
             +UntitledPreferenceCategoryMetadata("delete_pin_group") += {
                 +SupervisionDeletePinPreference()
             }
+            +SupervisionPinManagementFooterPreference()
         }
-
-    override fun isIndexable(context: Context) = true
 
     override fun hasCompleteHierarchy() = true
 

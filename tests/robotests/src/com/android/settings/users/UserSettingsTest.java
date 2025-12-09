@@ -17,8 +17,12 @@
 package com.android.settings.users;
 
 import static android.os.UserManager.SWITCHABILITY_STATUS_OK;
+import static android.app.admin.flags.Flags.FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED;
 
 import static com.android.settings.flags.Flags.FLAG_HIDE_USER_LIST_FOR_NON_ADMINS;
+import static com.android.settings.flags.Flags.FLAG_SHOW_USER_DETAILS_SETTINGS_FOR_SELF;
+import static com.android.settings.testutils.DevicePolicyUtils.DPC_ADMIN;
+import static com.android.settings.testutils.DevicePolicyUtils.SYSTEM_ADMIN;
 import static com.android.settings.users.UserSettings.DIALOG_CONFIRM_REMOVE;
 import static com.android.settings.users.UserSettings.REQUEST_DELETE_USER;
 
@@ -41,24 +45,24 @@ import static org.robolectric.Shadows.shadowOf;
 
 import android.app.Dialog;
 import android.app.admin.DevicePolicyManager;
+import android.app.admin.PolicyEnforcementInfo;
 import android.app.settings.SettingsEnums;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.multiuser.Flags;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.platform.test.annotations.DisableFlags;
 import android.platform.test.annotations.EnableFlags;
-import android.platform.test.annotations.RequiresFlagsEnabled;
 import android.platform.test.flag.junit.CheckFlagsRule;
 import android.platform.test.flag.junit.DeviceFlagsValueProvider;
 import android.platform.test.flag.junit.SetFlagsRule;
@@ -169,7 +173,7 @@ public class UserSettingsTest {
     @Rule public final SetFlagsRule mSetFlagsRule = new SetFlagsRule();
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         mActivity = spy(ActivityController.of(new FragmentActivity()).get());
         mContext = spy(RuntimeEnvironment.application);
@@ -179,6 +183,8 @@ public class UserSettingsTest {
         mFragment = spy(new UserSettings());
         ReflectionHelpers.setField(mFragment, "mAddUserWhenLockedPreferenceController",
                 mock(AddUserWhenLockedPreferenceController.class));
+        ReflectionHelpers.setField(mFragment, "mAddUserFromSignInPreferenceController",
+                mock(AddUserFromSignInPreferenceController.class));
         ReflectionHelpers.setField(mFragment, "mGuestTelephonyPreferenceController",
                 mock(GuestTelephonyPreferenceController.class));
         ReflectionHelpers.setField(mFragment, "mMultiUserTopIntroPreferenceController",
@@ -200,6 +206,7 @@ public class UserSettingsTest {
         doReturn(mUserManager).when(mContext).getSystemService(UserManager.class);
         doReturn(mUserManager).when(mContext).getSystemService(Context.USER_SERVICE);
         doReturn(mPackageManager).when(mContext).getPackageManager();
+        doReturn(new PackageInfo()).when(mPackageManager).getPackageInfo(anyString(), anyInt());
 
         mProvisionedBackupValue = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.DEVICE_PROVISIONED, 0);
@@ -222,6 +229,7 @@ public class UserSettingsTest {
         mFragment.mUserListCategory = mock(PreferenceCategory.class);
         mFragment.mGuestUserCategory = mock(PreferenceCategory.class);
         mFragment.mGuestCategory = mock(PreferenceCategory.class);
+        mFragment.mAddUserSettingsCategory = mock(PreferenceCategory.class);
         mFragment.mGuestResetPreference = mock(Preference.class);
         mFragment.mGuestExitPreference = mock(Preference.class);
     }
@@ -261,8 +269,7 @@ public class UserSettingsTest {
         ShadowUserManager.getShadow().setSupportsMultipleUsers(true);
         givenUsers(getAdminUser(true));
         SettingsShadowResources.overrideResource(
-                com.android.settings.R.bool.config_offer_restricted_profiles,
-                Boolean.TRUE);
+                com.android.settings.R.bool.config_offer_restricted_profiles, true);
         when(mUserManager.hasBaseUserRestriction(UserManager.DISALLOW_ADD_USER, mContext.getUser()))
                 .thenReturn(false);
         when(mUserManager.isUserTypeEnabled(UserManager.USER_TYPE_FULL_RESTRICTED))
@@ -290,8 +297,7 @@ public class UserSettingsTest {
         ShadowUserManager.getShadow().setSupportsMultipleUsers(true);
         givenUsers(getAdminUser(true));
         SettingsShadowResources.overrideResource(
-                com.android.settings.R.bool.config_offer_restricted_profiles,
-                Boolean.FALSE);
+                com.android.settings.R.bool.config_offer_restricted_profiles, false);
         List<SearchIndexableRaw> rawData =
                 UserSettings.SEARCH_INDEX_DATA_PROVIDER.getRawDataToIndex(mContext, true);
 
@@ -413,6 +419,19 @@ public class UserSettingsTest {
     }
 
     @Test
+    @EnableFlags(FLAG_SHOW_USER_DETAILS_SETTINGS_FOR_SELF)
+    public void withCurrentUserAdmin_enableShowUserDetailsForSlef_ShouldNotAddRemoveUserAction() {
+        mUserCapabilities.mIsMain = false;
+        mUserCapabilities.mIsAdmin = true;
+        doReturn(SWITCHABILITY_STATUS_OK).when(mUserManager).getUserSwitchability();
+        Menu menu = mock(Menu.class);
+
+        mFragment.onCreateOptionsMenu(menu, mock(MenuInflater.class));
+
+        verify(menu, never()).add(anyInt(), anyInt(), anyInt(), any(CharSequence.class));
+    }
+
+    @Test
     public void withoutDisallowRemoveUser_ShouldNotDisableRemoveUser() {
         // Arrange
         doReturn(SWITCHABILITY_STATUS_OK).when(mUserManager).getUserSwitchability();
@@ -438,7 +457,6 @@ public class UserSettingsTest {
 
 
     @Test
-    @RequiresFlagsEnabled(Flags.FLAG_REQUIRE_PIN_BEFORE_USER_DELETION)
     public void removeUserSelf_userHasScreenlock_shouldAskForCredentials() {
         doReturn(SWITCHABILITY_STATUS_OK).when(mUserManager).getUserSwitchability();
 
@@ -471,7 +489,6 @@ public class UserSettingsTest {
     }
 
     @Test
-    @RequiresFlagsEnabled(Flags.FLAG_REQUIRE_PIN_BEFORE_USER_DELETION)
     public void removeUserSelf_userHasNoScreenlock_shouldNotAskForCredentials() {
         ShadowLockPatternUtils.setKeyguardStoredPasswordQuality(
                 DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED);
@@ -506,9 +523,9 @@ public class UserSettingsTest {
                 eq(REQUEST_DELETE_USER), any());
     }
 
-
+    @EnableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
     @Test
-    public void updateUserList_canAddUserAndSwitchUser_shouldShowAddUser() {
+    public void updateUserList_canAddUserAndSwitchUser_refactoringEnabled_shouldShowAddUser() {
         mUserCapabilities.mCanAddUser = true;
         doReturn(true)
                 .when(mUserManager).canAddMoreUsers(eq(UserManager.USER_TYPE_FULL_SECONDARY));
@@ -520,7 +537,24 @@ public class UserSettingsTest {
         verify(mAddUserPreference).setVisible(true);
         verify(mAddUserPreference).setSummary(null);
         verify(mAddUserPreference).setEnabled(true);
-        verify(mAddUserPreference).setDisabledByAdmin(null);
+        verify(mAddUserPreference).setSelectable(true);
+    }
+
+    @DisableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
+    @Test
+    public void updateUserList_canAddUserAndSwitchUser_refactoringDisabled_shouldShowAddUser() {
+        mUserCapabilities.mCanAddUser = true;
+        doReturn(true)
+                .when(mUserManager).canAddMoreUsers(eq(UserManager.USER_TYPE_FULL_SECONDARY));
+        doReturn(true).when(mAddUserPreference).isEnabled();
+        doReturn(SWITCHABILITY_STATUS_OK).when(mUserManager).getUserSwitchability();
+
+        mFragment.updateUserList();
+
+        verify(mAddUserPreference).setVisible(true);
+        verify(mAddUserPreference).setSummary(null);
+        verify(mAddUserPreference).setEnabled(true);
+        verify(mAddUserPreference).setDisabledByAdmin((RestrictedLockUtils.EnforcedAdmin) null);
         verify(mAddUserPreference).setSelectable(true);
     }
 
@@ -538,8 +572,27 @@ public class UserSettingsTest {
         verify(mAddGuestPreference).setSelectable(true);
     }
 
+    @EnableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
     @Test
-    public void updateUserList_disallowAddUser_shouldDisableAddUserAndAddGuest() {
+    public void updateUserList_disallowAddUser_refactoringEnabled_shouldDisableAddUserAndAddGuest() {
+        mUserCapabilities.mCanAddUser = false;
+        mUserCapabilities.mDisallowAddUser = true;
+        mUserCapabilities.mDisallowAddUserSetByAdmin = true;
+        mUserCapabilities.mDisallowAddUserRestrictionEnforcementInfo =
+                new PolicyEnforcementInfo(List.of(DPC_ADMIN));
+        doReturn(true).when(mUserManager).canAddMoreUsers(anyString());
+        doReturn(SWITCHABILITY_STATUS_OK)
+                .when(mUserManager).getUserSwitchability();
+
+        mFragment.updateUserList();
+
+        verify(mAddUserPreference).setVisible(true);
+        verify(mAddUserPreference).setDisabledByAdmin(DPC_ADMIN);
+    }
+
+    @DisableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
+    @Test
+    public void updateUserList_disallowAddUser_refactoringDisabled_shouldDisableAddUserAndAddGuest() {
         mUserCapabilities.mDisallowAddUserSetByAdmin = true;
         doReturn(true).when(mUserManager).canAddMoreUsers(anyString());
         doReturn(SWITCHABILITY_STATUS_OK)
@@ -548,7 +601,8 @@ public class UserSettingsTest {
         mFragment.updateUserList();
 
         verify(mAddUserPreference).setVisible(true);
-        verify(mAddUserPreference).setDisabledByAdmin(any());
+        verify(mAddUserPreference)
+                .setDisabledByAdmin((RestrictedLockUtils.EnforcedAdmin) any());
     }
 
     @Test
@@ -587,8 +641,9 @@ public class UserSettingsTest {
         verify(mAddUserPreference).setEnabled(true);
     }
 
+    @DisableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
     @Test
-    public void updateUserList_disallowAddUser_shouldShowButDisableAddActions() {
+    public void updateUserList_disallowAddUser_refactoringDisabled_shouldShowButDisableAddActions() {
         givenUsers(getAdminUser(true));
         mUserCapabilities.mCanAddGuest = true;
         mUserCapabilities.mCanAddUser = false;
@@ -613,8 +668,47 @@ public class UserSettingsTest {
         verify(mAddUserPreference).setEnabled(false);
     }
 
+    @EnableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
     @Test
-    public void updateUserList_addUserDisallowedByAdmin_shouldShowPrefDisabledByAdmin() {
+    public void updateUserList_disallowAddUser_refactoringEnabled_shouldShowButDisableAddActions() {
+        givenUsers(getAdminUser(true));
+        mUserCapabilities.mCanAddGuest = true;
+        mUserCapabilities.mCanAddUser = false;
+        mUserCapabilities.mDisallowAddUser = true;
+        mUserCapabilities.mDisallowAddUserSetByAdmin = false;
+        mUserCapabilities.mDisallowAddUserRestrictionEnforcementInfo =
+                new PolicyEnforcementInfo(List.of(SYSTEM_ADMIN));
+        doReturn(true)
+                .when(mUserManager).canAddMoreUsers(eq(UserManager.USER_TYPE_FULL_GUEST));
+        doReturn(true)
+                .when(mUserManager).canAddMoreUsers(eq(UserManager.USER_TYPE_FULL_SECONDARY));
+
+        mFragment.updateUserList();
+
+        verify(mAddGuestPreference).setVisible(true);
+        verify(mAddGuestPreference).setEnabled(false);
+        verify(mAddUserPreference).setVisible(true);
+        verify(mAddUserPreference).setEnabled(false);
+    }
+
+    @EnableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
+    @Test
+    public void updateUserList_addUserDisallowedByAdmin_refactoringEnabled_shouldShowPrefDisabledByAdmin() {
+        mUserCapabilities.mCanAddUser = false;
+        mUserCapabilities.mDisallowAddUser = true;
+        mUserCapabilities.mDisallowAddUserSetByAdmin = true;
+        mUserCapabilities.mDisallowAddUserRestrictionEnforcementInfo =
+                new PolicyEnforcementInfo(List.of(DPC_ADMIN));
+        doReturn(true).when(mAddUserPreference).isEnabled();
+
+        mFragment.updateUserList();
+
+        verify(mAddUserPreference).setDisabledByAdmin(DPC_ADMIN);
+    }
+
+    @DisableFlags(FLAG_POLICY_TRANSPARENCY_REFACTOR_ENABLED)
+    @Test
+    public void updateUserList_addUserDisallowedByAdmin_refactoringDisabled_shouldShowPrefDisabledByAdmin() {
         RestrictedLockUtils.EnforcedAdmin enforcedAdmin = mock(
                 RestrictedLockUtils.EnforcedAdmin.class);
 
@@ -628,6 +722,7 @@ public class UserSettingsTest {
 
         verify(mAddUserPreference).setDisabledByAdmin(enforcedAdmin);
     }
+
     @Test
     public void updateUserList_cannotAddUserButCanSwitchUser_shouldNotShowAddUser() {
         mUserCapabilities.mCanAddUser = false;
@@ -927,12 +1022,32 @@ public class UserSettingsTest {
     }
 
     @Test
+    @EnableFlags(FLAG_SHOW_USER_DETAILS_SETTINGS_FOR_SELF)
+    public void updateUserList_enableShowUserDetailsSettingsForSelf_shouldShowEditButton() {
+        givenUsers(getAdminUser(true), getSecondaryUser(false));
+
+        mFragment.updateUserList();
+
+        ArgumentCaptor<UserPreference> captor = ArgumentCaptor.forClass(UserPreference.class);
+        verify(mFragment.mUserListCategory, times(2)).addPreference(captor.capture());
+
+        List<UserPreference> userPrefs = captor.getAllValues();
+        UserPreference adminPref = userPrefs.get(0);
+        UserPreference secondaryPref = userPrefs.get(1);
+
+        // Verify the second target (the edit icon) is only shown for own account.
+        assertThat(adminPref).isSameInstanceAs(mMePreference);
+        assertThat(adminPref.shouldHideSecondTarget()).isFalse();
+        assertThat(secondaryPref.shouldHideSecondTarget()).isTrue();
+    }
+
+    @Test
     @EnableFlags(FLAG_HIDE_USER_LIST_FOR_NON_ADMINS)
     public void
             updateUserList_nonAdminUsersWithSwitchingDisabledAndFeatureEnabled_userListIsHidden() {
         SettingsShadowResources.overrideResource(
                 com.android.internal.R.bool.config_userSwitchingMustGoThroughLoginScreen,
-                Boolean.TRUE);
+                true);
         mUserCapabilities.mIsAdmin = false;
         givenUsers(getAdminUser(false), getSecondaryUser(true));
 
@@ -950,7 +1065,7 @@ public class UserSettingsTest {
     public void updateUserList_adminUsersWithSwitchingDisabledAndFeatureEnabled_userListIsShown() {
         SettingsShadowResources.overrideResource(
                 com.android.internal.R.bool.config_userSwitchingMustGoThroughLoginScreen,
-                Boolean.TRUE);
+                true);
         mUserCapabilities.mIsAdmin = true;
         givenUsers(getAdminUser(true), getSecondaryUser(false));
 
@@ -979,8 +1094,7 @@ public class UserSettingsTest {
     public void
             updateUserList_nonAdminUsersWithSwitchingDisabledAndFeatureDisabled_userListIsShown() {
         SettingsShadowResources.overrideResource(
-                com.android.internal.R.bool.config_userSwitchingMustGoThroughLoginScreen,
-                Boolean.TRUE);
+                com.android.internal.R.bool.config_userSwitchingMustGoThroughLoginScreen, true);
         mUserCapabilities.mIsAdmin = false;
         givenUsers(getAdminUser(false), getSecondaryUser(true));
 
@@ -1051,6 +1165,26 @@ public class UserSettingsTest {
         } finally {
             SettingsShadowResources.reset();
         }
+    }
+
+    @Test
+    @EnableFlags(FLAG_SHOW_USER_DETAILS_SETTINGS_FOR_SELF)
+    public void onPreferenceClick_currentUserClicked_openUserDetails() {
+        doReturn(mActivity).when(mFragment).getContext();
+        givenUsers(getAdminUser(true));
+
+        mFragment.onPreferenceClick(mMePreference);
+
+        Intent startedIntent = shadowOf(mActivity).getNextStartedActivity();
+        assertThat(startedIntent.getStringExtra(SettingsActivity.EXTRA_SHOW_FRAGMENT))
+                .isEqualTo(UserDetailsSettings.class.getName());
+        Bundle arguments = startedIntent.getBundleExtra(
+                SettingsActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS);
+        assertThat(arguments).isNotNull();
+        assertThat(arguments.getInt(UserDetailsSettings.EXTRA_USER_ID, 0))
+                .isEqualTo(ACTIVE_USER_ID);
+        assertThat(arguments.getBoolean(AppRestrictionsFragment.EXTRA_NEW_USER, true))
+                .isEqualTo(false);
     }
 
     @Test

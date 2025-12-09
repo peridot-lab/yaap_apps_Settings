@@ -29,6 +29,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceScreen;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -59,6 +61,7 @@ import com.android.settingslib.widget.LayoutPreference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -73,6 +76,8 @@ public class MyDeviceInfoFragment extends DashboardFragment
     private static final String KEY_MY_DEVICE_INFO_HEADER = "my_device_info_header";
 
     private BuildNumberPreferenceController mBuildNumberPreferenceController;
+
+    private DeviceInfoViewModel mDeviceInfoViewModel;
 
     @Override
     public int getMetricsCategory() {
@@ -90,6 +95,29 @@ public class MyDeviceInfoFragment extends DashboardFragment
         use(DeviceNamePreferenceController.class).setHost(this /* parent */);
         mBuildNumberPreferenceController = use(BuildNumberPreferenceController.class);
         mBuildNumberPreferenceController.setHost(this /* parent */);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle icicle) {
+        super.onCreate(icicle);
+        mDeviceInfoViewModel = new ViewModelProvider(getActivity()).get(DeviceInfoViewModel.class);
+    }
+
+    @Override
+    protected @NonNull Set<String> getPreferenceKeysInHierarchy() {
+        Set<String> keys = super.getPreferenceKeysInHierarchy();
+        // add async preference key manually
+        keys.add(KEY_EID_INFO);
+        return keys;
+    }
+
+    @Override
+    protected void onPreferenceScreenCreatedFromResource(
+            @NonNull PreferenceScreen preferenceScreen) {
+        if (isCatalystEnabled()) {
+            // remove the preference created from resource to avoid duplicated key
+            preferenceScreen.removePreferenceRecursively(KEY_EID_INFO);
+        }
     }
 
     @Override
@@ -115,6 +143,8 @@ public class MyDeviceInfoFragment extends DashboardFragment
 
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, MyDeviceInfoFragment fragment, Lifecycle lifecycle) {
+        // disable catalyst for settings search (i.e. fragment is null)
+        boolean isCatalystEnabled = Flags.catalystMyDeviceInfoPrefScreen() && fragment != null;
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
 
         final Executor executor = (fragment == null) ? getMainExecutor(context) :
@@ -159,11 +189,13 @@ public class MyDeviceInfoFragment extends DashboardFragment
             }
         }
 
-        EidStatus eidStatus = new EidStatus(slotSimStatus, context, executor);
-        SimEidPreferenceController simEid = new SimEidPreferenceController(context,
-                KEY_EID_INFO);
-        simEid.init(slotSimStatus, eidStatus);
-        controllers.add(simEid);
+        if (!isCatalystEnabled) {
+            EidStatus eidStatus = new EidStatus(slotSimStatus, context, executor);
+            SimEidPreferenceController simEid = new SimEidPreferenceController(context,
+                    KEY_EID_INFO);
+            simEid.init(slotSimStatus, eidStatus);
+            controllers.add(simEid);
+        }
 
         if (executor instanceof ExecutorService) {
             ((ExecutorService) executor).shutdown();
@@ -198,7 +230,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
                         EntityHeaderController.ActionType.ACTION_NONE);
 
         // TODO: There may be an avatar setting action we can use here.
-        final int iconId = bundle.getInt("icon_id", 0);
+        final int iconId = bundle != null ? bundle.getInt("icon_id", 0) : 0;
         if (iconId == 0) {
             final UserManager userManager = (UserManager) getActivity().getSystemService(
                     Context.USER_SERVICE);
@@ -214,12 +246,24 @@ public class MyDeviceInfoFragment extends DashboardFragment
 
     @Override
     public void showDeviceNameWarningDialog(String deviceName) {
+        mDeviceInfoViewModel.setDeviceName(deviceName);
         DeviceNameWarningDialog.show(this);
     }
 
     public void onSetDeviceNameConfirm(boolean confirm) {
-        final DeviceNamePreferenceController controller = use(DeviceNamePreferenceController.class);
-        controller.updateDeviceName(confirm);
+        if (!isCatalystEnabled() || !Flags.catalystAboutPhoneDeviceName()) {
+            final DeviceNamePreferenceController controller = use(
+                    DeviceNamePreferenceController.class);
+            controller.updateDeviceName(confirm);
+        } else {
+            if (confirm) {
+                final String deviceName = mDeviceInfoViewModel.getDeviceName();
+                if (deviceName != null) {
+                    UtilsKt.updateDeviceName(getActivity(), deviceName);
+                }
+            }
+        }
+        mDeviceInfoViewModel.clearDeviceNme();
     }
 
     @Override

@@ -25,15 +25,17 @@ import android.content.ComponentName;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.settings.R;
+import com.android.settings.accessibility.hearingdevices.ui.HearingDevicesScreen;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 /** Accessibility settings for hearing aids. */
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class AccessibilityHearingAidsFragment extends ShortcutFragment {
+public class AccessibilityHearingAidsFragment extends BaseRestrictedSupportFragment {
     private static final String TAG = "AccessibilityHearingAidsFragment";
 
     public AccessibilityHearingAidsFragment() {
@@ -43,9 +45,23 @@ public class AccessibilityHearingAidsFragment extends ShortcutFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        use(AvailableHearingDevicePreferenceController.class).init(this);
-        use(SavedHearingDevicePreferenceController.class).init(this);
-        use(HearingAidCompatibilityPreferenceController.class).init(this);
+        if (!isCatalystEnabled()) {
+            use(AvailableHearingDevicePreferenceController.class).init(this);
+            use(SavedHearingDevicePreferenceController.class).init(this);
+            use(HearingAidCompatibilityPreferenceController.class).init(this);
+            ToggleShortcutPreferenceController shortcutPreferenceController =
+                    use(ToggleShortcutPreferenceController.class);
+            if (shortcutPreferenceController != null) {
+                shortcutPreferenceController.initialize(
+                        getFeatureComponentName(),
+                        getChildFragmentManager(),
+                        getFeatureName(),
+                        getMetricsCategory()
+                );
+            }
+            use(HearingDevicesFeedbackButtonPreferenceController.class).initialize(
+                    new FeedbackManager(context, getMetricsCategory()));
+        }
     }
 
     @Override
@@ -64,14 +80,12 @@ public class AccessibilityHearingAidsFragment extends ShortcutFragment {
     }
 
     @NonNull
-    @Override
-    public ComponentName getFeatureComponentName() {
+    private ComponentName getFeatureComponentName() {
         return ACCESSIBILITY_HEARING_AIDS_COMPONENT_NAME;
     }
 
     @NonNull
-    @Override
-    public CharSequence getFeatureName() {
+    private CharSequence getFeatureName() {
         return getText(R.string.accessibility_hearingaid_title);
     }
 
@@ -79,6 +93,11 @@ public class AccessibilityHearingAidsFragment extends ShortcutFragment {
     static boolean isPageSearchEnabled(Context context) {
         final HearingAidHelper mHelper = new HearingAidHelper(context);
         return mHelper.isHearingAidSupported();
+    }
+
+    @Override
+    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
+        return HearingDevicesScreen.KEY;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

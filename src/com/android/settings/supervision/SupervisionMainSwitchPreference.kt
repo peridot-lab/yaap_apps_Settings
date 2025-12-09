@@ -21,11 +21,16 @@ import android.app.settings.SettingsEnums.ACTION_SUPERVISION_MAIN_TOGGLE_ON
 import android.app.supervision.SupervisionManager
 import android.content.Context
 import android.content.Intent
+import android.os.UserHandle
+import android.os.UserManager
+import android.util.Log
 import androidx.annotation.VisibleForTesting
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.overlay.FeatureFactory
 import com.android.settings.supervision.ipc.PreferenceData
+import com.android.settingslib.HelpUtils
 import com.android.settingslib.datastore.KeyValueStore
 import com.android.settingslib.datastore.NoOpKeyedObservable
 import com.android.settingslib.metadata.BooleanValuePreference
@@ -36,6 +41,7 @@ import com.android.settingslib.metadata.PreferenceSummaryProvider
 import com.android.settingslib.metadata.ReadWritePermit
 import com.android.settingslib.metadata.SensitivityLevel
 import com.android.settingslib.preference.forEachRecursively
+import com.android.settingslib.supervision.SupervisionLog.TAG
 import com.android.settingslib.widget.MainSwitchPreference
 import com.android.settingslib.widget.MainSwitchPreferenceBinding
 import kotlinx.coroutines.CoroutineDispatcher
@@ -58,6 +64,7 @@ class SupervisionMainSwitchPreference(
     private val supervisionMainSwitchStorage = SupervisionMainSwitchStorage(context)
     private var preferenceDataMap: Map<String, PreferenceData>? = null
     private lateinit var lifeCycleContext: PreferenceLifecycleContext
+    private var pendingNewValue: Boolean? = null
 
     override val key
         get() = KEY
@@ -102,12 +109,23 @@ class SupervisionMainSwitchPreference(
                     }
                 }
             }
+
         context.lifecycleScope.launch {
+            val cachedData = preferenceDataProvider.getCachedPreferenceData(preferenceKeys)
+
+            if (cachedData.isNotEmpty()) {
+                preferenceDataMap = cachedData
+                updateDependentPreferenceSummary(mainSwitchPreference)
+            }
+
+            // TODO(b/426048474): when navigating from supervision app back to dashboard, the
+            // settings injection often overrides the first preference data update, here we
+            // are always updating the preference again after fetching fresh data to mitigate the
+            // issue.
             preferenceDataMap =
                 withContext(coroutineDispatcher) {
                     preferenceDataProvider.getPreferenceData(preferenceKeys)
                 }
-
             updateDependentPreferenceSummary(mainSwitchPreference)
         }
     }
@@ -127,14 +145,17 @@ class SupervisionMainSwitchPreference(
         if (resultCode == Activity.RESULT_OK) {
             val mainSwitchPreference = lifeCycleContext.requirePreference<MainSwitchPreference>(KEY)
 
-            // Value only needs to be toggled in the non-setup case. The setup flow will
-            // unconditionally enable supervision internally when successful.
+            // Determine the new switch value based on the request code.
+            // For setup, as setup activity will always set the value to true,
+            // we need to use the pending value.
+            // For confirmation, toggle the current value.
             val newValue =
                 if (requestCode == REQUEST_CODE_SET_UP_SUPERVISION) {
-                    true
+                    pendingNewValue ?: false
                 } else {
                     !supervisionMainSwitchStorage.getBoolean(KEY)!!
                 }
+            pendingNewValue = null
             mainSwitchPreference.setChecked(newValue)
             lifeCycleContext.notifyPreferenceChange(KEY)
             updateDependentPreferencesEnabledState(mainSwitchPreference, newValue)
@@ -159,16 +180,42 @@ class SupervisionMainSwitchPreference(
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         if (newValue !is Boolean) return true
 
-        // If supervision is being enabled but either the supervising profile hasn't been created
-        // or the credentials aren't set, launch SetupSupervisionActivity.
-        if (newValue && !preference.context.isSupervisingCredentialSet) {
+        // Only perform these checks when the user is turning supervision ON.
+        if (newValue) {
+            val userManager = preference.context.getSystemService(UserManager::class.java)
+            if (userManager != null) {
+                val supervisingProfileHandle: UserHandle? = preference.context.supervisingUserHandle
+                val nonSupervisingProfiles =
+                    userManager.userProfiles.filter { it != supervisingProfileHandle }
+
+                // If more than one profile remains (the main user + another), block enabling
+                // supervision.
+                if (nonSupervisingProfiles.size > 1) {
+                    AlertDialog.Builder(preference.context)
+                        .setTitle(R.string.supervision_multi_profile_error_title)
+                        .setMessage(R.string.supervision_multi_profile_error_message)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .setNeutralButton(R.string.learn_more, { _, _ -> onLearnMore() })
+                        .show()
+                    return false
+                }
+            }
+        }
+
+        // If supervision is being toggled but either the supervising profile hasn't been
+        // created or the credentials aren't set, launch SetupSupervisionActivity.
+        if (!preference.context.isSupervisingCredentialSet) {
+            pendingNewValue = newValue
             val intent = Intent(lifeCycleContext, SetupSupervisionActivity::class.java)
             lifeCycleContext.startActivityForResult(intent, REQUEST_CODE_SET_UP_SUPERVISION, null)
             return false
         }
 
         // If supervision is already set up, confirm credentials before any change.
-        val intent = Intent(lifeCycleContext, ConfirmSupervisionCredentialsActivity::class.java)
+        val intent =
+            Intent(lifeCycleContext, ConfirmSupervisionCredentialsActivity::class.java).apply {
+                putExtra(ConfirmSupervisionCredentialsActivity.EXTRA_FORCE_CONFIRMATION, true)
+            }
         lifeCycleContext.startActivityForResult(
             intent,
             REQUEST_CODE_CONFIRM_SUPERVISION_CREDENTIALS,
@@ -196,6 +243,20 @@ class SupervisionMainSwitchPreference(
                     it.summary = newSummary
                 }
             }
+        }
+    }
+
+    private fun onLearnMore() {
+        val intent =
+            HelpUtils.getHelpIntent(
+                lifeCycleContext,
+                lifeCycleContext.getString(R.string.supervision_unavailable_learn_more_link),
+                lifeCycleContext::class.java.name,
+            )
+        if (intent != null) {
+            lifeCycleContext.startActivity(intent)
+        } else {
+            Log.w(TAG, "HelpIntent is null")
         }
     }
 

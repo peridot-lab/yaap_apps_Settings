@@ -57,7 +57,7 @@ import org.robolectric.shadows.ShadowPackageManager
 /** Tests for [LaunchAccessibilityActivityPreferenceFragment] */
 @RunWith(RobolectricTestRunner::class)
 class LaunchAccessibilityActivityPreferenceFragmentTest :
-    BaseShortcutFragmentTestCases<LaunchAccessibilityActivityPreferenceFragment>() {
+    BaseShortcutInteractionsTestCases<LaunchAccessibilityActivityPreferenceFragment>() {
     private var fragScenario: FragmentScenario<LaunchAccessibilityActivityPreferenceFragment>? =
         null
     private var fragment: LaunchAccessibilityActivityPreferenceFragment? = null
@@ -89,6 +89,7 @@ class LaunchAccessibilityActivityPreferenceFragmentTest :
                 name = A11Y_ACTIVITY_CLASS_NAME
                 applicationInfo = ApplicationInfo()
             }
+        whenever(activityInfo.loadLabel(any())).thenReturn(DEFAULT_LABEL)
 
         whenever(mockInfo.activityInfo).thenReturn(activityInfo)
 
@@ -166,8 +167,6 @@ class LaunchAccessibilityActivityPreferenceFragmentTest :
 
         assertThat(preference).isNotNull()
         assertThat(preference!!.isVisible).isTrue()
-        assertThat(preference.contentDescription.toString())
-            .isEqualTo("About $DEFAULT_LABEL\n\nnull")
         assertThat(preference.summary.toString())
             .isEqualTo(
                 Html.fromHtml(
@@ -178,6 +177,8 @@ class LaunchAccessibilityActivityPreferenceFragmentTest :
                     )
                     .toString()
             )
+        assertThat(preference.contentDescription.toString())
+            .isEqualTo("About $DEFAULT_LABEL\n\n${preference.summary}")
     }
 
     @Test
@@ -188,9 +189,9 @@ class LaunchAccessibilityActivityPreferenceFragmentTest :
 
         assertThat(preference).isNotNull()
         assertThat(preference!!.isVisible).isTrue()
-        assertThat(preference.contentDescription.toString())
-            .isEqualTo("About $DEFAULT_LABEL\n\nnull")
         assertThat(preference.summary.toString()).isEqualTo(DEFAULT_DESCRIPTION)
+        assertThat(preference.contentDescription.toString())
+            .isEqualTo("About $DEFAULT_LABEL\n\n${preference.summary}")
     }
 
     @Test
@@ -198,13 +199,6 @@ class LaunchAccessibilityActivityPreferenceFragmentTest :
         launchFragment()
 
         assertThat(fragment!!.metricsCategory).isEqualTo(SettingsEnums.ACCESSIBILITY_SERVICE)
-    }
-
-    @Test
-    fun getFeedbackCategory() {
-        launchFragment()
-
-        assertThat(fragment!!.feedbackCategory).isEqualTo(SettingsEnums.ACCESSIBILITY_SERVICE)
     }
 
     private fun launchFragment(a11yShortcutInfo: AccessibilityShortcutInfo) {

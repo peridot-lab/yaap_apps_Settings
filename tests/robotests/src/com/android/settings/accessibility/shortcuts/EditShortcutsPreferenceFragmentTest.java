@@ -40,8 +40,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.platform.test.annotations.EnableFlags;
-import android.platform.test.flag.junit.SetFlagsRule;
 import android.provider.Settings;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityManager;
@@ -72,7 +70,6 @@ import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -108,9 +105,6 @@ public class EditShortcutsPreferenceFragmentTest {
             new ComponentName("FakePackage", "FakeTile");
     private static final String TARGET = MAGNIFICATION_CONTROLLER_NAME;
     private static final Set<String> TARGETS = Set.of(TARGET);
-
-    @Rule
-    public final SetFlagsRule mSetFlagsRule = new SetFlagsRule();
 
     private Context mContext = ApplicationProvider.getApplicationContext();
 
@@ -201,8 +195,6 @@ public class EditShortcutsPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(
-            com.android.settings.accessibility.Flags.FLAG_TOGGLE_FEATURE_FRAGMENT_COLLECTION_INFO)
     public void shortcutDescriptionPref_defaultLaunch_notVisible() {
         mFragmentScenario = createFragScenario(/* isInSuw= */ false, TARGET);
         mFragmentScenario.moveToState(Lifecycle.State.CREATED);
@@ -215,8 +207,6 @@ public class EditShortcutsPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(
-            com.android.settings.accessibility.Flags.FLAG_TOGGLE_FEATURE_FRAGMENT_COLLECTION_INFO)
     public void shortcutDescriptionPref_launchFromAction_singleTarget_notVisible() {
         mFragmentScenario = createFragScenario(/* isInSuw= */ false, List.of(TARGET),
                 ACTION_ACCESSIBILITY_SHORTCUT_SETTINGS);
@@ -230,8 +220,6 @@ public class EditShortcutsPreferenceFragmentTest {
     }
 
     @Test
-    @EnableFlags(
-            com.android.settings.accessibility.Flags.FLAG_TOGGLE_FEATURE_FRAGMENT_COLLECTION_INFO)
     public void shortcutDescriptionPref_launchFromAction_multipleTargets_isVisible() {
         mFragmentScenario = createFragScenario(/* isInSuw= */ false,
                 // Both of these components are system components with known labels, so we don't
@@ -491,7 +479,7 @@ public class EditShortcutsPreferenceFragmentTest {
         mFragmentScenario.moveToState(Lifecycle.State.CREATED);
         assertThat(
                 PreferredShortcuts.retrieveUserShortcutType(
-                        mContext, TARGET)
+                        mContext, TARGET, SOFTWARE)
         ).isEqualTo(SOFTWARE);
         // Update the chosen shortcut type to Volume keys while the fragment is in the background
         ShortcutUtils.optInValueToSettings(
@@ -501,7 +489,7 @@ public class EditShortcutsPreferenceFragmentTest {
 
         assertThat(
                 PreferredShortcuts.retrieveUserShortcutType(
-                        mContext, TARGET)
+                        mContext, TARGET, SOFTWARE)
         ).isEqualTo(ShortcutConstants.UserShortcutType.HARDWARE);
     }
 
@@ -511,7 +499,7 @@ public class EditShortcutsPreferenceFragmentTest {
         mFragmentScenario.moveToState(Lifecycle.State.CREATED);
         assertThat(
                 PreferredShortcuts.retrieveUserShortcutType(
-                        mContext, TARGET)
+                        mContext, TARGET, SOFTWARE)
         ).isEqualTo(SOFTWARE);
 
         ShortcutUtils.optInValueToSettings(
@@ -521,7 +509,7 @@ public class EditShortcutsPreferenceFragmentTest {
         mFragmentScenario.onFragment(fragment ->
                 assertThat(
                         PreferredShortcuts.retrieveUserShortcutType(
-                                mContext, TARGET)
+                                mContext, TARGET, SOFTWARE)
                 ).isEqualTo(ShortcutConstants.UserShortcutType.HARDWARE)
         );
 
@@ -586,7 +574,7 @@ public class EditShortcutsPreferenceFragmentTest {
                 /* isInSuw= */ false, TARGET_FAKE_COMPONENT.flattenToString());
         mFragmentScenario.moveToState(Lifecycle.State.CREATED);
         int currentPreferredShortcut =
-                PreferredShortcuts.retrieveUserShortcutType(mContext, target);
+                PreferredShortcuts.retrieveUserShortcutType(mContext, target, SOFTWARE);
         assertThat(currentPreferredShortcut
                 & ShortcutConstants.UserShortcutType.QUICK_SETTINGS).isEqualTo(0);
 
@@ -597,7 +585,7 @@ public class EditShortcutsPreferenceFragmentTest {
         mFragmentScenario.onFragment(fragment ->
                 assertThat(
                         PreferredShortcuts.retrieveUserShortcutType(
-                                mContext, target)
+                                mContext, target, SOFTWARE)
                 ).isEqualTo(ShortcutConstants.UserShortcutType.QUICK_SETTINGS)
         );
     }

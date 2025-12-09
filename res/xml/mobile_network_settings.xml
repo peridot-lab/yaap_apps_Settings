@@ -22,15 +22,15 @@
         android:key="use_sim_switch"
         settings:controller="com.android.settings.network.telephony.MobileNetworkSwitchController"/>
 
-    <com.android.settings.datausage.DataUsageSummaryPreference
-        android:key="status_header"
-        android:visibility="gone"
-        android:selectable="false"/>
-
     <com.android.settingslib.widget.UntitledPreferenceCategory
         android:key="enabled_state_container"
         android:title="@string/summary_placeholder"
         settings:controller="com.android.settings.network.telephony.DisabledSubscriptionController">
+
+        <com.android.settings.datausage.DataUsageSummaryPreference
+            android:key="status_header"
+            android:visibility="gone"
+            android:selectable="false"/>
 
         <ListPreference
             android:key="calls_preference"
@@ -285,7 +285,8 @@
                 settings:controller="com.android.settings.network.telephony.gsm.OpenNetworkSelectPagePreferenceController"/>
         </PreferenceCategory>
 
-        <com.android.settingslib.widget.UntitledPreferenceCategory>
+        <com.android.settingslib.widget.UntitledPreferenceCategory
+            android:key="apn_and_protection_container">
           <!--We want separate APN setting from reset of settings because we want user to change it with caution-->
           <com.android.settingslib.RestrictedPreference
               android:key="telephony_apn_key"
@@ -304,9 +305,7 @@
               android:key="enable_2g"
               android:title="@string/enable_2g_title"
               android:summary="@string/enable_2g_summary"
-              settings:controller="com.android.settings.network.telephony.Enable2gPreferenceController"
-              settings:useAdminDisabledSummary="true"
-              settings:userRestriction="no_cellular_2g"/>
+              settings:controller="com.android.settings.network.telephony.Enable2gPreferenceController"/>
 
           <SwitchPreferenceCompat
               android:key="require_cellular_encryption"

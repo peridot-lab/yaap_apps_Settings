@@ -19,7 +19,11 @@ package com.android.settings.accessibility;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.android.settings.R;
+import com.android.settings.accessibility.flashnotifications.ui.FlashNotificationsScreen;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
@@ -47,7 +51,9 @@ public class FlashNotificationsPreferenceFragment extends BaseSupportFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        use(ScreenFlashNotificationPreferenceController.class).setParentFragment(this);
+        if (!isCatalystEnabled()) {
+            use(ScreenFlashNotificationPreferenceController.class).setParentFragment(this);
+        }
     }
 
     @Override
@@ -55,6 +61,13 @@ public class FlashNotificationsPreferenceFragment extends BaseSupportFragment {
         return R.string.help_url_flash_notifications;
     }
 
+    @Override
+    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
+        return FlashNotificationsScreen.KEY;
+    }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.flash_notifications_settings);
+            new BaseSearchIndexProvider(Flags.catalystFlashNotifications()
+                    && com.android.settings.flags.Flags.catalystSettingsSearch() ? 0
+                    : R.xml.flash_notifications_settings);
 }

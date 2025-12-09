@@ -16,6 +16,8 @@
 
 package com.android.settings.localepicker;
 
+import static com.android.settings.localepicker.LocaleUtils.getUserLocaleList;
+import static com.android.settings.localepicker.LocaleUtils.mayAppendUnicodeTags;
 import static com.android.settings.localepicker.RegionAndNumberingSystemPickerFragment.EXTRA_IS_NUMBERING_SYSTEM;
 
 import android.app.Activity;
@@ -23,6 +25,8 @@ import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.LocaleList;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 
@@ -162,7 +166,7 @@ public abstract class LocalePickerBaseListPreferenceController extends
         List<LocaleStore.LocaleInfo> searchItem = new ArrayList<>();
         for (LocaleStore.LocaleInfo option : listOptions) {
             for (LocaleStore.LocaleInfo suggested : listSuggested) {
-                if (suggested.toString().contains(option.toString())) {
+                if (suggested.toString().equals(option.toString())) {
                     searchItem.add(suggested);
                 }
             }
@@ -211,8 +215,14 @@ public abstract class LocalePickerBaseListPreferenceController extends
                 pref = new Preference(mContext);
                 mPreferenceCategory.addPreference(pref);
             }
-            String localeName =
-                    mIsCountryMode ? locale.getFullCountryNameNative() : locale.getFullNameNative();
+            String localeName;
+            if (isNumberingMode()) {
+                localeName = LocaleHelper.getDisplayNumberingSystemKeyValue(locale.getLocale(),
+                        locale.getLocale());
+            } else {
+                localeName = mIsCountryMode ? locale.getFullCountryNameNative()
+                                : locale.getFullNameNative();
+            }
             pref.setTitle(localeName);
             pref.setKey(locale.toString());
             pref.setOnPreferenceClickListener(clickedPref -> {
@@ -347,15 +357,6 @@ public abstract class LocalePickerBaseListPreferenceController extends
                 || isNumberingMode();
     }
 
-    private List<LocaleStore.LocaleInfo> getUserLocaleList() {
-        final List<LocaleStore.LocaleInfo> result = new ArrayList<>();
-        final LocaleList localeList = LocalePicker.getLocales();
-        for (int i = 0; i < localeList.size(); i++) {
-            result.add(LocaleStore.getLocaleInfo(localeList.get(i)));
-        }
-        return result;
-    }
-
     private void showRegionAndNumberingSystemPickerFragment(LocaleStore.LocaleInfo localeInfo) {
         final Bundle extra = new Bundle();
         extra.putSerializable(
@@ -371,7 +372,9 @@ public abstract class LocalePickerBaseListPreferenceController extends
 
     private void dispose(LocaleStore.LocaleInfo localeInfo) {
         List<LocaleStore.LocaleInfo> feedItemList = getUserLocaleList();
-        feedItemList.add(localeInfo);
+        String preferencesTags = Settings.System.getString(
+                mContext.getContentResolver(), Settings.System.LOCALE_PREFERENCES);
+        feedItemList.add(mayAppendUnicodeTags(localeInfo, preferencesTags));
         LocaleList localeList = new LocaleList(feedItemList.stream()
                 .map(LocaleStore.LocaleInfo::getLocale)
                 .toArray(Locale[]::new));

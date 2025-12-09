@@ -18,6 +18,7 @@ package com.android.settings.wifi.details2
 
 import android.content.Context
 import android.net.wifi.WifiConfiguration
+import android.net.wifi.WifiManager
 import android.platform.test.annotations.DisableFlags
 import android.platform.test.annotations.EnableFlags
 import android.platform.test.flag.junit.SetFlagsRule
@@ -32,9 +33,13 @@ import com.android.wifitrackerlib.WifiEntry
 import com.android.wifitrackerlib.WifiPickerTracker
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.ArgumentCaptor
+import org.mockito.Mockito.any
+import org.mockito.Mockito.verify
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.spy
@@ -53,8 +58,6 @@ class WifiSharedPreferenceControllerTest {
 
     private var mockWifiEntry = mock<WifiEntry>()
 
-    private var mockWifiConfiguration = mock<WifiConfiguration>()
-
     private val context: Context = spy(RuntimeEnvironment.application)
 
     private val mockWifiPickerTracker: WifiPickerTracker = mock<WifiPickerTracker>()
@@ -72,7 +75,7 @@ class WifiSharedPreferenceControllerTest {
 
     @Before
     fun setUp() {
-        mockWifiEntry.stub { on { getWifiConfiguration() } doReturn mockWifiConfiguration }
+        mockWifiEntry.stub { on { getWifiConfiguration() } doReturn WifiConfiguration() }
         mockWifiEntry.stub { on { getSsid() } doReturn "testSSID" }
         mockWifiEntry.stub { on { getKey() } doReturn "testKey" }
 
@@ -88,7 +91,6 @@ class WifiSharedPreferenceControllerTest {
 
     @Test
     fun setChecked_conflictingEntry_showsAlertDialog_validateMessages() {
-        mockWifiConfiguration.shared = true
         mockWifiPickerTrackerHelper.stub {
             on { getWifiPickerTracker() } doReturn mockWifiPickerTracker
         }
@@ -115,7 +117,6 @@ class WifiSharedPreferenceControllerTest {
 
     @Test
     fun setChecked_conflictingEntry_showsAlertDialog_clickNegativeButton() {
-        mockWifiConfiguration.shared = true
         mockWifiPickerTrackerHelper.stub {
             on { getWifiPickerTracker() } doReturn mockWifiPickerTracker
         }
@@ -132,9 +133,9 @@ class WifiSharedPreferenceControllerTest {
         assertThat(dialog?.isShowing()).isFalse()
     }
 
+    @Ignore("b/424068182")
     @Test
     fun setChecked_noConflict_doesNotShowAlertDialog() {
-        mockWifiConfiguration.shared = true
         mockWifiPickerTrackerHelper.stub {
             on { getWifiPickerTracker() } doReturn mockWifiPickerTracker
         }
@@ -145,6 +146,19 @@ class WifiSharedPreferenceControllerTest {
 
         val dialog = ShadowAlertDialogCompat.getLatestAlertDialog()
         assertThat(dialog).isNull()
+    }
+
+    @Test
+    fun setChecked_noConflict_savesWifiEntry() {
+        mockWifiPickerTrackerHelper.stub {
+            on { getWifiPickerTracker() } doReturn mockWifiPickerTracker
+        }
+        whenever(mockWifiPickerTracker.wifiEntries).thenReturn(listOf())
+
+        controller.setChecked(false)
+
+        val wifiConfigCaptor = ArgumentCaptor.forClass(WifiConfiguration::class.java)
+        verify(mockWifiEntry).setSharedWithOtherUsers(false)
     }
 
     @Test

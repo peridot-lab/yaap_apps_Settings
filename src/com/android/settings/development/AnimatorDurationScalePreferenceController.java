@@ -32,7 +32,7 @@ public class AnimatorDurationScalePreferenceController extends DeveloperOptionsP
         implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener,
         PreferenceControllerMixin {
 
-    private static final String ANIMATOR_DURATION_SCALE_KEY = "animator_duration_scale";
+    private static final String ANIMATOR_DURATION_SCALE_KEY = "animator_duration_scale_pref_key";
 
     @VisibleForTesting
     static final int ANIMATOR_DURATION_SCALE_SELECTOR = 2;

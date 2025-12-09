@@ -109,9 +109,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         AdbClearKeysDialogHost, LogPersistDialogHost,
         BluetoothRebootDialog.OnRebootDialogListener,
         AbstractBluetoothPreferenceController.Callback,
-        NfcRebootDialog.OnNfcRebootDialogConfirmedListener,
-        BluetoothSnoopLogHost,
-        BluetoothLeAudioModePreferenceController.OnModeChangeListener {
+        NfcRebootDialog.OnNfcRebootDialogConfirmedListener, BluetoothSnoopLogHost {
 
     private static final String TAG = "DevSettingsDashboard";
     @VisibleForTesting static final int REQUEST_BIOMETRIC_PROMPT = 100;
@@ -356,10 +354,10 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
 
         if (DevelopmentTiles.WirelessDebugging.class.getName().equals(
                 componentName.getClassName()) && getDevelopmentOptionsController(
-                WirelessDebuggingPreferenceController.class).isAvailable()) {
+                AdbWirelessDebuggingPreferenceController.class).isAvailable()) {
             Log.d(TAG, "Long press from wireless debugging qstile");
             new SubSettingLauncher(getContext())
-                    .setDestination(WirelessDebuggingFragment.class.getName())
+                    .setDestination(AdbWirelessDebuggingFragment.class.getName())
                     .setSourceMetricsCategory(SettingsEnums.SETTINGS_ADB_WIRELESS)
                     .launch();
         }
@@ -552,10 +550,6 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
                 getDevelopmentOptionsController(
                         BluetoothLeAudioModePreferenceController.class);
         leAudioModeController.onRebootDialogConfirmed();
-
-        final BluetoothLeAudioUiPreferenceController leAudioUiController =
-                getDevelopmentOptionsController(BluetoothLeAudioUiPreferenceController.class);
-        leAudioUiController.onRebootDialogConfirmed();
     }
 
     @Override
@@ -578,10 +572,6 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
                 getDevelopmentOptionsController(
                         BluetoothLeAudioModePreferenceController.class);
         leAudioModeController.onRebootDialogCanceled();
-
-        final BluetoothLeAudioUiPreferenceController leAudioUiController =
-                getDevelopmentOptionsController(BluetoothLeAudioUiPreferenceController.class);
-        leAudioUiController.onRebootDialogCanceled();
     }
 
     @Override
@@ -772,7 +762,7 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new SelectDSUPreferenceController(context));
         controllers.add(new AdbPreferenceController(context, fragment));
         controllers.add(new ClearAdbKeysPreferenceController(context, fragment));
-        controllers.add(new WirelessDebuggingPreferenceController(context, lifecycle));
+        controllers.add(new AdbWirelessDebuggingPreferenceController(context, lifecycle));
         controllers.add(new AdbAuthorizationTimeoutPreferenceController(context));
         controllers.add(new LocalTerminalPreferenceController(context));
         controllers.add(new LinuxTerminalPreferenceController(context));
@@ -804,7 +794,6 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
         controllers.add(new BluetoothMapVersionPreferenceController(context));
         controllers.add(new BluetoothLeAudioPreferenceController(context, fragment));
         controllers.add(new BluetoothLeAudioModePreferenceController(context, fragment));
-        controllers.add(new BluetoothLeAudioUiPreferenceController(context, fragment));
         controllers.add(new BluetoothLeAudioDeviceDetailsPreferenceController(context));
         controllers.add(new BluetoothLeAudioAllowListPreferenceController(context));
         controllers.add(new BluetoothA2dpHwOffloadPreferenceController(context, fragment));
@@ -918,15 +907,6 @@ public class DevelopmentSettingsDashboardFragment extends RestrictedDashboardFra
             }
             if (controller instanceof BluetoothCodecListPreferenceController) {
                 ((BluetoothCodecListPreferenceController) controller).onHDAudioEnabled(enabled);
-            }
-        }
-    }
-
-    @Override
-    public void onBroadcastDisabled() {
-        for (AbstractPreferenceController controller : mPreferenceControllers) {
-            if (controller instanceof BluetoothLeAudioUiPreferenceController) {
-                ((BluetoothLeAudioUiPreferenceController) controller).onBroadcastDisabled();
             }
         }
     }

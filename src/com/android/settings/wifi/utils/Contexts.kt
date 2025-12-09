@@ -20,11 +20,14 @@ package com.android.settings.wifi.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.TetheringManager
+import android.net.wifi.SoftApConfiguration
 import android.net.wifi.WifiManager
 import android.os.UserManager
+import android.telephony.SubscriptionManager
 import android.telephony.TelephonyManager
 
 /**
@@ -47,9 +50,21 @@ val Context.isAdminUser
 val Context.wifiManager: WifiManager?
     get() = applicationContext.getSystemService(WifiManager::class.java)
 
-/** Return the UTF-8 String set to be the SSID for the Soft AP. */
-val Context.wifiSoftApSsid
-    get() = wifiManager?.softApConfiguration?.ssid
+/** Return the {@link android.net.wifi.WifiManager.SoftApConfiguration}. */
+var Context.wifiSoftApConfig
+    get() = wifiManager?.softApConfiguration
+    set(value) {
+        value?.also { wifiManager?.softApConfiguration = it }
+    }
+
+/** Gets/Sets the SSID for the Soft AP. */
+var Context.wifiSoftApSsid
+    get() = wifiSoftApConfig?.ssid
+    set(value) {
+        wifiSoftApConfig?.apply {
+            SoftApConfiguration.Builder(this).setSsid(value).build().let { wifiSoftApConfig = it }
+        }
+    }
 
 /** Gets the tethered Wi-Fi hotspot enabled state. */
 val Context.wifiApState
@@ -76,6 +91,22 @@ val Context.activeModemCount
     get() = telephonyManager?.activeModemCount ?: 0
 
 /**
+ * Gets the {@link android.telephony.TelephonyManager} system service for Subscription ID.
+ *
+ * Use application context to get system services to avoid memory leaks.
+ */
+fun Context.telephonyManager(subId: Int): TelephonyManager? =
+    telephonyManager?.createForSubscriptionId(subId)
+
+/**
+ * Gets the {@link android.telephony.SubscriptionManager} system service.
+ *
+ * Use application context to get system services to avoid memory leaks.
+ */
+val Context.subscriptionManager: SubscriptionManager?
+    get() = applicationContext.getSystemService(SubscriptionManager::class.java)
+
+/**
  * Gets the {@link android.net.TetheringManager} system service.
  *
  * Use application context to get system services to avoid memory leaks.
@@ -97,3 +128,11 @@ val Context.isDefaultNetworkWifi: Boolean
         connectivityManager
             ?.getNetworkCapabilities(connectivityManager?.activeNetwork)
             ?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
+
+/**
+ * Gets the {@link android.location.LocationManager} system service.
+ *
+ * Use application context to get system services to avoid memory leaks.
+ */
+val Context.locationManager: LocationManager?
+    get() = applicationContext.getSystemService(LocationManager::class.java)

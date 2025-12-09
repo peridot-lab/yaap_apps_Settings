@@ -34,7 +34,6 @@ import android.app.admin.ManagedSubscriptionsPolicy;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.platform.test.annotations.EnableFlags;
 import android.platform.test.flag.junit.SetFlagsRule;
 import android.util.FeatureFlagUtils;
 import android.view.View;
@@ -48,8 +47,10 @@ import com.android.settings.testutils.shadow.ShadowDevicePolicyManager;
 import com.android.settings.testutils.shadow.ShadowLockPatternUtils;
 import com.android.settings.testutils.shadow.ShadowUserManager;
 import com.android.settings.testutils.shadow.ShadowUtils;
-import com.android.settingslib.widget.theme.flags.Flags;
 
+import com.google.android.setupcompat.partnerconfig.PartnerConfigHelper;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -98,6 +99,11 @@ public class ConfirmCredentialTest {
 
         FeatureFlagUtils.setEnabled(mContext,
                 FeatureFlagUtils.SETTINGS_REMOTE_DEVICE_CREDENTIAL_VALIDATION, true);
+    }
+
+    @After
+    public void tearDown() {
+        PartnerConfigHelper.applyGlifExpressiveBundle = null;
     }
 
     @Test
@@ -207,14 +213,15 @@ public class ConfirmCredentialTest {
     }
 
     @Test
-    @EnableFlags(Flags.FLAG_IS_EXPRESSIVE_DESIGN_ENABLED)
     public void remoteValidation_expressiveTheme_usesFooterBarButton() throws Exception {
+        TestUtils.setGlifExpressiveInPartnerConfigHelper();
+
         ConfirmDeviceCredentialBaseActivity activity = buildConfirmDeviceCredentialBaseActivity(
                 ConfirmLockPassword.class, createRemoteLockscreenValidationIntent(
                         KeyguardManager.PASSWORD, VALID_REMAINING_ATTEMPTS));
+
         ConfirmDeviceCredentialBaseFragment fragment =
                 getConfirmDeviceCredentialBaseFragment(activity);
-
         assertThat(fragment.mFooterBarMixin.getSecondaryButton()).isNotNull();
         assertThat(fragment.mCancelButton.getVisibility()).isEqualTo(View.GONE);
     }

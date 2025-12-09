@@ -97,7 +97,7 @@
         <!-- SIM status -->
         <Preference
             android:key="sim_status"
-            android:order="18"
+            android:order="19"
             android:title="@string/sim_status_title"
             settings:keywords="@string/keywords_sim_status"
             android:summary="@string/summary_placeholder"
@@ -225,6 +225,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="legal_category"
         android:title="@string/my_device_info_legal_category_title">
 
         <!-- Legal information -->

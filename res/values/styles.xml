@@ -88,12 +88,12 @@
     <style name="Widget.Network.TextInputLayout.WifiConfig">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Material.Medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.SettingsLib.BodySmall.Emphasized</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="Widget.Network.TextInputLayout.WifiConfig.EditText">
-        <item name="android:textAppearance">@android:style/TextAppearance.Material.Body1</item>
+        <item name="android:textAppearance">@style/TextAppearance.SettingsLib.BodyLarge.Emphasized</item>
         <item name="android:maxLength">500</item>
     </style>
 
@@ -111,7 +111,7 @@
         <item name="android:paddingStart">8dip</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textAppearance">@*android:style/TextAppearance.DeviceDefault.Body1</item>
+        <item name="android:textAppearance">@style/TextAppearance.SettingsLib.BodySmall.Emphasized</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
@@ -391,6 +391,10 @@
     </style>
 
     <style name="FaceLayoutTheme">
+        <item name="android:icon">@drawable/ic_lock</item>
+    </style>
+
+    <style name="ScreenLockLayoutTheme">
         <item name="android:icon">@drawable/ic_lock</item>
     </style>
 
@@ -835,13 +839,13 @@
 
     <style name="AccessibilityTextReadingPreviewTitle"
         parent="@style/TextAppearance.SettingsLib.BodySmall" >
-        <item name="android:textColor">@color/settingslib_materialColorOnPrimaryContainer</item>
+        <item name="android:textColor">@color/settingslib_materialColorPrimary</item>
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
     <style name="AccessibilityTextReadingPreviewPageTitle"
         parent="@style/TextAppearance.SettingsLib.TitleMedium" >
-        <item name="android:textColor">@color/settingslib_materialColorOnPrimaryContainer</item>
+        <item name="android:textColor">@color/settingslib_materialColorPrimary</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:paddingBottom">@dimen/settingslib_expressive_space_extrasmall4</item>
     </style>
@@ -909,13 +913,6 @@
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">start</item>
-    </style>
-
-    <style name="HomepageTitleText" parent="CollapsingToolbarTitle.Expanded">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/homepage_title_margin_bottom</item>
-        <item name="android:layout_marginHorizontal">@dimen/homepage_title_margin_horizontal</item>
     </style>
 
     <style name="RequestManageCredentialsButtonPanel">
@@ -1182,4 +1179,12 @@
         <item name="cornerSize">12dp</item>
     </style>
 
+    <style name="IdentityCheckPromoCardDialogStyle" parent="Theme.Design.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/Widget.App.BottomSheet.Modal</item>
+    </style>
+
+    <style name="Widget.App.BottomSheet.Modal" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/identity_check_promo_card_background</item>
+    </style>
 </resources>

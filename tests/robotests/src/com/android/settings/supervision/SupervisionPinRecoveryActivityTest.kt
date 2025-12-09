@@ -37,6 +37,8 @@ import android.os.UserManager.USER_TYPE_PROFILE_SUPERVISING
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
+import com.android.settings.password.ChooseLockGeneric
+import com.android.settings.supervision.ConfirmSupervisionCredentialsActivity.Companion.EXTRA_FORCE_CONFIRMATION
 import com.android.settings.testutils.MetricsRule
 import com.google.common.truth.Truth.assertThat
 import org.junit.Assert.assertEquals
@@ -135,6 +137,7 @@ class SupervisionPinRecoveryActivityTest {
             scenario.onActivity { activity ->
                 val startedIntent = shadowOf(activity).nextStartedActivity
                 assertThat(startedIntent.action).isEqualTo(ACTION_CONFIRM_PIN)
+                assertThat(startedIntent.getBooleanExtra(EXTRA_FORCE_CONFIRMATION, false)).isTrue()
             }
         }
     }
@@ -150,6 +153,8 @@ class SupervisionPinRecoveryActivityTest {
             scenario.onActivity { activity ->
                 val startedIntent = shadowOf(activity).nextStartedActivity
                 assertThat(startedIntent.action).isEqualTo(ACTION_CONFIRM_PIN)
+                assertThat(startedIntent.getBooleanExtra(EXTRA_FORCE_CONFIRMATION, false))
+                    .isEqualTo(true)
             }
         }
     }
@@ -165,6 +170,8 @@ class SupervisionPinRecoveryActivityTest {
             scenario.onActivity { activity ->
                 val startedIntent = shadowOf(activity).nextStartedActivity
                 assertThat(startedIntent.action).isEqualTo(ACTION_CONFIRM_PIN)
+                assertThat(startedIntent.getBooleanExtra(EXTRA_FORCE_CONFIRMATION, false))
+                    .isEqualTo(true)
             }
         }
     }
@@ -494,7 +501,7 @@ class SupervisionPinRecoveryActivityTest {
     @Test
     fun onVerification_recoveryAction_supervisionEnabled_successfulResult_startsSetPinActivity() {
         // Test scenario where the RECOVERY action successfully verifies,
-        // leading to the start of the SupervisionCredentialProxyActivity (to set PIN).
+        // leading to the start of the ChooseLockGeneric activity (to set PIN).
         val intent =
             Intent(context, SupervisionPinRecoveryActivity::class.java).apply {
                 action = SupervisionPinRecoveryActivity.ACTION_RECOVERY
@@ -510,7 +517,7 @@ class SupervisionPinRecoveryActivityTest {
 
                 val startedIntent = shadowActivity.nextStartedActivity
                 assertThat(startedIntent.component?.className)
-                    .isEqualTo(SupervisionCredentialProxyActivity::class.java.name)
+                    .isEqualTo(ChooseLockGeneric::class.java.name)
             }
         }
     }
@@ -518,7 +525,7 @@ class SupervisionPinRecoveryActivityTest {
     @Test
     fun onVerification_recoveryAction_supervisionDisabled_successfulResult_startsSetPinActivity() {
         // Test scenario where the RECOVERY action successfully verifies,
-        // leading to the start of the SupervisionCredentialProxyActivity (to set PIN).
+        // leading to the start of the ChooseLockGeneric activity (to set PIN).
         val intent =
             Intent(context, SupervisionPinRecoveryActivity::class.java).apply {
                 action = SupervisionPinRecoveryActivity.ACTION_RECOVERY
@@ -534,7 +541,7 @@ class SupervisionPinRecoveryActivityTest {
 
                 val startedIntent = shadowActivity.nextStartedActivity
                 assertThat(startedIntent.component?.className)
-                    .isEqualTo(SupervisionCredentialProxyActivity::class.java.name)
+                    .isEqualTo(ChooseLockGeneric::class.java.name)
             }
         }
     }
@@ -577,13 +584,13 @@ class SupervisionPinRecoveryActivityTest {
                 shadowActivity.receiveResult(verifyIntent, Activity.RESULT_OK, null)
 
                 // Simulates successful SetPinActivity
-                val testActivityResult = Activity.RESULT_OK
+                val testActivityResult = Activity.RESULT_FIRST_USER
                 val setPinIntent = shadowActivity.nextStartedActivity
                 shadowActivity.receiveResult(setPinIntent, testActivityResult, null)
 
                 verify(metricsRule.metricsFeatureProvider)
                     .action(activity, SettingsEnums.ACTION_SUPERVISION_PIN_RESET_SUCCEED, true)
-                assertEquals(testActivityResult, shadowActivity.resultCode)
+                assertEquals(Activity.RESULT_OK, shadowActivity.resultCode)
                 assertThat(activity.isFinishing).isTrue()
             }
         }

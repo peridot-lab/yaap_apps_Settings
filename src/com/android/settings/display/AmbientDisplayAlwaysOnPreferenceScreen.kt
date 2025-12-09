@@ -30,6 +30,7 @@ import com.android.settings.R
 import com.android.settings.contract.KEY_AMBIENT_DISPLAY_ALWAYS_ON
 import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController.isAodSuppressedByBedtime
+import com.android.settings.display.ambient.AmbientDisplayIllustration
 import com.android.settings.display.ambient.AmbientDisplayMainSwitchPreference
 import com.android.settings.display.ambient.AmbientDisplayStorage
 import com.android.settings.display.ambient.AmbientDisplayTopIntroPreference
@@ -84,6 +85,9 @@ open class AmbientDisplayAlwaysOnPreferenceScreen(context: Context) :
     override val keywords: Int
         get() = R.string.keywords_always_show_time_info
 
+    override val indexable
+        get() = true
+
     override fun getMetricsCategory() = SettingsEnums.AMBIENT_DISPLAY_ALWAYS_ON
 
     override val highlightMenuKey: Int
@@ -121,21 +125,23 @@ open class AmbientDisplayAlwaysOnPreferenceScreen(context: Context) :
         )
 
     override fun onCreate(context: PreferenceLifecycleContext) {
-        keyedObserver = KeyedObserver { _, _ -> context.notifyPreferenceChange(KEY) }
-        ambientWallpaperPreference
-            .storage(context)
-            .addObserver(AmbientWallpaperPreference.KEY, keyedObserver, HandlerExecutor.main)
+        if (isEntryPoint(context)) {
+            keyedObserver = KeyedObserver { _, _ -> context.notifyPreferenceChange(KEY) }
+            ambientWallpaperPreference
+                .storage(context)
+                .addObserver(AmbientWallpaperPreference.KEY, keyedObserver, HandlerExecutor.main)
+        }
     }
 
     override fun onDestroy(context: PreferenceLifecycleContext) {
-        ambientWallpaperPreference
-            .storage(context)
-            .removeObserver(AmbientWallpaperPreference.KEY, keyedObserver)
+        if (isEntryPoint(context)) {
+            ambientWallpaperPreference
+                .storage(context)
+                .removeObserver(AmbientWallpaperPreference.KEY, keyedObserver)
+        }
     }
 
     override fun fragmentClass(): Class<out Fragment>? = AmbientPreferenceFragment::class.java
-
-    override fun isIndexable(context: Context) = true
 
     override fun hasCompleteHierarchy() = true
 
@@ -145,6 +151,7 @@ open class AmbientDisplayAlwaysOnPreferenceScreen(context: Context) :
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
         preferenceHierarchy(context) {
             +AmbientDisplayTopIntroPreference()
+            +AmbientDisplayIllustration(context)
             +AmbientDisplayMainSwitchPreference()
             if (context.isAmbientWallpaperOptionsAvailable) {
                 +Category("ambient_wallpaperGroup", R.string.doze_always_on_wallpaper_options) += {

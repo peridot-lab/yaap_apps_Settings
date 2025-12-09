@@ -15,35 +15,39 @@
  */
 package com.android.settings.network
 
-import android.content.Context
 import android.content.pm.PackageManager.FEATURE_TELEPHONY
 import android.platform.test.annotations.DisableFlags
 import android.telephony.SubscriptionInfo
 import android.telephony.SubscriptionManager
-import androidx.test.core.app.ApplicationProvider
 import com.android.settings.flags.Flags
 import com.android.settings.testutils2.SettingsCatalystTestCase
+import org.junit.Ignore
+import org.junit.Test
 import org.mockito.kotlin.mock
 import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 import org.robolectric.shadows.ShadowSubscriptionManager
 
 class MobileNetworkListScreenTest : SettingsCatalystTestCase() {
-    override val preferenceScreenCreator = MobileNetworkListScreen()
+    override val preferenceScreenCreator = MobileNetworkListScreen(appContext)
 
     override val flagName: String
         get() = Flags.FLAG_CATALYST_MOBILE_NETWORK_LIST
 
-    @DisableFlags(Flags.FLAG_IS_DUAL_SIM_ONBOARDING_ENABLED)
+    @DisableFlags(
+        Flags.FLAG_IS_DUAL_SIM_ONBOARDING_ENABLED,
+        Flags.FLAG_DEEPLINK_NETWORK_AND_INTERNET_25Q4,
+    )
+    @Ignore("UI of MobileNetworkListScreen is replaced by SPA now.")
     @Config(shadows = [ShadowSubscriptionManager::class])
+    @Test
     override fun migration() {
-        val context: Context = ApplicationProvider.getApplicationContext()
         val subscriptionManager =
-            shadowOf(context.getSystemService(SubscriptionManager::class.java))
+            shadowOf(appContext.getSystemService(SubscriptionManager::class.java))
         val subscriptionInfo: SubscriptionInfo = mock()
         subscriptionManager.setAvailableSubscriptionInfos(subscriptionInfo)
         // make screen available
-        shadowOf(context.packageManager).setSystemFeature(FEATURE_TELEPHONY, true)
+        shadowOf(appContext.packageManager).setSystemFeature(FEATURE_TELEPHONY, true)
         super.migration()
     }
 }

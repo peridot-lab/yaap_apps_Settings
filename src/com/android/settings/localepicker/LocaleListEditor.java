@@ -72,6 +72,7 @@ import java.util.Locale;
  * Drag-and-drop editor for the user-ordered locale lists.
  */
 @SearchIndexable
+@Deprecated
 public class LocaleListEditor extends RestrictedSettingsFragment implements View.OnTouchListener {
     protected static final String INTENT_LOCALE_KEY = "localeInfo";
     protected static final String EXTRA_SYSTEM_LOCALE_DIALOG_TYPE = "system_locale_dialog_type";
@@ -297,7 +298,7 @@ public class LocaleListEditor extends RestrictedSettingsFragment implements View
                 || !getContext().getPackageName().equals(callingPackage)
                 || !isValidDialogType(dialogType)
                 || !isValidLocale(localeTag)
-                || LocaleUtils.isInSystemLocale(localeTag)) {
+                || LocaleUtils.isLanguageInSystemLocale(localeTag)) {
             return false;
         }
         return true;
@@ -608,6 +609,15 @@ public class LocaleListEditor extends RestrictedSettingsFragment implements View
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
+
+                @Override
+                protected boolean isPageSearchEnabled(Context context) {
+                    if (SettingsThemeHelper.isExpressiveTheme(context)) {
+                        return false;
+                    }
+                    return true;
+                }
+
                 @Override
                 public List<SearchIndexableRaw> getRawDataToIndex(Context context,
                         boolean enabled) {

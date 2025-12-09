@@ -89,7 +89,6 @@ public class ShadeDisplayAwarenessPreferenceController extends DeveloperOptionsP
 
     @Override
     public boolean isAvailable() {
-        // TODO: b/414685067 - re-enable for 25Q4
         return false;
     }
 }

@@ -78,7 +78,7 @@
     <PreferenceCategory
         android:key="device_companion_apps"/>
 
-    <PreferenceCategory
+    <com.android.settingslib.widget.UntitledPreferenceCategory
         android:key="hearing_device_group" />
 
     <PreferenceCategory
@@ -106,7 +106,6 @@
             android:key="live_caption"
             android:icon="@drawable/ic_live_caption"
             android:persistent="false"
-            android:summary="@string/live_caption_summary"
             android:title="@string/live_caption_title"
             settings:controller="com.android.settings.accessibility.LiveCaptionPreferenceController"/>
     </PreferenceCategory>

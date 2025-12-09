@@ -17,44 +17,45 @@ package com.android.settings.supervision
 
 import android.app.ActivityManager
 import android.app.role.RoleManager
+import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
-import android.content.ContextWrapper
-import androidx.test.core.app.ApplicationProvider
+import android.content.Intent
+import android.content.IntentFilter
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
+import java.time.Duration
 import kotlin.test.Test
 import org.junit.Before
 import org.junit.runner.RunWith
+import org.mockito.Mockito.`when` as whenever
+import org.mockito.kotlin.argumentCaptor
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.stub
+import org.mockito.kotlin.verify
+import org.robolectric.shadows.ShadowLooper
+import org.robolectric.shadows.ShadowSystemClock
 
 @RunWith(AndroidJUnit4::class)
 class SupervisionAuthControllerTest {
 
     private val mockActivityManager = mock<ActivityManager>()
     private val mockRoleManager = mock<RoleManager>()
-    private val context =
-        object : ContextWrapper(ApplicationProvider.getApplicationContext()) {
-            override fun getSystemService(name: String): Any =
-                when (name) {
-                    getSystemServiceName(ActivityManager::class.java) -> mockActivityManager
-                    getSystemServiceName(RoleManager::class.java) -> mockRoleManager
-                    else -> super.getSystemService(name)
-                }
-
-            // Ensure that we use this wrapper as the application context as well
-            override fun getApplicationContext(): Context? = this
-        }
+    private var mockContext = mock<Context>()
 
     @Before
     fun setUp() {
         SupervisionAuthController.sInstance = null
+        whenever(mockContext.getSystemService(ActivityManager::class.java))
+            .thenReturn(mockActivityManager)
+        whenever(mockContext.getSystemService(RoleManager::class.java)).thenReturn(mockRoleManager)
+        whenever(mockContext.applicationContext).thenReturn(mockContext)
         mockRoleManager.stub {
             on { getRoleHolders(RoleManager.ROLE_SYSTEM_SUPERVISION) } doReturn
                 listOf(SUPERVISION_PACKAGE_NAME)
         }
+        ShadowLooper.idleMainLooper()
     }
 
     @Test
@@ -65,7 +66,7 @@ class SupervisionAuthControllerTest {
             }
         mockActivityManager.stub { on { appTasks } doReturn listOf(mockTask) }
 
-        val authController = SupervisionAuthController.getInstance(context)
+        val authController = SupervisionAuthController.getInstance(mockContext)
         assertThat(authController.isSessionActive(TASK_ID)).isFalse()
     }
 
@@ -77,8 +78,9 @@ class SupervisionAuthControllerTest {
             }
         mockActivityManager.stub { on { appTasks } doReturn listOf(mockTask) }
 
-        val authController = SupervisionAuthController.getInstance(context)
+        val authController = SupervisionAuthController.getInstance(mockContext)
         authController.startSession(TASK_ID)
+        ShadowLooper.idleMainLooper()
         assertThat(authController.isSessionActive(TASK_ID)).isTrue()
     }
 
@@ -90,14 +92,35 @@ class SupervisionAuthControllerTest {
             }
         mockActivityManager.stub { on { appTasks } doReturn listOf(mockTask) }
 
-        val authController = SupervisionAuthController.getInstance(context)
+        val authController = SupervisionAuthController.getInstance(mockContext)
         authController.startSession(TASK_ID)
         authController.mTaskStackListener.onTaskStackChanged()
+        ShadowLooper.idleMainLooper()
         assertThat(authController.isSessionActive(TASK_ID)).isTrue()
 
         mockTask.stub { on { taskInfo } doReturn NOT_FOCUSED_SUPERVISION_DASHBOARD_TASK_INFO }
         authController.mTaskStackListener.onTaskStackChanged()
+        ShadowLooper.idleMainLooper()
         assertThat(authController.isSessionActive(TASK_ID)).isFalse()
+    }
+
+    @Test
+    fun taskScreenLocked_sessionInvalidated() {
+        val authController = SupervisionAuthController.getInstance(mockContext)
+        authController.startSession(TASK_ID)
+        ShadowLooper.idleMainLooper()
+        assertThat(authController.isSessionActive(TASK_ID)).isTrue()
+
+        val broadcastReceiverCaptor = argumentCaptor<BroadcastReceiver>()
+        val intentFilterCaptor = argumentCaptor<IntentFilter>()
+        verify(mockContext)
+            .registerReceiver(broadcastReceiverCaptor.capture(), intentFilterCaptor.capture())
+
+        val screenOffReceiver: BroadcastReceiver = broadcastReceiverCaptor.firstValue
+        screenOffReceiver.onReceive(mockContext, Intent(Intent.ACTION_SCREEN_OFF))
+        ShadowLooper.idleMainLooper()
+        assertThat(authController.isSessionActive(TASK_ID)).isFalse()
+        verify(mockContext).unregisterReceiver(screenOffReceiver)
     }
 
     @Test
@@ -108,13 +131,29 @@ class SupervisionAuthControllerTest {
             }
         mockActivityManager.stub { on { appTasks } doReturn listOf(mockTask) }
 
-        val authController = SupervisionAuthController.getInstance(context)
+        val authController = SupervisionAuthController.getInstance(mockContext)
         authController.startSession(TASK_ID)
         authController.mTaskStackListener.onTaskStackChanged()
+        ShadowLooper.idleMainLooper()
         assertThat(authController.isSessionActive(TASK_ID)).isTrue()
 
         mockTask.stub { on { taskInfo } doReturn FOCUSED_OTHER_SETTINGS_TASK_INFO }
         authController.mTaskStackListener.onTaskStackChanged()
+        ShadowLooper.idleMainLooper()
+        assertThat(authController.isSessionActive(TASK_ID)).isFalse()
+    }
+
+    @Test
+    fun supervisionSessionTimesOut_sessionInvalidated() {
+        val authController = SupervisionAuthController.getInstance(mockContext)
+        authController.startSession(TASK_ID)
+        ShadowLooper.idleMainLooper()
+        assertThat(authController.isSessionActive(TASK_ID)).isTrue()
+
+        val timeoutMillis = SupervisionAuthController.SESSION_TIMEOUT_MILLIS + 1
+        ShadowSystemClock.advanceBy(Duration.ofMillis(timeoutMillis))
+        ShadowLooper.idleMainLooper()
+
         assertThat(authController.isSessionActive(TASK_ID)).isFalse()
     }
 
@@ -126,13 +165,15 @@ class SupervisionAuthControllerTest {
             }
         mockActivityManager.stub { on { appTasks } doReturn listOf(mockTask) }
 
-        val authController = SupervisionAuthController.getInstance(context)
+        val authController = SupervisionAuthController.getInstance(mockContext)
         authController.startSession(TASK_ID)
         authController.mTaskStackListener.onTaskStackChanged()
+        ShadowLooper.idleMainLooper()
         assertThat(authController.isSessionActive(TASK_ID)).isTrue()
 
         mockTask.stub { on { taskInfo } doReturn FOCUSED_OTHER_SETTINGS_TASK_INFO }
         authController.mTaskStackListener.onTaskStackChanged()
+        ShadowLooper.idleMainLooper()
         assertThat(authController.isSessionActive(TASK_ID)).isFalse()
     }
 

@@ -28,9 +28,9 @@ import com.android.settings.R
 import com.android.settings.Settings
 import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.flags.Flags
-import com.android.settings.network.AirplaneModePreference.Companion.isAirplaneModeOn
 import com.android.settings.network.SatelliteRepository.Companion.isSatelliteOn
 import com.android.settings.network.SubscriptionUtil.getUniqueSubscriptionDisplayName
+import com.android.settings.network.telephony.MobileNetworkScreen
 import com.android.settings.network.telephony.SimRepository
 import com.android.settings.network.telephony.SubscriptionRepository
 import com.android.settings.network.telephony.euicc.EuiccRepository
@@ -41,8 +41,6 @@ import com.android.settings.spa.network.startSatelliteWarningDialogFlow
 import com.android.settings.utils.makeLaunchIntent
 import com.android.settingslib.RestrictedPreference
 import com.android.settingslib.datastore.HandlerExecutor
-import com.android.settingslib.datastore.KeyedObserver
-import com.android.settingslib.datastore.SettingsGlobalStore
 import com.android.settingslib.metadata.PreferenceAvailabilityProvider
 import com.android.settingslib.metadata.PreferenceLifecycleContext
 import com.android.settingslib.metadata.PreferenceLifecycleProvider
@@ -52,9 +50,10 @@ import com.android.settingslib.metadata.ProvidePreferenceScreen
 import com.android.settingslib.metadata.preferenceHierarchy
 import com.android.settingslib.preference.PreferenceBinding
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 @ProvidePreferenceScreen(MobileNetworkListScreen.KEY)
-open class MobileNetworkListScreen :
+open class MobileNetworkListScreen(context: Context) :
     PreferenceScreenMixin,
     PreferenceBinding,
     PreferenceAvailabilityProvider,
@@ -63,7 +62,6 @@ open class MobileNetworkListScreen :
     PreferenceRestrictionMixin,
     OnPreferenceClickListener {
 
-    private var airplaneModeObserver: KeyedObserver<String>? = null
     private var subscriptionInfoList: List<SubscriptionInfo>? = null
     private var onSubscriptionsChangedListener: OnSubscriptionsChangedListener? = null
 
@@ -105,7 +103,6 @@ open class MobileNetworkListScreen :
 
     override fun isEnabled(context: Context) =
         super<PreferenceRestrictionMixin>.isEnabled(context) &&
-            !context.isAirplaneModeOn() &&
             (getSelectableSubscriptionInfoList(context).isNotEmpty() ||
                 EuiccRepository(context).showEuiccSettings())
 
@@ -146,29 +143,27 @@ open class MobileNetworkListScreen :
     }
 
     override fun onCreate(context: PreferenceLifecycleContext) {
-        val executor = HandlerExecutor.main
-        val observer = KeyedObserver<String> { _, _ -> context.notifyPreferenceChange(KEY) }
-        airplaneModeObserver = observer
-        SettingsGlobalStore.get(context).addObserver(AirplaneModePreference.KEY, observer, executor)
-        context.getSystemService(SubscriptionManager::class.java)?.let {
-            val listener =
-                object : OnSubscriptionsChangedListener() {
-                    override fun onSubscriptionsChanged() {
-                        subscriptionInfoList = null // invalid cache
-                        context.notifyPreferenceChange(KEY)
+        if (isEntryPoint(context)) {
+            val executor = HandlerExecutor.main
+            context.getSystemService(SubscriptionManager::class.java)?.let {
+                val listener =
+                    object : OnSubscriptionsChangedListener() {
+                        override fun onSubscriptionsChanged() {
+                            subscriptionInfoList = null // invalid cache
+                            context.notifyPreferenceChange(KEY)
+                        }
                     }
-                }
-            it.addOnSubscriptionsChangedListener(executor, listener)
-            onSubscriptionsChangedListener = listener
+                it.addOnSubscriptionsChangedListener(executor, listener)
+                onSubscriptionsChangedListener = listener
+            }
         }
     }
 
     override fun onDestroy(context: PreferenceLifecycleContext) {
-        airplaneModeObserver?.let {
-            SettingsGlobalStore.get(context).removeObserver(AirplaneModePreference.KEY, it)
-        }
-        context.getSystemService(SubscriptionManager::class.java)?.apply {
-            onSubscriptionsChangedListener?.let { removeOnSubscriptionsChangedListener(it) }
+        if (isEntryPoint(context)) {
+            context.getSystemService(SubscriptionManager::class.java)?.apply {
+                onSubscriptionsChangedListener?.let { removeOnSubscriptionsChangedListener(it) }
+            }
         }
     }
 
@@ -178,8 +173,23 @@ open class MobileNetworkListScreen :
 
     override fun fragmentClass(): Class<out Fragment>? = MobileNetworkListFragment::class.java
 
+    // Please refer to this link (https://b.corp.google.com/issues/419310279#comment11).
+    // This hierarchical UI won't be shown while the MobileNetworkListFragment finished.
+    // Keep it for the external apps may retrieve it through the Setting Graph.
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
-        preferenceHierarchy(context) { +MobileDataPreference() }
+        preferenceHierarchy(context) {
+            +MobileDataPreference()
+            addAsync(coroutineScope, Dispatchers.Default) {
+                if (Flags.deeplinkNetworkAndInternet25q4()) {
+                    MobileNetworkScreen.parameters(context).collect {
+                        +(MobileNetworkScreen.KEY args it)
+                    }
+                }
+            }
+            +SimCallsPreference() order +130
+            +SimSmsPreference() order +140
+            +SimMobileDataPreference() order +150
+        }
 
     companion object {
         const val KEY = "mobile_network_list"

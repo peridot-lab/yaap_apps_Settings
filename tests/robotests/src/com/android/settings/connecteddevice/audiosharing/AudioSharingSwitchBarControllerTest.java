@@ -87,6 +87,7 @@ import com.android.settingslib.bluetooth.BluetoothEventManager;
 import com.android.settingslib.bluetooth.BluetoothLeBroadcastMetadataExt;
 import com.android.settingslib.bluetooth.CachedBluetoothDevice;
 import com.android.settingslib.bluetooth.CachedBluetoothDeviceManager;
+import com.android.settingslib.bluetooth.LeAudioProfile;
 import com.android.settingslib.bluetooth.LocalBluetoothLeBroadcast;
 import com.android.settingslib.bluetooth.LocalBluetoothLeBroadcastAssistant;
 import com.android.settingslib.bluetooth.LocalBluetoothManager;
@@ -152,6 +153,7 @@ public class AudioSharingSwitchBarControllerTest {
     @Mock private CachedBluetoothDeviceManager mDeviceManager;
     @Mock private BluetoothEventManager mEventManager;
     @Mock private LocalBluetoothProfileManager mBtProfileManager;
+    @Mock private LeAudioProfile mLeAudio;
     @Mock private LocalBluetoothLeBroadcast mBroadcast;
     @Mock private LocalBluetoothLeBroadcastAssistant mAssistant;
     @Mock private VolumeControlProfile mVolumeControl;
@@ -200,9 +202,11 @@ public class AudioSharingSwitchBarControllerTest {
         when(mCachedDevice2.getGroupId()).thenReturn(TEST_DEVICE_GROUP_ID2);
         when(mCachedDevice2.getName()).thenReturn(TEST_DEVICE_NAME2);
         when(mCachedDevice2.isActiveDevice(BluetoothProfile.LE_AUDIO)).thenReturn(true);
+        when(mBtProfileManager.getLeAudioProfile()).thenReturn(mLeAudio);
         when(mBtProfileManager.getLeAudioBroadcastProfile()).thenReturn(mBroadcast);
         when(mBtProfileManager.getLeAudioBroadcastAssistantProfile()).thenReturn(mAssistant);
         when(mBtProfileManager.getVolumeControlProfile()).thenReturn(mVolumeControl);
+        when(mLeAudio.isProfileReady()).thenReturn(true);
         when(mVolumeControl.isProfileReady()).thenReturn(true);
         when(mBroadcast.isProfileReady()).thenReturn(true);
         doNothing()
@@ -243,7 +247,7 @@ public class AudioSharingSwitchBarControllerTest {
                 FragmentActivity.class,
                 0 /* containerViewId */,
                 null /* bundle */);
-        mController.init(mParentFragment);
+        mController.init(mParentFragment, /* needHandleIntent */ true);
     }
 
     @After
@@ -1142,7 +1146,7 @@ public class AudioSharingSwitchBarControllerTest {
     @Test
     @DisableFlags(Flags.FLAG_ENABLE_LE_AUDIO_SHARING)
     public void handleStartAudioSharingFromIntent_flagOff_doNothing() {
-        var unused = setUpFragmentWithStartSharingIntent();
+        var unused = setUpFragmentWithStartSharingIntent(/* needHandleIntent */ true);
         mController.onStart(mLifecycleOwner);
         shadowOf(Looper.getMainLooper()).idle();
 
@@ -1153,7 +1157,7 @@ public class AudioSharingSwitchBarControllerTest {
     @EnableFlags(Flags.FLAG_ENABLE_LE_AUDIO_SHARING)
     public void handleStartAudioSharingFromIntent_profileNotReady_doNothing() {
         when(mAssistant.isProfileReady()).thenReturn(false);
-        var unused = setUpFragmentWithStartSharingIntent();
+        var unused = setUpFragmentWithStartSharingIntent(/* needHandleIntent */ true);
         mController.onServiceConnected();
         shadowOf(Looper.getMainLooper()).idle();
 
@@ -1171,11 +1175,24 @@ public class AudioSharingSwitchBarControllerTest {
 
     @Test
     @EnableFlags(Flags.FLAG_ENABLE_LE_AUDIO_SHARING)
+    public void handleStartAudioSharingFromIntent_skipWhenScreenRotate_doNothing() {
+        when(mAssistant.isProfileReady()).thenReturn(false);
+        // When screen rotate, saveInstanceState is non null so that the fragment will be init with
+        // needHandleIntent = false
+        var unused = setUpFragmentWithStartSharingIntent(/* needHandleIntent */ false);
+        mController.onServiceConnected();
+        shadowOf(Looper.getMainLooper()).idle();
+
+        verify(mSwitchBar, never()).setChecked(true);
+    }
+
+    @Test
+    @EnableFlags(Flags.FLAG_ENABLE_LE_AUDIO_SHARING)
     public void handleStartAudioSharingFromIntent_handle() {
         when(mBtnView.isEnabled()).thenReturn(true);
         when(mAssistant.getAllConnectedDevices()).thenReturn(ImmutableList.of(mDevice2, mDevice1));
         when(mBroadcast.getLatestBluetoothLeBroadcastMetadata()).thenReturn(mMetadata);
-        Fragment parentFragment = setUpFragmentWithStartSharingIntent();
+        Fragment parentFragment = setUpFragmentWithStartSharingIntent(/* needHandleIntent */ true);
         mController.onServiceConnected();
         shadowOf(Looper.getMainLooper()).idle();
 
@@ -1278,7 +1295,7 @@ public class AudioSharingSwitchBarControllerTest {
                 .containsExactly(AudioSharingProgressDialogFragment.class.getName());
     }
 
-    private Fragment setUpFragmentWithStartSharingIntent() {
+    private Fragment setUpFragmentWithStartSharingIntent(boolean needHandleIntent) {
         Bundle args = new Bundle();
         args.putBoolean(EXTRA_START_LE_AUDIO_SHARING, true);
         Intent intent = new Intent();
@@ -1292,7 +1309,7 @@ public class AudioSharingSwitchBarControllerTest {
                 .visible()
                 .get();
         shadowOf(Looper.getMainLooper()).idle();
-        mController.init(fragment);
+        mController.init(fragment, needHandleIntent);
         return fragment;
     }
 

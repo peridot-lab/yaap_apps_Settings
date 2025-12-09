@@ -185,7 +185,7 @@
                     android:title="@string/clear_adb_keys" />
 
         <com.android.settingslib.PrimarySwitchPreference
-            android:fragment="com.android.settings.development.WirelessDebuggingFragment"
+            android:fragment="com.android.settings.development.AdbWirelessDebuggingFragment"
             android:key="toggle_adb_wireless"
             android:title="@string/enable_adb_wireless"
             android:summary="@string/enable_adb_wireless_summary"
@@ -402,11 +402,6 @@
             android:entryValues="@array/bluetooth_leaudio_mode_values"/>
 
         <SwitchPreferenceCompat
-            android:key="bluetooth_leaudio_broadcast_ui"
-            android:title="@string/bluetooth_leaudio_broadcast_ui"
-            android:summary="@string/bluetooth_leaudio_broadcast_ui_summary"/>
-
-        <SwitchPreferenceCompat
             android:key="bluetooth_show_leaudio_device_details"
             android:title="@string/bluetooth_show_leaudio_device_details"/>
 
@@ -553,7 +548,7 @@
             android:title="@string/transition_animation_scale_title" />
 
         <com.android.settings.AnimationScalePreference
-            android:key="animator_duration_scale"
+            android:key="animator_duration_scale_pref_key"
             android:title="@string/animator_duration_scale_title" />
 
         <ListPreference

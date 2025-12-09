@@ -43,6 +43,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.insets.ProtectionLayout;
 
 import com.android.settings.core.InstrumentedFragment;
 import com.android.settings.enterprise.ActionDisabledByAdminDialogHelper;
@@ -55,6 +56,8 @@ import com.google.android.setupcompat.template.FooterButton.ButtonType;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.ThemeHelper;
+
+import java.util.Collections;
 
 /**
  * Confirm and execute a reset of the device to a clean "just out of the box"
@@ -175,14 +178,6 @@ public class MainClearConfirm extends InstrumentedFragment {
             return false;
         }
 
-        // If OEM unlock is allowed, the persistent data block will be wiped during the FR
-        // process on devices without FRP Hardening. If disabled, it will be wiped here instead.
-        // On devices with FRP Hardening, the persistent data block should always be wiped,
-        // regardless of the OEM Unlocking state.
-        if (!android.security.Flags.frpEnforcement() && isOemUnlockedAllowed()) {
-            return false;
-        }
-
         final DevicePolicyManager dpm = (DevicePolicyManager) getActivity()
                 .getSystemService(Context.DEVICE_POLICY_SERVICE);
         // Do not erase the factory reset protection data (from Settings) if factory reset
@@ -256,6 +251,11 @@ public class MainClearConfirm extends InstrumentedFragment {
             return new View(getActivity());
         }
         mContentView = (GlifLayout) inflater.inflate(R.layout.main_clear_confirm, null);
+        ProtectionLayout protect = mContentView.findViewById(
+                com.google.android.setupdesign.R.id.sud_layout_protection);
+        if (protect != null) {
+            protect.setProtections(Collections.emptyList());
+        }
         establishFinalConfirmationState();
         setSubtitle();
         setAccessibilityTitle();

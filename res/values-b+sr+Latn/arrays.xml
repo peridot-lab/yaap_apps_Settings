@@ -352,7 +352,7 @@
     <item msgid="3237802033158517495">"100%"</item>
   </string-array>
   <string-array name="captioning_preset_selector_titles">
-    <item msgid="3880932435325583041">"Podešava aplikacija"</item>
+    <item msgid="3880932435325583041">"Podesila aplikacija"</item>
     <item msgid="8719204526359229387">"Belo na crnom"</item>
     <item msgid="5410164687403735103">"Crno na belom"</item>
     <item msgid="1119043472912497241">"Žuto na crnom"</item>
@@ -428,7 +428,7 @@
     <item msgid="2163015208097377388">"Da"</item>
   </string-array>
   <string-array name="autofill_logging_level_entries">
-    <item msgid="2263571982739726576">"Isključi"</item>
+    <item msgid="2263571982739726576">"Isključeno"</item>
     <item msgid="4295717421282345505">"Otkloni greške"</item>
     <item msgid="8657797891533816070">"Detaljno"</item>
   </string-array>
@@ -548,5 +548,6 @@
     <item msgid="953234843613969792">"Nedavne aplikacije"</item>
     <item msgid="1713942773283586136">"Obaveštenja"</item>
     <item msgid="5687603742365489342">"Brza podešavanja"</item>
+    <item msgid="5454862951059393431">"Zaključani ekran"</item>
   </string-array>
 </resources>

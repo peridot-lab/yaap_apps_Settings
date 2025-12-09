@@ -79,7 +79,6 @@ import android.os.BatteryManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Flags;
 import android.os.IBinder;
 import android.os.INetworkManagementService;
 import android.os.RemoteException;
@@ -451,10 +450,6 @@ public final class Utils extends com.android.settingslib.Utils {
         final List<UserHandle> userProfiles = userManager.getUserProfiles();
         String umUserType = getUmUserType(userType);
         for (UserHandle profile : userProfiles) {
-            if (!com.android.settings.flags.Flags.utilsReturnUserHandleForCurrentUserId()
-                    && profile.getIdentifier() == UserHandle.myUserId()) {
-                continue;
-            }
             final UserInfo userInfo = userManager.getUserInfo(profile.getIdentifier());
             if (Objects.equals(umUserType, userInfo.userType)) {
                 return profile;
@@ -619,14 +614,20 @@ public final class Utils extends com.android.settingslib.Utils {
         return null;
     }
 
-   /**
-    * Returns true if the user provided is in the same profiles group as the current user.
-    */
-   private static boolean isProfileOf(UserManager um, UserHandle otherUser) {
-       if (um == null || otherUser == null) return false;
-       return (UserHandle.myUserId() == otherUser.getIdentifier())
-               || um.getUserProfiles().contains(otherUser);
-   }
+    /** Returns true if the user provided is in the same profiles group as the current user. */
+    private static boolean isProfileOf(UserManager um, UserHandle otherUser) {
+        if (um == null || otherUser == null) return false;
+        // The supervising profile is a parentless profile which is considered a valid profile
+        // for all full users.
+        final boolean isSupervisingProfile =
+                android.multiuser.Flags.allowSupervisingProfile()
+                        && um.getUserInfo(otherUser.getIdentifier())
+                                .userType
+                                .equals(UserManager.USER_TYPE_PROFILE_SUPERVISING);
+        return (UserHandle.myUserId() == otherUser.getIdentifier())
+                || um.getUserProfiles().contains(otherUser)
+                || isSupervisingProfile;
+    }
 
     /**
      * Queries for the UserInfo of a user. Returns null if the user doesn't exist (was removed).
@@ -802,6 +803,16 @@ public final class Utils extends com.android.settingslib.Utils {
         final int[] profileIds = um.getProfileIdsWithDisabled(UserHandle.myUserId());
         if (ArrayUtils.contains(profileIds, userId)) {
             return userId;
+        }
+        if (android.multiuser.Flags.allowSupervisingProfile()) {
+            for (UserInfo info : um.getUsers()) {
+                // The supervising profile is a parentless profile, and is therefore considered a
+                // valid profile for any full user.
+                if (info.id == userId
+                        && info.userType.equals(UserManager.USER_TYPE_PROFILE_SUPERVISING)) {
+                    return userId;
+                }
+            }
         }
         throw new SecurityException("Given user id " + userId + " does not belong to user "
                 + UserHandle.myUserId());
@@ -1352,9 +1363,7 @@ public final class Utils extends com.android.settingslib.Utils {
         for (UserHandle userHandle : profiles) {
             UserProperties userProperties = userManager.getUserProperties(userHandle);
             if (userProperties.getShowInSettings() == UserProperties.SHOW_IN_SETTINGS_SEPARATE) {
-                if (Flags.allowPrivateProfile()
-                        && android.multiuser.Flags.enablePrivateSpaceFeatures()
-                        && userProperties.getShowInQuietMode()
+                if (userProperties.getShowInQuietMode()
                         == UserProperties.SHOW_IN_QUIET_MODE_HIDDEN) {
                     if (!userManager.isQuietModeEnabled(userHandle)) {
                         return true;
@@ -1506,6 +1515,19 @@ public final class Utils extends com.android.settingslib.Utils {
         final UserManager userManager = context.getSystemService(UserManager.class);
         UserInfo userInfo = userManager.getUserInfo(userId);
         return !Objects.isNull(userInfo) && userInfo.isPrivateProfile();
+    }
+
+    /**
+     * Returns true if the userId is the supervising profile, false otherwise.
+     */
+    public static boolean isSupervisingProfile(int userId, @NonNull Context context) {
+        if (!android.multiuser.Flags.allowSupervisingProfile()) {
+            return false;
+        }
+        final UserManager userManager = context.getSystemService(UserManager.class);
+        UserInfo userInfo = userManager.getUserInfo(userId);
+        return !Objects.isNull(userInfo)
+                && userInfo.userType.equals(UserManager.USER_TYPE_PROFILE_SUPERVISING);
     }
 
     /**

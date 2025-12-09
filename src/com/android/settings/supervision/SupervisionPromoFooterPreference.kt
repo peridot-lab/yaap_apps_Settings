@@ -15,11 +15,11 @@
  */
 package com.android.settings.supervision
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Icon
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.android.settings.R
@@ -51,7 +51,8 @@ class SupervisionPromoFooterPreference(
         get() = KEY
 
     // Non indexable as the metadata (title, summary, etc.) is provided by another app with IPC
-    override fun isIndexable(context: Context) = false
+    override val indexable
+        get() = false
 
     override fun createWidget(context: Context): Preference = FooterPreference(context)
 
@@ -62,8 +63,7 @@ class SupervisionPromoFooterPreference(
         if (initialized) {
             val context = preference.context
             val targetIntent =
-                Intent(preferenceData?.action).apply {
-                    `package` = preferenceData?.targetPackage
+                Intent(preferenceData?.action, preferenceData?.intentData?.toUri()).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
             intent = if (targetIntent.isValid(context)) targetIntent else null
@@ -87,11 +87,9 @@ class SupervisionPromoFooterPreference(
                 }
             (preference as CardPreference).setAdditionalAction(
                 trailingIcon,
-                contentDescription =
-                    context.getString(R.string.supervision_promo_footer_action_button_description),
-            ) {
-                @SuppressLint("RestrictedApi") it.performClick()
-            }
+                contentDescription = null,
+                action = null,
+            )
         }
 
         // Icon, Title, Summary may be null but at least one of title or summary must be valid
@@ -102,20 +100,28 @@ class SupervisionPromoFooterPreference(
 
     override fun onResume(context: PreferenceLifecycleContext) {
         context.lifecycleScope.launch {
-            preferenceData =
+            // Immediately update the UI with cached data
+            preferenceData = preferenceDataProvider.getCachedPreferenceData(listOf(KEY))[KEY]
+            if (preferenceData != null) {
+                initialized = true
+            }
+            context.notifyPreferenceChange(KEY)
+
+            // Asynchronously fetch fresh data and update the UI
+            val freshPreferenceData =
                 withContext(coroutineDispatcher) {
                     preferenceDataProvider.getPreferenceData(listOf(KEY))[KEY]
                 }
-            initialized = true
-
-            context.notifyPreferenceChange(KEY)
+            if (preferenceData != freshPreferenceData) {
+                preferenceData = freshPreferenceData
+                initialized = true
+                context.notifyPreferenceChange(KEY)
+            }
         }
     }
 
     private fun Intent.isValid(context: Context) =
-        action != null &&
-            `package` != null &&
-            context.packageManager.queryIntentActivitiesAsUser(this, 0, context.userId).isNotEmpty()
+        context.packageManager.queryIntentActivitiesAsUser(this, 0, context.userId).isNotEmpty()
 
     companion object {
         const val KEY = "promo_footer"

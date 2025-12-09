@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
@@ -41,6 +42,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.ArrayList;
 import java.util.List;
 
+// LINT.IfChange
 @SearchIndexable
 public class ConfigureWifiSettings extends DashboardFragment {
 
@@ -62,8 +64,10 @@ public class ConfigureWifiSettings extends DashboardFragment {
         super.onAttach(context);
         if (isGuestUser(context)) return;
 
-        mWifiWakeupPreferenceController = use(WifiWakeupPreferenceController.class);
-        mWifiWakeupPreferenceController.setFragment(this);
+        if (!isCatalystEnabled()) {
+            mWifiWakeupPreferenceController = use(WifiWakeupPreferenceController.class);
+            mWifiWakeupPreferenceController.setFragment(this);
+        }
     }
 
     @Override
@@ -150,10 +154,17 @@ public class ConfigureWifiSettings extends DashboardFragment {
                 }
             };
 
-    private static boolean isGuestUser(Context context) {
+    /** @return  true if the current user is the guest. */
+    public static boolean isGuestUser(Context context) {
         if (context == null) return false;
         final UserManager userManager = context.getSystemService(UserManager.class);
         if (userManager == null) return false;
         return userManager.isGuestUser();
     }
+
+    @Override
+    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
+        return ConfigureWifiScreen.KEY;
+    }
 }
+// LINT.ThenChange(ConfigureWifiScreen.kt)

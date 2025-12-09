@@ -71,7 +71,7 @@
     <item msgid="326388247868439528">"Requirir estados de certificados"</item>
   </string-array>
   <string-array name="wifi_p2p_status">
-    <item msgid="8357401480964012245">"Conectada"</item>
+    <item msgid="8357401480964012245">"Conectado"</item>
     <item msgid="66312817817365647">"Convidado"</item>
     <item msgid="4463567967438038210">"Incorrecto"</item>
     <item msgid="6556827947082659801">"Dispoñible"</item>
@@ -548,5 +548,6 @@
     <item msgid="953234843613969792">"Aplicacións recentes"</item>
     <item msgid="1713942773283586136">"Notificacións"</item>
     <item msgid="5687603742365489342">"Configuración rápida"</item>
+    <item msgid="5454862951059393431">"Pantalla de bloqueo"</item>
   </string-array>
 </resources>

@@ -17,20 +17,29 @@
 package com.android.settings.inputmethod;
 
 import static android.content.ComponentName.unflattenFromString;
-import static android.hardware.input.AppLaunchData.createLaunchDataForComponent;
+import static android.content.Context.MODE_PRIVATE;
+
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapActionPreferenceController.SET_GESTURE;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.LAUNCHING_APP_KEY;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.SHARED_PREF_NAME;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.TARGET_ACTION_URI;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.getLaunchingAppComponentName;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.isGestureTypeLaunchApp;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.putLaunchingApp;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.setDefaultGestureType;
+import static com.android.settings.inputmethod.TouchpadThreeFingerTapUtils.setLaunchAppAsGestureType;
 
 import android.app.ActivityManager;
+import android.app.settings.SettingsEnums;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
 import android.database.ContentObserver;
-import android.hardware.input.AppLaunchData;
-import android.hardware.input.AppLaunchData.ComponentData;
 import android.hardware.input.InputGestureData;
 import android.hardware.input.InputManager;
-import android.hardware.input.InputSettings;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
@@ -47,6 +56,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
 import com.android.settings.core.BasePreferenceController;
+import com.android.settings.overlay.FeatureFactory;
+import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 import com.android.settingslib.widget.SelectorWithWidgetPreference;
 
 import java.util.Comparator;
@@ -58,33 +69,26 @@ import java.util.List;
  * finger tap gesture to open the selected app.
  */
 public class TouchpadThreeFingerTapAppListController extends BasePreferenceController
-        implements LifecycleEventObserver, SelectorWithWidgetPreference.OnClickListener {
+        implements LifecycleEventObserver, SelectorWithWidgetPreference.OnClickListener,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     private final ContentResolver mContentResolver;
-    private LauncherApps mLauncherApps;
-    private InputManager mInputManager;
+    private final LauncherApps mLauncherApps;
+    private final InputManager mInputManager;
+    private final SharedPreferences mSharedPreferences;
 
-    private ContentObserver mObserver =
-            new ContentObserver(new Handler(Looper.getMainLooper())) {
-                @Override
-                public void onChange(boolean selfChange, @Nullable Uri uri) {
-                    if (uri == null || mPreferenceScreen == null) {
-                        return;
-                    }
-                    if (uri.equals(TouchpadThreeFingerTapUtils.TARGET_ACTION_URI)) {
-                        updateState(mPreferenceScreen);
-                    }
-                }
-            };
+    @Nullable
+    private ContentObserver mObserver;
+    @Nullable
+    private PreferenceScreen mPreferenceScreen;
 
-    @Nullable private PreferenceScreen mPreferenceScreen;
+    private final MetricsFeatureProvider mMetricsFeatureProvider;
 
     private final LauncherApps.Callback mLauncherAppsCallback = new LauncherApps.Callback() {
         @Override
         public void onPackageRemoved(@Nullable String packageName, @Nullable UserHandle user) {
-            if (packageName != null && isAppSelected(packageName)) {
-                setGestureToDefault();
-                repopulateApps();
+            if (packageName != null && isSelectedApp(packageName)) {
+                handleAppRemoval();
             }
         }
 
@@ -105,21 +109,66 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
                 return;
             }
             for (String packageName : packageNames) {
-                if (isAppSelected(packageName)) {
-                    setGestureToDefault();
-                    repopulateApps();
+                if (isSelectedApp(packageName)) {
+                    handleAppRemoval();
+                    break;
+                }
+            }
+        }
+
+        @Override
+        public void onPackagesUnsuspended(
+                @Nullable String[] packageNames, @Nullable UserHandle user) {
+            if (packageNames == null) {
+                return;
+            }
+            for (String packageName : packageNames) {
+                if (isSelectedApp(packageName)) {
+                    handleAppRemoval();
+                    break;
                 }
             }
         }
     };
 
+    private void handleAppRemoval() {
+        if (mSharedPreferences != null) {
+            putLaunchingApp(mSharedPreferences, /* launchingApp= */ null);
+        }
+        // Only consider fallback if the gesture is launch app
+        if (isGestureTypeLaunchApp(mContentResolver)) {
+            mInputManager.removeAllCustomInputGestures(InputGestureData.Filter.TOUCHPAD);
+            setDefaultGestureType(mContentResolver);
+        }
+        repopulateApps();
+    }
+
+    private boolean isSelectedApp(@NonNull String packageName) {
+        if (mSharedPreferences == null) {
+            return false;
+        }
+        ComponentName componentName = getLaunchingAppComponentName(mSharedPreferences);
+        return componentName != null && packageName.equals(componentName.getPackageName());
+    }
+
     public TouchpadThreeFingerTapAppListController(@NonNull Context context,
             @NonNull String key) {
-        super(context, key);
-        mLauncherApps = context.getSystemService(LauncherApps.class);
-        mInputManager = context.getSystemService(InputManager.class);
-        mContentResolver = context.getContentResolver();
-        mLauncherApps.registerCallback(mLauncherAppsCallback);
+        this(context, key,
+                /* launcherApps= */ context.getSystemService(LauncherApps.class),
+                /* inputManager= */ context.getSystemService(InputManager.class),
+                /* sharedPreferences= */ context.getSharedPreferences(
+                        SHARED_PREF_NAME, MODE_PRIVATE));
+        mObserver = new ContentObserver(new Handler(Looper.getMainLooper())) {
+            @Override
+            public void onChange(boolean selfChange, @Nullable Uri uri) {
+                if (uri == null || mPreferenceScreen == null) {
+                    return;
+                }
+                if (uri.equals(TARGET_ACTION_URI)) {
+                    updateState(mPreferenceScreen);
+                }
+            }
+        };
     }
 
     @VisibleForTesting
@@ -127,25 +176,24 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
             @NonNull String key,
             @NonNull LauncherApps launcherApps,
             @NonNull InputManager inputManager,
+            @NonNull SharedPreferences sharedPreferences,
             @NonNull ContentObserver contentObserver) {
-        this(context, key);
+        this(context, key, launcherApps, inputManager, sharedPreferences);
+        mObserver = contentObserver;
+    }
+
+    TouchpadThreeFingerTapAppListController(@NonNull Context context,
+            @NonNull String key,
+            LauncherApps launcherApps,
+            InputManager inputManager,
+            SharedPreferences sharedPreferences) {
+        super(context, key);
+        mContentResolver = context.getContentResolver();
         mLauncherApps = launcherApps;
         mInputManager = inputManager;
-        mObserver = contentObserver;
+        mSharedPreferences = sharedPreferences;
         mLauncherApps.registerCallback(mLauncherAppsCallback);
-    }
-
-    private void setGestureToDefault() {
-        mInputManager.removeAllCustomInputGestures(InputGestureData.Filter.TOUCHPAD);
-        TouchpadThreeFingerTapUtils.setDefaultGestureType(mContentResolver);
-    }
-
-    private boolean isAppSelected(@NonNull String packageName) {
-        if (TouchpadThreeFingerTapUtils.isGestureTypeLaunchApp(mContentResolver)) {
-            ComponentName componentName = getSelectedAppComponent();
-            return componentName != null && packageName.equals(componentName.getPackageName());
-        }
-        return false;
+        mMetricsFeatureProvider = FeatureFactory.getFeatureFactory().getMetricsFeatureProvider();
     }
 
     @Override
@@ -153,10 +201,24 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
             @NonNull Lifecycle.Event event) {
         if (event == Lifecycle.Event.ON_START) {
             mContentResolver.registerContentObserver(
-                    TouchpadThreeFingerTapUtils.TARGET_ACTION_URI,
-                    /* notifyForDescendants = */ true, mObserver);
+                    TARGET_ACTION_URI, /* notifyForDescendants= */ true, mObserver);
+            if (mSharedPreferences != null) {
+                mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
+            }
+
         } else if (event == Lifecycle.Event.ON_STOP) {
             mContentResolver.unregisterContentObserver(mObserver);
+            if (mSharedPreferences != null) {
+                mSharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
+            }
+        }
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(@NonNull SharedPreferences sharedPreferences,
+            @Nullable String key) {
+        if (LAUNCHING_APP_KEY.equals(key) && mPreferenceScreen != null) {
+            updateState(mPreferenceScreen);
         }
     }
 
@@ -170,11 +232,9 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
         // When the current gesture state is not app launching, the key is set to null so that no
         // app Preference will be selected
         String matchingKey = null;
-        if (TouchpadThreeFingerTapUtils.isGestureTypeLaunchApp(mContentResolver)) {
-            ComponentName componentName = getSelectedAppComponent();
-            if (componentName != null) {
-                matchingKey = parsePreferenceKeyFromComponent(componentName);
-            }
+        ComponentName componentName = getLaunchingAppComponentName(mSharedPreferences);
+        if (componentName != null) {
+            matchingKey = parsePreferenceKeyFromComponent(componentName);
         }
         updateCheckStatus(matchingKey);
     }
@@ -194,20 +254,6 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
         }
     }
 
-    @Nullable
-    private ComponentName getSelectedAppComponent() {
-        InputGestureData gestureData =
-                mInputManager.getInputGesture(TouchpadThreeFingerTapUtils.TRIGGER);
-        if (gestureData != null) {
-            ComponentData componentData = (ComponentData) gestureData.getAction().appLaunchData();
-            if (componentData != null) {
-                return new ComponentName(
-                        componentData.getPackageName(), componentData.getClassName());
-            }
-        }
-        return null;
-    }
-
     @NonNull
     private String parsePreferenceKeyFromComponent(@NonNull ComponentName componentName) {
         // flattenToString contains the component's package name and its class name. This way, when
@@ -218,9 +264,7 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
 
     @Override
     public int getAvailabilityStatus() {
-        boolean isTouchpad = InputPeripheralsSettingsUtils.isTouchpad();
-        return (InputSettings.isTouchpadThreeFingerTapShortcutFeatureFlagEnabled() && isTouchpad)
-                ? AVAILABLE : CONDITIONALLY_UNAVAILABLE;
+        return InputPeripheralsSettingsUtils.isTouchpad() ? AVAILABLE : CONDITIONALLY_UNAVAILABLE;
     }
 
     @Override
@@ -238,7 +282,7 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
 
         int userId = ActivityManager.getCurrentUser();
         List<LauncherActivityInfo> appInfos =
-                mLauncherApps.getActivityList(/* packageName = */ null, UserHandle.of(userId));
+                mLauncherApps.getActivityList(/* packageName= */ null, UserHandle.of(userId));
         appInfos.sort(Comparator.comparing(appInfo -> appInfo.getLabel().toString()));
 
         for (LauncherActivityInfo appInfo : appInfos) {
@@ -263,23 +307,21 @@ public class TouchpadThreeFingerTapAppListController extends BasePreferenceContr
 
         // The key stores the component's information for each Preference
         // See comments in parsePreferenceKeyFromComponent()
-        ComponentName component = unflattenFromString(key);
-        if (component != null) {
-            AppLaunchData appLaunchData = createLaunchDataForComponent(
-                    component.getPackageName(), component.getClassName());
-            setLaunchingApp(appLaunchData);
-        }
+        ComponentName componentName = unflattenFromString(key);
+        setLaunchingApp(componentName);
         updateAppListSelection();
     }
 
-    private void setLaunchingApp(@NonNull AppLaunchData appLaunchData) {
-        InputGestureData gestureData =
-                new InputGestureData.Builder()
-                .setTrigger(TouchpadThreeFingerTapUtils.TRIGGER)
-                .setAppLaunchData(appLaunchData)
-                .build();
-        mInputManager.removeAllCustomInputGestures(InputGestureData.Filter.TOUCHPAD);
-        mInputManager.addCustomInputGesture(gestureData);
-        TouchpadThreeFingerTapUtils.setLaunchAppAsGestureType(mContentResolver);
+    private void setLaunchingApp(@Nullable ComponentName componentName) {
+        if (mPreferenceScreen == null || mSharedPreferences == null || componentName == null) {
+            return;
+        }
+        putLaunchingApp(mSharedPreferences, componentName);
+        if (mPreferenceScreen.getExtras().getBoolean(SET_GESTURE)) {
+            mMetricsFeatureProvider.action(mContext,
+                    SettingsEnums.ACTION_TOUCHPAD_THREE_FINGER_TAP_LAUNCHING_APP,
+                    componentName.getPackageName());
+            setLaunchAppAsGestureType(mContentResolver, mInputManager, componentName);
+        }
     }
 }

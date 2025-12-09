@@ -40,6 +40,7 @@ import com.android.settingslib.widget.SliderPreference;
 /**
  * The controller of the seekbar preference for the saturation level of color correction.
  */
+// LINT.IfChange
 public class DaltonizerSaturationSliderPreferenceController
         extends SliderPreferenceController
         implements DefaultLifecycleObserver {
@@ -58,9 +59,7 @@ public class DaltonizerSaturationSliderPreferenceController
             new Handler(Looper.getMainLooper())) {
         @Override
         public void onChange(boolean selfChange) {
-            if (mPreference != null) {
-                updateState(mPreference);
-            }
+            updateState(mPreference);
         }
     };
 
@@ -95,7 +94,6 @@ public class DaltonizerSaturationSliderPreferenceController
     public void onStop(@NonNull LifecycleOwner owner) {
         if (!isAvailable()) return;
         mContentResolver.unregisterContentObserver(mContentObserver);
-        mPreference = null;
     }
 
     @Override
@@ -169,3 +167,4 @@ public class DaltonizerSaturationSliderPreferenceController
         return enabled && mode != -1 && mode != 0;
     }
 }
+// LINT.ThenChange(colorcorrection/ui/IntensityPreference.kt)

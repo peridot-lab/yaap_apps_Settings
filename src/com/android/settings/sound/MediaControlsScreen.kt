@@ -16,15 +16,12 @@
 
 package com.android.settings.sound
 
-import com.android.media.flags.Flags.enableDeviceSuggestionsPreference
-
 import android.app.settings.SettingsEnums
 import android.content.Context
 import androidx.fragment.app.Fragment
 import com.android.settings.R
 import com.android.settings.Settings.MediaControlsSettingsActivity
 import com.android.settings.core.PreferenceScreenMixin
-import com.android.settings.flags.Flags
 import com.android.settings.sound.MediaControlsSwitchPreference.Companion.mediaControlsDataStore
 import com.android.settings.utils.makeLaunchIntent
 import com.android.settingslib.datastore.AbstractKeyedDataObservable
@@ -73,17 +70,12 @@ open class MediaControlsScreen(context: Context) :
         mediaControlsStore.removeObserver(MediaControlsSwitchPreference.KEY, observer)
     }
 
-    override fun isFlagEnabled(context: Context) = Flags.catalystMediaControls()
-
     override fun fragmentClass(): Class<out Fragment>? = MediaControlsSettings::class.java
 
     override fun getPreferenceHierarchy(context: Context, coroutineScope: CoroutineScope) =
         preferenceHierarchy(context) {
             +MediaControlsSwitchPreference(mediaControlsStore)
             +MediaControlsLockscreenSwitchPreference()
-            if (enableDeviceSuggestionsPreference()) {
-                +SuggestionsPreference()
-            }
         }
 
     override fun getSummary(context: Context): CharSequence? =
