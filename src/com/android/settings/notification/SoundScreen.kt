@@ -22,7 +22,6 @@ import com.android.settings.R
 import com.android.settings.Settings.SoundSettingsActivity
 import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.flags.Flags
-import com.android.settings.sound.MediaControlsScreen
 import com.android.settings.utils.makeLaunchIntent
 import com.android.settingslib.metadata.PreferenceCategory
 import com.android.settingslib.metadata.PreferenceIconProvider
@@ -73,9 +72,6 @@ open class SoundScreen : PreferenceScreenMixin, PreferenceIconProvider {
                     +AlarmVolumePreference(audioHelper) order -140
                 }
             }
-            +PreferenceCategory(AUDIO_CATEGORY, R.string.sound_audio_category_title) order -120 += {
-                +MediaControlsScreen.KEY order -100
-            }
             +PreferenceCategory(
                 SOUNDS_AND_VIBRATIONS_CATEGORY,
                 R.string.system_sounds_and_vibrations_category_title,
@@ -98,7 +94,6 @@ open class SoundScreen : PreferenceScreenMixin, PreferenceIconProvider {
     companion object {
         const val KEY = "sound_screen"
         internal const val VOLUME_CONTROLS_CATEGORY = "volume_controls_category"
-        internal const val AUDIO_CATEGORY = "audio_category"
         internal const val SOUNDS_AND_VIBRATIONS_CATEGORY = "system_sounds_and_vibrations_category"
     }
 }

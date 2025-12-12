@@ -53,10 +53,5 @@ public class MediaControlsSettings extends DashboardFragment {
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider(R.xml.media_controls_settings);
-
-    @Override
-    public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
-        return MediaControlsScreen.KEY;
-    }
 }
 // LINT.ThenChange(MediaControlsScreen.kt)
