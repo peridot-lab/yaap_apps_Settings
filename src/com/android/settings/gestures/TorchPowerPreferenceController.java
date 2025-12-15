@@ -25,34 +25,28 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
-import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settings.core.BasePreferenceController;
 
-public class TorchPowerPreferenceController extends AbstractPreferenceController
+public class TorchPowerPreferenceController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
-    private static final String KEY = "torch_power_button_gesture";
 
     private ListPreference mPreference;
 
-    public TorchPowerPreferenceController(Context context) {
-        super(context);
+    public TorchPowerPreferenceController(Context context, String key) {
+        super(context, key);
     }
 
     @Override
-    public boolean isAvailable() {
-        return true;
-    }
-
-    @Override
-    public String getPreferenceKey() {
-        return KEY;
+    public int getAvailabilityStatus() {
+        return AVAILABLE;
     }
 
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        mPreference = screen.findPreference(KEY);
+        mPreference = screen.findPreference(getPreferenceKey());
         final int value = Settings.System.getInt(
-                mContext.getContentResolver(), KEY, 0);
+                mContext.getContentResolver(), getPreferenceKey(), 0);
         mPreference.setValueIndex(value);
         mPreference.setSummary(mPreference.getEntries()[value]);
         mPreference.setOnPreferenceChangeListener(this);
@@ -63,7 +57,7 @@ public class TorchPowerPreferenceController extends AbstractPreferenceController
         if (preference == mPreference) {
             final int value = Integer.valueOf((String) newValue);
             Settings.System.putInt(
-                    mContext.getContentResolver(), KEY, value);
+                    mContext.getContentResolver(), getPreferenceKey(), value);
             mPreference.setSummary(mPreference.getEntries()[value]);
             return true;
         }
