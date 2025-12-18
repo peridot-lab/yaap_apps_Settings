@@ -26,8 +26,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.UserHandle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -70,7 +68,6 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
 
     private static final String EXTRA_OPEN_PHONE_RINGTONE_PICKER =
             "EXTRA_OPEN_PHONE_RINGTONE_PICKER";
-    private static final String SLIDER_HAPTICS_KEY = "volume_panel_haptics";
 
     @VisibleForTesting
     static final int STOP_SAMPLE = 1;
@@ -129,11 +126,6 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
             }
             return null;
         });
-
-        if (!isSliderHapticsSupported()) {
-            Preference sliderHaptics = findPreference(SLIDER_HAPTICS_KEY);
-            if (sliderHaptics != null) sliderHaptics.setVisible(false);
-        }
     }
 
     @Override
@@ -223,24 +215,6 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
                 use(HandsFreeProfileOutputPreferenceController.class).getPreferenceKey();
         use(PreferenceCategoryController.class).setChildren(
                 Arrays.asList(use(WorkSoundsPreferenceController.class)));
-    }
-
-    private boolean isSliderHapticsSupported() {
-        Vibrator vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            return false; // device has no vibrator
-        }
-        if (vibrator.areAllPrimitivesSupported(
-                VibrationEffect.Composition.PRIMITIVE_LOW_TICK,
-                VibrationEffect.Composition.PRIMITIVE_CLICK)) {
-            return true; // device supports primitives
-        }
-        int max = getContext().getResources().getInteger(
-                com.android.internal.R.integer.config_sliderVibFallbackDuration);
-        if (max <= 0) {
-            return false; // fallbacks are not set
-        }
-        return true; // does not support primitives but fallbacks are set
     }
 
     // === Volumes ===

@@ -98,14 +98,6 @@
             settings:userRestriction="no_adjust_volume"
             settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
 
-        <!-- Volume dialog haptics -->
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="volume_panel_haptics"
-            android:title="@string/volume_panel_haptics_title"
-            android:summary="@string/volume_panel_haptics_summary"
-            android:defaultValue="true"
-            android:order="-135" />
-
         <SwitchPreferenceCompat
             android:key="volume_panel_on_left"
             android:title="@string/volume_panel_on_left_title"
