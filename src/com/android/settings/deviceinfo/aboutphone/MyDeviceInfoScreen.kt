@@ -26,7 +26,6 @@ import com.android.settings.R
 import com.android.settings.Settings.MyDeviceInfoActivity
 import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.deviceinfo.DeviceNamePreference
-import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionScreen
 import com.android.settings.deviceinfo.hardwareinfo.HardwareInfoScreen
 import com.android.settings.deviceinfo.imei.ImeiPreference
 import com.android.settings.deviceinfo.simstatus.SimEidPreference
@@ -99,7 +98,6 @@ open class MyDeviceInfoScreen :
                     for (i in 0 until activeModemCount) {
                         +ImeiPreference(context, i, activeModemCount) order (i + 33)
                     }
-                    if (Flags.catalystFirmwareVersion()) +FirmwareVersionScreen.KEY order 42
                 }
         }
 
