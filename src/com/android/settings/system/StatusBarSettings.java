@@ -60,13 +60,11 @@ public class StatusBarSettings extends DashboardFragment implements
 
     private static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
     private static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String LOCATION_INDICATOR_KEY = "location_indicators_enabled";
     private static final String CAMERA_MIC_INDICATOR_KEY = "camera_mic_icons_enabled";
 
     private SystemSettingMasterSwitchPreference mNetTrafficState;
     private SystemSettingSwitchPreference mBatteryPercent;
     private SystemSettingSwitchPreference mBatteryPercentInside;
-    private SwitchPreferenceCompat mLocationIndicator;
     private SwitchPreferenceCompat mCameraMicIndicator;
 
     @Override
@@ -94,14 +92,6 @@ public class StatusBarSettings extends DashboardFragment implements
         mBatteryPercent.setChecked(percentEnabled);
         mBatteryPercent.setOnPreferenceChangeListener(this);
 
-        mLocationIndicator = findPreference(LOCATION_INDICATOR_KEY);
-        enabled = getDeviceConfig(LOCATION_INDICATOR_KEY);
-        mLocationIndicator.setChecked(enabled);
-        mLocationIndicator.setSummary(enabled
-                ? mLocationIndicator.getSwitchTextOn()
-                : mLocationIndicator.getSwitchTextOff());
-        mLocationIndicator.setOnPreferenceChangeListener(this);
-
         mCameraMicIndicator = findPreference(CAMERA_MIC_INDICATOR_KEY);
         enabled = getDeviceConfig(CAMERA_MIC_INDICATOR_KEY);
         mCameraMicIndicator.setChecked(enabled);
@@ -127,13 +117,6 @@ public class StatusBarSettings extends DashboardFragment implements
             boolean enabled = (boolean) objValue;
             Settings.System.putInt(resolver,
                     SHOW_BATTERY_PERCENT, enabled ? 1 : 0);
-            return true;
-        } else if (preference == mLocationIndicator) {
-            boolean enabled = (boolean) objValue;
-            mLocationIndicator.setSummary(enabled
-                ? mLocationIndicator.getSwitchTextOn()
-                : mLocationIndicator.getSwitchTextOff());
-            updateDeviceConfig(LOCATION_INDICATOR_KEY, enabled);
             return true;
         } else if (preference == mCameraMicIndicator) {
             boolean enabled = (boolean) objValue;

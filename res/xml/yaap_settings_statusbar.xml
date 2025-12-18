@@ -32,14 +32,6 @@
         android:summary="@string/double_tap_sleep_gesture_summary"
         android:defaultValue="false" />
 
-    <!-- Location privacy indicator -->
-    <SwitchPreferenceCompat
-        android:key="location_indicators_enabled"
-        android:title="@string/location_privacy_indicator_title"
-        android:summaryOn="@string/location_privacy_indicator_summary_on"
-        android:summaryOff="@string/location_privacy_indicator_summary_off"
-        android:defaultValue="true" />
-
     <!-- Camera & Mic privacy indicator -->
     <SwitchPreferenceCompat
         android:key="camera_mic_icons_enabled"
