@@ -282,6 +282,8 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
                 new TouchSoundPreferenceController(context, fragment, lifecycle);
         final NFCSoundsPreferenceController nfcSoundsPreferenceController =
                 new NFCSoundsPreferenceController(context, fragment, lifecycle);
+        final ScreenshotSoundsPreferenceController screenshotSoundsPreferenceController =
+                new ScreenshotSoundsPreferenceController(context, fragment, lifecycle);
         final DockAudioMediaPreferenceController dockAudioMediaPreferenceController =
                 new DockAudioMediaPreferenceController(context, fragment, lifecycle);
         final BootSoundPreferenceController bootSoundPreferenceController =
@@ -305,6 +307,7 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
         controllers.add(dockingSoundPreferenceController);
         controllers.add(touchSoundPreferenceController);
         controllers.add(nfcSoundsPreferenceController);
+        controllers.add(screenshotSoundsPreferenceController);
         controllers.add(vibrateIconPreferenceController);
         controllers.add(dockAudioMediaPreferenceController);
         controllers.add(bootSoundPreferenceController);

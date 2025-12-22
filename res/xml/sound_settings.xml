@@ -290,11 +290,17 @@
             android:title="@string/nfc_sounds_title"
             android:order="-28"/>
 
+        <!-- Screenshot sounds -->
+        <SwitchPreferenceCompat
+            android:key="screenshot_sounds"
+            android:title="@string/screenshot_sounds_title"
+            android:order="-25"/>
+
         <!-- Show vibrate icon in status bar -->
         <SwitchPreferenceCompat
             android:key="vibrate_icon"
             android:title="@string/vibrate_icon_title"
-            android:order="-27"/>
+            android:order="-22"/>
 
         <!-- Dock speaker plays -->
         <DropDownPreference
