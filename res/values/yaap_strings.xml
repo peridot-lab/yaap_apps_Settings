@@ -103,7 +103,7 @@
     <!-- Quick Mute -->
     <string name="quick_mute_title">Quick mute</string>
     <string name="volume_button_quick_mute_category_title">Long-pressing volume down key will mute active volume stream</string>
-    <string name="volume_button_quick_mute_delay_title">Playback control activation delay</string>
+    <string name="volume_button_quick_mute_delay_title">Quick mute activation delay</string>
 
     <!-- Gaming macro QS tile -->
     <string name="gaming_mode_tile_title">Gaming macro</string>
