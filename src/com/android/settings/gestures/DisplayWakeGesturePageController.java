@@ -88,7 +88,7 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
             mSwitch.setChecked(isChecked);
         }
         updateEnablement(isChecked);
-        updateAmbientEnablement();
+        updateAmbientEnablement(isChecked);
     }
 
     @Override
@@ -103,7 +103,7 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
         Settings.Secure.putInt(mContext.getContentResolver(),
                 getSettingsKey(), isChecked ? 1 : 0);
         updateEnablement(isChecked);
-        updateAmbientEnablement();
+        updateAmbientEnablement(isChecked);
     }
 
     private void updateEnablement(boolean enabled) {
@@ -113,15 +113,19 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
     }
 
     private void updateAmbientEnablement() {
-        if (mAmbientPref == null) return;
         if (mSwitch == null) return;
+        updateAmbientEnablement(mSwitch.isChecked());
+    }
+
+    private void updateAmbientEnablement(boolean isChecked) {
+        if (mAmbientPref == null) return;
         AmbientDisplayConfiguration config = getAmbientConfig();
         if (!config.pulseOnNotificationAvailable()) {
             mAmbientPref.setVisible(false);
             return;
         }
         final boolean isEnabled = config.pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
-        mAmbientPref.setEnabled(isEnabled && mSwitch.isChecked());
+        mAmbientPref.setEnabled(isEnabled && isChecked);
         mAmbientPref.setSummary(isEnabled
                 ? R.string.doze_gesture_ambient_summary
                 : R.string.doze_disabled_summary);
