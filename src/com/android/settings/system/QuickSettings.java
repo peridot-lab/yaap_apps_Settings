@@ -35,6 +35,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.yasp.settings.preferences.CustomSeekBarPreference;
 import com.yasp.settings.preferences.SecureSettingMasterSwitchPreference;
 import com.yasp.settings.preferences.SystemSettingEditTextPreference;
 
@@ -48,9 +49,11 @@ public class QuickSettings extends DashboardFragment implements
     private static final String TAG = "QuickSettings";
     private static final String QS_FOOTER_TEXT_STRING = "qs_footer_text_string";
     private static final String BRIGHTNESS_SLIDER = "qs_show_brightness";
+    private static final String SHADE_BLUR_RADIUS = "shade_blur_radius";
 
     private SystemSettingEditTextPreference mFooterString;
     private SecureSettingMasterSwitchPreference mBrightnessSlider;
+    private CustomSeekBarPreference mShadeBlurRadiusPref;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -70,6 +73,20 @@ public class QuickSettings extends DashboardFragment implements
         boolean enabled = Settings.Secure.getInt(resolver,
                 BRIGHTNESS_SLIDER, 1) == 1;
         mBrightnessSlider.setChecked(enabled);
+
+        mShadeBlurRadiusPref = findPreference(SHADE_BLUR_RADIUS);
+        mShadeBlurRadiusPref.setOnPreferenceChangeListener(this);
+        int shadeBlurRadius = Settings.System.getIntForUser(resolver,
+                SHADE_BLUR_RADIUS, 48, UserHandle.USER_CURRENT);
+        mShadeBlurRadiusPref.setValue(shadeBlurRadius);
+        boolean blurEnabled = Settings.Global.getInt(resolver,
+                Settings.Global.DISABLE_WINDOW_BLURS, 0) == 0;
+        mShadeBlurRadiusPref.setEnabled(blurEnabled);
+        if (!blurEnabled) {
+            mShadeBlurRadiusPref.setSummary("System blur is disabled");
+        } else {
+            mShadeBlurRadiusPref.setSummary(R.string.shade_blur_radius_summary);
+        }
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(QS_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -112,6 +129,11 @@ public class QuickSettings extends DashboardFragment implements
             Boolean value = (Boolean) newValue;
             Settings.Secure.putInt(resolver,
                     BRIGHTNESS_SLIDER, value ? 1 : 0);
+            return true;
+        } else if (preference == mShadeBlurRadiusPref) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver, SHADE_BLUR_RADIUS,
+                    value, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

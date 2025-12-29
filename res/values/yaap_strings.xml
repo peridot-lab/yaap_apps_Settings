@@ -611,6 +611,10 @@
     <string name="qs_media_controls_summary_on">Show media player in QS\nRequires a SystemUI restart</string>
     <string name="qs_media_controls_summary_off">Show media player as a notification\nRequires a SystemUI restart</string>
 
+    <!-- QS Shade Blur -->
+    <string name="shade_blur_radius_title">Notification shade blur</string>
+    <string name="shade_blur_radius_summary">Adjust the blur intensity behind the notification shade</string>
+
     <!-- QS Battery estimates -->
     <string name="qs_show_battery_estimate_title">Battery estimates</string>
     <string name="qs_show_battery_estimate_summary_on">Show battery estimates in QS</string>
