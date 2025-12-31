@@ -114,9 +114,10 @@
             android:summary="@string/lockscreen_double_line_clock_summary"
             settings:controller="com.android.settings.display.LockscreenClockPreferenceController" />
 
+        <!-- Change default to 1 when smartspace is back -->
         <com.yasp.settings.preferences.SystemSettingListPreference
             android:key="lockscreen_weather_provider"
-            android:defaultValue="1"
+            android:defaultValue="2"
             android:title="@string/lockscreen_weather_title"
             android:summary="%s"
             android:entries="@array/lockscreen_weather_provider_entries"

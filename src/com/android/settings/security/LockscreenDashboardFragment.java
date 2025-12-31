@@ -125,10 +125,15 @@ public class LockscreenDashboardFragment extends DashboardFragment
         Preference weatherHumidity = screen.findPreference(KEY_WEATHER_HUMIDITY);
         Preference weatherClick = screen.findPreference(KEY_WEATHER_CLICK);
         ListPreference weatherProvider = screen.findPreference(KEY_WEATHER_PROVIDER);
-        final int provider = Settings.System.getInt(
-                getContentResolver(), KEY_WEATHER_PROVIDER, LOCKSCREEN_WEATHER_PROVIDER_DEFAULT);
-        weatherProvider.setValueIndex(provider);
-        weatherProvider.setSummary(weatherProvider.getEntries()[provider]);
+        // revert when smartspace is back:
+        int provider = Settings.System.getInt(
+                getContentResolver(), KEY_WEATHER_PROVIDER, LOCKSCREEN_WEATHER_PROVIDER_OMNI);
+        if (provider == LOCKSCREEN_WEATHER_PROVIDER_DEFAULT) {
+            provider = LOCKSCREEN_WEATHER_PROVIDER_OMNI;
+        }
+        int providerIndex = provider == 2 ? 1 : 0;
+        weatherProvider.setValueIndex(providerIndex);
+        weatherProvider.setSummary(weatherProvider.getEntries()[providerIndex]);
         weatherProvider.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -136,7 +141,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
                 final int value = Integer.parseInt((String) newValue);
                 Settings.System.putInt(getContentResolver(),
                         KEY_WEATHER_PROVIDER, value);
-                weatherProvider.setSummary(weatherProvider.getEntries()[value]);
+                final int valueIndex = value == 2 ? 1 : 0;
+                weatherProvider.setSummary(weatherProvider.getEntries()[valueIndex]);
                 updateWeatherEnablement(value);
                 final int toastResId = R.string.lockscreen_weather_provider_toast;
                 Toast.makeText(getContext(), toastResId, Toast.LENGTH_LONG).show();
