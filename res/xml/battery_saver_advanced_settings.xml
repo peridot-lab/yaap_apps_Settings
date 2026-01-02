@@ -61,6 +61,11 @@
             android:title="@string/disable_animation_tite"
             android:defaultValue="false" />
 
+        <com.yasp.settings.preferences.GlobalSettingSwitchPreference
+            android:key="low_power_mode_disable_blurs"
+            android:title="@string/low_power_mode_disable_blurs_title"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

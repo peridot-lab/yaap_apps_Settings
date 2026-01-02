@@ -320,6 +320,7 @@
     <string name="disable_aod_tite">Disable AOD</string>
     <string name="enable_night_mode_tite">Enable dark mode</string>
     <string name="disable_animation_tite">Disable animations</string>
+    <string name="low_power_mode_disable_blurs_title">Disable blur effects</string>
     <string name="disable_launch_boost_tite">Disable launch boost</string>
     <string name="enable_quick_doze_tite">Enable quick doze</string>
     <string name="enable_quick_doze_summary">Immediately doze on screen off</string>
