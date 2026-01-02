@@ -263,7 +263,7 @@
         <!-- Charging sounds -->
         <SwitchPreferenceCompat
             android:key="charging_sounds_enabled"
-            android:title="@string/charging_sounds_title"
+            android:title="@string/charging_sounds"
             android:order="-40"/>
 
         <!-- Charging vibrations -->
