@@ -119,6 +119,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
         if (setting == null) return def;
         final String[] pairs = setting.split(",");
         for (String str : pairs) {
+            if (str == null || str.isEmpty()) continue;
             final String[] pair = str.split("=");
             if (pair[0].equals(key))
                 return pair[1];
@@ -141,6 +142,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
         final String[] pairs = setting.split(",");
         boolean found = false;
         for (String str : pairs) {
+            if (str == null || str.isEmpty()) continue;
             final String[] pair = str.split("=");
             if (!found && key.equals(pair[0])) {
                 found = true;
