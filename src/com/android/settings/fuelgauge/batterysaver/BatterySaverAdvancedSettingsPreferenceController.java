@@ -114,7 +114,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
 
     private String getValueForKey(String key) {
         final String setting = Settings.Global.getString(mContext.getContentResolver(),
-                Settings.Global.BATTERY_SAVER_CONSTANTS);
+                Settings.Global.BATTERY_SAVER_CONSTANTS_YAAP);
         final String def = sDefaultsMap.get(key);
         if (setting == null) return def;
         final String[] pairs = setting.split(",");
@@ -129,7 +129,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
 
     private void setValueForKey(String key, String value) {
         final String setting = Settings.Global.getString(mContext.getContentResolver(),
-                Settings.Global.BATTERY_SAVER_CONSTANTS);
+                Settings.Global.BATTERY_SAVER_CONSTANTS_YAAP);
         final String def = sDefaultsMap.get(key);
         final boolean isDefault = value.equals(def);
         final List<String> pairsList = new ArrayList<>();
@@ -160,7 +160,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
     private void saveSetting(List<String> pairs) {
         if (pairs == null || pairs.size() == 0) {
             Settings.Global.putString(mContext.getContentResolver(),
-                    Settings.Global.BATTERY_SAVER_CONSTANTS, null);
+                    Settings.Global.BATTERY_SAVER_CONSTANTS_YAAP, null);
             return;
         }
         final StringBuilder sb = new StringBuilder();
@@ -169,7 +169,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
             sb.append("," + pairs.get(i));
         }
         Settings.Global.putString(mContext.getContentResolver(),
-                    Settings.Global.BATTERY_SAVER_CONSTANTS, sb.toString());
+                Settings.Global.BATTERY_SAVER_CONSTANTS_YAAP, sb.toString());
     }
 
     @Override
