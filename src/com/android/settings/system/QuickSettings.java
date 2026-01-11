@@ -19,6 +19,8 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -47,6 +49,8 @@ public class QuickSettings extends DashboardFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "QuickSettings";
+    private static final String SYSTEMUI_PKG = "com.android.systemui";
+    private static final String CONFIG = "max_shade_window_blur_radius";
     private static final String QS_FOOTER_TEXT_STRING = "qs_footer_text_string";
     private static final String BRIGHTNESS_SLIDER = "qs_show_brightness";
     private static final String SHADE_BLUR_RADIUS = "shade_blur_radius";
@@ -74,10 +78,26 @@ public class QuickSettings extends DashboardFragment implements
                 BRIGHTNESS_SLIDER, 1) == 1;
         mBrightnessSlider.setChecked(enabled);
 
+        // Get max_shade_window_blur_radius from SystemUI
+        Context sysUiContext;
+        try {
+            sysUiContext = getContext().createPackageContext(SYSTEMUI_PKG,
+                    Context.CONTEXT_IGNORE_SECURITY | Context.CONTEXT_INCLUDE_CODE);
+        } catch (NameNotFoundException e) {
+            // Nothing to do, If SystemUI was not found you have bigger issues :)
+            sysUiContext = getContext();
+        }
+        Resources sysUiRes = sysUiContext.getResources();
+        final int resId = sysUiRes.getIdentifier(CONFIG, "dimen", SYSTEMUI_PKG);
+        final int defBlurRadiusPx = sysUiRes.getDimensionPixelSize(resId);
+        final float density = getContext().getResources().getDisplayMetrics().density;
+        final int defBlurRadius = Math.round(defBlurRadiusPx / density);
+
         mShadeBlurRadiusPref = findPreference(SHADE_BLUR_RADIUS);
+        mShadeBlurRadiusPref.setDefaultValue(defBlurRadius);
         mShadeBlurRadiusPref.setOnPreferenceChangeListener(this);
         int shadeBlurRadius = Settings.System.getIntForUser(resolver,
-                SHADE_BLUR_RADIUS, 48, UserHandle.USER_CURRENT);
+                SHADE_BLUR_RADIUS, defBlurRadius, UserHandle.USER_CURRENT);
         mShadeBlurRadiusPref.setValue(shadeBlurRadius);
         boolean blurEnabled = Settings.Global.getInt(resolver,
                 Settings.Global.DISABLE_WINDOW_BLURS, 0) == 0;
