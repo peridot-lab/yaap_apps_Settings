@@ -77,13 +77,17 @@ public class VolumeDialogPositionPreferenceController extends AbstractPreference
         mPreference = (SwitchPreferenceCompat) screen.findPreference(KEY);
         mPreferenceLand = (SwitchPreferenceCompat) screen.findPreference(KEY_LAND);
 
-        final boolean value = Settings.System.getIntForUser(
+        boolean value = Settings.System.getIntForUser(
                 mContext.getContentResolver(),
                 KEY, mIsDefaultLeft ? 1 : 0, UserHandle.USER_CURRENT) == 1;
         mPreference.setChecked(value);
         mPreference.setOnPreferenceChangeListener(this);
+
+        value = Settings.System.getIntForUser(
+                mContext.getContentResolver(),
+                KEY_LAND, mIsDefaultLeft ? 1 : 0, UserHandle.USER_CURRENT) == 1;
+        mPreferenceLand.setChecked(value);
         mPreferenceLand.setOnPreferenceChangeListener(this);
-        updateLandVisAndValue(value);
     }
 
     @Override
@@ -92,21 +96,11 @@ public class VolumeDialogPositionPreferenceController extends AbstractPreference
             final boolean value = (Boolean) newValue;
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     KEY, value ? 1 : 0, UserHandle.USER_CURRENT);
-            updateLandVisAndValue(value);
         } else if (preference == mPreferenceLand) {
             final boolean value = (Boolean) newValue;
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     KEY_LAND, value ? 1 : 0, UserHandle.USER_CURRENT);
         }
         return true;
-    }
-
-    private void updateLandVisAndValue(boolean visible) {
-        if (mPreferenceLand == null) return;
-        final boolean value = visible && Settings.System.getIntForUser(
-                mContext.getContentResolver(),
-                KEY_LAND, mIsDefaultLeft ? 1 : 0, UserHandle.USER_CURRENT) == 1;
-        mPreferenceLand.setChecked(value);
-        mPreferenceLand.setVisible(visible);
     }
 }
