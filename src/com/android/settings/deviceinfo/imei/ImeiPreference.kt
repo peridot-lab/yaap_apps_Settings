@@ -60,11 +60,12 @@ class ImeiPreference(
 
     override fun getTitle(context: Context): CharSequence? = formattedTitle
 
-    override fun getSummary(context: Context): CharSequence? = imei
+    override fun getSummary(context: Context): CharSequence? =
+        context.getString(R.string.device_info_protected_single_press)
 
     override fun bind(preference: Preference, metadata: PreferenceMetadata) {
         super.bind(preference, metadata)
-        preference.isCopyingEnabled = true
+        preference.isCopyingEnabled = false
     }
 
     override fun onCreate(context: PreferenceLifecycleContext) {

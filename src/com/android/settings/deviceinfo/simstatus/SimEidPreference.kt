@@ -58,11 +58,12 @@ class SimEidPreference(private val context: Context) :
 
     override fun getTitle(context: Context): CharSequence? = eidMetadata.getTitle(context)
 
-    override fun getSummary(context: Context): CharSequence? = eidMetadata?.eid
+    override fun getSummary(context: Context): CharSequence? =
+        context.getString(R.string.device_info_protected_single_press)
 
     override fun bind(preference: Preference, metadata: PreferenceMetadata) {
         super.bind(preference, metadata)
-        preference.isCopyingEnabled = true
+        preference.isCopyingEnabled = false
     }
 
     override fun onCreate(context: PreferenceLifecycleContext) {
