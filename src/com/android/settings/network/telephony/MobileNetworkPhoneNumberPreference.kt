@@ -19,6 +19,7 @@ package com.android.settings.network.telephony
 import android.Manifest
 import android.content.Context
 import android.util.Log
+import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settingslib.datastore.AbstractKeyedDataObservable
 import com.android.settingslib.datastore.KeyValueStore
@@ -26,18 +27,29 @@ import com.android.settingslib.datastore.Permissions
 import com.android.settingslib.metadata.PersistentPreference
 import com.android.settingslib.metadata.PreferenceAvailabilityProvider
 import com.android.settingslib.metadata.PreferenceChangeReason
+import com.android.settingslib.metadata.PreferenceLifecycleContext
+import com.android.settingslib.metadata.PreferenceLifecycleProvider
 import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.PreferenceSummaryProvider
 import com.android.settingslib.metadata.ReadWritePermit
 import com.android.settingslib.metadata.SensitivityLevel
+import com.android.settingslib.preference.PreferenceBinding
 import kotlinx.coroutines.launch
 
 // LINT.IfChange
 class MobileNetworkPhoneNumberPreference(private val data: MobileNetworkData) :
     PreferenceMetadata,
+    PreferenceBinding,
+    PreferenceLifecycleProvider,
     PersistentPreference<CharSequence>,
     PreferenceAvailabilityProvider,
     PreferenceSummaryProvider {
+
+    private val phoneString: CharSequence? by lazy {
+        data.phoneNumberDataFlow.value.summary
+    }
+
+    private var tapped: Boolean = false
 
     override val key: String
         get() = KEY
@@ -47,7 +59,8 @@ class MobileNetworkPhoneNumberPreference(private val data: MobileNetworkData) :
 
     override fun isAvailable(context: Context) = data.phoneNumberDataFlow.value.isAvailable
 
-    override fun getSummary(context: Context) = data.phoneNumberDataFlow.value.summary
+    override fun getSummary(context: Context) =
+        context.getString(R.string.device_info_protected_single_press)
 
     override val valueType: Class<CharSequence>
         get() = CharSequence::class.javaObjectType
@@ -71,6 +84,25 @@ class MobileNetworkPhoneNumberPreference(private val data: MobileNetworkData) :
 
     override val sensitivityLevel
         get() = SensitivityLevel.LOW_SENSITIVITY
+
+    override fun bind(preference: Preference, metadata: PreferenceMetadata) {
+        super.bind(preference, metadata)
+        preference.isCopyingEnabled = false
+    }
+
+    override fun onCreate(context: PreferenceLifecycleContext) {
+        val pref = context.requirePreference<Preference>(key)
+        pref.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            tapped = !tapped
+            pref.summary = if (tapped) {
+                phoneString
+            } else {
+                context.getString(R.string.device_info_protected_single_press)
+            }
+            pref.isCopyingEnabled = tapped
+            return@OnPreferenceClickListener true
+        }
+    }
 
     @Suppress("UNCHECKED_CAST")
     class PhoneNumberStore(private val data: MobileNetworkData) :

@@ -109,7 +109,7 @@ class MobileNetworkImeiPreferenceController(context: Context, key: String) :
 
     private fun refreshUi(){
         preference.title = title
-        preference.summary = imei
+        preference.summary = mContext.getString(R.string.device_info_protected_single_press)
     }
 
     override fun handlePreferenceTreeClick(preference: Preference): Boolean {

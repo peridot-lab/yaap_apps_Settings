@@ -127,7 +127,7 @@ open class MobileNetworkEidPreferenceController(context: Context, key: String) :
     fun refreshUi() {
         preference.title = title
         preference.dialogTitle = title
-        preference.summary = eid
+        preference.summary = mContext.getString(R.string.device_info_protected_single_press)
     }
 
     override fun handlePreferenceTreeClick(preference: Preference): Boolean {
@@ -148,7 +148,7 @@ open class MobileNetworkEidPreferenceController(context: Context, key: String) :
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE
         )
-        dialog.setCanceledOnTouchOutside(false)
+        dialog.setCanceledOnTouchOutside(true)
         val textView = dialog.requireViewById<TextView>(R.id.esim_id_value)
         textView.text = PhoneNumberUtil.expandByTts(eid)
 

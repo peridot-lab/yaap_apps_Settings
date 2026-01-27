@@ -37,7 +37,14 @@ constructor(
     private val subscriptionRepository: SubscriptionRepository = SubscriptionRepository(context),
 ) : TelephonyBasePreferenceController(context, key) {
 
+    private val protectedString: String by lazy {
+        mContext.getString(R.string.device_info_protected_single_press)
+    }
+
     private lateinit var preference: Preference
+    private lateinit var phoneString: String
+
+    private var tapped: Boolean = false
 
     fun init(subId: Int) {
         mSubId = subId
@@ -62,8 +69,17 @@ constructor(
         subscriptionRepository.phoneNumberFlow(mSubId).collectLatestWithLifecycle(
             viewLifecycleOwner
         ) { phoneNumber ->
-            preference.summary = phoneNumber ?: getStringUnknown()
+            phoneString = phoneNumber ?: getStringUnknown()
+            preference.summary = protectedString
         }
+    }
+
+    override fun handlePreferenceTreeClick(pref: Preference): Boolean {
+        if (pref != preference) return false
+        tapped = !tapped
+        pref.summary = if (tapped) phoneString else protectedString
+        pref.isCopyingEnabled = tapped
+        return true
     }
 
     private fun getStringUnknown(): String {
