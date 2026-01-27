@@ -53,7 +53,7 @@ class SimEidDialogFragment : InstrumentedDialogFragment() {
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE
         )
-        dialog.setCanceledOnTouchOutside(false)
+        dialog.setCanceledOnTouchOutside(true)
         val textView = mRootView!!.requireViewById<TextView>(com.android.settings.R.id.esim_id_value)
         textView.text = PhoneNumberUtil.expandByTts(eid)
 
