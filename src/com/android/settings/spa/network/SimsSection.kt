@@ -52,6 +52,7 @@ import com.android.settingslib.spa.widget.ui.SettingsIcon
 import com.android.settingslib.spaprivileged.model.enterprise.Restrictions
 import com.android.settingslib.spaprivileged.template.preference.RestrictedPreference
 import com.android.settingslib.spaprivileged.template.preference.RestrictedTwoTargetSwitchPreference
+import kotlin.math.max
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
@@ -90,7 +91,7 @@ private fun SimPreference(subInfo: SubscriptionInfo) {
                 if (isConvertedPsim) {
                     context.getString(R.string.sim_category_converted_sim)
                 } else {
-                    phoneNumber.value ?: ""
+                    redactNumber(phoneNumber.value ?: "")
                 }
             }
             override val icon = @Composable { SimIcon(subInfo.isEmbedded) }
@@ -140,6 +141,31 @@ private fun AddSim() {
         )
     }
 }
+
+private fun redactNumber(exposedNumber: String): String {
+    if (exposedNumber.isEmpty()) return ""
+
+    // End of country code segment if it exists
+    val countryCodeCutoff = if (exposedNumber.startsWith("+")) {
+        val i = exposedNumber.indexOfFirst { it == ' ' || it == '-' }
+        if (i >= 0) i + 1 else 3
+    } else {
+        0
+    }
+    val tailStart = max(exposedNumber.length - 2, countryCodeCutoff)
+    val result = StringBuilder(exposedNumber.length)
+    for (i in exposedNumber.indices) {
+        result.append(
+            when {
+                i < countryCodeCutoff -> exposedNumber[i] // country code
+                i >= tailStart -> exposedNumber[i]        // last 2 chars
+                else -> '•'                               // redact everything else
+            }
+        )
+    }
+    return result.toString()
+}
+
 
 fun startAddSimFlow(context: Context) = context.startActivity(getAddSimIntent())
 
