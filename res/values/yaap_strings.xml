@@ -217,6 +217,10 @@
     <string name="disable_vrr_title">Disable VRR</string>
     <string name="disable_vrr_summary">Do not use content based refresh rate switching\nWill harm battery life</string>
 
+    <!-- Black theme for dark mode -->
+    <string name="berry_black_theme_title">Pure black</string>
+    <string name="berry_black_theme_summary">Pure black background for dark theme</string>
+
     <!-- Per-channel vibration pattern -->
     <string name="notification_custom_vibrate_title">Custom vibration pattern</string>
     <string name="notification_custom_vibrate_summary">Replaces the default pattern only\nApp set pattern takes precedence</string>
