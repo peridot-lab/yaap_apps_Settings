@@ -82,6 +82,9 @@
     <!-- Floating rotation button -->
     <string name="enable_floating_rotation_button_title">Use floating rotate button</string>
 
+     <!-- [CHAR_LIMIT=NONE] Developer Settings: Title of the setting which enables overlays to customize the adaptive icon shape (e.g. launcher and quick settings icons). -->
+    <string name="theme_customization_icon_shape_title">Icon shape</string>
+
     <!-- Power button -->
     <string name="power_menu_setting_name">Power button</string>
     <string name="power_menu_setting_summary">Power button gestures</string>
