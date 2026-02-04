@@ -30,6 +30,7 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.display.BrightnessLevelPreferenceController;
 import com.android.settings.display.CameraGesturePreferenceController;
 import com.android.settings.display.DisplayScreen;
+import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settings.display.ExternalDisplayPreferenceController;
 import com.android.settings.display.LiftToWakePreferenceController;
 import com.android.settings.display.PocketJudgePreferenceController;
@@ -108,6 +109,8 @@ public class DisplaySettings extends DashboardFragment {
         controllers.add(new VrDisplayPreferenceController(context));
         controllers.add(new ShowOperatorNamePreferenceController(context));
         controllers.add(new ThemePreferenceController(context));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.adaptive_icon_shape"));
         controllers.add(new BrightnessLevelPreferenceController(context, lifecycle));
 
         if (DesktopSettingsUtils.shouldShowTopLevelDeviceCategory(context)) {

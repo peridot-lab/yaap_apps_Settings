@@ -57,6 +57,7 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
         implements Preference.OnPreferenceChangeListener, PreferenceControllerMixin {
     private static final String TAG = "OverlayCategoryPC";
     private static final String FONT_KEY = "android.theme.customization.font";
+    private static final String ADAPTIVE_ICON_SHAPE_KEY = "android.theme.customization.adaptive_icon_shape";
 
     @VisibleForTesting
     static final String PACKAGE_DEVICE_DEFAULT = "package_device_default";
@@ -65,6 +66,7 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
     private final IOverlayManager mOverlayManager;
     private final boolean mAvailable;
     private final boolean mIsFonts;
+    private final boolean mIsAdaptiveIconShape;
     private final String mCategory;
     private final PackageManager mPackageManager;
     private final String mDeviceDefaultLabel;
@@ -81,6 +83,7 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
         mAvailable = overlayManager != null && !getOverlayInfos().isEmpty();
         mDeviceDefaultLabel = mContext.getString(R.string.overlay_option_device_default);
         mIsFonts = FONT_KEY.equals(category);
+        mIsAdaptiveIconShape = ADAPTIVE_ICON_SHAPE_KEY.equals(category);
     }
 
     public OverlayCategoryPreferenceController(Context context, String category) {
@@ -137,7 +140,7 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
         Log.w(TAG, "setOverlay packageNames=" + packageNames.toString());
         Log.w(TAG, "setOverlay label=" + label);
 
-        if (mIsFonts) {
+        if (mIsFonts || mIsAdaptiveIconShape) {
             // For fonts we also need to set this setting
             String value = Settings.Secure.getStringForUser(mContext.getContentResolver(),
                     Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES, UserHandle.USER_CURRENT);
@@ -253,15 +256,6 @@ public class OverlayCategoryPreferenceController extends DeveloperOptionsPrefere
         filteredInfos.sort(OVERLAY_INFO_COMPARATOR);
         Log.w(TAG, "getOverlays list=" + filteredInfos.toString());
         return filteredInfos;
-    }
-
-    @Override
-    protected void onDeveloperOptionsSwitchDisabled() {
-        super.onDeveloperOptionsSwitchDisabled();
-        // TODO b/133222035: remove these developer settings when the
-        // Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES setting is used
-        setOverlay(PACKAGE_DEVICE_DEFAULT);
-        updateState(mPreference);
     }
 
     private String getPackageLabel(String packageName) {
