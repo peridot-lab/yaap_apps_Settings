@@ -26,6 +26,7 @@ import android.util.Log;
 import android.webkit.URLUtil;
 
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
@@ -104,7 +105,9 @@ public class AboutYaap extends DashboardFragment {
             intent.setData(Uri.parse(link));
             pref.setIntent(intent);
         }
-        getPreferenceScreen().addPreference(pref);
+        PreferenceCategory category = findPreference("about_team");
+        if (category != null)
+            category.addPreference(pref);
     }
 
     @Override
