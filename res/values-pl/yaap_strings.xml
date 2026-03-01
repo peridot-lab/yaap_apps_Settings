@@ -140,8 +140,7 @@
     <string name="gaming_mode_media_enabled_title">Głośność multimediów</string>
     <string name="gaming_mode_media_enabled_summary">Czy ustawiać głośność multimediów</string>
     <string name="gaming_mode_media_title">Ustaw głośność na</string>
-    <string name="gaming_mode_desc">Makra gier przełączą wybrane ustawienia. Wszystkie zmienione ustawienia zostaną przywrócone po wyłączeniu Makr Gier</string>
-    <string name="gaming_mode_desc_auto">Aby automatycznie uruchamiać dla aplikacji, przejdź do jej ustawień i włącz przełącznik \"Makra Gier\"</string>
+    <string name="gaming_mode_desc">Makra gier przełączą wybrane ustawienia. Wszystkie zmienione ustawienia zostaną przywrócone po wyłączeniu Makr Gier\n\nAby automatycznie uruchamiać dla aplikacji, przejdź do jej ustawień i włącz przełącznik \"Makra Gier\"</string>
     <string name="gaming_mode_screen_off_title">Wyłączanie ekranu dezaktywuje</string>
     <string name="gaming_mode_screen_off_summary">Dezaktywuj makra gier przy wyłączeniu ekranu</string>
     <string name="gaming_mode_battery_saver_disables_title">Oszczędzanie baterii dezaktywuje</string>

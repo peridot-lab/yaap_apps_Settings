@@ -144,8 +144,7 @@
     <string name="gaming_mode_media_enabled_title">Volume de Mídia</string>
     <string name="gaming_mode_media_enabled_summary">Se deve definir volume de mídia</string>
     <string name="gaming_mode_media_title">Definir volume para</string>
-    <string name="gaming_mode_desc">O modo de jogos ativará as configurações escolhidas acima. Todas as configurações serão salvas e restauradas quando você desativar o modo de jogos</string>
-    <string name="gaming_mode_desc_auto">Se você quiser executar automaticamente isso para um aplicativo, vá às configurações de informações do aplicativo e ative a opção \"Modo de Jogos\"</string>
+    <string name="gaming_mode_desc">O modo de jogos ativará as configurações escolhidas acima. Todas as configurações serão salvas e restauradas quando você desativar o modo de jogos\n\nSe você quiser executar automaticamente isso para um aplicativo, vá às configurações de informações do aplicativo e ative a opção \"Modo de Jogos\"</string>
     <string name="gaming_mode_screen_off_title">Tela desligada desativa</string>
     <string name="gaming_mode_screen_off_summary">Desativar o modo de jogos quando a tela desligar</string>
     <string name="gaming_mode_battery_saver_disables_title">Economia de bateria desativa</string>

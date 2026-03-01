@@ -126,8 +126,7 @@
     <string name="gaming_mode_media_enabled_title">Гучність медіа</string>
     <string name="gaming_mode_media_enabled_summary">Зміна гучності медіа</string>
     <string name="gaming_mode_media_title">Встановити гучність на</string>
-    <string name="gaming_mode_desc">Увімкнувши Ігровий Режим, змінить налаштування на ті, що ви вказали вище. У разі відключення він їх поверне назад.</string>
-    <string name="gaming_mode_desc_auto">Якщо ви хочете автоматично запускати це для програми, перейдіть до налаштувань інформації про цю програму та ввімкніть перемикач \"Gaming Macro\"</string>
+    <string name="gaming_mode_desc">Увімкнувши Ігровий Режим, змінить налаштування на ті, що ви вказали вище. У разі відключення він їх поверне назад.\n\nЯкщо ви хочете автоматично запускати це для програми, перейдіть до налаштувань інформації про цю програму та ввімкніть перемикач \"Gaming Macro\"</string>
     <string name="gaming_mode_screen_off_title">Вимкнути після вимкнення екрану</string>
     <string name="gaming_mode_screen_off_summary">Відключить ігровий режим, коли екран вимикається</string>
     <string name="gaming_mode_battery_saver_disables_title">Енергозбереження</string>

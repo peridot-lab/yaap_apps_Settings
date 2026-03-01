@@ -144,8 +144,7 @@
     <string name="gaming_mode_media_enabled_title">Media Volume</string>
     <string name="gaming_mode_media_enabled_summary">Whether to set media volume</string>
     <string name="gaming_mode_media_title">Set volume to</string>
-    <string name="gaming_mode_desc">Gaming macro will toggle the settings you chose above. All of the toggled settings will be saved and toggled back once you disable Gaming Macro</string>
-    <string name="gaming_mode_desc_auto">If you want to automatically run this for an app go to that app info settings and enable the \"Gaming Macro\" toggle</string>
+    <string name="gaming_mode_desc">Gaming macro will toggle the settings you chose above. All of the toggled settings will be saved and toggled back once you disable Gaming Macro\n\nIf you want to automatically run this for an app go to that app info settings and enable the \"Gaming Macro\" toggle</string>
     <string name="gaming_mode_screen_off_title">Screen off deactivates</string>
     <string name="gaming_mode_screen_off_summary">Deactivate gaming macro when the screen turns off</string>
     <string name="gaming_mode_battery_saver_disables_title">Battery Saver deactivates</string>

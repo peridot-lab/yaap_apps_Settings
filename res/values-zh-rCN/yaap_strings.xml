@@ -121,8 +121,7 @@
     <string name="gaming_mode_media_enabled_title">媒体音量</string>
     <string name="gaming_mode_media_enabled_summary">设置媒体音量</string>
     <string name="gaming_mode_media_title">音量设置</string>
-    <string name="gaming_mode_desc">打开游戏模式时将会启用上方设置，关闭后将会恢复原本设置</string>
-    <string name="gaming_mode_desc_auto">如果你想在某个软件打开时自动开启游戏模式，请打开该应用程序的信息设置，并启用\"游戏模式\"开关</string>
+    <string name="gaming_mode_desc">打开游戏模式时将会启用上方设置，关闭后将会恢复原本设置\n\n如果你想在某个软件打开时自动开启游戏模式，请打开该应用程序的信息设置，并启用\"游戏模式\"开关</string>
     <string name="gaming_mode_screen_off_title">息屏时暂停</string>
     <string name="gaming_mode_screen_off_summary">息屏时自动暂停游戏模式</string>
     <string name="gaming_mode_battery_saver_disables_title">省电模式时暂停</string>
