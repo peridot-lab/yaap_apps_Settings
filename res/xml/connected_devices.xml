@@ -95,13 +95,15 @@
             settings:searchable="false" />
     </PreferenceCategory>
 
-    <ListPreference
-        android:key="bluetooth_timeout"
-        android:title="@string/bluetooth_timeout"
-        android:summary="@string/summary_placeholder"
-        android:entries="@array/bluetooth_timeout_entries"
-        android:entryValues="@array/bluetooth_timeout_values"
-        settings:controller="com.android.settings.bluetooth.BluetoothTimeoutPreferenceController"/>
+    <com.android.settingslib.widget.UntitledPreferenceCategory>
+      <ListPreference
+          android:key="bluetooth_timeout"
+          android:title="@string/bluetooth_timeout"
+          android:summary="@string/summary_placeholder"
+          android:entries="@array/bluetooth_timeout_entries"
+          android:entryValues="@array/bluetooth_timeout_values"
+          settings:controller="com.android.settings.bluetooth.BluetoothTimeoutPreferenceController"/>
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <com.android.settingslib.widget.UntitledPreferenceCategory>
       <Preference
