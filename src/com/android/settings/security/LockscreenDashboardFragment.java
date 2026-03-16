@@ -43,7 +43,6 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController;
-import com.android.settings.display.AmbientDisplayAlwaysOnSchedulePreferenceController;
 import com.android.settings.display.AmbientDisplayNotificationsPreferenceController;
 import com.android.settings.display.AmbientDisplayCustomPreferenceController;
 import com.android.settings.display.DozeOnChargePreferenceController;
@@ -167,7 +166,6 @@ public class LockscreenDashboardFragment extends DashboardFragment
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        use(AmbientDisplayAlwaysOnSchedulePreferenceController.class).setConfig(getConfig(context));
         if (!isCatalystEnabled()) {
             use(AmbientDisplayAlwaysOnPreferenceController.class).setConfig(getConfig(context));
         }

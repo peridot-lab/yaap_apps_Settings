@@ -187,13 +187,6 @@
             settings:controller="com.android.settings.display.DozeOnChargePreferenceController"
             settings:userRestriction="no_ambient_display" />
 
-        <!-- YASP AOD Schedule -->
-        <Preference
-            android:key="always_on_display_schedule"
-            android:title="@string/always_on_display_schedule_title"
-            settings:controller="com.android.settings.display.AmbientDisplayAlwaysOnSchedulePreferenceController"
-            android:fragment="com.android.settings.display.AODSchedule" />
-
         <SwitchPreferenceCompat
             android:key="tap_to_wake"
             android:title="@string/ambient_display_title"

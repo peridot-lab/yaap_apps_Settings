@@ -32,6 +32,7 @@ import com.android.settings.core.PreferenceScreenMixin
 import com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController.isAodSuppressedByBedtime
 import com.android.settings.display.ambient.AmbientDisplayIllustration
 import com.android.settings.display.ambient.AmbientDisplayMainSwitchPreference
+import com.android.settings.display.ambient.AmbientDisplaySchedulePreference
 import com.android.settings.display.ambient.AmbientDisplayStorage
 import com.android.settings.display.ambient.AmbientDisplayTopIntroPreference
 import com.android.settings.display.ambient.AmbientWallpaperPreference
@@ -153,6 +154,7 @@ open class AmbientDisplayAlwaysOnPreferenceScreen(context: Context) :
             +AmbientDisplayTopIntroPreference()
             +AmbientDisplayIllustration(context)
             +AmbientDisplayMainSwitchPreference()
+            +AmbientDisplaySchedulePreference(context)
             if (context.isAmbientWallpaperOptionsAvailable) {
                 +Category("ambient_wallpaperGroup", R.string.doze_always_on_wallpaper_options) += {
                     +ambientWallpaperPreference
