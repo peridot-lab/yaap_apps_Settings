@@ -56,9 +56,6 @@
     <!-- OTA App -->
     <string name="update_settings_title">YAAP Updater</string>
     <string name="update_settings_summary">Verificar a versão mais recente da ROM</string>
-    <string name="update_package" translatable="false">eu.chainfire.opendelta</string>
-    <string name="update_activity" translatable="false">eu.chainfire.opendelta.MainActivity</string>
-    <string name="changelog_activity" translatable="false">eu.chainfire.opendelta.ChangelogActivity</string>
 
     <!-- Radio Diagnostics -->
     <string name="radio_info_title">Diagnósticos de rádio</string>
@@ -432,16 +429,8 @@
     <!-- Color Picker -->
     <string name="dialog_color_picker">Seletor de Cor</string>
     <string name="press_color_to_apply">Pressione na cor abaixo para aplicar</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint" translatable="false">#FFDDDDDD</string>
-    <string name="hex_check_button_text">VISUALIZAR</string>
-    <string name="hex_reset_button_text">REDEFINIR</string>
     <string name="set">Definir</string>
     <string name="color_default">Padrão</string>
-    <string name="color_right_arrow" translatable="false">"→"</string>
-    <string name="color_down_arrow" translatable="false">"↓"</string>
     <string name="longpress_info">Pressione e segure a caixa para salvar cor</string>
 
     <!-- Lockscreen battery info indicator  -->
@@ -462,33 +451,16 @@
     <string name="about_team_category">Nossa Equipe</string>
     <string name="about_external_category">Links Externos</string>
     <string name="about_dev_title">Co-Líder</string>
-    <string name="about_dev_name">Adhitya Mohan</string>
-    <string name="about_dev_git" translatable="false">https://github.com/poad42</string>
     <string name="about_dev2_title">Co-Líder</string>
-    <string name="about_dev2_name">Ido Ben-Hur</string>
-    <string name="about_dev2_git" translatable="false">https://github.com/idoybh</string>
     <string name="about_dev3_title">Membro</string>
-    <string name="about_dev3_name">Omkar Chandorkar</string>
-    <string name="about_dev3_git" translatable="false">https://github.com/gotenksIN</string>
     <string name="maintainer">Mantenedor do Dispositivo</string>
-    <string name="maintainer_name" translatable="false"></string>
-    <string name="maintainer_telegram" translatable="false"></string>
     <string name="kernel">Desenvolvedor do Kernel</string>
-    <string name="kernel_name" translatable="false"></string>
-    <string name="kernel_telegram" translatable="false"></string>
     <string name="about_tg_title">Grupo do Telegram</string>
     <string name="about_tg_summary">Grupo Oficial Global do Telegram</string>
-    <string name="about_tg_link" translatable="false">https://t.me/yaapcommon</string>
     <string name="about_git_title">Código Fonte</string>
     <string name="about_git_summary">Ver nosso código no GitHub</string>
-    <string name="about_git_link" translatable="false">https://github.com/yaap</string>
     <string name="about_phone_title">Sobre o Telefone</string>
     <string name="about_phone_summary">Abrir a página sobre do sistema</string>
-    <string name="designer_title">Designer</string>
-    <string name="designer_name">Ahmed Harhash</string>
-    <string name="designer_tg" translatable="false">https://t.me/Lacentix</string>
-    <string name="designer2_name">The Knight</string>
-    <string name="designer2_tg" translatable="false">https://t.me/i_TheKnight</string>
 
     <!-- Statusbar network traffic monitor -->
     <string name="network_traffic_state_title">Exibição de tráfego de rede</string>
