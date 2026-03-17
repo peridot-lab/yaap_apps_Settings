@@ -70,7 +70,6 @@ class DeveloperOptionsControllerTest {
         DeveloperOptionsController(
             context = context,
             preferenceKey = TEST_KEY,
-            isDevelopmentSettingsEnabledFlow = isDevelopmentSettingsEnabledFlow,
         )
 
     private val preference = ComposePreference(context).apply { key = TEST_KEY }
