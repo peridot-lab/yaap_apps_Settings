@@ -133,6 +133,12 @@
         </Preference>
 
         <com.yasp.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_style"
+            android:defaultValue="false"
+            android:title="@string/lockscreen_weather_layout_title"
+            android:summary="@string/lockscreen_weather_layout_summary" />
+
+        <com.yasp.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_weather_location"
             android:defaultValue="false"
             android:title="@string/lockscreen_weather_location_title"

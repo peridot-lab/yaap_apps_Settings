@@ -39,6 +39,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.TwoStatePreference;
 
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
@@ -84,6 +85,7 @@ public class LockscreenDashboardFragment extends DashboardFragment
 
     private static final String KEY_WEATHER_PROVIDER = "lockscreen_weather_provider";
     private static final String KEY_WEATHER_PREFS = "lockscreen_weather_prefs";
+    private static final String KEY_WEATHER_LAYOUT = "lockscreen_weather_style";
     private static final String KEY_WEATHER_LOCATION = "lockscreen_weather_location";
     private static final String KEY_WEATHER_TEXT = "lockscreen_weather_text";
     private static final String KEY_WEATHER_WIND = "lockscreen_weather_wind_info";
@@ -96,6 +98,7 @@ public class LockscreenDashboardFragment extends DashboardFragment
     ContentObserver mControlsContentObserver;
 
     private Set<Preference> mOmniWeatherPrefs = new ArraySet<>();
+    private Set<Preference> mModernHiddenWeatherPrefs = new ArraySet<>();
 
     @Override
     public int getMetricsCategory() {
@@ -118,6 +121,7 @@ public class LockscreenDashboardFragment extends DashboardFragment
 
         PreferenceScreen screen = getPreferenceScreen();
         Preference weatherPrefs = screen.findPreference(KEY_WEATHER_PREFS);
+        Preference weatherLayout = screen.findPreference(KEY_WEATHER_LAYOUT);
         Preference weatherLocation = screen.findPreference(KEY_WEATHER_LOCATION);
         Preference weatherText = screen.findPreference(KEY_WEATHER_TEXT);
         Preference weatherWind = screen.findPreference(KEY_WEATHER_WIND);
@@ -136,21 +140,41 @@ public class LockscreenDashboardFragment extends DashboardFragment
                 Settings.System.putInt(getContentResolver(),
                         KEY_WEATHER_PROVIDER, value);
                 weatherProvider.setSummary(weatherProvider.getEntries()[value]);
-                updateWeatherEnablement(value);
+                updateWeatherEnablement(value, isModernWeatherLayout(weatherLayout));
                 final int toastResId = R.string.lockscreen_weather_provider_toast;
                 Toast.makeText(getContext(), toastResId, Toast.LENGTH_LONG).show();
                 return true;
             }
         });
 
+        weatherLayout.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (preference != weatherLayout) return false;
+                final boolean modern = Boolean.TRUE.equals(newValue);
+                final int currentProvider = Settings.System.getInt(
+                        getContentResolver(),
+                        KEY_WEATHER_PROVIDER,
+                        LOCKSCREEN_WEATHER_PROVIDER_DEFAULT);
+                updateWeatherEnablement(currentProvider, modern);
+                return true;
+            }
+        });
+
         mOmniWeatherPrefs.add(weatherPrefs);
+        mOmniWeatherPrefs.add(weatherLayout);
         mOmniWeatherPrefs.add(weatherLocation);
         mOmniWeatherPrefs.add(weatherText);
         mOmniWeatherPrefs.add(weatherWind);
         mOmniWeatherPrefs.add(weatherHumidity);
         mOmniWeatherPrefs.add(weatherClick);
 
-        updateWeatherEnablement(provider);
+        mModernHiddenWeatherPrefs.add(weatherLocation);
+        mModernHiddenWeatherPrefs.add(weatherText);
+        mModernHiddenWeatherPrefs.add(weatherWind);
+        mModernHiddenWeatherPrefs.add(weatherHumidity);
+
+        updateWeatherEnablement(provider, isModernWeatherLayout(weatherLayout));
     }
 
     @Override
@@ -228,11 +252,25 @@ public class LockscreenDashboardFragment extends DashboardFragment
         return LockScreenPreferenceScreen.KEY;
     }
 
-    private void updateWeatherEnablement(int provider) {
+    private void updateWeatherEnablement(int provider, boolean modernLayout) {
         final boolean enabled = provider == LOCKSCREEN_WEATHER_PROVIDER_OMNI;
         for (Preference pref : mOmniWeatherPrefs) {
             pref.setVisible(enabled);
         }
+        for (Preference pref : mModernHiddenWeatherPrefs) {
+            pref.setVisible(enabled && !modernLayout);
+        }
+    }
+
+    private boolean isModernWeatherLayout(Preference weatherLayout) {
+        if (weatherLayout instanceof TwoStatePreference) {
+            return ((TwoStatePreference) weatherLayout).isChecked();
+        }
+        return Settings.System.getInt(
+                getContentResolver(),
+                KEY_WEATHER_LAYOUT,
+                0
+        ) == 1;
     }
 
     private AmbientDisplayConfiguration getConfig(Context context) {
