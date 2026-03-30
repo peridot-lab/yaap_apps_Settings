@@ -18,14 +18,19 @@ package com.android.settings.display
 import android.app.settings.SettingsEnums.OPEN_BATTERY_PERCENTAGE
 import android.content.Context
 import android.provider.Settings
+import android.provider.Settings.System.BATTERY_TEXT_ONLY
 import com.android.settings.R
 import com.android.settings.Utils
 import com.android.settings.contract.KEY_BATTERY_PERCENTAGE
 import com.android.settings.metrics.PreferenceActionMetricsProvider
+import com.android.settingslib.datastore.HandlerExecutor
+import com.android.settingslib.datastore.KeyedObserver
 import com.android.settingslib.datastore.KeyValueStore
 import com.android.settingslib.datastore.KeyValueStoreDelegate
 import com.android.settingslib.datastore.SettingsSystemStore
 import com.android.settingslib.metadata.PreferenceAvailabilityProvider
+import com.android.settingslib.metadata.PreferenceLifecycleContext
+import com.android.settingslib.metadata.PreferenceLifecycleProvider
 import com.android.settingslib.metadata.ReadWritePermit
 import com.android.settingslib.metadata.SensitivityLevel
 import com.android.settingslib.metadata.SwitchPreference
@@ -34,7 +39,10 @@ import com.android.settingslib.metadata.SwitchPreference
 class BatteryPercentageSwitchPreference :
     SwitchPreference(KEY, R.string.battery_percentage, R.string.battery_percentage_description),
     PreferenceActionMetricsProvider,
-    PreferenceAvailabilityProvider {
+    PreferenceAvailabilityProvider,
+    PreferenceLifecycleProvider {
+
+    private var batteryTextOnlyObserver: KeyedObserver<String>? = null
 
     override val preferenceActionMetrics: Int
         get() = OPEN_BATTERY_PERCENTAGE
@@ -49,6 +57,25 @@ class BatteryPercentageSwitchPreference :
             context.resources.getBoolean(
                 com.android.internal.R.bool.config_battery_percentage_setting_available
             )
+
+    override fun isEnabled(context: Context): Boolean = Settings.System.getInt(
+                context.contentResolver, BATTERY_TEXT_ONLY, 0) != 1
+
+    override fun onStart(context: PreferenceLifecycleContext) {
+        val observer = KeyedObserver<String> { _, _ ->
+            context.notifyPreferenceChange(KEY)
+        }
+        batteryTextOnlyObserver = observer
+        SettingsSystemStore.get(context)
+            .addObserver(BATTERY_TEXT_ONLY, observer, HandlerExecutor.main)
+    }
+
+    override fun onStop(context: PreferenceLifecycleContext) {
+        batteryTextOnlyObserver?.let {
+            SettingsSystemStore.get(context).removeObserver(BATTERY_TEXT_ONLY, it)
+            batteryTextOnlyObserver = null
+        }
+    }
 
     override fun getReadPermissions(context: Context) = SettingsSystemStore.getReadPermissions()
 

@@ -16,9 +16,14 @@
 package com.android.settings.display;
 
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
+import static android.provider.Settings.System.BATTERY_TEXT_ONLY;
 
 import android.app.settings.SettingsEnums;
 import android.content.Context;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 
 import androidx.preference.Preference;
@@ -30,6 +35,8 @@ import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settings.overlay.FeatureFactory;
+import com.android.settingslib.core.lifecycle.LifecycleObserver;
+import com.android.settingslib.core.lifecycle.events.OnStop;
 
 /**
  * A controller to manage the switch for showing battery percentage in the status bar.
@@ -37,9 +44,18 @@ import com.android.settings.overlay.FeatureFactory;
 
 // LINT.IfChange
 public class BatteryPercentagePreferenceController extends BasePreferenceController implements
-        PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
+        PreferenceControllerMixin, Preference.OnPreferenceChangeListener,
+        LifecycleObserver, OnStop {
 
     private Preference mPreference;
+
+    private ContentObserver mTextObserver = new ContentObserver(
+            new Handler(Looper.getMainLooper())) {
+        @Override
+        public void onChange(boolean selfChange) {
+            updateState(mPreference);
+        }
+    };
 
     public BatteryPercentagePreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
@@ -53,12 +69,19 @@ public class BatteryPercentagePreferenceController extends BasePreferenceControl
             // Disable battery percentage
             onPreferenceChange(mPreference, false /* newValue */);
         }
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(BATTERY_TEXT_ONLY), false, mTextObserver);
     }
 
     @Override
     public int getAvailabilityStatus() {
         if (!Utils.isBatteryPresent(mContext)) {
             return CONDITIONALLY_UNAVAILABLE;
+        }
+        final boolean textOnly = Settings.System.getInt(
+                mContext.getContentResolver(), BATTERY_TEXT_ONLY, 0) == 1;
+        if (textOnly) {
+            return DISABLED_DEPENDENT_SETTING;
         }
         return mContext.getResources().getBoolean(
                 R.bool.config_battery_percentage_setting_available) ? AVAILABLE
@@ -83,6 +106,11 @@ public class BatteryPercentagePreferenceController extends BasePreferenceControl
         FeatureFactory.getFeatureFactory().getMetricsFeatureProvider()
                 .action(mContext, SettingsEnums.OPEN_BATTERY_PERCENTAGE, showPercentage);
         return true;
+    }
+
+    @Override
+    public void onStop() {
+        mContext.getContentResolver().unregisterContentObserver(mTextObserver);
     }
 }
 // LINT.ThenChange(BatteryPercentageSwitchPreference.kt)

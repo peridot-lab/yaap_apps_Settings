@@ -829,4 +829,8 @@
     <string name="language_picker_page">Language picker page</string>
     <string name="search_region">Search regions</string>
     <string name="search_region_page">Search region page</string>
+
+    <!-- New battery text only mode -->
+    <string name="battery_text_only_title">Text only</string>
+    <string name="battery_text_only_summary">Show percentage text instead of the battery icon</string>
 </resources>
