@@ -22,6 +22,7 @@ import static com.android.settingslib.search.SearchIndexable.MOBILE;
 import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.provider.SearchIndexableResource;
@@ -50,6 +51,7 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.support.SupportPreferenceController;
+import com.android.settings.system.MiscSettings;
 import com.android.settings.widget.HomepagePreference;
 import com.android.settings.widget.HomepagePreferenceLayoutHelper.HomepagePreferenceLayout;
 import com.android.settingslib.core.instrumentation.Instrumentable;
@@ -66,6 +68,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     private static final String TAG = "TopLevelSettings";
     private static final String SAVED_HIGHLIGHT_MIXIN = "highlight_mixin";
     private static final String PREF_KEY_SUPPORT = "top_level_support";
+    private static final String TOP_LEVEL_ACCOUNT_CATEGORY = "top_level_account_category";
 
     private boolean mIsEmbeddingActivityEnabled;
     private TopLevelHighlightMixin mHighlightMixin;
@@ -309,6 +312,39 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     @Override
     protected Preference createPreference(Tile tile) {
         return new HomepagePreference(getPrefContext());
+    }
+
+    @Override
+    public void refreshDashboardTiles(final String tag) {
+        super.refreshDashboardTiles(tag);
+        updateAccountMask();
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        super.onCreatePreferences(savedInstanceState, rootKey);
+        updateAccountMask();
+    }
+
+    private void updateAccountMask() {
+        SharedPreferences prefs = MiscSettings.getSharedPrefs(getActivity());
+        boolean mask = prefs.getBoolean(MiscSettings.MASK_ACCOUNT_KEY, false);
+        if (!mask) {
+            return;
+        }
+
+        PreferenceCategory accountCategory =
+                (PreferenceCategory) findPreference(TOP_LEVEL_ACCOUNT_CATEGORY);
+        if (accountCategory == null || accountCategory.getPreferenceCount() <= 0) {
+            return;
+        }
+
+        Preference preference = accountCategory.getPreference(0);
+        if (preference == null) {
+            return;
+        }
+
+        preference.setTitle(R.string.google_title);
     }
 
     void reloadHighlightMenuKey() {

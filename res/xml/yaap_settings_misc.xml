@@ -25,6 +25,13 @@
         android:summary="@string/advanced_reboot_summary"
         android:defaultValue="false" />
 
+    <!-- Hide google account name in settings -->
+    <SwitchPreferenceCompat
+        android:key="mask_google_account"
+        android:title="@string/mask_google_account_title"
+        android:summary="@string/mask_google_account_summary"
+        android:defaultValue="false" />
+
     <!-- Backup Transport selector -->
     <ListPreference
         android:key="transport_selector"

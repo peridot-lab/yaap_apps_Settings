@@ -833,4 +833,9 @@
     <!-- New battery text only mode -->
     <string name="battery_text_only_title">Text only</string>
     <string name="battery_text_only_summary">Show percentage text instead of the battery icon</string>
+
+    <!-- Alternative title to google's injected account preference -->
+    <string name="google_title">Google</string>
+    <string name="mask_google_account_title">Hide account name</string>
+    <string name="mask_google_account_summary">Hide google account name from setting\'s main page</string>
 </resources>

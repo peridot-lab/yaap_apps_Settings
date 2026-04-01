@@ -19,6 +19,7 @@ import android.app.backup.IBackupManager;
 import android.app.backup.SelectBackupTransportCallback;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -34,6 +35,7 @@ import com.android.settingslib.search.SearchIndexable;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.SwitchPreferenceCompat;
 
 import java.util.Arrays;
 
@@ -43,11 +45,15 @@ public class MiscSettings extends DashboardFragment implements
 
     private static final String TAG = "MiscSettings";
 
+    public static final String MASK_ACCOUNT_KEY = "mask_google_account";
     private static final String TRANSPORT_SELECTOR_KEY = "transport_selector";
+    private static final String SHARED_PREFS_NAME = "misc_settings_prefs";
 
+    private SharedPreferences mSharedPreferences;
     private IBackupManager mBackupManager;
     private Toast mToast;
     private ListPreference mTransportSelector;
+    private SwitchPreferenceCompat mMaskAccountToggle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -78,6 +84,10 @@ public class MiscSettings extends DashboardFragment implements
             e.printStackTrace();
             mTransportSelector.setVisible(false);
         }
+
+        mMaskAccountToggle = findPreference(MASK_ACCOUNT_KEY);
+        mMaskAccountToggle.setChecked(getSharedPrefs().getBoolean(MASK_ACCOUNT_KEY, false));
+        mMaskAccountToggle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -99,6 +109,10 @@ public class MiscSettings extends DashboardFragment implements
                 return false;
             }
             return true;
+        } else if (preference == mMaskAccountToggle) {
+            final Boolean value = (Boolean) objValue;
+            getSharedPrefs().edit().putBoolean(MASK_ACCOUNT_KEY, value).commit();
+            return true;
         }
         return false;
     }
@@ -116,6 +130,17 @@ public class MiscSettings extends DashboardFragment implements
     @Override
     protected String getLogTag() {
         return TAG;
+    }
+
+    private SharedPreferences getSharedPrefs() {
+        if (mSharedPreferences != null) {
+            return mSharedPreferences;
+        }
+        return getSharedPrefs(getActivity());
+    }
+
+    public static SharedPreferences getSharedPrefs(Context context) {
+        return context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE);
     }
 
     private synchronized void showToast(int msgId) {
