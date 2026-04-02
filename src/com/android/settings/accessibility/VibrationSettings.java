@@ -26,7 +26,6 @@ import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import androidx.preference.Preference;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -44,28 +43,6 @@ public class VibrationSettings extends BaseSupportFragment {
     @Override
     public @Nullable String getPreferenceScreenBindingKey(@NonNull Context context) {
         return VibrationScreen.KEY;
-    }
-
-    @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-
-        if (!Utils.isVoiceCapable(getContext()) || !getHasRampingRinger()) {
-            Preference rampingDuration = findPreference(
-                    Settings.System.RAMPING_RINGER_DURATION);
-            Preference rampingVolume = findPreference(
-                    Settings.System.RAMPING_RINGER_START_VOLUME);
-            Preference noSilence = findPreference(
-                    Settings.System.RAMPING_RINGER_NO_SILENCE);
-            rampingDuration.setVisible(false);
-            rampingVolume.setVisible(false);
-            noSilence.setVisible(false);
-        }
-    }
-
-    private boolean getHasRampingRinger() {
-        return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_TELEPHONY,
-                "ramping_ringer_enabled", false);
     }
 
     @Override

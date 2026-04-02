@@ -838,4 +838,7 @@
     <string name="google_title">Google</string>
     <string name="mask_google_account_title">Hide account name</string>
     <string name="mask_google_account_summary">Hide google account name from setting\'s main page</string>
+
+    <!-- Ramping ringer page title -->
+    <string name="ramping_ringer_title">Ramping ringer</string>
 </resources>

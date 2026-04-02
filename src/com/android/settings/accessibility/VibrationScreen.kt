@@ -70,11 +70,6 @@ open class VibrationScreen : PreferenceScreenMixin, PreferenceAvailabilityProvid
                         "toggle_ring_vibration_intensity",
                         MAIN_SWITCH_KEY,
                     )
-                    +RampingRingerVibrationSwitchPreference(
-                        context,
-                        key = "toggle_apply_ramping_ringer",
-                        ringPreferenceKey = "toggle_ring_vibration_intensity",
-                    )
                 }
                 +NotificationAlarmVibrationPreferenceCategory(
                     "toggle_vibration_category_notification_alarm"
