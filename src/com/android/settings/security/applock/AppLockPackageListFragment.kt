@@ -28,7 +28,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 
 import com.android.internal.logging.nano.MetricsProto
-import com.android.internal.util.evolution.Utils
+import com.android.internal.util.yaap.YaapUtils
 
 import com.android.settings.R
 import com.android.settings.core.SubSettingLauncher
@@ -54,7 +54,7 @@ class AppLockPackageListFragment : DashboardFragment() {
         super.onAttach(context)
         appLockManager = context.getSystemService(AppLockManager::class.java)!!
         pm = context.packageManager
-        launchablePackages = Utils.launchablePackages(context)
+        launchablePackages = YaapUtils.launchablePackages(context)
         whiteListedPackages = resources.getStringArray(
             com.android.internal.R.array.config_appLockAllowedSystemApps)
     }
@@ -142,7 +142,7 @@ class AppLockPackageListFragment : DashboardFragment() {
         }
     }
 
-    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.CLOVER
+    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.YASP
 
     override protected fun getPreferenceScreenResId() = R.xml.app_lock_package_list_settings
 
