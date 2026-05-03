@@ -682,6 +682,10 @@
     <string name="cert_overlay_title">Spoof certified properties</string>
     <string name="cert_overlay_summary">Spoof PI certified properties to GMS\nRequires a reboot to apply</string>
 
+    <!-- Ignore window secure flag -->
+    <string name="window_ignore_secure_title">Ignore window secure flags</string>
+    <string name="window_ignore_secure_summary">Remove screenshot / screenrecord limits for all applications</string>
+
     <!-- Weather -->
     <string name="weather_settings_title">Weather settings</string>
     <string name="weather_settings_summary">Setup icon pack and weather service</string>
