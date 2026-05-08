@@ -51,4 +51,11 @@
         android:summary="@string/window_ignore_secure_summary"
         android:defaultValue="false" />
 
+    <!-- No storage access framework restrictions -->
+    <com.yasp.settings.preferences.GlobalSettingSwitchPreference
+        android:key="no_storage_restrict"
+        android:title="@string/no_storage_restrict_title"
+        android:summary="@string/no_storage_restrict_summary"
+        android:defaultValue="false"/>
+
 </PreferenceScreen>
