@@ -12027,6 +12027,11 @@
     <!-- Accessibility string for gesture nav tutorial button [CHAR_LIMIT=NONE] -->
     <string name="nav_tutorial_button_description">Start gesture navigation tutorial.</string>
 
+    <!-- Title for hide gesture navigation handle preference [CHAR LIMIT=60] -->
+    <string name="navigation_handle_hide_title">Hide gesture navigation handle</string>
+    <!-- Summary for hide gesture navigation handle preference [CHAR LIMIT=NONE] -->
+    <string name="navigation_handle_hide_summary">Make the gesture navigation handle invisible</string>
+
     <!-- Search keywords for System Navigation settings. [CHAR_LIMIT=NONE]-->
     <string name="keywords_system_navigation">system navigation, 2 button navigation, 3 button navigation, gesture navigation, swipe</string>
 
