@@ -37,6 +37,16 @@
         settings:interval="1"
         settings:showSign="true" />
 
+    <com.yasp.settings.preferences.CustomSeekBarPreference
+        android:key="shade_scrim_alpha"
+        android:title="@string/shade_scrim_alpha_title"
+        android:summary="@string/shade_scrim_alpha_summary"
+        android:max="100"
+        android:min="0"
+        android:defaultValue="100"
+        settings:units="%"
+        settings:interval="1" />
+
 
     <!-- QS footer text toggle -->
     <com.yasp.settings.preferences.SystemSettingSwitchPreference

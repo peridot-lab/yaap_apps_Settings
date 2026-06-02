@@ -615,6 +615,10 @@
     <string name="shade_blur_radius_title">Notification shade blur</string>
     <string name="shade_blur_radius_summary">Adjust the blur intensity behind the notification shade</string>
 
+    <!-- QS Shade Scrim Alpha -->
+    <string name="shade_scrim_alpha_title">Notification shade scrim opacity</string>
+    <string name="shade_scrim_alpha_summary">Adjust the scrim opacity behind the notification shade</string>
+
     <!-- QS Battery estimates -->
     <string name="qs_show_battery_estimate_title">Battery estimates</string>
     <string name="qs_show_battery_estimate_summary_on">Show battery estimates in QS</string>
