@@ -54,10 +54,12 @@ public class QuickSettings extends DashboardFragment implements
     private static final String QS_FOOTER_TEXT_STRING = "qs_footer_text_string";
     private static final String BRIGHTNESS_SLIDER = "qs_show_brightness";
     private static final String SHADE_BLUR_RADIUS = "shade_blur_radius";
+    private static final String SHADE_SCRIM_ALPHA = "shade_scrim_alpha";
 
     private SystemSettingEditTextPreference mFooterString;
     private SecureSettingMasterSwitchPreference mBrightnessSlider;
     private CustomSeekBarPreference mShadeBlurRadiusPref;
+    private CustomSeekBarPreference mShadeScrimAlphaPref;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -108,6 +110,18 @@ public class QuickSettings extends DashboardFragment implements
             mShadeBlurRadiusPref.setSummary(R.string.shade_blur_radius_summary);
         }
 
+        // Determine default scrim alpha based on blur support
+        // When blur is available, the effective scrim opacity is ~0.60 (from shade scrim color),
+        // otherwise it's 1.0 (fully opaque).
+        final int defScrimAlpha = blurEnabled ? 60 : 100;
+
+        mShadeScrimAlphaPref = findPreference(SHADE_SCRIM_ALPHA);
+        mShadeScrimAlphaPref.setDefaultValue(defScrimAlpha);
+        mShadeScrimAlphaPref.setOnPreferenceChangeListener(this);
+        int shadeScrimAlpha = Settings.System.getIntForUser(resolver,
+                SHADE_SCRIM_ALPHA, defScrimAlpha, UserHandle.USER_CURRENT);
+        mShadeScrimAlphaPref.setValue(shadeScrimAlpha);
+
         mFooterString = (SystemSettingEditTextPreference) findPreference(QS_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
         String footerString = Settings.System.getString(resolver,
@@ -153,6 +167,11 @@ public class QuickSettings extends DashboardFragment implements
         } else if (preference == mShadeBlurRadiusPref) {
             int value = (Integer) newValue;
             Settings.System.putIntForUser(resolver, SHADE_BLUR_RADIUS,
+                    value, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mShadeScrimAlphaPref) {
+            int value = (Integer) newValue;
+            Settings.System.putIntForUser(resolver, SHADE_SCRIM_ALPHA,
                     value, UserHandle.USER_CURRENT);
             return true;
         }
