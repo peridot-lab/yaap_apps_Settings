@@ -45,7 +45,7 @@
         android:summary="@string/cert_overlay_summary" />
 
     <!-- Ignore window secure flag -->    
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
+    <com.yasp.settings.preferences.GlobalSettingSwitchPreference
         android:key="window_ignore_secure"
         android:title="@string/window_ignore_secure_title"
         android:summary="@string/window_ignore_secure_summary"
@@ -57,5 +57,12 @@
         android:title="@string/no_storage_restrict_title"
         android:summary="@string/no_storage_restrict_summary"
         android:defaultValue="false"/>
+
+    <!-- Hide screen capture status -->
+    <com.yasp.settings.preferences.GlobalSettingSwitchPreference
+        android:key="hide_screen_capture_status"
+        android:title="@string/hide_screen_capture_status_title"
+        android:summary="@string/hide_screen_capture_status_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
