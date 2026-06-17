@@ -223,6 +223,7 @@
     <!-- Black theme for dark mode -->
     <string name="berry_black_theme_title">Pure black</string>
     <string name="berry_black_theme_summary">Pure black background for dark theme</string>
+    <string name="berry_black_theme_purpose" translatable="false">Whether the pure dark theme is enabled</string>
 
     <!-- Per-channel vibration pattern -->
     <string name="notification_custom_vibrate_title">Custom vibration pattern</string>
