@@ -25,12 +25,11 @@ import android.os.UserHandle
 import android.provider.Settings
 import android.util.Log
 import com.android.settings.R
-import androidx.preference.SwitchPreference
 import com.android.settingslib.datastore.KeyValueStore
 import com.android.settingslib.metadata.BooleanValuePreference
 import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.ReadWritePermit
-import com.android.settingslib.preference.PreferenceBinding
+import com.android.settingslib.preference.SwitchPreferenceBinding
 import java.util.concurrent.Executor
 
 private const val BLACK_THEME_KEY = "berry_black_theme"
@@ -41,7 +40,7 @@ private const val BLACK_THEME_DISABLE_KEY = "android:neutral"
 class DarkModeBlackThemePreference(
     private val context: Context,
     private val darkModeStorage: DarkModeStorage
-) : PreferenceMetadata, BooleanValuePreference, PreferenceBinding {
+) : PreferenceMetadata, BooleanValuePreference, SwitchPreferenceBinding {
 
     private val storage = BlackThemeStorage(context)
 
@@ -69,8 +68,6 @@ class DarkModeBlackThemePreference(
     override fun isEnabled(context: Context): Boolean {
         return darkModeStorage.getBoolean(DarkModeMainSwitchPreference.KEY) ?: false
     }
-
-    override fun createWidget(context: Context) = SwitchPreference(context)
 }
 
 class BlackThemeStorage(private val context: Context) : KeyValueStore {
