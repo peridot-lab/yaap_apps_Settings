@@ -849,4 +849,7 @@
 
     <!-- Device category in system settings -->
     <string name="device_category_title">Device specific</string>
+
+    <!-- Expressive QR -->
+    <string name="wifi_qr_code_animation_control">pause the animation</string>
 </resources>
