@@ -5182,6 +5182,8 @@
             <!-- Tell Settings app which category it belongs to -->
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ia.system" />
+            <meta-data android:name="com.android.settings.group_key"
+                       android:value="manage_data_category" />
             <meta-data android:name="com.android.settings.icon"
                        android:resource="@drawable/ic_settings_backup" />
             <meta-data android:name="com.android.settings.order" android:value="-60"/>

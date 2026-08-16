@@ -854,4 +854,7 @@
     <string name="esim_power_dialog_cancel">Cancel</string>
     <string name="esim_power_dialog_disable">Disable</string>
     <string name="esim_power_dialog_enable">Enable</string>
+
+    <!-- Device category in system settings -->
+    <string name="device_category_title">Device specific</string>
 </resources>

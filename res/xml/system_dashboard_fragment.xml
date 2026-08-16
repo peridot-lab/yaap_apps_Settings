@@ -185,6 +185,13 @@
             android:fragment="com.android.settings.system.MiscSettings"
             android:icon="@drawable/ic_settings_miscs"/>
 
+        <Preference
+            android:key="device_diagnostics"
+            android:title="@string/device_diagnostics_title"
+            android:icon="@drawable/ic_device_diagnostics"
+            android:order="-40"
+            settings:controller="com.android.settings.system.DeviceDiagnosticsPreferenceController"/>
+
         <com.android.settings.spa.preference.ComposePreference
             android:key="developer_options"
             settings:controller="com.android.settings.system.DeveloperOptionsController"/>
@@ -197,17 +204,23 @@
         android:order="-340">
 
         <Preference
-            android:key="device_diagnostics"
-            android:title="@string/device_diagnostics_title"
-            android:icon="@drawable/ic_device_diagnostics"
-            settings:controller="com.android.settings.system.DeviceDiagnosticsPreferenceController"/>
-
-        <Preference
             android:key="reset_dashboard"
             android:title="@string/reset_dashboard_title"
             android:icon="@drawable/ic_restore"
             android:fragment="com.android.settings.system.ResetDashboardFragment"
+            android:order="-10"
             settings:controller="com.android.settings.system.ResetPreferenceController"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="device_category"
+        android:title="@string/device_category_title"
+        android:order="-330"
+        settings:controller="com.android.settings.widget.SystemCategoryController">
+
+        <!-- Device injected settings should go here. -->
+        <!-- If there are none this category is hidden -->
 
     </PreferenceCategory>
 </PreferenceScreen>
