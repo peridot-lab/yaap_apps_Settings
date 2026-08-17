@@ -77,13 +77,6 @@
         android:summary="@string/qs_wifi_auto_on_summary"
         android:defaultValue="false" />
 
-    <!-- QS Data auto on -->
-    <com.yasp.settings.preferences.SystemSettingSwitchPreference
-        android:key="qs_mobile_auto_on"
-        android:title="@string/qs_mobile_auto_on_title"
-        android:summary="@string/qs_mobile_auto_on_summary"
-        android:defaultValue="false" />
-
     <!-- QS Bluetooth auto on -->
     <com.yasp.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_bt_auto_on"
