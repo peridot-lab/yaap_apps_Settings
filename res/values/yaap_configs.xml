@@ -45,4 +45,7 @@
 
     <!-- Whether eSIM power control is supported on this device -->
     <bool name="config_supportEsimPowerControl">false</bool>
+
+    <!-- Locale Picker -->
+    <bool name="config_show_setuplocalepicker_region_searchbox">true</bool>
 </resources>
