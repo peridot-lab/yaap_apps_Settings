@@ -156,6 +156,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
                         KEY_WEATHER_PROVIDER,
                         LOCKSCREEN_WEATHER_PROVIDER_DEFAULT);
                 updateWeatherEnablement(currentProvider, modern);
+                final int toastResId = R.string.lockscreen_weather_provider_toast;
+                Toast.makeText(getContext(), toastResId, Toast.LENGTH_LONG).show();
                 return true;
             }
         });
