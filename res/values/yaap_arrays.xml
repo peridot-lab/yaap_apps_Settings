@@ -151,6 +151,19 @@
         <item>2</item>
     </string-array>
 
+   <!-- Dyanmic Island -->
+   <string-array name="dynamic_island_popup_color_mode_entries">
+        <item>@string/dynamic_island_popup_color_mode_entry_default</item>
+        <item>@string/dynamic_island_popup_color_mode_entry_blur</item>
+        <item>@string/dynamic_island_popup_color_mode_entry_solid_black</item>
+    </string-array>
+
+    <string-array name="dynamic_island_popup_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
    <!-- Network traffic type -->
     <string-array name="show_network_traffic_type_entries" translatable="false">
         <item>@string/show_network_traffic_all</item>

@@ -274,6 +274,12 @@
             android:summary="@string/display_cutout_force_fullscreen_summary"
             android:fragment="com.android.settings.display.DisplayCutoutForceFullscreenSettings"
             settings:controller="com.android.settings.display.DisplayCutoutForceFullscreenPreferenceController" />
+            
+        <Preference
+            android:key="dynamic_island_settings"
+            android:title="@string/dynamic_island_title"
+            android:summary="@string/dynamic_island_summary"
+            android:fragment="com.android.settings.display.DynamicIslandSettings" />
 
         <ListPreference
             android:key="theme"
@@ -286,3 +292,4 @@
             android:fragment="com.android.settings.display.VrDisplayPreferencePicker"/>
     </PreferenceCategory>
 </PreferenceScreen>
+
