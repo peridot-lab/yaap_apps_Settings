@@ -177,8 +177,10 @@ public class KeyboxDataPreference extends Preference {
             return false;
         }
 
+        if (hasRsaKey && (!hasRsaPrivKey || rsaCertCount < 1)) {
+            return false;
+        }
         return numberOfKeyboxes == 1
-                && hasEcdsaKey && hasEcdsaPrivKey && ecdsaCertCount >= 1
-                && hasRsaKey && hasRsaPrivKey && rsaCertCount >= 1;
+                && hasEcdsaKey && hasEcdsaPrivKey && ecdsaCertCount >= 1;
     }
 }
